@@ -1,17 +1,10 @@
-using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
 
 namespace DanceOfEvolution
 {
-	[DefOf]
-	public static class DefsOf
-	{
-		public static ThingDef DE_NexusBurgeon;
-	}
-	
-	[StaticConstructorOnStartup]
+    [StaticConstructorOnStartup]
 	public static class Startup
 	{
 		static Startup()
