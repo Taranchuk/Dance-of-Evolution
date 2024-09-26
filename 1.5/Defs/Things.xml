@@ -1,0 +1,51 @@
+<Defs>
+    <ThingDef ParentName="DrugBase">
+        <defName>DE_NexusBurgeon</defName>
+        <label>Nexus Burgeon</label>
+        <description>A mysterious item that can transform a person into a Fungal Nexus.</description>
+        <descriptionHyperlinks>
+            <HediffDef>DE_Assimilation</HediffDef>
+        </descriptionHyperlinks>
+        <graphicData>
+            <texPath>Things/Item/Drug/NexusBurgeon</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <drawSize>0.75</drawSize>
+        </graphicData>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MarketValue>500</MarketValue>
+        </statBases>
+        <techLevel>Tribal</techLevel>
+        <minRewardCount>1</minRewardCount>
+        <ingestible>
+            <foodType>Processed</foodType>
+            <baseIngestTicks>150</baseIngestTicks>
+            <ingestSound>Drink</ingestSound>
+            <ingestHoldOffsetStanding>
+                <northDefault>
+                    <offset>(0.21,0,0.05)</offset>
+                </northDefault>
+            </ingestHoldOffsetStanding>
+            <ingestHoldUsesTable>false</ingestHoldUsesTable>
+            <ingestCommandString>Consume {0}</ingestCommandString>
+            <ingestReportString>Consuming {0}.</ingestReportString>
+            <useEatingSpeedStat>false</useEatingSpeedStat>
+            <outcomeDoers>
+                <li Class="DanceOfEvolution.IngestionOutcomeDoer_NexusBurgeon">
+                    <hediffDef>DE_Assimilation</hediffDef>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+        <recipeMaker>
+            <researchPrerequisite>DrugProduction</researchPrerequisite>
+            <recipeUsers>
+                <li>DrugLab</li>
+            </recipeUsers>
+            <soundWorking>Recipe_Drug</soundWorking>
+            <displayPriority>1700</displayPriority>
+        </recipeMaker>
+        <costList>
+            <PsychoidLeaves>8</PsychoidLeaves>
+        </costList>
+    </ThingDef>
+</Defs>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+	<name>Dance of Evolution</name>
+	<author>That Thing</author>
+	<url></url>
+	<supportedVersions>
+		<li>1.5</li>
+  	</supportedVersions>
+	<packageId>ThatThing.DanceOfEvolution</packageId>
+	<description>The mod’s purpose is to have a biological, fungal themed version of the mechanitor playstyle with new creatures that are controlled by a single pawn called a Fungal Nexus, new items to upgrade the servants and their nexus, and new buildings to help the collective.</description>
+</ModMetaData>
