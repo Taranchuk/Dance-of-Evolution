@@ -13,10 +13,10 @@
         </comps>
         <stages>
             <li>
-                <minSeverity>0.15</minSeverity>
+                <minSeverity>0</minSeverity>
             </li>
             <li>
-                <minSeverity>0.3</minSeverity>
+                <minSeverity>0.15</minSeverity>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
@@ -25,7 +25,7 @@
                 </capMods>
             </li>
             <li>
-                <minSeverity>0.5</minSeverity>
+                <minSeverity>0.30</minSeverity>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
@@ -34,7 +34,7 @@
                 </capMods>
             </li>
             <li>
-                <minSeverity>0.8</minSeverity>
+                <minSeverity>0.50</minSeverity>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
@@ -43,7 +43,7 @@
                 </capMods>
             </li>
             <li>
-                <minSeverity>1.0</minSeverity>
+                <minSeverity>0.80</minSeverity>
                 <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
@@ -61,11 +61,9 @@
         <hediffClass>DanceOfEvolution.Hediff_FungalNexus</hediffClass>
         <stages>
             <li>
-                <label>Fungal Nexus</label>
                 <statOffsets>
                     <PsychicSensitivity>0.2</PsychicSensitivity>
                 </statOffsets>
-
             </li>
         </stages>
     </HediffDef>

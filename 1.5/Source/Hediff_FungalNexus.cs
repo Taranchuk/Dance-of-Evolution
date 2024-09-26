@@ -8,7 +8,8 @@ namespace DanceOfEvolution
 		public bool IsImmuneTo(Hediff other)
 		{
 			if (HediffDefOf.LungRotExposure == other.def 
-			|| HediffDefOf.LungRot == other.def)
+				|| HediffDefOf.LungRot == other.def 
+				|| HediffDefOf.Inhumanized == other.def)
 			{
 				return true;
 			}
