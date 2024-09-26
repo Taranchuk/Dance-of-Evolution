@@ -20,18 +20,16 @@ namespace DanceOfEvolution
 			var allFactionDefs = DefDatabase<FactionDef>.AllDefsListForReading;
 
 			// Filter to get only neolithic factions
-			var neolithicFactions = allFactionDefs.Where(f => f.techLevel == TechLevel.Neolithic);
+			var neolithicFactions = allFactionDefs.Where(f => f.humanlikeFaction
+			 && f.techLevel == TechLevel.Neolithic);
 
-			// Iterate through each neolithic faction
 			foreach (var faction in neolithicFactions)
 			{
-				// Add DE_NexusBurgeon to caravanTraderKinds
 				foreach (var traderKind in faction.caravanTraderKinds)
 				{
 					AddToStockGenerators(traderKind);
 				}
 
-				// Add DE_NexusBurgeon to baseTraderKinds
 				foreach (var traderKind in faction.baseTraderKinds)
 				{
 					AddToStockGenerators(traderKind);
@@ -41,17 +39,14 @@ namespace DanceOfEvolution
 
 		private static void AddToStockGenerators(TraderKindDef traderKind)
 		{
-			// Ensure the stockGenerators list is not null
-			if (traderKind.stockGenerators == null)
+			if (traderKind.stockGenerators != null)
 			{
-				traderKind.stockGenerators = new List<StockGenerator>();
+				traderKind.stockGenerators.Add(new StockGenerator_SingleDef
+				{
+					thingDef = DefsOf.DE_NexusBurgeon,
+					countRange = new IntRange(1, 10),
+				});
 			}
-
-			// Add DE_NexusBurgeon to the stockGenerators
-			traderKind.stockGenerators.Add(new StockGenerator_SingleDef
-			{
-				thingDef = DefsOf.DE_NexusBurgeon
-			});
 		}
 	}
 }

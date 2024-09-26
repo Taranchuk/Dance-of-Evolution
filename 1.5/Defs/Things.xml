@@ -14,6 +14,7 @@ While it is clear the original host remains at least somewhat in control of thei
         </graphicData>
         <rotatable>false</rotatable>
         <statBases>
+            <WorkToMake>900</WorkToMake>
             <MarketValue>500</MarketValue>
             <Mass>0.005</Mass>
         </statBases>

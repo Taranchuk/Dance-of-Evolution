@@ -9,16 +9,15 @@ namespace DanceOfEvolution
 		public HediffDef hediffDef;
 		public override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
 		{
-			Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-			pawn.health.AddHediff(hediff);
+			if (pawn.GetStatValue(StatDefOf.PsychicSensitivity) > 0)
+			{
+				Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+				pawn.health.AddHediff(hediff);
+			}
 		}
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats(ThingDef parentDef)
 		{
-			if (!parentDef.IsDrug || !(chance >= 1f))
-			{
-				yield break;
-			}
 			foreach (StatDrawEntry item in hediffDef.SpecialDisplayStats(StatRequest.ForEmpty()))
 			{
 				yield return item;

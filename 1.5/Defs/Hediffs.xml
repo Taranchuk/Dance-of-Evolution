@@ -5,9 +5,10 @@
         <label>assimilation</label>
         <description>Contracted after ingesting a Nexus Burgeon. The spore has is travelling inside the body. First it will move to the brain. Once the host has accepted the "deal", it will begin to spread throughout the entire body to drastically change it.</description>
         <hediffClass>HediffWithComps</hediffClass>
+        <initialSeverity>0.01</initialSeverity>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>0.4</severityPerDay> <!-- Adjusted to progress over 2-3 days -->
+                <severityPerDay>0.4</severityPerDay>
             </li>
         </comps>
         <stages>
