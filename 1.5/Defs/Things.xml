@@ -2,25 +2,27 @@
     <ThingDef ParentName="DrugBase">
         <defName>DE_NexusBurgeon</defName>
         <label>Nexus Burgeon</label>
-        <description>A mysterious item that can transform a person into a Fungal Nexus.</description>
+        <description>The spore of an extremely intelligent fungus who will transform anyone who swallows it into a Fungal Nexus. Once ingested, it will travel up to the host's brain and form a psychic link with it. From then on, the transformation can only continue if the host is fully willing. Their bodies will start to mutate into an ideal receptacle for the new guest. Their psychic presence also greately increases and becomes erratic and nonsensical, as if thousands were speaking and thinking at the same time. Once the transformation is completely however, it becomes a low constant hum.
+While it is clear the original host remains at least somewhat in control of their new body, there is no way to know or understand what happens to the mind of a person that undergoes this process. One thing is clear however: They are kin, and they are ashamed of having ever been human.</description>
         <descriptionHyperlinks>
             <HediffDef>DE_Assimilation</HediffDef>
         </descriptionHyperlinks>
         <graphicData>
             <texPath>Things/Item/Drug/NexusBurgeon</texPath>
-            <graphicClass>Graphic_StackCount</graphicClass>
-            <drawSize>0.75</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1</drawSize>
         </graphicData>
         <rotatable>false</rotatable>
         <statBases>
             <MarketValue>500</MarketValue>
+            <Mass>0.005</Mass>
         </statBases>
-        <techLevel>Tribal</techLevel>
+        <techLevel>Neolithic</techLevel>
         <minRewardCount>1</minRewardCount>
         <ingestible>
             <foodType>Processed</foodType>
             <baseIngestTicks>150</baseIngestTicks>
-            <ingestSound>Drink</ingestSound>
+            <ingestSound>Ingest_Drink</ingestSound>
             <ingestHoldOffsetStanding>
                 <northDefault>
                     <offset>(0.21,0,0.05)</offset>
@@ -37,7 +39,6 @@
             </outcomeDoers>
         </ingestible>
         <recipeMaker>
-            <researchPrerequisite>DrugProduction</researchPrerequisite>
             <recipeUsers>
                 <li>DrugLab</li>
             </recipeUsers>
@@ -45,7 +46,8 @@
             <displayPriority>1700</displayPriority>
         </recipeMaker>
         <costList>
-            <PsychoidLeaves>8</PsychoidLeaves>
+            <GauranlenSeed>1</GauranlenSeed>
+            <RawFungus>200</RawFungus>
         </costList>
     </ThingDef>
 </Defs>
