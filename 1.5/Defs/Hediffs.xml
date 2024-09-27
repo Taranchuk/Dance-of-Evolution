@@ -59,6 +59,7 @@
         <label>fungal nexus</label>
         <description>Transformed into a Fungal Nexus.</description>
         <hediffClass>DanceOfEvolution.Hediff_FungalNexus</hediffClass>
+        <defaultLabelColor>(214, 90, 24)</defaultLabelColor>
         <stages>
             <li>
                 <statOffsets>
