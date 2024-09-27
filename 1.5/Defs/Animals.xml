@@ -1,0 +1,104 @@
+<Defs>
+    <ThingDef ParentName="AnimalThingBase">
+        <defName>DE_Burrower</defName>
+        <label>burrower</label>
+        <description>Burrowers are spawned by the Fungal Nexus. They seek out rotten corpses to infect. Once they find one, they will begin to reanimate the corpse using the shambler revival animation. Burrowers have no needs and die after a day.</description>
+        <statBases>
+            <MoveSpeed>2.5</MoveSpeed>
+            <MarketValue>50</MarketValue>
+            <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+        </statBases>
+        <uiIconScale>1.5</uiIconScale>
+        <tools>
+            <li>
+                <label>claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>6</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+            </li>
+            <li>
+                <label>claw</label>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>6</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+            </li>
+            <li>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>8</power>
+                <cooldownTime>1.5</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.7</chanceFactor>
+            </li>
+        </tools>
+        <race>
+            <body>QuadrupedAnimalWithPawsAndTail</body>
+            <baseBodySize>0.3</baseBodySize>
+            <baseHealthScale>0.3</baseHealthScale>
+            <baseHungerRate>0.05</baseHungerRate>
+            <foodType>None</foodType>
+            <wildness>1.0</wildness>
+            <trainability>None</trainability>
+            <lifeExpectancy>1</lifeExpectancy>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0</minAge>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+            <headPosPerRotation>
+                <li>(0.0, 0, 0.17)</li>
+                <li>(0.2, 0, 0)</li>
+                <li>(0.0, 0, -0.15)</li>
+                <li>(-0.2, 0, 0)</li>
+            </headPosPerRotation>
+        </race>
+        <tradeTags>
+            <li>AnimalCommon</li>
+        </tradeTags>
+    </ThingDef>
+
+    <PawnKindDef ParentName="AnimalKindBase">
+        <defName>DE_Burrower</defName>
+        <label>burrower</label>
+        <race>DE_Burrower</race>
+        <combatPower>50</combatPower>
+        <ecoSystemWeight>0.1</ecoSystemWeight>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Burrower/Burrower</texPath>
+                    <drawSize>1</drawSize>
+                    <color>(100,100,100)</color>
+                </bodyGraphicData>
+                <dessicatedBodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Burrower/Dessicated_Burrower</texPath>
+                    <drawSize>1</drawSize>
+                </dessicatedBodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+
+    <ThinkTreeDef>
+        <defName>DE_BurrowerThinkTree</defName>
+        <insertTag>Animal_PreMain</insertTag>
+        <thinkRoot Class="ThinkNode_ConditionalPawnKind">
+            <pawnKind>DE_Burrower</pawnKind>
+            <subNodes>
+                <li Class="DanceOfEvolution.JobGiver_BurrowerSeekAndReanimate" />
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+    
+</Defs>
