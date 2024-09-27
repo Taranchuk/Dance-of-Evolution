@@ -11,7 +11,7 @@ namespace DanceOfEvolution
 			var corpse = FindCorpse(pawn);
 			if (corpse != null)
 			{
-				return JobMaker.MakeJob(DefsOf.DE_ReanimateCorpse, corpse);
+				return JobMaker.MakeJob(DefsOf.DE_InfectingCorpse, corpse);
 			}
 			return null;
 		}

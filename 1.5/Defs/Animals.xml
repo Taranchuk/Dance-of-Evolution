@@ -26,7 +26,7 @@
             <body>QuadrupedAnimalWithPawsAndTail</body>
             <baseBodySize>0.3</baseBodySize>
             <baseHealthScale>0.3</baseHealthScale>
-            <baseHungerRate>0.05</baseHungerRate>
+            <baseHungerRate>0</baseHungerRate>
             <foodType>None</foodType>
             <wildness>1.0</wildness>
             <trainability>None</trainability>
@@ -40,35 +40,20 @@
             <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
             <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
             <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
-            <headPosPerRotation>
-                <li>(0.0, 0, 0.17)</li>
-                <li>(0.2, 0, 0)</li>
-                <li>(0.0, 0, -0.15)</li>
-                <li>(-0.2, 0, 0)</li>
-            </headPosPerRotation>
         </race>
-        <tradeTags>
-            <li>AnimalCommon</li>
-        </tradeTags>
     </ThingDef>
 
     <PawnKindDef ParentName="AnimalKindBase">
         <defName>DE_Burrower</defName>
         <label>burrower</label>
         <race>DE_Burrower</race>
-        <combatPower>50</combatPower>
-        <ecoSystemWeight>0.1</ecoSystemWeight>
+        <combatPower>5</combatPower>
         <lifeStages>
             <li>
                 <bodyGraphicData>
                     <texPath>Things/Pawn/Animal/Burrower/Burrower</texPath>
                     <drawSize>1</drawSize>
-                    <color>(100,100,100)</color>
                 </bodyGraphicData>
-                <dessicatedBodyGraphicData>
-                    <texPath>Things/Pawn/Animal/Burrower/Dessicated_Burrower</texPath>
-                    <drawSize>1</drawSize>
-                </dessicatedBodyGraphicData>
             </li>
         </lifeStages>
     </PawnKindDef>

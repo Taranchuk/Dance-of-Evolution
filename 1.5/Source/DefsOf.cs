@@ -8,7 +8,7 @@ namespace DanceOfEvolution
 	{
 		public static ThingDef DE_NexusBurgeon;
 		public static HediffDef DE_FungalNexus;
-		public static JobDef DE_ReanimateCorpse;
+		public static JobDef DE_InfectingCorpse;
 		public static PawnKindDef DE_Burrower;
 	}
 }

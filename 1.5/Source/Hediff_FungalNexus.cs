@@ -26,7 +26,7 @@ namespace DanceOfEvolution
 			if (pawn.Spawned)
 			{
 				timer++;
-				if (timer >= GenDate.TicksPerDay * 2f) // 2 days in ticks
+				if (timer >= GenDate.TicksPerDay * 2f)
 				{
 					CheckAndUpdateBurrowers();
 					timer = 0;
@@ -52,8 +52,7 @@ namespace DanceOfEvolution
 
 		public bool IsImmuneTo(Hediff other)
 		{
-			if (HediffDefOf.LungRotExposure == other.def 
-				|| HediffDefOf.LungRot == other.def)
+			if (HediffDefOf.LungRotExposure == other.def || HediffDefOf.LungRot == other.def)
 			{
 				return true;
 			}

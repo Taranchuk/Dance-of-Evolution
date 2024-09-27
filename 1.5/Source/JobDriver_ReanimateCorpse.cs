@@ -6,7 +6,7 @@ using Verse.Sound;
 
 namespace DanceOfEvolution
 {
-	public class JobDriver_ReanimateCorpse : JobDriver
+	public class JobDriver_InfectCorpse : JobDriver
 	{
 		protected Corpse Corpse => (Corpse)job.GetTarget(TargetIndex.A).Thing;
 		public override bool TryMakePreToilReservations(bool errorOnFailed)
