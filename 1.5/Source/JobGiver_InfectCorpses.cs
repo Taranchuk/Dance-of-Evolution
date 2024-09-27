@@ -4,7 +4,7 @@ using Verse.AI;
 
 namespace DanceOfEvolution
 {
-    public class JobGiver_BurrowerSeekAndReanimate : ThinkNode_JobGiver
+	public class JobGiver_InfectCorpses : ThinkNode_JobGiver
 	{
 		public override Job TryGiveJob(Pawn pawn)
 		{
@@ -20,18 +20,22 @@ namespace DanceOfEvolution
 		{
 			return (Corpse)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map,
 			ThingRequest.ForGroup(ThingRequestGroup.Corpse), PathEndMode.Touch,
-			TraverseParms.For(pawn), 9999, c => CorpseValidator(c));
+			TraverseParms.For(pawn), 9999, c => CorpseValidator(c) && pawn.CanReserve(c));
 		}
+		
 		private static bool CorpseValidator(Thing c)
 		{
-			if (c is Corpse corpse && corpse.InnerPawn.GetRotStage() == RotStage.Rotting)
+			if (c is Corpse corpse && corpse.IsInfected() is false)
 			{
-				var pawn = corpse.InnerPawn;
-				if (pawn.kindDef == DefsOf.DE_Burrower)
+				if (corpse.GetRotStage() == RotStage.Rotting)
 				{
-					return false;
+					var pawn = corpse.InnerPawn;
+					if (pawn.kindDef == DefsOf.DE_Burrower)
+					{
+						return false;
+					}
+					return true;
 				}
-				return true;
 			}
 			return false;
 		}

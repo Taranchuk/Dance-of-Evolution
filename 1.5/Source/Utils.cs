@@ -3,7 +3,7 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    public static class DanceOfEvolution
+	public static class DanceOfEvolution
 	{
 		public static bool IsImmuneTo(this Pawn pawn, Hediff other)
 		{
@@ -19,6 +19,11 @@ namespace DanceOfEvolution
 			return pawn.HasFungalNexus(out _);
 		}
 
+		public static bool IsInfected(this Corpse corpse)
+		{
+			return GameComponent_ReanimateCorpses.Instance.infectedCorpses.Exists(ic => ic.corpse == corpse);
+		}
+	
 		public static bool HasFungalNexus(this Pawn pawn, out Hediff_FungalNexus fungalNexus)
 		{
 			fungalNexus = pawn.health.hediffSet.GetFirstHediff<Hediff_FungalNexus>();

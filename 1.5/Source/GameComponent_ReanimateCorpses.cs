@@ -4,16 +4,17 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    public class GameComponent_ReanimateCorpses : GameComponent
+	public class GameComponent_ReanimateCorpses : GameComponent
 	{
-		private List<InfectedCorpse> infectedCorpses = new List<InfectedCorpse>();
+		public List<InfectedCorpse> infectedCorpses = new List<InfectedCorpse>();
+		public static GameComponent_ReanimateCorpses Instance;
 		public GameComponent_ReanimateCorpses()
 		{
-
+			Instance = this;
 		}
 		public GameComponent_ReanimateCorpses(Game game)
 		{
-			
+			Instance = this;
 		}
 
 		public override void GameComponentTick()
@@ -39,14 +40,14 @@ namespace DanceOfEvolution
 		}
 
 		public void AddInfectedCorpse(Corpse corpse, Faction faction)
-		{
-			if (!infectedCorpses.Exists(ic => ic.corpse == corpse))
-			{
-				infectedCorpses.Add(new InfectedCorpse(corpse, faction));
-			}
-		}
+        {
+            if (corpse.IsInfected() is false)
+            {
+                infectedCorpses.Add(new InfectedCorpse(corpse, faction));
+            }
+        }
 
-		public override void ExposeData()
+        public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref infectedCorpses, "infectedCorpses", LookMode.Deep);

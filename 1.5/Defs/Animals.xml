@@ -41,6 +41,11 @@
             <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
             <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
         </race>
+        <comps>
+            <li>
+                <compClass>DanceOfEvolution.CompBurrower</compClass>
+            </li>
+        </comps>
     </ThingDef>
 
     <PawnKindDef ParentName="AnimalKindBase">
@@ -64,7 +69,7 @@
         <thinkRoot Class="ThinkNode_ConditionalPawnKind">
             <pawnKind>DE_Burrower</pawnKind>
             <subNodes>
-                <li Class="DanceOfEvolution.JobGiver_BurrowerSeekAndReanimate" />
+                <li Class="DanceOfEvolution.JobGiver_InfectCorpses" />
             </subNodes>
         </thinkRoot>
     </ThinkTreeDef>

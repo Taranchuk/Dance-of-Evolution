@@ -3,6 +3,6 @@
         <defName>DE_InfectingCorpse</defName>
         <label>infecting corpse</label>
         <driverClass>DanceOfEvolution.JobDriver_InfectCorpse</driverClass>
-        <reportString>infecting the corpse.</reportString>
+        <reportString>infecting TargetA.</reportString>
     </JobDef>
 </Defs>

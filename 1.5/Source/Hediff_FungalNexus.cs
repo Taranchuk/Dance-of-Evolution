@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace DanceOfEvolution
 {
+	[HotSwappable]
 	public class Hediff_FungalNexus : HediffWithComps
 	{
 		private int timer = 0;
