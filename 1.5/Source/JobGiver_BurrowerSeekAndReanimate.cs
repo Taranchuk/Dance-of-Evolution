@@ -4,7 +4,7 @@ using Verse.AI;
 
 namespace DanceOfEvolution
 {
-	public class JobGiver_BurrowerSeekAndReanimate : ThinkNode_JobGiver
+    public class JobGiver_BurrowerSeekAndReanimate : ThinkNode_JobGiver
 	{
 		public override Job TryGiveJob(Pawn pawn)
 		{
@@ -22,7 +22,6 @@ namespace DanceOfEvolution
 			ThingRequest.ForGroup(ThingRequestGroup.Corpse), PathEndMode.Touch,
 			TraverseParms.For(pawn), 9999, c => CorpseValidator(c));
 		}
-
 		private static bool CorpseValidator(Thing c)
 		{
 			if (c is Corpse corpse && corpse.InnerPawn.GetRotStage() == RotStage.Rotting)

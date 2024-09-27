@@ -4,35 +4,19 @@
         <label>burrower</label>
         <description>Burrowers are spawned by the Fungal Nexus. They seek out rotten corpses to infect. Once they find one, they will begin to reanimate the corpse using the shambler revival animation. Burrowers have no needs and die after a day.</description>
         <statBases>
-            <MoveSpeed>2.5</MoveSpeed>
+            <MoveSpeed>5</MoveSpeed>
             <MarketValue>50</MarketValue>
-            <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+            <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+            <ComfyTemperatureMax>30</ComfyTemperatureMax>
+            <CarryingCapacity>10</CarryingCapacity>
         </statBases>
         <uiIconScale>1.5</uiIconScale>
         <tools>
             <li>
-                <label>claw</label>
-                <capacities>
-                    <li>Scratch</li>
-                </capacities>
-                <power>6</power>
-                <cooldownTime>1.5</cooldownTime>
-                <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
-            </li>
-            <li>
-                <label>claw</label>
-                <capacities>
-                    <li>Scratch</li>
-                </capacities>
-                <power>6</power>
-                <cooldownTime>1.5</cooldownTime>
-                <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
-            </li>
-            <li>
                 <capacities>
                     <li>Bite</li>
                 </capacities>
-                <power>8</power>
+                <power>3</power>
                 <cooldownTime>1.5</cooldownTime>
                 <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
                 <chanceFactor>0.7</chanceFactor>
@@ -88,7 +72,6 @@
             </li>
         </lifeStages>
     </PawnKindDef>
-
 
     <ThinkTreeDef>
         <defName>DE_BurrowerThinkTree</defName>

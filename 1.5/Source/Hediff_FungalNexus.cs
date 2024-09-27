@@ -9,7 +9,6 @@ namespace DanceOfEvolution
 		private int timer = 0;
 		private List<Pawn> burrowers = new();
 		private int MaxServants => 4;
-
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo); 
@@ -24,11 +23,14 @@ namespace DanceOfEvolution
 		public override void PostTick()
 		{
 			base.PostTick();
-			timer++;
-			if (timer >= GenDate.TicksPerDay * 2f) // 2 days in ticks
+			if (pawn.Spawned)
 			{
-				CheckAndUpdateBurrowers();
-				timer = 0;
+				timer++;
+				if (timer >= GenDate.TicksPerDay * 2f) // 2 days in ticks
+				{
+					CheckAndUpdateBurrowers();
+					timer = 0;
+				}
 			}
 		}
 
