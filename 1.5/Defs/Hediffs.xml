@@ -256,27 +256,38 @@
         <labelNoun>a long-range spike thrower</labelNoun>
         <description>A long-range spike thrower capable of launching high-velocity projectiles.</description>
         <comps>
-            <li Class="HediffCompProperties_VerbGiver">
-                <verbs>
-                    <li>
-                        <label>spikeThrower</label>
-                        <verbClass>Verb_Shoot</verbClass>
-                        <range>37</range>
-                        <burstShotCount>2</burstShotCount>
-                        <warmupTime>2.5</warmupTime>
-                        <defaultCooldownTime>2.1</defaultCooldownTime>
-                        <soundCast>Shot_NeedleGun</soundCast>
-                        <defaultProjectile>DE_SpikeProjectile</defaultProjectile>
-                        <forcedMissRadius>1</forcedMissRadius>
-                        <accuracyTouch>0.60</accuracyTouch>
-                        <accuracyShort>0.80</accuracyShort>
-                        <accuracyMedium>0.90</accuracyMedium>
-                        <accuracyLong>0.85</accuracyLong>
-                    </li>
-                </verbs>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>DE_SpikeThrower</li>
+                </abilityDefs>
             </li>
         </comps>
     </HediffDef>
+
+    <AbilityDef>
+        <defName>DE_SpikeThrower</defName>
+        <label>spike thrower</label>
+        <description>A long-range spike thrower capable of launching high-velocity projectiles.</description>
+        <writeCombatLog>True</writeCombatLog>
+        <iconPath>UI/Abilities/SpikeThrower</iconPath>
+        <showPsycastEffects>False</showPsycastEffects>
+        <cooldownTicksRange>126</cooldownTicksRange>
+        <aiCanUse>true</aiCanUse>
+        <verbProperties>
+            <verbClass>Verb_AbilityShoot</verbClass>
+            <defaultProjectile>DE_SpikeProjectile</defaultProjectile>
+            <range>37</range>
+            <soundCast>Shot_NeedleGun</soundCast>
+            <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+            <warmupTime>2.5</warmupTime>
+            <burstShotCount>2</burstShotCount>
+            <accuracyTouch>0.60</accuracyTouch>
+            <accuracyShort>0.80</accuracyShort>
+            <accuracyMedium>0.90</accuracyMedium>
+            <accuracyLong>0.85</accuracyLong>
+            <ai_IsWeapon>false</ai_IsWeapon>
+        </verbProperties>
+    </AbilityDef>
 
     <ThingDef ParentName="BaseBullet">
         <defName>DE_SpikeProjectile</defName>

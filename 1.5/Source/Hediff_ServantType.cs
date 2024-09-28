@@ -119,6 +119,7 @@ namespace DanceOfEvolution
 		public override ServantType ServantType => ServantType.Medium;
 		public override void PostAdd(DamageInfo? dinfo)
 		{
+			pawn.abilities ??= new Pawn_AbilityTracker(pawn);
 			base.PostAdd(dinfo);
 			pawn.health.AddHediff(DefsOf.DE_BladedLimb);
 			pawn.health.AddHediff(DefsOf.DE_BladedLimb);
