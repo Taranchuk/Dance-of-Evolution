@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
-using System.Linq;
 namespace DanceOfEvolution
 {
+
+	public class ServantSettingsExtension : DefModExtension
+	{
+		public bool isDisease = false;
+	}
 	public enum ServantType
 	{
 		Burrower,
@@ -23,6 +27,76 @@ namespace DanceOfEvolution
 		{
 			base.ExposeData();
 			Scribe_References.Look(ref masterHediff, "master");
+		}
+		
+		public bool Controllable
+		{
+			get
+			{
+				if (pawn.kindDef == DefsOf.DE_Burrower)
+				{
+					return false;
+				}
+				if (pawn.MapHeld != masterHediff.pawn.MapHeld)
+				{
+					return false;
+				}
+				if (masterHediff.pawn.Downed)
+				{
+					return false;
+				}
+				if (masterHediff.pawn.MentalState != null)
+				{
+					return false;
+				}
+				return true;
+			}
+		}
+
+		public override void PostAdd(DamageInfo? dinfo)
+		{
+			base.PostAdd(dinfo);
+			RemoveHediffsImmuneTo();
+			if (pawn.skills is null)
+			{
+				pawn.skills = new Pawn_SkillTracker(pawn);
+			}
+			foreach (var skill in pawn.skills.skills)
+			{
+				skill.Level = 10;
+			}
+		}
+
+		private void RemoveHediffsImmuneTo()
+		{
+			List<Hediff> hediffsToRemove = new List<Hediff>();
+
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+			{
+				if (IsImmuneTo(hediff))
+				{
+					hediffsToRemove.Add(hediff);
+				}
+			}
+
+			foreach (Hediff hediff in hediffsToRemove)
+			{
+				pawn.health.RemoveHediff(hediff);
+			}
+		}
+		public bool IsImmuneTo(Hediff hediff)
+		{
+			if (hediff.def == HediffDefOf.LungRotExposure || hediff.def == HediffDefOf.LungRot || hediff.def
+			 == HediffDefOf.BloodLoss)
+			{
+				return true;
+			}
+			var extension = hediff.def.GetModExtension<ServantSettingsExtension>();
+			if (extension != null && extension.isDisease)
+			{
+				return true;
+			}
+			return false;
 		}
 	}
 

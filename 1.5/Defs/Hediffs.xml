@@ -2,8 +2,11 @@
     <HediffDef Name="DE_FungalHediffBase" Abstract="True">
         <defaultLabelColor>(214, 90, 24)</defaultLabelColor>
         <hediffClass>HediffWithComps</hediffClass>
+        <everCurableByItem>false</everCurableByItem>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
     </HediffDef>
-    
+
     <HediffDef ParentName="DE_FungalHediffBase">
         <defName>DE_Assimilation</defName>
         <label>assimilation</label>
@@ -79,6 +82,7 @@
         <stages>
             <li>
                 <becomeVisible>false</becomeVisible>
+                <painFactor>0</painFactor>
             </li>
         </stages>
     </HediffDef>

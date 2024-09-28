@@ -13,6 +13,10 @@ namespace DanceOfEvolution
 			{
 				return fungalNexus.IsImmuneTo(other);
 			}
+			else if (pawn.IsServant(out var servantType))
+			{
+				return servantType.IsImmuneTo(other);
+			}
 			return false;
 		}
 
@@ -36,7 +40,11 @@ namespace DanceOfEvolution
 		{
 			return pawn.IsServant(out _);
 		}
-
+		public static bool IsControllableServant(this Pawn pawn)
+		{
+			return pawn.IsServant(out var hediff) && hediff.Controllable;
+		}
+		
 		public static bool IsServant(this Pawn pawn, out Hediff_ServantType hediff)
 		{
 			hediff = pawn.GetServantTypeHediff();

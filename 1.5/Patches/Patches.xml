@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/ThinkTreeDef/thinkRoot/subNodes/li[@Class = "ThinkNode_QueuedJob"]</xpath>
+		<order>Append</order>
+		<value>
+			<li Class="DanceOfEvolution.ThinkNode_IsServant">
+				<subNodes>
+					<li Class="JobGiver_MoveToStandable"/>
+					<li Class="JobGiver_Orders"/>
+				</subNodes>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/HediffDef[@Name="DiseaseBase"]</xpath>
+		<value>
+			<li Class="DanceOfEvolution.ServantSettingsExtension">
+				<isDisease>True</isDisease>
+			</li>
+		</value>
+	</Operation>
+</Patch>

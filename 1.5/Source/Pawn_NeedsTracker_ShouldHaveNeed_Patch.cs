@@ -4,16 +4,24 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    [HarmonyPatch(typeof(Pawn_NeedsTracker), "ShouldHaveNeed")]
+	[HarmonyPatch(typeof(Pawn_NeedsTracker), "ShouldHaveNeed")]
 	public static class Pawn_NeedsTracker_ShouldHaveNeed_Patch
 	{
 		[HarmonyPriority(int.MinValue)]
 		public static void Postfix(Pawn ___pawn, NeedDef nd, ref bool __result)
 		{
-			if (___pawn.kindDef == DefsOf.DE_Burrower)
+			if (__result)
 			{
-				__result = false;
+				if (___pawn.kindDef == DefsOf.DE_Burrower)
+				{
+					__result = false;
+				}
+				if (nd == NeedDefOf.Rest && ___pawn.IsServant())
+				{
+					__result = false;
+				}
 			}
+
 		}
 	}
 }

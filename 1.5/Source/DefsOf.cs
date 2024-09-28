@@ -3,7 +3,7 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-	[DefOf]
+    [DefOf]
 	public static class DefsOf
 	{
 		public static ThingDef DE_NexusBurgeon;
