@@ -30,7 +30,7 @@ namespace DanceOfEvolution
 				if (corpse.GetRotStage() == RotStage.Rotting)
 				{
 					var pawn = corpse.InnerPawn;
-					if (pawn.kindDef == DefsOf.DE_Burrower)
+					if (pawn.IsServant())
 					{
 						return false;
 					}

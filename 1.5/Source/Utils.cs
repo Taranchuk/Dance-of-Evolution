@@ -30,12 +30,12 @@ namespace DanceOfEvolution
 			return fungalNexus != null;
 		}
 
-		public static bool IsColonyServant(this Pawn pawn)
+		public static bool IsServant(this Pawn pawn)
 		{
-			return pawn.IsColonyServant(out _);
+			return pawn.IsServant(out _);
 		}
 
-		public static bool IsColonyServant(this Pawn pawn, out Hediff_ServantType hediff)
+		public static bool IsServant(this Pawn pawn, out Hediff_ServantType hediff)
 		{
 			hediff = pawn.GetServantTypeHediff();
 			return hediff != null;

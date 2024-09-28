@@ -11,6 +11,11 @@ namespace DanceOfEvolution
 		public Effecter riseEffecter;
 		private int ticksUntilReanimation;
 		public Hediff_FungalNexus hediff_FungalNexus;
+		
+		public InfectedCorpse()
+		{
+			
+		}
 		public InfectedCorpse(Corpse corpse, Hediff_ServantType hediff)
 		{
 			this.corpse = corpse;
@@ -43,7 +48,7 @@ namespace DanceOfEvolution
 				corpse.Destroy();
 				return;
 			}
-			ticksUntilReanimation--;
+			ticksUntilReanimation -= 1;
 			if (ticksUntilReanimation <= 0)
 			{
 				ReanimateCorpse();

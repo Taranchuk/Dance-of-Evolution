@@ -25,6 +25,10 @@ namespace DanceOfEvolution
 						servant.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Manhunter);	
 					}
 				}
+				if (__instance.IsServant(out var hediff2))
+				{
+					hediff2.masterHediff?.servants.Remove(__instance);
+				}
 			}
 		}
 	}

@@ -17,7 +17,7 @@ namespace DanceOfEvolution
 		public override IEnumerable<Toil> MakeNewToils()
 		{
 			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-			this.FailOn(() => pawn.IsColonyServant() is false);
+			this.FailOn(() => pawn.IsServant() is false || Corpse.IsInfected());
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
 			yield return new Toil
 			{
@@ -31,8 +31,7 @@ namespace DanceOfEvolution
 
 		private void InfestCorpse()
 		{
-			GameComponent_ReanimateCorpses gameComponent = Current.Game.GetComponent<GameComponent_ReanimateCorpses>();
-			gameComponent.AddInfectedCorpse(Corpse, pawn);
+			GameComponent_ReanimateCorpses.Instance.AddInfectedCorpse(Corpse, pawn);
 			pawn.Destroy();
 		}
 	}

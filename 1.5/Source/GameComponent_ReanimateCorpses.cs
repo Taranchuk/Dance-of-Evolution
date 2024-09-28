@@ -40,14 +40,14 @@ namespace DanceOfEvolution
 		}
 
 		public void AddInfectedCorpse(Corpse corpse, Pawn infecter)
-        {
-            if (corpse.IsInfected() is false && infecter.IsColonyServant(out var hediff))
+		{
+			if (corpse.IsInfected() is false && infecter.IsServant(out var hediff))
 			{
 				infectedCorpses.Add(new InfectedCorpse(corpse, hediff));
 			}
-        }
-
-        public override void ExposeData()
+		}
+		
+		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref infectedCorpses, "infectedCorpses", LookMode.Deep);
