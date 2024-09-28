@@ -1,5 +1,7 @@
+using System.Collections.Generic;
+using RimWorld;
 using Verse;
-
+using System.Linq;
 namespace DanceOfEvolution
 {
 	public enum ServantType
@@ -32,6 +34,12 @@ namespace DanceOfEvolution
 	public class Hediff_ServantSmall : Hediff_ServantType
 	{
 		public override ServantType ServantType => ServantType.Small;
+
+		public override void PostAdd(DamageInfo? dinfo)
+		{
+			base.PostAdd(dinfo);
+			pawn.health.AddHediff(DefsOf.DE_FungalTentacle);
+		}
 	}
 
 	public class Hediff_ServantMedium : Hediff_ServantType

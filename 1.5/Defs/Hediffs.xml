@@ -1,6 +1,10 @@
 <Defs>
-
-    <HediffDef>
+    <HediffDef Name="DE_FungalHediffBase" Abstract="True">
+        <defaultLabelColor>(214, 90, 24)</defaultLabelColor>
+        <hediffClass>HediffWithComps</hediffClass>
+    </HediffDef>
+    
+    <HediffDef ParentName="DE_FungalHediffBase">
         <defName>DE_Assimilation</defName>
         <label>assimilation</label>
         <description>Contracted after ingesting a Nexus Burgeon. The spore has is travelling inside the body. First it will move to the brain. Once the host has accepted the "deal", it will begin to spread throughout the entire body to drastically change it.</description>
@@ -54,12 +58,11 @@
         </stages>
     </HediffDef>
 
-    <HediffDef>
+    <HediffDef ParentName="DE_FungalHediffBase">
         <defName>DE_FungalNexus</defName>
         <label>fungal nexus</label>
         <description>Transformed into a Fungal Nexus.</description>
         <hediffClass>DanceOfEvolution.Hediff_FungalNexus</hediffClass>
-        <defaultLabelColor>(214, 90, 24)</defaultLabelColor>
         <stages>
             <li>
                 <statOffsets>
@@ -116,4 +119,81 @@
         <hediffClass>DanceOfEvolution.Hediff_ServantStrange</hediffClass>
     </HediffDef>
 
+    <HediffDef ParentName="DE_FungalHediffBase">
+        <defName>DE_FungalTentacle</defName>
+        <label>fungal tentacle</label>
+        <labelNoun>a fungal tentacle</labelNoun>
+        <description>text.todo.</description>
+        <stages>
+            <li>
+                <statOffsets>
+                    <PawnBeauty>-1</PawnBeauty>
+                    <CarryingCapacity>50</CarryingCapacity>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>tentacle</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>5</power>
+                        <cooldownTime>2</cooldownTime>
+                        <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+                        <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+        <renderNodeProperties>
+            <li Class="PawnRenderNodeProperties_Spastic">
+                <texPaths>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/TentacleLimb/TentacleLimbA</li>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/TentacleLimb/TentacleLimbB</li>
+                    <li>Things/Pawn/Humanlike/BodyAttachments/TentacleLimb/TentacleLimbC</li>
+                </texPaths>
+                <parentTagDef>Body</parentTagDef>
+                <overrideMeshSize>1</overrideMeshSize>
+                <drawSize>1.3</drawSize>
+                <colorType>Skin</colorType>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <rotationRange>-30~30</rotationRange>
+                <durationTicksRange>10~35</durationTicksRange>
+                <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+                <drawData>
+                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+                    <useHediffAnchor>true</useHediffAnchor>
+                    <childScale>0.7</childScale>
+                    <bodyTypeScales>
+                        <Hulk>1.2</Hulk>
+                        <Fat>1.4</Fat>
+                        <Thin>0.8</Thin>
+                    </bodyTypeScales>
+                    <defaultData>
+                        <layer>49</layer>
+                    </defaultData>
+                    <dataNorth>
+                        <rotationOffset>310</rotationOffset>
+                        <flip>true</flip>
+                        <layer>0</layer>
+                    </dataNorth>
+                    <dataEast>
+                        <rotationOffset>270</rotationOffset>
+                        <flip>true</flip>
+                    </dataEast>
+                    <dataSouth>
+                        <rotationOffset>220</rotationOffset>
+                    </dataSouth>
+                    <dataWest>
+                        <rotationOffset>270</rotationOffset>
+                    </dataWest>
+                </drawData>
+            </li>
+        </renderNodeProperties>
+    </HediffDef>
 </Defs>

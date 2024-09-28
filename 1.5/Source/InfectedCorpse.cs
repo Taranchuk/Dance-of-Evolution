@@ -48,7 +48,7 @@ namespace DanceOfEvolution
 				corpse.Destroy();
 				return;
 			}
-			ticksUntilReanimation -= 1;
+			ticksUntilReanimation -= 100;
 			if (ticksUntilReanimation <= 0)
 			{
 				ReanimateCorpse();
