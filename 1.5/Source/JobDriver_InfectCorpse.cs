@@ -6,6 +6,7 @@ using Verse.Sound;
 
 namespace DanceOfEvolution
 {
+	[HotSwappable]
 	public class JobDriver_InfectCorpse : JobDriver
 	{
 		protected Corpse Corpse => (Corpse)job.GetTarget(TargetIndex.A).Thing;
@@ -16,7 +17,7 @@ namespace DanceOfEvolution
 
 		public override IEnumerable<Toil> MakeNewToils()
 		{
-			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+			this.FailOnDespawnedOrNull(TargetIndex.A);
 			this.FailOn(() => pawn.IsServant() is false || Corpse.IsInfected());
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
 			yield return new Toil

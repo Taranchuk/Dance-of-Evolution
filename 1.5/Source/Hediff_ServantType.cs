@@ -141,5 +141,16 @@ namespace DanceOfEvolution
 	public class Hediff_ServantStrange : Hediff_ServantType
 	{
 		public override ServantType ServantType => ServantType.Strange;
+		public override void PostAdd(DamageInfo? dinfo)
+		{
+			pawn.abilities ??= new Pawn_AbilityTracker(pawn);
+			base.PostAdd(dinfo);
+			pawn.health.AddHediff(DefsOf.DE_PiercingLimb);
+			pawn.health.AddHediff(DefsOf.DE_PiercingLimb);
+			if (pawn.Name is null)
+			{
+				pawn.Name = new NameSingle(pawn.Label);
+			}
+		}
 	}
 }

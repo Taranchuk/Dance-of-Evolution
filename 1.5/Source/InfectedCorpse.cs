@@ -76,7 +76,7 @@ namespace DanceOfEvolution
 			{
 				return DefsOf.DE_ServantGhoul;
 			}
-			if (pawn.IsEntity)
+			if (pawn.IsEntity || pawn.IsMutant || pawn.RaceProps.FleshType == FleshTypeDefOf.EntityFlesh)
 			{
 				return DefsOf.DE_ServantStrange;
 			}
