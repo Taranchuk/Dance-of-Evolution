@@ -1,6 +1,7 @@
 using RimWorld;
 using Verse;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DanceOfEvolution
 {
@@ -10,6 +11,15 @@ namespace DanceOfEvolution
 		private int timer = 0;
 		public List<Pawn> servants = new();
 		public int MaxServants => 4;
+		
+		public int TotalServantsCount
+		{
+			get
+			{
+				servants.RemoveAll(x => x is null || x.Destroyed || x.Dead);
+				return servants.Count + GameComponent_ReanimateCorpses.Instance.infectedCorpses.Where(x => x.hediff_FungalNexus == this).Count();
+			}
+		}
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
@@ -54,7 +64,7 @@ namespace DanceOfEvolution
 
 		public override string GetInspectString()
 		{
-			if (servants.Count < MaxServants)
+			if (TotalServantsCount < MaxServants)
 			{
 				return "DE_NextBurrowerSpawnIn".Translate(((int)((GenDate.TicksPerDay * 2f) - timer)).ToStringTicksToPeriod());
 			}
@@ -63,8 +73,7 @@ namespace DanceOfEvolution
 		
 		private void CheckAndUpdateBurrowers()
 		{
-			servants.RemoveAll(x => x is null || x.Destroyed || x.Dead);
-			if (servants.Count < MaxServants)
+			if (TotalServantsCount < MaxServants)
 			{
 				SpawnBurrower();
 			}
@@ -73,8 +82,8 @@ namespace DanceOfEvolution
 		private void SpawnBurrower()
 		{
 			var newBurrower = PawnGenerator.GeneratePawn(DefsOf.DE_Burrower, pawn.Faction);
-			servants.Add(newBurrower);
 			GenSpawn.Spawn(newBurrower, pawn.Position, pawn.Map);
+			newBurrower.MakeServant(this, DefsOf.DE_ServantBurrower);
 		}
 
 		public bool IsImmuneTo(Hediff other)

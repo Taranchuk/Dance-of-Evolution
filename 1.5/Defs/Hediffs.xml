@@ -68,4 +68,52 @@
             </li>
         </stages>
     </HediffDef>
+
+    <HediffDef Name="DE_ServantTypeBase" Abstract="True">
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <isBad>false</isBad>
+        <description>A servant type.</description>
+        <stages>
+            <li>
+                <becomeVisible>false</becomeVisible>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_ServantTypeBase">
+        <defName>DE_Servant_BurrowerType</defName>
+        <label>burrower type</label>
+        <hediffClass>DanceOfEvolution.Hediff_ServantBurrower</hediffClass>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_ServantTypeBase">
+        <defName>DE_Servant_SmallType</defName>
+        <label>small type</label>
+        <hediffClass>DanceOfEvolution.Hediff_ServantSmall</hediffClass>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_ServantTypeBase">
+        <defName>DE_Servant_MediumType</defName>
+        <label>medium type</label>
+        <hediffClass>DanceOfEvolution.Hediff_ServantMedium</hediffClass>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_ServantTypeBase">
+        <defName>DE_Servant_LargeType</defName>
+        <label>large type</label>
+        <hediffClass>DanceOfEvolution.Hediff_ServantLarge</hediffClass>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_ServantTypeBase">
+        <defName>DE_Servant_GhoulType</defName>
+        <label>ghoul type</label>
+        <hediffClass>DanceOfEvolution.Hediff_ServantGhoul</hediffClass>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_ServantTypeBase">
+        <defName>DE_Servant_StrangeType</defName>
+        <label>strange type</label>
+        <hediffClass>DanceOfEvolution.Hediff_ServantStrange</hediffClass>
+    </HediffDef>
+
 </Defs>

@@ -30,8 +30,8 @@ namespace DanceOfEvolution
 				}
 				else
 				{
-					infectedCorpse.Tick(out bool reanimated);
-					if (reanimated)
+					infectedCorpse.Tick(out bool remove);
+					if (remove)
 					{
 						infectedCorpses.RemoveAt(i);
 					}
@@ -39,12 +39,12 @@ namespace DanceOfEvolution
 			}
 		}
 
-		public void AddInfectedCorpse(Corpse corpse, Faction faction)
+		public void AddInfectedCorpse(Corpse corpse, Pawn infecter)
         {
-            if (corpse.IsInfected() is false)
-            {
-                infectedCorpses.Add(new InfectedCorpse(corpse, faction));
-            }
+            if (corpse.IsInfected() is false && infecter.IsColonyServant(out var hediff))
+			{
+				infectedCorpses.Add(new InfectedCorpse(corpse, hediff));
+			}
         }
 
         public override void ExposeData()
