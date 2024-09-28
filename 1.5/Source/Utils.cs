@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DanceOfEvolution
 {
-	public static class DanceOfEvolution
+    public static class Utils
 	{
 		public static bool IsImmuneTo(this Pawn pawn, Hediff other)
 		{

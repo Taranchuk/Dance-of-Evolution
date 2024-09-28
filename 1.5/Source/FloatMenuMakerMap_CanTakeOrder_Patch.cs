@@ -8,7 +8,7 @@ namespace DanceOfEvolution
     {
         public static void Postfix(Pawn pawn, ref bool __result)
         {
-            if (pawn.IsServant())
+            if (pawn.IsControllableServant())
             {
                 __result = true;
             }

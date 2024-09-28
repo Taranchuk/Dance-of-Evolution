@@ -13,7 +13,7 @@ namespace DanceOfEvolution
         [HarmonyPriority(Priority.First)]
         public static bool Prefix(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
         {
-            if (pawn.IsServant())
+            if (pawn.IsControllableServant())
             {
                 return false;
             }

@@ -11,12 +11,9 @@ namespace DanceOfEvolution
         [HarmonyPriority(Priority.Last)]
         public static void Postfix(Pawn __instance, ref bool __result)
         {
-            if (__instance.IsServant())
+            if (__instance.IsControllableServant())
             {
-                if (__instance.Spawned && __instance.Faction == Faction.OfPlayer && __instance.MentalStateDef == null)
-                {
-                    __result = true;
-                }
+                __result = true;
             }
         }
     }

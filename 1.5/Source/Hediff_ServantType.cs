@@ -3,12 +3,7 @@ using RimWorld;
 using Verse;
 namespace DanceOfEvolution
 {
-
-	public class ServantSettingsExtension : DefModExtension
-	{
-		public bool isDisease = false;
-	}
-	public enum ServantType
+    public enum ServantType
 	{
 		Burrower,
 		Small,
@@ -49,7 +44,7 @@ namespace DanceOfEvolution
 				{
 					return false;
 				}
-				return true;
+				return pawn.Faction == Faction.OfPlayer && pawn.MentalStateDef == null;
 			}
 		}
 
@@ -60,10 +55,11 @@ namespace DanceOfEvolution
 			if (pawn.skills is null)
 			{
 				pawn.skills = new Pawn_SkillTracker(pawn);
-			}
-			foreach (var skill in pawn.skills.skills)
-			{
-				skill.Level = 10;
+				pawn.story ??= new Pawn_StoryTracker(pawn);
+				foreach (var skill in pawn.skills.skills)
+				{
+					skill.Level = 10;
+				}
 			}
 		}
 

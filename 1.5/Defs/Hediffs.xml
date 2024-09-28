@@ -75,52 +75,64 @@
         </stages>
     </HediffDef>
 
-    <HediffDef Name="DE_ServantTypeBase" Abstract="True">
-        <scenarioCanAdd>false</scenarioCanAdd>
-        <isBad>false</isBad>
-        <description>A servant type.</description>
+    <HediffDef Name="DE_ServantTypeBase" ParentName="DE_FungalHediffBase" Abstract="True">
         <stages>
             <li>
-                <becomeVisible>false</becomeVisible>
                 <painFactor>0</painFactor>
+                <regeneration>10</regeneration>
+                <showRegenerationStat>true</showRegenerationStat>
             </li>
         </stages>
     </HediffDef>
 
-    <HediffDef ParentName="DE_ServantTypeBase">
+    <HediffDef ParentName="DE_FungalHediffBase">
         <defName>DE_ServantBurrower</defName>
         <label>burrower servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantBurrower</hediffClass>
+        <stages>
+            <li>
+                <becomeVisible>false</becomeVisible>
+            </li>
+        </stages>
     </HediffDef>
 
     <HediffDef ParentName="DE_ServantTypeBase">
         <defName>DE_ServantSmall</defName>
         <label>small servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantSmall</hediffClass>
+        <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Due to the small size of the organism it inhabits, it performs menial tasks for its kin. A nexus of psychic energy allows communication between members of the collective.</description>
     </HediffDef>
 
     <HediffDef ParentName="DE_ServantTypeBase">
         <defName>DE_ServantMedium</defName>
         <label>medium servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantMedium</hediffClass>
+        <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Due to its size, it performs complex tasks for its kin. Using their long limbs, they are able to cook mine and build. They also posess the ability to harden and sculp the bones of the body they inhabit before firing it at range.</description>
+
     </HediffDef>
 
     <HediffDef ParentName="DE_ServantTypeBase">
         <defName>DE_ServantLarge</defName>
         <label>large servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantLarge</hediffClass>
+        <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. This fungi has renounced any and all ideas of helping its kin work, instead it used the large amount of biomass gifted to it to fortify and strengthen the body it inhabits to defend its collective. While these beasts are extremely resilient and powerful, they are more fungus that animal, making them very weak to fire.</description>
+
     </HediffDef>
 
     <HediffDef ParentName="DE_ServantTypeBase">
         <defName>DE_ServantGhoul</defName>
         <label>ghoul servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantGhoul</hediffClass>
+        <description>This rotting human corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Animals and insect can be controlled and used easily by pulling at muscles, puppeteering them from within. Humans however, are mostly useful for their nervous systems. Fungi that live in these hosts await for instruction from their kin. Once they receive the order and the required resources, they will begin to fully integrate themselves into their host's nervous system to repair and reawaken it.</description>
+
     </HediffDef>
 
     <HediffDef ParentName="DE_ServantTypeBase">
         <defName>DE_ServantStrange</defName>
         <label>strange servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantStrange</hediffClass>
+        <description>This strange rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. The twisted flesh that make up this corpse have left the fungus that inhabits it into a strange state. It will often send eroneous signals to its kin and is prone to odd twitching of its limbs. Due to the inherent psychic properties of the body they inhabit, they have gained the ability to use psychic influence to render themselves effectively unseen by nearby minds.</description>
+
     </HediffDef>
 
     <HediffDef ParentName="DE_FungalHediffBase">
