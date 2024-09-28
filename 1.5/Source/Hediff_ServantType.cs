@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 namespace DanceOfEvolution
 {
-    public enum ServantType
+	public enum ServantType
 	{
 		Burrower,
 		Small,
@@ -16,8 +16,7 @@ namespace DanceOfEvolution
 	{
 		public abstract ServantType ServantType { get; }
 		public Hediff_FungalNexus masterHediff;
-		public override bool ShouldRemove => masterHediff is null || masterHediff.pawn is null
-			|| masterHediff.pawn.health.hediffSet.hediffs.Contains(masterHediff) is false;
+		public override bool ShouldRemove => false;
 		public override void ExposeData()
 		{
 			base.ExposeData();
@@ -32,11 +31,15 @@ namespace DanceOfEvolution
 				{
 					return false;
 				}
-				if (pawn.MapHeld != masterHediff.pawn.MapHeld)
+				if (masterHediff?.pawn is null)
 				{
 					return false;
 				}
-				if (masterHediff.pawn.Downed)
+				if (pawn.MapHeld != masterHediff.pawn?.MapHeld)
+				{
+					return false;
+				}
+				if (masterHediff.pawn.Downed || masterHediff.pawn.Dead || masterHediff.pawn.Destroyed)
 				{
 					return false;
 				}
@@ -56,10 +59,10 @@ namespace DanceOfEvolution
 			{
 				pawn.skills = new Pawn_SkillTracker(pawn);
 				pawn.story ??= new Pawn_StoryTracker(pawn);
-				foreach (var skill in pawn.skills.skills)
-				{
-					skill.Level = 10;
-				}
+			}
+			foreach (var skill in pawn.skills.skills)
+			{
+				skill.Level = 10;
 			}
 		}
 
@@ -82,8 +85,7 @@ namespace DanceOfEvolution
 		}
 		public bool IsImmuneTo(Hediff hediff)
 		{
-			if (hediff.def == HediffDefOf.LungRotExposure || hediff.def == HediffDefOf.LungRot || hediff.def
-			 == HediffDefOf.BloodLoss)
+			if (hediff.def == HediffDefOf.LungRotExposure || hediff.def == HediffDefOf.LungRot || hediff.def == HediffDefOf.BloodLoss)
 			{
 				return true;
 			}
@@ -115,6 +117,14 @@ namespace DanceOfEvolution
 	public class Hediff_ServantMedium : Hediff_ServantType
 	{
 		public override ServantType ServantType => ServantType.Medium;
+		public override void PostAdd(DamageInfo? dinfo)
+		{
+			base.PostAdd(dinfo);
+			pawn.health.AddHediff(DefsOf.DE_BladedLimb);
+			pawn.health.AddHediff(DefsOf.DE_BladedLimb);
+			pawn.health.AddHediff(DefsOf.DE_SpikeThrower);
+			pawn.equipment ??= new Pawn_EquipmentTracker(pawn);
+		}
 	}
 
 	public class Hediff_ServantLarge : Hediff_ServantType

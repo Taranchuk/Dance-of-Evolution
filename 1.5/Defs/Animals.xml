@@ -62,16 +62,5 @@
             </li>
         </lifeStages>
     </PawnKindDef>
-
-    <ThinkTreeDef>
-        <defName>DE_BurrowerThinkTree</defName>
-        <insertTag>Animal_PreMain</insertTag>
-        <thinkRoot Class="ThinkNode_ConditionalPawnKind">
-            <pawnKind>DE_Burrower</pawnKind>
-            <subNodes>
-                <li Class="DanceOfEvolution.JobGiver_InfectCorpses" />
-            </subNodes>
-        </thinkRoot>
-    </ThinkTreeDef>
     
 </Defs>

@@ -16,6 +16,8 @@ namespace DanceOfEvolution
 		public static HediffDef DE_FungalTentacle;
 		
 		public static ThingDef DE_FungalSlurry;
+
+		public static HediffDef DE_BladedLimb, DE_SpikeThrower;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

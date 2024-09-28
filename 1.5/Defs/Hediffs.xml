@@ -88,6 +88,7 @@
     <HediffDef ParentName="DE_FungalHediffBase">
         <defName>DE_ServantBurrower</defName>
         <label>burrower servant</label>
+        <description>A burrower servant type.</description>
         <hediffClass>DanceOfEvolution.Hediff_ServantBurrower</hediffClass>
         <stages>
             <li>
@@ -108,7 +109,6 @@
         <label>medium servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantMedium</hediffClass>
         <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Due to its size, it performs complex tasks for its kin. Using their long limbs, they are able to cook mine and build. They also posess the ability to harden and sculp the bones of the body they inhabit before firing it at range.</description>
-
     </HediffDef>
 
     <HediffDef ParentName="DE_ServantTypeBase">
@@ -116,7 +116,19 @@
         <label>large servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantLarge</hediffClass>
         <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. This fungi has renounced any and all ideas of helping its kin work, instead it used the large amount of biomass gifted to it to fortify and strengthen the body it inhabits to defend its collective. While these beasts are extremely resilient and powerful, they are more fungus that animal, making them very weak to fire.</description>
-
+        <stages Inherit="False">
+            <li>
+                <painFactor>0</painFactor>
+                <regeneration>10</regeneration>
+                <showRegenerationStat>true</showRegenerationStat>
+                <statFactors>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
+                </statFactors>
+                <statOffsets>
+                    <Flammability>1</Flammability>
+                </statOffsets>
+            </li>
+        </stages>
     </HediffDef>
 
     <HediffDef ParentName="DE_ServantTypeBase">
@@ -212,4 +224,76 @@
             </li>
         </renderNodeProperties>
     </HediffDef>
+
+    <HediffDef ParentName="DE_FungalHediffBase">
+        <defName>DE_BladedLimb</defName>
+        <label>bladed limb</label>
+        <labelNoun>a bladed limb</labelNoun>
+        <description>A sharp limb capable of delivering slicing melee attacks.</description>
+        <hediffClass>DanceOfEvolution.Hediff_BladedLimb</hediffClass>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>bladed limb</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>12</power>
+                        <armorPenetration>0.18</armorPenetration>
+                        <cooldownTime>1.1</cooldownTime>
+                        <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
+                        <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_FungalHediffBase">
+        <defName>DE_SpikeThrower</defName>
+        <label>long-range spike thrower</label>
+        <labelNoun>a long-range spike thrower</labelNoun>
+        <description>A long-range spike thrower capable of launching high-velocity projectiles.</description>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <verbs>
+                    <li>
+                        <label>spikeThrower</label>
+                        <verbClass>Verb_Shoot</verbClass>
+                        <range>37</range>
+                        <burstShotCount>2</burstShotCount>
+                        <warmupTime>2.5</warmupTime>
+                        <defaultCooldownTime>2.1</defaultCooldownTime>
+                        <soundCast>Shot_NeedleGun</soundCast>
+                        <defaultProjectile>DE_SpikeProjectile</defaultProjectile>
+                        <forcedMissRadius>1</forcedMissRadius>
+                        <accuracyTouch>0.60</accuracyTouch>
+                        <accuracyShort>0.80</accuracyShort>
+                        <accuracyMedium>0.90</accuracyMedium>
+                        <accuracyLong>0.85</accuracyLong>
+                    </li>
+                </verbs>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DE_SpikeProjectile</defName>
+        <label>spike</label>
+        <description>A sharp, high-velocity projectile launched by the spike thrower.</description>
+        <projectile>
+            <speed>90</speed>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>13</damageAmountBase>
+            <armorPenetrationBase>0.35</armorPenetrationBase>
+            <stoppingPower>0.5</stoppingPower>
+        </projectile>
+        <graphicData>
+            <texPath>Things/Projectile/Needle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1.3</drawSize>
+        </graphicData>
+    </ThingDef>
+
 </Defs>
