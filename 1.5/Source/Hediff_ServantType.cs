@@ -52,26 +52,30 @@ namespace DanceOfEvolution
 		}
 
 		public override void PostAdd(DamageInfo? dinfo)
-		{
-			base.PostAdd(dinfo); 
-			pawn.needs.AddOrRemoveNeedsAsAppropriate();
-			RemoveHediffsImmuneTo();
-			if (pawn.skills is null)
-			{
-				pawn.skills = new Pawn_SkillTracker(pawn);
-				pawn.story ??= new Pawn_StoryTracker(pawn);
-			}
-			if (pawn.drafter is null)
-			{
-				pawn.drafter = new Pawn_DraftController(pawn);
-			}
-			foreach (var skill in pawn.skills.skills)
-			{
-				skill.Level = 10;
-			}
-		}
+        {
+            base.PostAdd(dinfo);
+            RemoveHediffsImmuneTo();
+            AssignComponents();
+            foreach (var skill in pawn.skills.skills)
+            {
+                skill.Level = 10;
+            }
+        }
 
-		private void RemoveHediffsImmuneTo()
+        public void AssignComponents()
+        {
+            pawn.needs.AddOrRemoveNeedsAsAppropriate();
+            if (pawn.skills is null)
+            {
+                pawn.skills = new Pawn_SkillTracker(pawn);
+                pawn.story ??= new Pawn_StoryTracker(pawn);
+            }
+            pawn.drafter ??= new Pawn_DraftController(pawn);
+            pawn.equipment ??= new Pawn_EquipmentTracker(pawn);
+            pawn.abilities ??= new Pawn_AbilityTracker(pawn);
+        }
+
+        private void RemoveHediffsImmuneTo()
 		{
 			List<Hediff> hediffsToRemove = new List<Hediff>();
 
@@ -128,7 +132,6 @@ namespace DanceOfEvolution
 			base.PostAdd(dinfo);
 			pawn.health.AddHediff(DefsOf.DE_BladedLimb);
 			pawn.health.AddHediff(DefsOf.DE_BladedLimb);
-			pawn.equipment ??= new Pawn_EquipmentTracker(pawn);
 			pawn.equipment.AddEquipment(ThingMaker.MakeThing(DefsOf.DE_Gun_SpikeThrower) as ThingWithComps);
 		}
 	}

@@ -1,13 +1,83 @@
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace DanceOfEvolution
 {
-    [StaticConstructorOnStartup]
+	[StaticConstructorOnStartup]
 	public static class Startup
 	{
 		static Startup()
+		{
+			PatchTraders();
+			PatchThinkTreeDefs();
+		}
+
+		public static void PatchThinkTreeDefs()
+		{
+			var thinkTreeDefs = DefDatabase<ThinkTreeDef>.AllDefsListForReading;
+			foreach (var thinkTreeDef in thinkTreeDefs)
+			{
+				var rootNode = thinkTreeDef.thinkRoot;
+				if (rootNode == null || rootNode.subNodes == null) continue;
+				bool inserted = false;
+				int queuedJobNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_QueuedJob));
+				if (queuedJobNodeIndex >= 0)
+				{
+					InsertNodeAt(rootNode.subNodes, queuedJobNodeIndex);
+					inserted = true;
+				}
+				else
+				{
+					int subtreeNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_Subtree) &&
+						(node as ThinkNode_Subtree)?.treeDef.defName == "LordDuty");
+
+					if (subtreeNodeIndex >= 0)
+					{
+						InsertNodeAt(rootNode.subNodes, subtreeNodeIndex);
+						inserted = true;
+					}
+				}
+
+				if (inserted)
+					Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringSafeEnumerable()}");
+
+			}
+		}
+
+		private static void InsertNodeAt(List<ThinkNode> subNodes, int index)
+		{
+			var newNode = new ThinkNode_IsControllableServant
+			{
+				subNodes = new List<ThinkNode>
+				{
+					new ThinkNode_Tagger
+					{
+						tagToGive = JobTag.DraftedOrder,
+						subNodes = new List<ThinkNode>
+						{
+							new JobGiver_MoveToStandable(),
+							new JobGiver_Orders()
+						}
+					}
+				}
+			};
+
+			if (subNodes.Any(x => x is ThinkNode_QueuedJob is false))
+			{
+				newNode.subNodes.Insert(0, new ThinkNode_QueuedJob());
+			}
+
+			if (subNodes.Any(x => x is JobGiver_ReactToCloseMeleeThreat is false))
+			{
+				newNode.subNodes.Insert(0, new JobGiver_ReactToCloseMeleeThreat());
+			}
+			subNodes.Insert(index, newNode);
+		}
+
+		private static void PatchTraders()
 		{
 			// Get all FactionDefs
 			var allFactionDefs = DefDatabase<FactionDef>.AllDefsListForReading;

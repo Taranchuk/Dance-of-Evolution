@@ -166,7 +166,7 @@
         <targetRequired>false</targetRequired>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <statBases>
-            <Ability_Duration>60000</Ability_Duration>
+            <Ability_Duration>1000</Ability_Duration>
         </statBases>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
