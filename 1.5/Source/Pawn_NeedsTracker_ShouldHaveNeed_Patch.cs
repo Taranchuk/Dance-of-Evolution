@@ -16,10 +16,6 @@ namespace DanceOfEvolution
 				{
 					__result = false;
 				}
-				if (nd == NeedDefOf.Rest && ___pawn.IsServant())
-				{
-					__result = false;
-				}
 			}
 
 		}

@@ -76,6 +76,9 @@
     </HediffDef>
 
     <HediffDef Name="DE_ServantTypeBase" ParentName="DE_FungalHediffBase" Abstract="True">
+        <disablesNeeds>
+            <li>Rest</li>
+        </disablesNeeds>
         <stages>
             <li>
                 <painFactor>0</painFactor>
@@ -288,44 +291,39 @@
         </comps>
     </HediffDef>
 
-    <HediffDef ParentName="DE_FungalHediffBase">
-        <defName>DE_SpikeThrower</defName>
-        <label>long-range spike thrower</label>
-        <labelNoun>a long-range spike thrower</labelNoun>
-        <description>A long-range spike thrower capable of launching high-velocity projectiles.</description>
-        <comps>
-            <li Class="HediffCompProperties_GiveAbility">
-                <abilityDefs>
-                    <li>DE_SpikeThrower</li>
-                </abilityDefs>
-            </li>
-        </comps>
-    </HediffDef>
-
-    <AbilityDef>
-        <defName>DE_SpikeThrower</defName>
+    <ThingDef ParentName="BaseGun">
+        <defName>DE_Gun_SpikeThrower</defName>
         <label>spike thrower</label>
         <description>A long-range spike thrower capable of launching high-velocity projectiles.</description>
-        <writeCombatLog>True</writeCombatLog>
-        <iconPath>UI/Abilities/SpikeThrower</iconPath>
-        <showPsycastEffects>False</showPsycastEffects>
-        <cooldownTicksRange>126</cooldownTicksRange>
-        <aiCanUse>true</aiCanUse>
-        <verbProperties>
-            <verbClass>Verb_AbilityShoot</verbClass>
-            <defaultProjectile>DE_SpikeProjectile</defaultProjectile>
-            <range>37</range>
-            <soundCast>Shot_NeedleGun</soundCast>
-            <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-            <warmupTime>2.5</warmupTime>
-            <burstShotCount>2</burstShotCount>
-            <accuracyTouch>0.60</accuracyTouch>
-            <accuracyShort>0.80</accuracyShort>
-            <accuracyMedium>0.90</accuracyMedium>
-            <accuracyLong>0.85</accuracyLong>
-            <ai_IsWeapon>false</ai_IsWeapon>
-        </verbProperties>
-    </AbilityDef>
+        <graphicData>
+            <texPath>Things/Mote/Transparent</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <tradeability>None</tradeability>
+        <destroyOnDrop>true</destroyOnDrop>
+        <relicChance>0</relicChance>
+        <statBases>
+            <MarketValue>0</MarketValue>
+            <Mass>2.6</Mass>
+            <AccuracyTouch>0.60</AccuracyTouch>
+            <AccuracyShort>0.80</AccuracyShort>
+            <AccuracyMedium>0.90</AccuracyMedium>
+            <AccuracyLong>0.85</AccuracyLong>
+            <RangedWeapon_Cooldown>2.1</RangedWeapon_Cooldown>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <defaultProjectile>DE_SpikeProjectile</defaultProjectile>
+                <warmupTime>2.5</warmupTime>
+                <range>37</range>
+                <soundCast>Shot_NeedleGun</soundCast>
+                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                <burstShotCount>2</burstShotCount>
+            </li>
+        </verbs>
+    </ThingDef>
+
 
     <ThingDef ParentName="BaseBullet">
         <defName>DE_SpikeProjectile</defName>

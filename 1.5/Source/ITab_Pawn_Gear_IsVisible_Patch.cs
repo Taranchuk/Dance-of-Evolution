@@ -6,7 +6,8 @@ using RimWorld;
 using Verse;
 namespace DanceOfEvolution
 {
-	[HarmonyPatch(typeof(ITab_Pawn_Gear), "IsVisible", MethodType.Getter)]
+
+    [HarmonyPatch(typeof(ITab_Pawn_Gear), "IsVisible", MethodType.Getter)]
 	public static class ITab_Pawn_Gear_IsVisible_Patch
 	{
 		public static bool IsServantAnimal(Pawn pawn)
