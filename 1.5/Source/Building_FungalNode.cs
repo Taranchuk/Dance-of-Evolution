@@ -1,13 +1,17 @@
-using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
-using RimWorld;
-using Verse;
+using UnityEngine;
+using Verse.Sound;
 
 namespace DanceOfEvolution
 {
-	public class Building_FungalNode : Building_NutrientPasteDispenser, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
+    using System.Collections.Generic;
+    using System.Linq;
+    using HarmonyLib;
+    using RimWorld;
+    using Verse;
+    public class Building_FungalNode : Building_NutrientPasteDispenser, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
 	{
+		private const int MaxNutrition = 100;
 		private ThingOwner<Thing> innerContainer;
 		private StorageSettings settings;
 		private StorageGroup storageGroup;
@@ -34,7 +38,7 @@ namespace DanceOfEvolution
 		bool IStorageGroupMember.DrawStorageTab => true;
 		bool IStorageGroupMember.ShowRenameButton => base.Faction == Faction.OfPlayer;
 		public ThingOwner SearchableContents => innerContainer;
-		public bool depositFood;
+		public bool depositFood = true;
 		public Building_FungalNode()
 		{
 			innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
@@ -88,11 +92,28 @@ namespace DanceOfEvolution
 		}
 		public bool Accepts(Thing t)
 		{
-			return depositFood && GetStoreSettings().AllowedToAccept(t) && innerContainer.CanAcceptAnyOf(t);
+			var nutrition = t.GetStatValue(StatDefOf.Nutrition);
+			if (nutrition <= 0f)
+			{
+				return false;
+			}
+			float currentNutrition = CurrentNutrition();
+			if (currentNutrition + nutrition > MaxNutrition)
+			{
+				return false;
+			}
+			var result = depositFood && GetStoreSettings().AllowedToAccept(t) && innerContainer.CanAcceptAnyOf(t);
+			return result;
 		}
+
+		private float CurrentNutrition()
+		{
+			return StoredItems.Sum(x => x.GetStatValue(StatDefOf.Nutrition) * x.stackCount);
+		}
+
 		public int SpaceRemainingFor(ThingDef _)
 		{
-			return StoredItems.Count() - def.building.maxItemsInCell * def.Size.Area;
+			return (int)(MaxNutrition - CurrentNutrition());
 		}
 
 		public void Notify_SettingsChanged()
@@ -119,6 +140,7 @@ namespace DanceOfEvolution
 			Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
 			Scribe_Deep.Look(ref settings, "settings", this);
 			Scribe_References.Look(ref storageGroup, "storageGroup");
+			Scribe_Values.Look(ref depositFood, "depositFood", true);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -160,19 +182,20 @@ namespace DanceOfEvolution
 		
 		public override ThingDef DispensableDef => DefsOf.DE_FungalSlurry;
 
-		[HarmonyPatch(typeof(Building_NutrientPasteDispenser), "CanDispenseNow", MethodType.Getter)]
-		public static class Building_NutrientPasteDispenser_CanDispenseNow_Patch
-		{
-			public static bool Prefix(ref bool __result, Building_NutrientPasteDispenser __instance)
-			{
-				if (__instance is Building_FungalNode fungalNode)
-				{
-					__result = true;
-					return false;
-				}
-				return true;
-			}
-		}
+
+		//[HarmonyPatch(typeof(Building_NutrientPasteDispenser), "CanDispenseNow", MethodType.Getter)]
+		//public static class Building_NutrientPasteDispenser_CanDispenseNow_Patch
+		//{
+		//	public static bool Prefix(ref bool __result, Building_NutrientPasteDispenser __instance)
+		//	{
+		//		if (__instance is Building_FungalNode fungalNode)
+		//		{
+		//			__result = true;
+		//			return false;
+		//		}
+		//		return true;
+		//	}
+		//}
 
 		[HarmonyPatch(typeof(Alert_PasteDispenserNeedsHopper), "BadDispensers", MethodType.Getter)]
 		public static class Alert_PasteDispenserNeedsHopper_BadDispensers_Patch
@@ -194,6 +217,71 @@ namespace DanceOfEvolution
 					__result = true;
 				}
 			}
+		}
+
+		public override Thing TryDispenseFood()
+		{
+			if (!CanDispenseNow)
+			{
+				return null;
+			}
+
+			float remainingNutrition = def.building.nutritionCostPerDispense - 0.0001f;
+			List<ThingDef> ingredientsList = new List<ThingDef>();
+
+			do
+			{
+				Thing feedItem = FindFeedInAnyHopper();
+				if (feedItem == null)
+				{
+					Log.Error("Did not find enough food in the inner container while trying to dispense.");
+					return null;
+				}
+
+				int numToSplit = Mathf.Min(feedItem.stackCount, Mathf.CeilToInt(remainingNutrition / feedItem.GetStatValue(StatDefOf.Nutrition)));
+				remainingNutrition -= numToSplit * feedItem.GetStatValue(StatDefOf.Nutrition);
+				ingredientsList.Add(feedItem.def);
+				feedItem.SplitOff(numToSplit);
+			}
+			while (remainingNutrition > 0f);
+
+			def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map));
+			Thing meal = ThingMaker.MakeThing(DispensableDef);
+			CompIngredients compIngredients = meal.TryGetComp<CompIngredients>();
+			for (int i = 0; i < ingredientsList.Count; i++)
+			{
+				compIngredients.RegisterIngredient(ingredientsList[i]);
+			}
+			return meal;
+		}
+
+		public override Thing FindFeedInAnyHopper()
+		{
+			foreach (Thing item in innerContainer)
+			{
+				if (IsAcceptableFeedstock(item.def))
+				{
+					return item;
+				}
+			}
+			return null;
+		}
+
+		public override bool HasEnoughFeedstockInHoppers()
+		{
+			float totalNutrition = 0f;
+			foreach (Thing item in innerContainer)
+			{
+				if (IsAcceptableFeedstock(item.def))
+				{
+					totalNutrition += item.stackCount * item.GetStatValue(StatDefOf.Nutrition);
+				}
+				if (totalNutrition >= def.building.nutritionCostPerDispense)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 	}
 }

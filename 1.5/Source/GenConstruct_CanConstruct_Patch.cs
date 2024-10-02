@@ -18,10 +18,6 @@ namespace DanceOfEvolution
 			{
 				p.CheckCanWorkOnIt(t, ref __result);
 			}
-			else
-			{
-				Log.Message(p + " can't construct " + t);
-			}
 		}
 
 		public static void CheckCanWorkOnIt(this Pawn p, Thing t, ref bool __result)
@@ -32,7 +28,6 @@ namespace DanceOfEvolution
 				if (p.IsServant() is false && p.HasFungalNexus() is false)
 				{
 					__result = false;
-					Log.Message(p + " 2 can't construct " + t);
 				}
 			}
 		}
