@@ -86,6 +86,23 @@
                 <showRegenerationStat>true</showRegenerationStat>
             </li>
         </stages>
+        <renderNodeProperties>
+            <li Class="PawnRenderNodeProperties_Overlay">
+                <debugLabel>fungal overlay</debugLabel>
+                <workerClass>DanceOfEvolution.PawnRenderNodeWorker_FungalServant</workerClass>
+                <overlayLayer>Body</overlayLayer>
+                <baseLayer>20</baseLayer>
+                <pawnType>HumanlikeOnly</pawnType>
+            </li>
+            <li>
+                <debugLabel>fungal overlay</debugLabel>
+                <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+                <workerClass>DanceOfEvolution.PawnRenderNodeWorker_FungalServant</workerClass>
+                <overlayLayer>Body</overlayLayer>
+                <baseLayer>20</baseLayer>
+                <pawnType>NonHumanlikeOnly</pawnType>
+            </li>
+        </renderNodeProperties>
     </HediffDef>
 
     <HediffDef ParentName="DE_FungalHediffBase">

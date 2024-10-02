@@ -52,30 +52,30 @@ namespace DanceOfEvolution
 		}
 
 		public override void PostAdd(DamageInfo? dinfo)
-        {
-            base.PostAdd(dinfo);
-            RemoveHediffsImmuneTo();
-            AssignComponents();
-            foreach (var skill in pawn.skills.skills)
-            {
-                skill.Level = 10;
-            }
-        }
+		{
+			base.PostAdd(dinfo);
+			RemoveHediffsImmuneTo();
+			AssignComponents();
+			foreach (var skill in pawn.skills.skills)
+			{
+				skill.Level = 10;
+			}
+		}
 
-        public void AssignComponents()
-        {
-            pawn.needs.AddOrRemoveNeedsAsAppropriate();
-            if (pawn.skills is null)
-            {
-                pawn.skills = new Pawn_SkillTracker(pawn);
-                pawn.story ??= new Pawn_StoryTracker(pawn);
-            }
-            pawn.drafter ??= new Pawn_DraftController(pawn);
-            pawn.equipment ??= new Pawn_EquipmentTracker(pawn);
-            pawn.abilities ??= new Pawn_AbilityTracker(pawn);
-        }
+		public void AssignComponents()
+		{
+			pawn.needs.AddOrRemoveNeedsAsAppropriate();
+			if (pawn.skills is null)
+			{
+				pawn.skills = new Pawn_SkillTracker(pawn);
+				pawn.story ??= new Pawn_StoryTracker(pawn);
+			}
+			pawn.drafter ??= new Pawn_DraftController(pawn);
+			pawn.equipment ??= new Pawn_EquipmentTracker(pawn);
+			pawn.abilities ??= new Pawn_AbilityTracker(pawn);
+		}
 
-        private void RemoveHediffsImmuneTo()
+		private void RemoveHediffsImmuneTo()
 		{
 			List<Hediff> hediffsToRemove = new List<Hediff>();
 
@@ -144,6 +144,13 @@ namespace DanceOfEvolution
 	public class Hediff_ServantGhoul : Hediff_ServantType
 	{
 		public override ServantType ServantType => ServantType.Ghoul;
+
+		public override void PostAdd(DamageInfo? dinfo)
+		{
+			base.PostAdd(dinfo);
+			pawn.mutant = new Pawn_MutantTracker(pawn, DefsOf.DE_FungalGhoul, RotStage.Fresh);
+			pawn.mutant.Turn(clearLord: true);
+		}
 	}
 
 	public class Hediff_ServantStrange : Hediff_ServantType

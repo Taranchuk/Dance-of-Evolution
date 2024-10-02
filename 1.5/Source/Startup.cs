@@ -22,12 +22,12 @@ namespace DanceOfEvolution
 			{
 				var rootNode = thinkTreeDef.thinkRoot;
 				if (rootNode == null || rootNode.subNodes == null) continue;
-				bool inserted = false;
+				//bool inserted = false;
 				int queuedJobNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_QueuedJob));
 				if (queuedJobNodeIndex >= 0)
 				{
 					InsertNodeAt(rootNode.subNodes, queuedJobNodeIndex);
-					inserted = true;
+					//inserted = true;
 				}
 				else
 				{
@@ -37,12 +37,12 @@ namespace DanceOfEvolution
 					if (subtreeNodeIndex >= 0)
 					{
 						InsertNodeAt(rootNode.subNodes, subtreeNodeIndex);
-						inserted = true;
+						//inserted = true;
 					}
 				}
 
-				if (inserted)
-					Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringSafeEnumerable()}");
+				//if (inserted)
+				//	Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringSafeEnumerable()}");
 
 			}
 		}

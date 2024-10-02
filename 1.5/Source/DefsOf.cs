@@ -20,6 +20,8 @@ namespace DanceOfEvolution
 		public static HediffDef DE_BladedLimb, DE_PiercingLimb;
 
 		public static ThingDef DE_Gun_SpikeThrower;
+
+		public static MutantDef DE_FungalGhoul;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

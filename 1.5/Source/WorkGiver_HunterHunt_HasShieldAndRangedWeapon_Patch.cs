@@ -3,8 +3,8 @@ using Verse;
 using HarmonyLib;
 namespace DanceOfEvolution
 {
-    [HarmonyPatch(typeof(WorkGiver_HunterHunt), "HasHuntingWeapon")]
-	public static class WorkGiver_HunterHunt_HasHuntingWeapon_Patch
+    [HarmonyPatch(typeof(WorkGiver_HunterHunt), "HasShieldAndRangedWeapon")]
+	public static class WorkGiver_HunterHunt_HasShieldAndRangedWeapon_Patch
 	{
 		public static bool Prefix(ref bool __result, Pawn p)
 		{

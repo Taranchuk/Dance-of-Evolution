@@ -1,0 +1,101 @@
+<Defs>
+    <MutantDef>
+        <defName>DE_FungalGhoul</defName>
+        <label>fungal ghoul</label>
+        <description>text.todo</description>
+        <hediff>Ghoul</hediff>
+        <thinkTree>Ghoul</thinkTree>
+        <thinkTreeConstant>GhoulConstant</thinkTreeConstant>
+        <showLabel>true</showLabel>
+        <canBleed>false</canBleed>
+        <isImmuneToInfections>true</isImmuneToInfections>
+        <showJobReport>true</showJobReport>
+        <canWearApparel>false</canWearApparel>
+        <canBeDrafted>true</canBeDrafted>
+        <canLearn>true</canLearn>
+        <relativeTurnedThought>BecameGhoul</relativeTurnedThought>
+        <showOnColonistBar>true</showOnColonistBar>
+        <canTravelInCaravan>true</canTravelInCaravan>
+        <respectsAllowedArea>true</respectsAllowedArea>
+        <hasHostilityResponse>true</hasHostilityResponse>
+        <canUseDrugs>true</canUseDrugs>
+        <deathLetter>One of your fungal ghouls has died.</deathLetter>
+        <deathLetterExtra>Unlike regular colonists, fungal ghouls do not need to be buried and their death will not upset others. You may choose to bury them should you wish.</deathLetterExtra>
+        <!-- Sounds -->
+        <soundCall>Pawn_Ghoul_Call</soundCall>
+        <soundAttack>Pawn_Ghoul_Attack</soundAttack>
+        <soundWounded>Pawn_Ghoul_Pain</soundWounded>
+        <soundDeath>Pawn_Ghoul_Killed</soundDeath>
+        <!-- Rendering -->
+        <skinColorOverride>(0.58, 0.62, 0.55)</skinColorOverride>
+        <hairColorOverride>(0.65, 0.65, 0.65)</hairColorOverride>
+        <bodyTypeGraphicPaths>
+            <Male>Things/Pawn/Ghoul/Bodies/Ghoulskin_Male</Male>
+            <Female>Things/Pawn/Ghoul/Bodies/Ghoulskin_Female</Female>
+            <Hulk>Things/Pawn/Ghoul/Bodies/Ghoulskin_Hulk</Hulk>
+            <Fat>Things/Pawn/Ghoul/Bodies/Ghoulskin_Fat</Fat>
+            <Thin>Things/Pawn/Ghoul/Bodies/Ghoulskin_Thin</Thin>
+        </bodyTypeGraphicPaths>
+        <forcedHeadTypes>
+            <li>Ghoul_Normal</li>
+            <li>Ghoul_Heavy</li>
+            <li>Ghoul_Narrow</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">Ghoul_Wide</li>
+        </forcedHeadTypes>
+        <hairTagFilter>
+            <whitelist>true</whitelist>
+            <tags>
+                <li>Ghoul</li>
+            </tags>
+        </hairTagFilter>
+        <beardTagFilter>
+            <whitelist>true</whitelist>
+            <tags>
+                <li>NoBeard</li>
+            </tags>
+        </beardTagFilter>
+
+        <tools>
+            <li>
+                <label>teeth</label>
+                <capacities>
+                    <li>Bite</li>
+                </capacities>
+                <power>8.2</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+                <chanceFactor>0.5</chanceFactor>
+                <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+                <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+            </li>
+            <li>
+                <label>left claw</label>
+                <labelNoLocation>claw</labelNoLocation>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>7.0</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                <chanceFactor>1.5</chanceFactor>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                <soundMeleeHit>Pawn_Ghoul_Scratch</soundMeleeHit>
+                <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+            </li>
+            <li>
+                <label>right claw</label>
+                <labelNoLocation>claw</labelNoLocation>
+                <capacities>
+                    <li>Scratch</li>
+                </capacities>
+                <power>7.0</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                <chanceFactor>1.5</chanceFactor>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                <soundMeleeHit>Pawn_Ghoul_Scratch</soundMeleeHit>
+                <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+            </li>
+        </tools>
+    </MutantDef>
+</Defs>
