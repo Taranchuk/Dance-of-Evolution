@@ -51,4 +51,55 @@ While it is clear the original host remains at least somewhat in control of thei
             <RawFungus>200</RawFungus>
         </costList>
     </ThingDef>
+
+    <ThingDef ParentName="MealBase">
+        <defName>DE_FungalSlurry</defName>
+        <label>fungal slurry</label>
+        <description>text.todo</description>
+        <graphicData>
+            <texPath>Things/Item/Meal/FungalSlurry</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>10</MarketValue>
+            <Nutrition>1</Nutrition>
+        </statBases>
+        <ingestible>
+            <preferability>MealAwful</preferability>
+            <tasteThought>DE_AteFungalSlurry</tasteThought>
+            <ingestEffect>EatVegetarian</ingestEffect>
+            <ingestSound>Meal_Eat</ingestSound>
+        </ingestible>
+        <tradeability>Buyable</tradeability>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>0.75</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThoughtDef>
+        <defName>DE_AteFungalSlurry</defName>
+        <thoughtClass>Thought_FoodEaten</thoughtClass>
+        <showBubble>true</showBubble>
+        <icon>Things/Mote/ThoughtSymbol/Food</icon>
+        <durationDays>1</durationDays>
+        <nullifyingHediffs>
+            <li>DE_ServantSmall</li>
+            <li>DE_ServantMedium</li>
+            <li>DE_ServantLarge</li>
+            <li>DE_ServantGhoul</li>
+            <li>DE_ServantStrange</li>
+            <li>DE_FungalNexus</li>
+        </nullifyingHediffs>
+        <stages>
+            <li>
+                <label>ate a disgusting rotten meal</label>
+                <description>I just ate a meal made from spoiled, rotten food. It was disgusting, I want to puke.</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
 </Defs>
