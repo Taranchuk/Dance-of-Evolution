@@ -200,10 +200,27 @@
         <comps>
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
-                <hediffDef>PsychicInvisibility</hediffDef>
+                <hediffDef>DE_WraithInvisibility</hediffDef>
             </li>
         </comps>
     </AbilityDef>
+
+    <HediffDef>
+        <defName>DE_WraithInvisibility</defName>
+        <label>wraith invisibility</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>Psychically-induced invisibility. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_Invisibility">
+                <visibleToPlayer>true</visibleToPlayer>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
 
     <HediffDef ParentName="DE_FungalHediffBase">
         <defName>DE_FungalTentacle</defName>

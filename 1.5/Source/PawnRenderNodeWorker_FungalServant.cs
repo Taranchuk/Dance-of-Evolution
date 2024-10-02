@@ -5,7 +5,7 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-	public class PawnFungalServantDrawer : PawnOverlayDrawer
+    public class PawnFungalServantDrawer : PawnOverlayDrawer
 	{
 		private const string OverlayTexturePath = "Things/Pawn/FungalOverlay";
 

@@ -22,6 +22,8 @@ namespace DanceOfEvolution
 		public static ThingDef DE_Gun_SpikeThrower;
 
 		public static MutantDef DE_FungalGhoul;
+
+		public static HediffDef DE_WraithInvisibility;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
