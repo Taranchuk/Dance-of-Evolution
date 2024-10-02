@@ -40,7 +40,7 @@ namespace DanceOfEvolution
 				req.shader = material.shader;
 				material = MaterialPool.MatFrom(req);
 				Vector3 vector2 = Rand.InsideUnitCircleVec3 / 2f;
-				int rotation = Rand.Range(0, 360);
+				int rotation = 0;// Rand.Range(0, 360);
 				writeTarget.Add(new DrawCall
 				{
 					overlayMat = material,
