@@ -40,7 +40,32 @@
             <soundDispense>DispensePaste</soundDispense>
             <forceShowRoomStats>true</forceShowRoomStats>
             <destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+      <fixedStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories>
+            <li>Foods</li>
+            <li>Corpses</li>
+          </categories>
+          <disallowedThingDefs>
+                <li>DE_FungalSlurry</li>
+            </disallowedThingDefs>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories>
+            <li>Foods</li>
+            <li>Corpses</li>
+          </categories>
+        </filter>
+      </defaultStorageSettings>
         </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+      <li>DanceOfEvolution.ITab_ContentsFungalNode</li>
+    </inspectorTabs>
         <size>(5,5)</size>
         <costList>
             <RawFungus>125</RawFungus>

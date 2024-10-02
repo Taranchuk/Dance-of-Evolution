@@ -24,6 +24,8 @@ namespace DanceOfEvolution
 		public static MutantDef DE_FungalGhoul;
 
 		public static HediffDef DE_WraithInvisibility;
+
+		public static ThingDef DE_FungalNode;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

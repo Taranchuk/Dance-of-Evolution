@@ -3,4 +3,6 @@
 
 	<DE_Servants>Servants</DE_Servants>
 	<DE_NextBurrowerSpawnIn>Next burrower spawn in {0}</DE_NextBurrowerSpawnIn>
+	<DE_DepositFood>Deposit food</DE_DepositFood>
+	<DE_DepositFoodDesc>Toggle this to allow or forbid food deposits.</DE_DepositFoodDesc>
 </LanguageData>

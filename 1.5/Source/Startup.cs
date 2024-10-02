@@ -13,6 +13,15 @@ namespace DanceOfEvolution
 		{
 			PatchTraders();
 			PatchThinkTreeDefs();
+			DefsOf.DE_FungalNode.building.fixedStorageSettings.filter.disallowedThingDefs.Add(DefsOf.DE_FungalSlurry);
+			foreach (var item in DefsOf.DE_FungalNode.building.fixedStorageSettings.filter.AllowedThingDefs.ToList())
+			{
+				if (item.IsCorpse && item.race.IsMechanoid || item.IsNutritionGivingIngestible is false)
+				{
+					DefsOf.DE_FungalNode.building.fixedStorageSettings.filter.disallowedThingDefs.Add(item);
+					DefsOf.DE_FungalNode.building.fixedStorageSettings.filter.SetAllow(item, false);
+				}
+			}
 		}
 
 		public static void PatchThinkTreeDefs()
