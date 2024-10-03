@@ -4,12 +4,12 @@ using Verse.Sound;
 
 namespace DanceOfEvolution
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using HarmonyLib;
-    using RimWorld;
-    using Verse;
-    public class Building_FungalNode : Building_NutrientPasteDispenser, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
+	using System.Collections.Generic;
+	using System.Linq;
+	using HarmonyLib;
+	using RimWorld;
+	using Verse;
+	public class Building_FungalNode : Building_NutrientPasteDispenser, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
 	{
 		private const int MaxNutrition = 100;
 		private ThingOwner<Thing> innerContainer;
@@ -52,6 +52,14 @@ namespace DanceOfEvolution
 				parent = this
 			};
 			powerComp.powerOnInt = true;
+			foreach (var cell in GenAdj.CellsOccupiedBy(this))
+			{
+				var terrain = cell.GetTerrain(map);
+				if (terrain != DefsOf.DE_RottenSoil)
+				{
+					map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
+				}
+			}
 		}
 
 		public override void PostMake()
@@ -134,6 +142,25 @@ namespace DanceOfEvolution
 			base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
 		}
 
+		public override void Tick()
+		{
+			base.Tick();
+			if (this.IsHashIntervalTick(300))
+			{
+				var cells = GenRadial.RadialCellsAround(Position, 35f, true).Where(x => x.InBounds(Map));
+				foreach (var cell in cells)
+				{
+					var terrain = cell.GetTerrain(Map);
+					if (terrain != DefsOf.DE_RottenSoil)
+					{
+						Map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
+						cell.GetThingList(Map).Where(x => x is Plant plant 
+							&& plant.def.plant.cavePlant is false).ToList().Do(x => x.Destroy());
+						break;
+					}
+				}
+			}
+		}
 		public override void ExposeData()
 		{
 			base.ExposeData();

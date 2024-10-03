@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <TerrainDef>
+        <defName>DE_RottenSoil</defName>
+        <label>rotten soil</label>
+        <texturePath>Things/Terrain/RottenSoil</texturePath>
+        <fertility>1.2</fertility>
+        <takeFootprints>true</takeFootprints>
+        <pathCost>2</pathCost>
+        <edgeType>FadeRough</edgeType>
+        <renderPrecedence>320</renderPrecedence>
+        <layerable>true</layerable>
+        <statBases>
+            <Beauty>-2</Beauty>
+            <Cleanliness>-1</Cleanliness>
+        </statBases>
+        <affordances>
+            <li>Light</li>
+            <li>Medium</li>
+            <li>Heavy</li>
+            <li>GrowSoil</li>
+            <li>Diggable</li>
+        </affordances>
+    </TerrainDef>
+</Defs>

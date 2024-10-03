@@ -11,6 +11,7 @@
         <label>fungal node</label>
         <description>A large fungal node, its mycelium reaches across the ground in an attempt to terraform the terrain to better fit its kin. It converts food into slurry that can be servants can easily process. Despite the fact this organism is sessile, it is by far the one with the most foresight. Using its mycelium it detects any approaching threats and alerts its kin immediately, giving precise detail on each assailant.</description>
         <thingClass>DanceOfEvolution.Building_FungalNode</thingClass>
+        <tickerType>Normal</tickerType>
         <graphicData>
             <texPath>Things/Building/FungalNode</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -74,7 +75,7 @@
         <placeWorkers>
             <li>PlaceWorker_PreventInteractionSpotOverlap</li>
         </placeWorkers>
-        <socialPropernessMatters>true</socialPropernessMatters>
+        <socialPropernessMatters>false</socialPropernessMatters>
         <interactionCellOffset>(0,0,3)</interactionCellOffset>
         <hasInteractionCell>true</hasInteractionCell>
         <uiOrder>2130</uiOrder>

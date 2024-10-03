@@ -5,4 +5,5 @@
 	<DE_NextBurrowerSpawnIn>Next burrower spawn in {0}</DE_NextBurrowerSpawnIn>
 	<DE_DepositFood>Deposit food</DE_DepositFood>
 	<DE_DepositFoodDesc>Toggle this to allow or forbid food deposits.</DE_DepositFoodDesc>
+	<DE_CanOnlyPlantCavePlantsOnRottenSoil>Only fungal plants can grow on rotten soil.</DE_CanOnlyPlantCavePlantsOnRottenSoil>
 </LanguageData>
