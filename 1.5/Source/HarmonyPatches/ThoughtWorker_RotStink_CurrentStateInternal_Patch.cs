@@ -9,9 +9,13 @@ namespace DanceOfEvolution
 	{
 		public static void Postfix(ref ThoughtState __result, Pawn p)
 		{
-			if (p.HasFungalNexus())
+			if (p.IsServant())
 			{
 				__result = ThoughtState.Inactive;
+			}
+			else if (p.Spawned && p.Position.GetTerrain(p.Map) == DefsOf.DE_RottenSoil)
+			{
+				__result = ThoughtState.ActiveAtStage(1);
 			}
 		}
 	}

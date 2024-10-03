@@ -54,7 +54,9 @@
                 <li>NoBeard</li>
             </tags>
         </beardTagFilter>
-
+        <enabledNeeds>
+            <li>Food</li>
+        </enabledNeeds>
         <tools>
             <li>
                 <label>teeth</label>
