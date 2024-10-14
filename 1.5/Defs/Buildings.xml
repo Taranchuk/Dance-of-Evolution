@@ -120,7 +120,7 @@
 	<ThingDef ParentName="DE_SporemakerBase">
 		<defName>DE_Sporemaker</defName>
 		<label>sporemaker</label>
-    <costList>
+    	<costList>
 			<RawFungus>200</RawFungus>
 			<PsychoidLeaves>100</PsychoidLeaves>
 			<ComponentIndustrial>2</ComponentIndustrial>
@@ -134,8 +134,8 @@
 				</fuelFilter>
 				<fuelConsumptionRate>22</fuelConsumptionRate>
 				<fuelCapacity>100</fuelCapacity>
-        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        		<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        		<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
 			</li>
 		</comps>
 	</ThingDef>
@@ -153,8 +153,8 @@
 				</fuelFilter>
 				<fuelConsumptionRate>11</fuelConsumptionRate>
 				<fuelCapacity>100</fuelCapacity>
-        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        		<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        		<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
 			</li>
 		</comps>
 	</ThingDef>
