@@ -31,8 +31,8 @@
         <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
         <stages>
           <li>
-            <label>spores</label>
-            <description>text.todo</description>
+            <label>floating spores</label>
+            <description>Floating spores full of nutrients are hovering near this creature, granting its body the resources it needs to function better.</description>
             <baseMoodEffect>5</baseMoodEffect>
           </li>
         </stages>

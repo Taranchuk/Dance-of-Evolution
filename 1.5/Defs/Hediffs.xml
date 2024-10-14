@@ -423,14 +423,14 @@
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
     </HediffDef>
-
-    <HediffDef ParentName="DE_HangingSporesBase" >
+    
+    <HediffDef ParentName="DE_HangingSporesBase">
         <defName>DE_HangingSporesMood</defName>
         <label>hanging spores (mood)</label>
         <defaultLabelColor>(0, 255, 0)</defaultLabelColor>
     </HediffDef>
 
-    <HediffDef ParentName="DE_HangingSporesBase" >
+    <HediffDef ParentName="DE_HangingSporesBase">
         <defName>DE_HangingSporesConsciousness</defName>
         <label>hanging spores (consciousness)</label>
         <defaultLabelColor>(0, 0, 255)</defaultLabelColor>
@@ -446,10 +446,10 @@
         </stages>
     </HediffDef>
 
-    <HediffDef ParentName="DE_HangingSporesBase" >
+    <HediffDef ParentName="DE_HangingSporesBase">
         <defName>DE_HangingSporesMoving</defName>
         <label>hanging spores (moving)</label>
-        <defaultLabelColor>(255, 0, 0)</defaultLabelColor>
+        <defaultLabelColor>(255, 255, 0)</defaultLabelColor>
         <stages>
             <li>
                 <capMods>
@@ -461,4 +461,5 @@
             </li>
         </stages>
     </HediffDef>
+
 </Defs>
