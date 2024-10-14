@@ -1,14 +1,12 @@
 using System.Linq;
 using UnityEngine;
 using Verse.Sound;
-
+using System.Collections.Generic;
+using HarmonyLib;
+using RimWorld;
+using Verse;
 namespace DanceOfEvolution
 {
-	using System.Collections.Generic;
-	using System.Linq;
-	using HarmonyLib;
-	using RimWorld;
-	using Verse;
 	public class Building_FungalNode : Building_NutrientPasteDispenser, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
 	{
 		private const int MaxNutrition = 100;
@@ -57,8 +55,26 @@ namespace DanceOfEvolution
 				var terrain = cell.GetTerrain(map);
 				if (terrain != DefsOf.DE_RottenSoil)
 				{
-					map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
+					TurnToRottenSoil(cell);
 				}
+			}
+		}
+
+		private void TurnToRottenSoil(IntVec3 cell)
+		{
+			var map = Map;
+			map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
+			var sporeMaker = cell.GetFirstThing(map, DefsOf.DE_Sporemaker) as Building_Sporemaker;
+			if (sporeMaker != null)
+			{
+				sporeMaker.Destroy();
+				var hardenedSporeMaker = (Building_Sporemaker)ThingMaker.MakeThing(DefsOf.DE_HardenedSporemaker);
+				GenSpawn.Spawn(hardenedSporeMaker, sporeMaker.Position, map);
+				hardenedSporeMaker.refuelableComp.fuel = sporeMaker.refuelableComp.fuel;
+				hardenedSporeMaker.sporeHediff = sporeMaker.sporeHediff;
+				hardenedSporeMaker.ticksSwitching = sporeMaker.ticksSwitching;
+				hardenedSporeMaker.SetFactionDirect(sporeMaker.Faction);
+				hardenedSporeMaker.BroadcastCompSignal("CrateContentsChanged");
 			}
 		}
 
@@ -153,7 +169,7 @@ namespace DanceOfEvolution
 					var terrain = cell.GetTerrain(Map);
 					if (terrain != DefsOf.DE_RottenSoil)
 					{
-						Map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
+						TurnToRottenSoil(cell);
 						cell.GetThingList(Map).Where(x => x is Plant plant 
 							&& plant.def.plant.cavePlant is false).ToList().Do(x => x.Destroy());
 						break;

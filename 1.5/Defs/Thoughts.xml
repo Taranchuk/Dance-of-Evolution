@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThoughtDef>
+        <defName>DE_AteFungalSlurry</defName>
+        <thoughtClass>Thought_FoodEaten</thoughtClass>
+        <showBubble>true</showBubble>
+        <icon>Things/Mote/ThoughtSymbol/Food</icon>
+        <durationDays>1</durationDays>
+        <nullifyingHediffs>
+            <li>DE_ServantSmall</li>
+            <li>DE_ServantMedium</li>
+            <li>DE_ServantLarge</li>
+            <li>DE_ServantGhoul</li>
+            <li>DE_ServantStrange</li>
+            <li>DE_FungalNexus</li>
+        </nullifyingHediffs>
+        <stages>
+            <li>
+                <label>ate a disgusting rotten meal</label>
+                <description>I just ate a meal made from spoiled, rotten food. It was disgusting, I want to puke.</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>DE_Spores</defName>
+        <workerClass>DanceOfEvolution.ThoughtWorker_Hediff</workerClass>
+        <hediff>DE_HangingSporesMood</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+          <li>
+            <label>spores</label>
+            <description>text.todo</description>
+            <baseMoodEffect>5</baseMoodEffect>
+          </li>
+        </stages>
+  </ThoughtDef>
+
+</Defs>

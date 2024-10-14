@@ -1,85 +1,162 @@
 <Defs>
-    <ThingDef ParentName="BuildingBase" Name="DE_FungalBuildingBase" Abstract="True">
-        <designationCategory>DE_Fungal</designationCategory>
-        <modExtensions>
-            <li Class="DanceOfEvolution.FungalBuilding"></li>
-        </modExtensions>
-    </ThingDef>
+	<ThingDef ParentName="BuildingBase" Name="DE_FungalBuildingBase" Abstract="True">
+		<designationCategory>DE_Fungal</designationCategory>
+		<modExtensions>
+			<li Class="DanceOfEvolution.FungalBuilding"/>
+		</modExtensions>
+	</ThingDef>
 
-    <ThingDef ParentName="DE_FungalBuildingBase">
-        <defName>DE_FungalNode</defName>
-        <label>fungal node</label>
-        <description>A large fungal node, its mycelium reaches across the ground in an attempt to terraform the terrain to better fit its kin. It converts food into slurry that can be servants can easily process. Despite the fact this organism is sessile, it is by far the one with the most foresight. Using its mycelium it detects any approaching threats and alerts its kin immediately, giving precise detail on each assailant.</description>
-        <thingClass>DanceOfEvolution.Building_FungalNode</thingClass>
-        <tickerType>Normal</tickerType>
-        <graphicData>
-            <texPath>Things/Building/FungalNode</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(5,5)</drawSize>
-            <damageData>
-                <rect>(0.02,0.25,2.96,2.85)</rect>
-                <cornerTL>Damage/Corner</cornerTL>
-                <cornerTR>Damage/Corner</cornerTR>
-            </damageData>
-            <shadowData>
-                <volume>(2.87,0.75,3.05)</volume>
-                <offset>(0,0,0.38)</offset>
-            </shadowData>
-        </graphicData>
-        <altitudeLayer>Building</altitudeLayer>
-        <passability>Impassable</passability>
-        <blockWind>true</blockWind>
-        <fillPercent>1</fillPercent>
-        <statBases>
-            <WorkToBuild>2200</WorkToBuild>
-            <MaxHitPoints>350</MaxHitPoints>
-            <Flammability>0.85</Flammability>
-        </statBases>
-        <building>
-            <isMealSource>true</isMealSource>
-            <nutritionCostPerDispense>2</nutritionCostPerDispense>
-            <soundDispense>DispensePaste</soundDispense>
-            <forceShowRoomStats>true</forceShowRoomStats>
-            <destroySound>BuildingDestroyed_Soft_Medium</destroySound>
-      <fixedStorageSettings>
-        <priority>Important</priority>
-        <filter>
-          <categories>
-            <li>Foods</li>
-            <li>Corpses</li>
-          </categories>
-          <disallowedThingDefs>
-                <li>DE_FungalSlurry</li>
-            </disallowedThingDefs>
-        </filter>
-      </fixedStorageSettings>
-      <defaultStorageSettings>
-        <priority>Important</priority>
-        <filter>
-          <categories>
-            <li>Foods</li>
-            <li>Corpses</li>
-          </categories>
-        </filter>
-      </defaultStorageSettings>
-        </building>
-    <inspectorTabs>
-      <li>ITab_Storage</li>
-      <li>DanceOfEvolution.ITab_ContentsFungalNode</li>
-    </inspectorTabs>
-        <size>(5,5)</size>
-        <costList>
-            <RawFungus>125</RawFungus>
-            <ComponentIndustrial>3</ComponentIndustrial>
-        </costList>
-        <placeWorkers>
-            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
-        </placeWorkers>
-        <socialPropernessMatters>false</socialPropernessMatters>
-        <interactionCellOffset>(0,0,3)</interactionCellOffset>
-        <hasInteractionCell>true</hasInteractionCell>
-        <uiOrder>2130</uiOrder>
-        <designationHotKey>Misc6</designationHotKey>
-        <canOverlapZones>false</canOverlapZones>
-    </ThingDef>
+	<ThingDef ParentName="DE_FungalBuildingBase">
+		<defName>DE_FungalNode</defName>
+		<label>fungal node</label>
+		<description>A large fungal node, its mycelium reaches across the ground in an attempt to terraform the terrain to better fit its kin. It converts food into slurry that can be servants can easily process. Despite the fact this organism is sessile, it is by far the one with the most foresight. Using its mycelium it detects any approaching threats and alerts its kin immediately, giving precise detail on each assailant.</description>
+		<thingClass>DanceOfEvolution.Building_FungalNode</thingClass>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Building/FungalNode</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5,5)</drawSize>
+			<damageData>
+				<rect>(0.02,0.25,2.96,2.85)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+			</damageData>
+			<shadowData>
+				<volume>(2.87,0.75,3.05)</volume>
+				<offset>(0,0,0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<statBases>
+			<WorkToBuild>2200</WorkToBuild>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Flammability>0.85</Flammability>
+		</statBases>
+		<building>
+			<isMealSource>true</isMealSource>
+			<nutritionCostPerDispense>2</nutritionCostPerDispense>
+			<soundDispense>DispensePaste</soundDispense>
+			<forceShowRoomStats>true</forceShowRoomStats>
+			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+			<fixedStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Corpses</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>DE_FungalSlurry</li>
+					</disallowedThingDefs>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+			<li>DanceOfEvolution.ITab_ContentsFungalNode</li>
+		</inspectorTabs>
+		<size>(5,5)</size>
+		<costList>
+			<RawFungus>125</RawFungus>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<interactionCellOffset>(0,0,3)</interactionCellOffset>
+		<hasInteractionCell>true</hasInteractionCell>
+		<uiOrder>2130</uiOrder>
+		<designationHotKey>Misc6</designationHotKey>
+		<canOverlapZones>false</canOverlapZones>
+	</ThingDef>
+
+	<ThingDef ParentName="DE_FungalBuildingBase" Name="DE_SporemakerBase" Abstract="True">
+		<description>Sporemakers are the collective's way of improving themselves even further. By dedicating an entire organism solely to the production of beneficial airborne nutrients, the collective can grow greater yet. Sporemakers can create a variety of spores to help their kin, as long as they are supplied with the right resources.</description>
+		<thingClass>DanceOfEvolution.Building_Sporemaker</thingClass>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Building/Sporemaker</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Beauty>-20</Beauty>
+		</statBases>
+		<building>
+			<forceShowRoomStats>true</forceShowRoomStats>
+			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+		</building>
+		<size>(2,2)</size>
+		<uiOrder>2140</uiOrder>
+		<canOverlapZones>false</canOverlapZones>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>8</glowRadius>
+        <glowColor>(170,170,170,0)</glowColor>
+      </li>
+    </comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="DE_SporemakerBase">
+		<defName>DE_Sporemaker</defName>
+		<label>sporemaker</label>
+    <costList>
+			<RawFungus>200</RawFungus>
+			<PsychoidLeaves>100</PsychoidLeaves>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelFilter>
+					<thingDefs>
+						<li>PsychoidLeaves</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelConsumptionRate>22</fuelConsumptionRate>
+				<fuelCapacity>100</fuelCapacity>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="DE_SporemakerBase">
+		<defName>DE_HardenedSporemaker</defName>
+		<label>hardened sporemaker</label>
+		<designationCategory IsNull="True"/>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelFilter>
+					<thingDefs>
+						<li>PsychoidLeaves</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelConsumptionRate>11</fuelConsumptionRate>
+				<fuelCapacity>100</fuelCapacity>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+			</li>
+		</comps>
+	</ThingDef>
+
 </Defs>

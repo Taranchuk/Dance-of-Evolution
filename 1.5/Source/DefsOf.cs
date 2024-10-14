@@ -24,11 +24,12 @@ namespace DanceOfEvolution
 		public static MutantDef DE_FungalGhoul;
 
 		public static HediffDef DE_WraithInvisibility;
-
 		public static ThingDef DE_FungalNode;
-
 		public static TerrainDef DE_RottenSoil;
-		static DefsOf()
+		public static ThingDef DE_Sporemaker, DE_HardenedSporemaker;
+		public static HediffDef DE_HangingSporesMood, DE_HangingSporesConsciousness, DE_HangingSporesMoving;
+		public static JobDef DE_ConsumeSpores;
+        static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

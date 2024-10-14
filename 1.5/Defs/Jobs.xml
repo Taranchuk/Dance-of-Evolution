@@ -5,4 +5,11 @@
         <driverClass>DanceOfEvolution.JobDriver_InfectCorpse</driverClass>
         <reportString>infecting TargetA.</reportString>
     </JobDef>
+
+    <JobDef>
+        <defName>DE_ConsumeSpores</defName>
+        <label>consuming spores</label>
+        <driverClass>DanceOfEvolution.JobDriver_ConsumeSpores</driverClass>
+        <reportString>consuming spores from TargetA.</reportString>
+    </JobDef>
 </Defs>

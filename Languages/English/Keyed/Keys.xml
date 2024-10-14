@@ -6,4 +6,6 @@
 	<DE_DepositFood>Deposit food</DE_DepositFood>
 	<DE_DepositFoodDesc>Toggle this to allow or forbid food deposits.</DE_DepositFoodDesc>
 	<DE_CanOnlyPlantCavePlantsOnRottenSoil>Only fungal plants can grow on rotten soil.</DE_CanOnlyPlantCavePlantsOnRottenSoil>
+	<DE_SporeMode>Spore mode: {0}</DE_SporeMode>
+	<DE_SporeModeDesc>Click to toggle between spore modes. Switching between modes takes a day. Current mode: {0}\n\n{1}</DE_SporeModeDesc>
 </LanguageData>

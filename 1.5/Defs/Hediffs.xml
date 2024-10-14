@@ -412,4 +412,53 @@
             </li>
         </comps>
     </HediffDef>
+
+    <HediffDef ParentName="DE_FungalHediffBase" Name="DE_HangingSporesBase" Abstract="True">
+        <description>Floating spores full of nutrients are hovering near this creature, granting its body the resources it needs to function better.</description>
+        <initialSeverity>0.01</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_HangingSporesBase" >
+        <defName>DE_HangingSporesMood</defName>
+        <label>hanging spores (mood)</label>
+        <defaultLabelColor>(0, 255, 0)</defaultLabelColor>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_HangingSporesBase" >
+        <defName>DE_HangingSporesConsciousness</defName>
+        <label>hanging spores (consciousness)</label>
+        <defaultLabelColor>(0, 0, 255)</defaultLabelColor>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.2</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_HangingSporesBase" >
+        <defName>DE_HangingSporesMoving</defName>
+        <label>hanging spores (moving)</label>
+        <defaultLabelColor>(255, 0, 0)</defaultLabelColor>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>0.5</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
 </Defs>

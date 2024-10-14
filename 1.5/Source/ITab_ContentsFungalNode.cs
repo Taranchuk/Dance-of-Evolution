@@ -4,7 +4,7 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    public class ITab_ContentsFungalNode : ITab_ContentsBase
+	public class ITab_ContentsFungalNode : ITab_ContentsBase
 	{
 		private List<Thing> listInt = new List<Thing>();
 

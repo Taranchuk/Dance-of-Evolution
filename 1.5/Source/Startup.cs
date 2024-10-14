@@ -84,6 +84,7 @@ namespace DanceOfEvolution
 				newNode.subNodes.Insert(0, new JobGiver_ReactToCloseMeleeThreat());
 			}
 			subNodes.Insert(index, newNode);
+			subNodes.Insert(index + 1, new JobGiver_ConsumeSpores());
 		}
 
 		private static void PatchTraders()

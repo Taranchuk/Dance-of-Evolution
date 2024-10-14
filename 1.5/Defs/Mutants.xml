@@ -14,7 +14,6 @@
         <canBeDrafted>true</canBeDrafted>
         <canLearn>true</canLearn>
         <relativeTurnedThought>BecameGhoul</relativeTurnedThought>
-        <showOnColonistBar>true</showOnColonistBar>
         <canTravelInCaravan>true</canTravelInCaravan>
         <respectsAllowedArea>true</respectsAllowedArea>
         <hasHostilityResponse>true</hasHostilityResponse>
