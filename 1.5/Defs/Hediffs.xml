@@ -358,7 +358,6 @@
         </verbs>
     </ThingDef>
 
-
     <ThingDef ParentName="BaseBullet">
         <defName>DE_SpikeProjectile</defName>
         <label>spike</label>
@@ -423,7 +422,7 @@
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
     </HediffDef>
-    
+
     <HediffDef ParentName="DE_HangingSporesBase">
         <defName>DE_HangingSporesMood</defName>
         <label>hanging spores (mood)</label>

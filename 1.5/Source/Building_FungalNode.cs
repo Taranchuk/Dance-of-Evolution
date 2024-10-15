@@ -7,6 +7,7 @@ using RimWorld;
 using Verse;
 namespace DanceOfEvolution
 {
+
 	public class Building_FungalNode : Building_NutrientPasteDispenser, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
 	{
 		private const int MaxNutrition = 100;
@@ -76,6 +77,7 @@ namespace DanceOfEvolution
 				hardenedSporeMaker.SetFactionDirect(sporeMaker.Faction);
 				hardenedSporeMaker.BroadcastCompSignal("CrateContentsChanged");
 			}
+			var cerebrum = cell.GetFirstThing(map, DefsOf.DE_Cerebrum) as Building_Cerebrum;
 		}
 
 		public override void PostMake()
@@ -170,7 +172,7 @@ namespace DanceOfEvolution
 					if (terrain != DefsOf.DE_RottenSoil)
 					{
 						TurnToRottenSoil(cell);
-						cell.GetThingList(Map).Where(x => x is Plant plant 
+						cell.GetThingList(Map).Where(x => x is Plant plant
 							&& plant.def.plant.cavePlant is false).ToList().Do(x => x.Destroy());
 						break;
 					}
@@ -196,7 +198,7 @@ namespace DanceOfEvolution
 					yield return gizmo;
 				}
 			}
-			
+
 			yield return new Command_Toggle
 			{
 				defaultLabel = "DE_DepositFood".Translate(),
@@ -222,7 +224,7 @@ namespace DanceOfEvolution
 		{
 			ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
 		}
-		
+
 		public override ThingDef DispensableDef => DefsOf.DE_FungalSlurry;
 
 

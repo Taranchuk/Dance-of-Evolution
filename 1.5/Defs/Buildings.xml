@@ -97,10 +97,10 @@
 		<blockWind>true</blockWind>
 		<fillPercent>1</fillPercent>
 		<statBases>
-      <MaxHitPoints>300</MaxHitPoints>
-      <WorkToBuild>2500</WorkToBuild>
-      <Flammability>1.0</Flammability>
-      <Beauty>-20</Beauty>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>2500</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>-20</Beauty>
 		</statBases>
 		<building>
 			<forceShowRoomStats>true</forceShowRoomStats>
@@ -109,18 +109,18 @@
 		<size>(2,2)</size>
 		<uiOrder>2140</uiOrder>
 		<canOverlapZones>false</canOverlapZones>
-    <comps>
-      <li Class="CompProperties_Glower">
-        <glowRadius>8</glowRadius>
-        <glowColor>(3, 202, 252, 0)</glowColor>
-      </li>
-    </comps>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>8</glowRadius>
+				<glowColor>(3, 202, 252, 0)</glowColor>
+			</li>
+		</comps>
 	</ThingDef>
-	
+
 	<ThingDef ParentName="DE_SporemakerBase">
 		<defName>DE_Sporemaker</defName>
 		<label>sporemaker</label>
-    	<costList>
+		<costList>
 			<RawFungus>200</RawFungus>
 			<PsychoidLeaves>100</PsychoidLeaves>
 			<ComponentIndustrial>2</ComponentIndustrial>
@@ -134,12 +134,12 @@
 				</fuelFilter>
 				<fuelConsumptionRate>22</fuelConsumptionRate>
 				<fuelCapacity>100</fuelCapacity>
-        		<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-        		<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
 			</li>
 		</comps>
 	</ThingDef>
-	
+
 	<ThingDef ParentName="DE_SporemakerBase">
 		<defName>DE_HardenedSporemaker</defName>
 		<label>hardened sporemaker</label>
@@ -153,10 +153,73 @@
 				</fuelFilter>
 				<fuelConsumptionRate>11</fuelConsumptionRate>
 				<fuelCapacity>100</fuelCapacity>
-        		<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-        		<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
 			</li>
 		</comps>
 	</ThingDef>
 
+	<ThingDef ParentName="DE_FungalBuildingBase" Name="DE_Cerebrum">
+		<defName>DE_Cerebrum</defName>
+		<label>cerebrum</label>
+		<description>Cerebrums are biological computers that spend all of the nutrients fed to them thinking of every possibility that has not been thought of yet. They calculate odds, simulate scenarios, and strategize battle plans. Once a cerebrum has finished its growth, it will become unable to think of new thoughts, endlessly recalculating the same simulations. At this stage, a nexus may harvest them to obtain a glimpse of their knowledge.</description>
+		<thingClass>DanceOfEvolution.Building_Cerebrum</thingClass>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Building/Cerebrum</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<statBases>
+			<WorkToBuild>4000</WorkToBuild>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<building>
+			<isMealSource>false</isMealSource>
+			<forceShowRoomStats>true</forceShowRoomStats>
+			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+			<fixedStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Corpses</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>DE_FungalSlurry</li>
+					</disallowedThingDefs>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<size>(4,4)</size>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
+		<costList>
+			<RawFungus>400</RawFungus>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+	</ThingDef>
+
+	<ThingDef ParentName="DE_Cerebrum">
+		<defName>DE_HardenedCerebrum</defName>
+		<label>hardened cerebrum</label>
+		<graphicData>
+			<texPath>Things/Building/HardenedCerebrum</texPath>
+		</graphicData>
+	</ThingDef>
 </Defs>
