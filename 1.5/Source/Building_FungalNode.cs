@@ -157,17 +157,7 @@ namespace DanceOfEvolution
 				base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
 			}
 		}
-
-		public void Notify_ItemAdded(Thing item)
-		{
-			base.MapHeld.listerHaulables.Notify_AddedThing(item);
-		}
-
-		public void Notify_ItemRemoved(Thing item)
-		{
-			base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
-		}
-
+		
 		public override void Tick()
 		{
 			base.Tick();

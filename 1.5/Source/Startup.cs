@@ -10,21 +10,28 @@ namespace DanceOfEvolution
 	public static class Startup
 	{
 		static Startup()
-		{
-			PatchTraders();
-			PatchThinkTreeDefs();
-			DefsOf.DE_FungalNode.building.fixedStorageSettings.filter.disallowedThingDefs.Add(DefsOf.DE_FungalSlurry);
-			foreach (var item in DefsOf.DE_FungalNode.building.fixedStorageSettings.filter.AllowedThingDefs.ToList())
-			{
-				if (item.IsCorpse && item.race.IsMechanoid || item.IsNutritionGivingIngestible is false)
-				{
-					DefsOf.DE_FungalNode.building.fixedStorageSettings.filter.disallowedThingDefs.Add(item);
-					DefsOf.DE_FungalNode.building.fixedStorageSettings.filter.SetAllow(item, false);
-				}
-			}
+        {
+            PatchTraders();
+            PatchThinkTreeDefs();
+			ChangeStorageSettings(DefsOf.DE_FungalNode);
+			ChangeStorageSettings(DefsOf.DE_Cerebrum);
+			ChangeStorageSettings(DefsOf.DE_HardenedCerebrum);
 		}
 
-		public static void PatchThinkTreeDefs()
+		private static void ChangeStorageSettings(ThingDef def)
+        {
+			def.building.fixedStorageSettings.filter.disallowedThingDefs.Add(DefsOf.DE_FungalSlurry);
+            foreach (var item in def.building.fixedStorageSettings.filter.AllowedThingDefs.ToList())
+            {
+                if (item.IsCorpse && item.race.IsMechanoid || item.IsNutritionGivingIngestible is false)
+                {
+                    def.building.fixedStorageSettings.filter.disallowedThingDefs.Add(item);
+                    def.building.fixedStorageSettings.filter.SetAllow(item, false);
+                }
+            }
+        }
+
+        public static void PatchThinkTreeDefs()
 		{
 			var thinkTreeDefs = DefDatabase<ThinkTreeDef>.AllDefsListForReading;
 			foreach (var thinkTreeDef in thinkTreeDefs)

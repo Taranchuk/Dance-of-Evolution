@@ -10,8 +10,8 @@ namespace DanceOfEvolution
 	{
 		private int timer = 0;
 		public List<Pawn> servants = new();
-		public int MaxServants => 4;
-		
+		public int MaxServants => 4 + servantCountOffset;
+		public int servantCountOffset;
 		public int TotalServantsCount
 		{
 			get
@@ -100,6 +100,7 @@ namespace DanceOfEvolution
 			base.ExposeData();
 			Scribe_Collections.Look(ref servants, "servants", LookMode.Reference);
 			Scribe_Values.Look(ref timer, "timer");
+			Scribe_Values.Look(ref servantCountOffset, "servantCountOffset");
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				servants ??= new();

@@ -19,7 +19,10 @@ namespace DanceOfEvolution
 			}
 			return false;
 		}
-
+		public static Hediff_FungalNexus GetFungalNexus(this Pawn pawn)
+		{
+			return pawn.health.hediffSet.GetFirstHediff<Hediff_FungalNexus>();
+		}
 		public static bool HasFungalNexus(this Pawn pawn)
 		{
 			return pawn.IsFungalNexus(out _);
@@ -32,7 +35,7 @@ namespace DanceOfEvolution
 	
 		public static bool IsFungalNexus(this Pawn pawn, out Hediff_FungalNexus fungalNexus)
 		{
-			fungalNexus = pawn.health.hediffSet.GetFirstHediff<Hediff_FungalNexus>();
+			fungalNexus = pawn.GetFungalNexus();
 			return fungalNexus != null;
 		}
 

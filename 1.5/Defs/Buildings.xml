@@ -175,9 +175,9 @@
 		<blockWind>true</blockWind>
 		<fillPercent>1</fillPercent>
 		<statBases>
-			<WorkToBuild>4000</WorkToBuild>
-			<MaxHitPoints>500</MaxHitPoints>
-			<Flammability>0.5</Flammability>
+			<WorkToBuild>14000</WorkToBuild>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>0.85</Flammability>
 		</statBases>
 		<building>
 			<isMealSource>false</isMealSource>
@@ -213,13 +213,12 @@
 			<RawFungus>400</RawFungus>
 			<ComponentIndustrial>3</ComponentIndustrial>
 		</costList>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 	</ThingDef>
 
 	<ThingDef ParentName="DE_Cerebrum">
 		<defName>DE_HardenedCerebrum</defName>
 		<label>hardened cerebrum</label>
-		<graphicData>
-			<texPath>Things/Building/HardenedCerebrum</texPath>
-		</graphicData>
+		<designationCategory IsNull="True"/>
 	</ThingDef>
 </Defs>

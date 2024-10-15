@@ -12,4 +12,11 @@
         <driverClass>DanceOfEvolution.JobDriver_ConsumeSpores</driverClass>
         <reportString>consuming spores from TargetA.</reportString>
     </JobDef>
+
+        <JobDef>
+        <defName>DE_HarvestCerebrum</defName>
+        <label>harvest cerebrum</label>
+        <driverClass>DanceOfEvolution.JobDriver_HarvestCerebrum</driverClass>
+        <reportString>harvesting TargetA.</reportString>
+    </JobDef>
 </Defs>

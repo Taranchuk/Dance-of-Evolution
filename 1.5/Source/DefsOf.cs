@@ -30,6 +30,7 @@ namespace DanceOfEvolution
 		public static ThingDef DE_Cerebrum, DE_HardenedCerebrum;
 		public static HediffDef DE_HangingSporesMood, DE_HangingSporesConsciousness, DE_HangingSporesMoving;
 		public static JobDef DE_ConsumeSpores;
+		public static JobDef DE_HarvestCerebrum;
         static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
