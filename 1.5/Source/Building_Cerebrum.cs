@@ -2,6 +2,8 @@ using System.Linq;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
+using UnityEngine;
+using System.Text;
 namespace DanceOfEvolution
 {
 	public class Building_Cerebrum : Building, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
@@ -10,7 +12,6 @@ namespace DanceOfEvolution
 		private ThingOwner<Thing> innerContainer;
 		private StorageSettings settings;
 		private StorageGroup storageGroup;
-		public IEnumerable<Thing> StoredItems => innerContainer.InnerListForReading;
 		public bool StorageTabVisible => true;
 		StorageGroup IStorageGroupMember.Group
 		{
@@ -88,15 +89,10 @@ namespace DanceOfEvolution
 			var result = GetStoreSettings().AllowedToAccept(t) && innerContainer.CanAcceptAnyOf(t);
 			return result;
 		}
-
-		private float CurrentNutrition()
-		{
-			return StoredItems.Sum(x => x.GetStatValue(StatDefOf.Nutrition) * x.stackCount);
-		}
-
+		
 		public int SpaceRemainingFor(ThingDef _)
 		{
-			return (int)(100 - CurrentNutrition());
+			return growth < 1 ? int.MaxValue : 0;
 		}
 
 		public void Notify_SettingsChanged()
@@ -106,12 +102,14 @@ namespace DanceOfEvolution
 				base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
 			}
 		}
-
+		public const float NutritionToGrowth = 1.5f;
 		public void Notify_ItemAdded(Thing item)
 		{
 			base.MapHeld.listerHaulables.Notify_AddedThing(item);
+			var nutrition = item.GetStatValue(StatDefOf.Nutrition) * item.stackCount;
+			growth += nutrition / NutritionToGrowth;
+			growth = Mathf.Clamp01(growth);
 		}
-
 		public void Notify_ItemRemoved(Thing item)
 		{
 			base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
@@ -131,6 +129,35 @@ namespace DanceOfEvolution
 		public void GetChildHolders(List<IThingHolder> outChildren)
 		{
 			ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
+		}
+		const int DaysToMatureFully = 120;
+		public override void Tick()
+		{
+			base.Tick();
+			int totalTicksToMature = GenDate.TicksPerDay * DaysToMatureFully;
+			float growthPerTick = 1f / totalTicksToMature;
+			growth += growthPerTick;
+			if (growth > 1f)
+			{
+				growth = 1f;
+			}
+		}
+
+		public override string GetInspectString()
+		{
+			var sb = new StringBuilder(base.GetInspectString());
+			if (growth < 1)
+			{
+				int totalTicksToMature = GenDate.TicksPerDay * DaysToMatureFully;
+				float remainingGrowth = 1f - growth;
+				int remainingTicks = Mathf.CeilToInt(totalTicksToMature * remainingGrowth);
+				sb.AppendLine("DE_PeriodUntilMaturity".Translate(remainingTicks.ToStringTicksToPeriod()));
+			}
+			else
+			{
+				sb.AppendLine("DE_Mature".Translate());
+			}
+			return sb.ToString().TrimEndNewlines();
 		}
 
 		public override void ExposeData()

@@ -78,6 +78,14 @@ namespace DanceOfEvolution
 				hardenedSporeMaker.BroadcastCompSignal("CrateContentsChanged");
 			}
 			var cerebrum = cell.GetFirstThing(map, DefsOf.DE_Cerebrum) as Building_Cerebrum;
+			if (cerebrum != null)
+			{
+				cerebrum.Destroy();
+				var hardenedCerebrum = (Building_Cerebrum)ThingMaker.MakeThing(DefsOf.DE_HardenedCerebrum);
+				GenSpawn.Spawn(hardenedCerebrum, cerebrum.Position, map);
+				hardenedCerebrum.growth = cerebrum.growth;
+				hardenedCerebrum.SetFactionDirect(cerebrum.Faction);
+			}
 		}
 
 		public override void PostMake()
@@ -118,7 +126,7 @@ namespace DanceOfEvolution
 		}
 		public bool Accepts(Thing t)
 		{
-			var nutrition = t.GetStatValue(StatDefOf.Nutrition);
+			var nutrition = t.GetStatValue(StatDefOf.Nutrition) * t.stackCount;
 			if (nutrition <= 0f)
 			{
 				return false;
