@@ -66,6 +66,7 @@
         <label>fungal nexus</label>
         <description>Transformed into a Fungal Nexus.</description>
         <hediffClass>DanceOfEvolution.Hediff_FungalNexus</hediffClass>
+        <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
         <stages>
             <li>
                 <statOffsets>
@@ -84,6 +85,9 @@
                 <painFactor>0</painFactor>
                 <regeneration>10</regeneration>
                 <showRegenerationStat>true</showRegenerationStat>
+                <statFactors>
+                    <FilthRate>0</FilthRate>
+                </statFactors>
             </li>
         </stages>
         <renderNodeProperties>

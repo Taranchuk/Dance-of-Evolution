@@ -78,7 +78,8 @@
                             <subNodes>
                                 <li Class="DanceOfEvolution.JobGiver_DoWork">
                                     <workTypes>
-                                        <li>Construction</li>
+                                        <li>Growing</li>
+                                        <li>PlantCutting</li>
                                     </workTypes>
                                 </li>
                             </subNodes>
