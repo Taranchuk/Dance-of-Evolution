@@ -9,7 +9,7 @@ While it is clear the original host remains at least somewhat in control of thei
         </descriptionHyperlinks>
         <graphicData>
             <texPath>Things/Item/Drug/NexusBurgeon</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
+            <graphicClass>Graphic_StackCount</graphicClass>
             <drawSize>1</drawSize>
         </graphicData>
         <rotatable>false</rotatable>
