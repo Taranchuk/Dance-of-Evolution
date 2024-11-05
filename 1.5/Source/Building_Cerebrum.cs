@@ -122,7 +122,7 @@ namespace DanceOfEvolution
 		{
 			return innerContainer;
 		}
-
+		
 		public bool Accepts(Thing t)
 		{
 			var nutrition = t.GetStatValue(StatDefOf.Nutrition);
@@ -159,9 +159,7 @@ namespace DanceOfEvolution
 			{
 				nutrition *= 2;
 			}
-			Log.Message($"Nutrition: {nutrition}");
 			growth += nutrition / NutritionToGrowth;
-			Log.Message($"Growth: {growth}");
 			growth = Mathf.Clamp01(growth);
 			item.Destroy();
 		}

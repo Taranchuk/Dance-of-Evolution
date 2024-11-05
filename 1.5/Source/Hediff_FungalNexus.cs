@@ -29,6 +29,7 @@ namespace DanceOfEvolution
 			}
 			servants = new();
 			timer = 0;
+			pawn.story.headType = DefsOf.TimelessOne;
 		}
 
 		public override void PostTick()

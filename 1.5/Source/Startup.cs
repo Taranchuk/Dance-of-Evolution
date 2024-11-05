@@ -10,40 +10,41 @@ namespace DanceOfEvolution
 	public static class Startup
 	{
 		static Startup()
-        {
-            PatchTraders();
-            PatchThinkTreeDefs();
+		{
+			PatchTraders();
+			PatchThinkTreeDefs();
 			ChangeStorageSettings(DefsOf.DE_FungalNode);
 			ChangeStorageSettings(DefsOf.DE_Cerebrum);
 			ChangeStorageSettings(DefsOf.DE_HardenedCerebrum);
 		}
 
 		private static void ChangeStorageSettings(ThingDef def)
-        {
+		{
 			def.building.fixedStorageSettings.filter.disallowedThingDefs.Add(DefsOf.DE_FungalSlurry);
-            foreach (var item in def.building.fixedStorageSettings.filter.AllowedThingDefs.ToList())
-            {
-                if (item.IsCorpse && item.race.IsMechanoid || item.IsNutritionGivingIngestible is false)
-                {
-                    def.building.fixedStorageSettings.filter.disallowedThingDefs.Add(item);
-                    def.building.fixedStorageSettings.filter.SetAllow(item, false);
-                }
-            }
-        }
+			foreach (var item in def.building.fixedStorageSettings.filter.AllowedThingDefs.ToList())
+			{
+				if (item.IsCorpse && item.race.IsMechanoid || item.IsNutritionGivingIngestible is false)
+				{
+					def.building.fixedStorageSettings.filter.disallowedThingDefs.Add(item);
+					def.building.fixedStorageSettings.filter.SetAllow(item, false);
+				}
+			}
+		}
 
-        public static void PatchThinkTreeDefs()
+		public static void PatchThinkTreeDefs()
 		{
 			var thinkTreeDefs = DefDatabase<ThinkTreeDef>.AllDefsListForReading;
 			foreach (var thinkTreeDef in thinkTreeDefs)
 			{
+				if (thinkTreeDef.defName == "Downed") continue;
 				var rootNode = thinkTreeDef.thinkRoot;
 				if (rootNode == null || rootNode.subNodes == null) continue;
-				//bool inserted = false;
+				bool inserted = false;
 				int queuedJobNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_QueuedJob));
 				if (queuedJobNodeIndex >= 0)
 				{
 					InsertNodeAt(rootNode.subNodes, queuedJobNodeIndex);
-					//inserted = true;
+					inserted = true;
 				}
 				else
 				{
@@ -53,7 +54,7 @@ namespace DanceOfEvolution
 					if (subtreeNodeIndex >= 0)
 					{
 						InsertNodeAt(rootNode.subNodes, subtreeNodeIndex);
-						//inserted = true;
+						inserted = true;
 					}
 				}
 
@@ -91,7 +92,7 @@ namespace DanceOfEvolution
 				newNode.subNodes.Insert(0, new JobGiver_ReactToCloseMeleeThreat());
 			}
 			subNodes.Insert(index, newNode);
-			subNodes.Insert(index + 1, new JobGiver_ConsumeSpores());
+			subNodes.Insert(index + 2, new JobGiver_ConsumeSpores());
 		}
 
 		private static void PatchTraders()

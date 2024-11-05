@@ -163,7 +163,8 @@ namespace DanceOfEvolution
 			base.Tick();
 			if (this.IsHashIntervalTick(300))
 			{
-				var cells = GenRadial.RadialCellsAround(Position, 35f, true).Where(x => x.InBounds(Map));
+				var cells = Map.AllCells.Where(x => x.InBounds(Map) && x.DistanceTo(Position) <= 70f)
+				.OrderBy(x => x.DistanceTo(Position)).ToList();
 				foreach (var cell in cells)
 				{
 					var terrain = cell.GetTerrain(Map);
