@@ -8,7 +8,7 @@ namespace DanceOfEvolution
 	{
 		public override Job TryGiveJob(Pawn pawn)
 		{
-			if (pawn.IsServant() || pawn.HasFungalNexus())
+			if (pawn.IsControllableServant() || pawn.HasFungalNexus())
 			{
 				var sporeMakers = pawn.Map.listerThings.ThingsOfDef(DefsOf.DE_Sporemaker)
 					.Concat(pawn.Map.listerThings.ThingsOfDef(DefsOf.DE_HardenedSporemaker)).Cast<Building_Sporemaker>();
