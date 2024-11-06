@@ -53,10 +53,17 @@
         <label>burrower</label>
         <race>DE_Burrower</race>
         <combatPower>5</combatPower>
+        <alternateGraphicChance>0.99</alternateGraphicChance>
+        <alternateGraphics>
+          <li><texPath>Things/Pawn/Animal/Burrower/Burrower1</texPath></li>
+          <li><texPath>Things/Pawn/Animal/Burrower/Burrower2</texPath></li>
+          <li><texPath>Things/Pawn/Animal/Burrower/Burrower3</texPath></li>
+          <li><texPath>Things/Pawn/Animal/Burrower/Burrower4</texPath></li>
+        </alternateGraphics>
         <lifeStages>
             <li>
                 <bodyGraphicData>
-                    <texPath>Things/Pawn/Animal/Burrower/Burrower</texPath>
+                    <texPath>Things/Pawn/Animal/Burrower/Burrower1</texPath>
                     <drawSize>1</drawSize>
                 </bodyGraphicData>
             </li>

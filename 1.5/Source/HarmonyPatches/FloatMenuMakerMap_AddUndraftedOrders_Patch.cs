@@ -7,7 +7,7 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    [HarmonyPatch(typeof(FloatMenuMakerMap), "AddUndraftedOrders")]
+	[HarmonyPatch(typeof(FloatMenuMakerMap), "AddUndraftedOrders")]
 	public static class FloatMenuMakerMap_AddUndraftedOrders_Patch
 	{
 		[HarmonyPriority(Priority.First)]

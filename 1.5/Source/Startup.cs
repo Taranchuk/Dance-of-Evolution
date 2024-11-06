@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -40,28 +41,54 @@ namespace DanceOfEvolution
 				var rootNode = thinkTreeDef.thinkRoot;
 				if (rootNode == null || rootNode.subNodes == null) continue;
 				bool inserted = false;
-				int queuedJobNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_QueuedJob));
-				if (queuedJobNodeIndex >= 0)
+				int isColonist = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_ConditionalColonist));
+				if (isColonist >= 0)
 				{
-					InsertNodeAt(rootNode.subNodes, queuedJobNodeIndex);
+					rootNode.subNodes.Insert(isColonist + 1, new JobGiver_ConsumeSpores());
 					inserted = true;
 				}
 				else
 				{
-					int subtreeNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_Subtree) &&
-						(node as ThinkNode_Subtree)?.treeDef.defName == "LordDuty");
-
-					if (subtreeNodeIndex >= 0)
+					int queuedJobNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_QueuedJob));
+					if (queuedJobNodeIndex >= 0)
 					{
-						InsertNodeAt(rootNode.subNodes, subtreeNodeIndex);
+						InsertNodeAt(rootNode.subNodes, queuedJobNodeIndex);
 						inserted = true;
+					}
+					else
+					{
+						int subtreeNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_Subtree) &&
+							(node as ThinkNode_Subtree)?.treeDef.defName == "LordDuty");
+
+						if (subtreeNodeIndex >= 0)
+						{
+							InsertNodeAt(rootNode.subNodes, subtreeNodeIndex);
+							inserted = true;
+						}
 					}
 				}
 
-				//if (inserted)
-				//	Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringSafeEnumerable()}");
+				if (inserted)
+					Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringHuman()}");
 
 			}
+		}
+		
+		public static string ToStringHuman(this List<ThinkNode> nodes)
+		{
+			var sb = new StringBuilder();
+			foreach (var item in nodes)
+			{
+				if (item is ThinkNode_Subtree subtree)
+				{
+					sb.AppendWithComma(subtree + " - " + subtree.treeDef);
+				}
+				else
+				{
+					sb.AppendWithComma(item.ToString());
+				}
+			}
+			return sb.ToString().TrimEndNewlines();
 		}
 
 		private static void InsertNodeAt(List<ThinkNode> subNodes, int index)

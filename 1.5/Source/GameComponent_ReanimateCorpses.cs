@@ -24,9 +24,10 @@ namespace DanceOfEvolution
 			{
 				InfectedCorpse infectedCorpse = infectedCorpses[i];
 				Corpse corpse = infectedCorpse.corpse;
-				if (corpse.Destroyed || !corpse.Spawned)
+				if (corpse.Destroyed)
 				{
 					infectedCorpses.RemoveAt(i);
+					Log.Message("Destroying " + corpse);
 				}
 				else
 				{

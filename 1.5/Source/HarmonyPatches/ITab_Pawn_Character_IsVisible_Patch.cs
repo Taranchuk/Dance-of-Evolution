@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 namespace DanceOfEvolution
 {
-    [HarmonyPatch(typeof(ITab_Pawn_Character), "IsVisible", MethodType.Getter)]
+	[HarmonyPatch(typeof(ITab_Pawn_Character), "IsVisible", MethodType.Getter)]
 	public static class ITab_Pawn_Character_IsVisible_Patch
 	{
 		public static void Postfix(ITab_Pawn_Character __instance, ref bool __result)

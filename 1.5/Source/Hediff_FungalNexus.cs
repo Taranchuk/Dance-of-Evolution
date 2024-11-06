@@ -30,6 +30,12 @@ namespace DanceOfEvolution
 			servants = new();
 			timer = 0;
 			pawn.story.headType = DefsOf.TimelessOne;
+			pawn.story.hairDef = HairDefOf.Bald;
+			var headgears = pawn.apparel.WornApparel.Where(x => PawnApparelGenerator.IsHeadgear(x.def)).ToList();
+			foreach (var headgear in headgears)
+			{
+				pawn.apparel.TryDrop(headgear);
+			}
 		}
 
 		public override void PostTick()

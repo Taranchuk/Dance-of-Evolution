@@ -74,6 +74,17 @@
                 </statOffsets>
             </li>
         </stages>
+        <renderNodeProperties>
+            <li>
+              <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+              <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+              <texPath>Things/Pawn/FungalNexusCap/FungalNexusCap</texPath>
+              <parentTagDef>Head</parentTagDef>
+              <rotDrawMode>Fresh, Rotting</rotDrawMode>
+              <baseLayer>51</baseLayer>
+              <drawSize>(1.25, 1.25)</drawSize>
+            </li>
+        </renderNodeProperties>
     </HediffDef>
 
     <HediffDef Name="DE_ServantTypeBase" ParentName="DE_FungalHediffBase" Abstract="True">
@@ -147,7 +158,8 @@
                 <showRegenerationStat>true</showRegenerationStat>
                 <statFactors>
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
-                </statFactors>
+                    <FilthRate>0</FilthRate>
+               </statFactors>
                 <statOffsets>
                     <Flammability>1</Flammability>
                 </statOffsets>
