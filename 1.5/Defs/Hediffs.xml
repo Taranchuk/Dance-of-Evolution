@@ -76,7 +76,7 @@
         </stages>
         <renderNodeProperties>
             <li>
-              <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+              <nodeClass>DanceOfEvolution.PawnRenderNode_AttachmentHeadHideWithApparels</nodeClass>
               <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
               <texPath>Things/Pawn/FungalNexusCap/FungalNexusCap</texPath>
               <parentTagDef>Head</parentTagDef>
@@ -475,6 +475,32 @@
                 </capMods>
             </li>
         </stages>
+    </HediffDef>
+
+    <HediffDef ParentName="DE_FungalHediffBase">
+        <defName>DE_ClawHand</defName>
+        <label>claw hand</label>
+        <labelNoun>a claw hand</labelNoun>
+        <description>text.todo.</description>
+        <hediffClass>Hediff_Implant</hediffClass>
+        <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>claw hand</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>15</power>
+                        <armorPenetration>0.25</armorPenetration>
+                        <cooldownTime>3.0</cooldownTime>
+                        <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
+                        <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
+                    </li>
+                </tools>
+            </li>
+        </comps>
     </HediffDef>
 
 </Defs>

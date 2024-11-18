@@ -121,9 +121,8 @@
 		<defName>DE_Sporemaker</defName>
 		<label>sporemaker</label>
 		<costList>
-			<RawFungus>200</RawFungus>
-			<PsychoidLeaves>100</PsychoidLeaves>
-			<ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentSpacer>4</ComponentSpacer>
 		</costList>
 		<comps>
 			<li Class="CompProperties_Refuelable">
@@ -211,7 +210,8 @@
 		</inspectorTabs>
 		<costList>
 			<RawFungus>400</RawFungus>
-			<ComponentSpacer>3</ComponentSpacer>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
 		</costList>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 	</ThingDef>

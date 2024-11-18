@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -8,7 +7,7 @@ using Verse.Sound;
 using Verse.AI;
 namespace DanceOfEvolution
 {
-	public class Building_Cerebrum : Building, IThingHolder, IStoreSettingsParent, IStorageGroupMember, 
+	public class Building_Cerebrum : Building, IThingHolder, IStoreSettingsParent, IStorageGroupMember,
 	IHaulDestination, IHaulSource, ITargetingSource, IThingHolderEvents<Thing>
 	{
 		public float growth;
@@ -122,7 +121,7 @@ namespace DanceOfEvolution
 		{
 			return innerContainer;
 		}
-		
+
 		public bool Accepts(Thing t)
 		{
 			var nutrition = t.GetStatValue(StatDefOf.Nutrition);
@@ -150,7 +149,7 @@ namespace DanceOfEvolution
 				base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
 			}
 		}
-		public const float NutritionToGrowth = 1.5f;
+		public const float NutritionToGrowth = 3f;
 		public void Notify_ItemAdded(Thing item)
 		{
 			base.MapHeld.listerHaulables.Notify_AddedThing(item);
@@ -231,7 +230,7 @@ namespace DanceOfEvolution
 				if (activateBy.HasFungalNexus() is false)
 				{
 					return "DE_OnlyFungalNexusCanHarvestThis".Translate();
-				}	
+				}
 				if (activateBy.Dead)
 				{
 					return "PawnIsDead".Translate(activateBy);
@@ -277,7 +276,7 @@ namespace DanceOfEvolution
 				yield return floatMenuOption;
 			}
 		}
-		
+
 		public override string GetInspectString()
 		{
 			var sb = new StringBuilder(base.GetInspectString());

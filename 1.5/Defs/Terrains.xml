@@ -13,6 +13,8 @@
         <statBases>
             <Beauty>-2</Beauty>
             <Cleanliness>-1</Cleanliness>
+            <ContainmentStrength>15</ContainmentStrength>
+            <Flammability>0.17</Flammability>
         </statBases>
         <affordances>
             <li>Light</li>

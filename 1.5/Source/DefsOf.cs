@@ -32,7 +32,9 @@ namespace DanceOfEvolution
 		public static JobDef DE_ConsumeSpores;
 		public static JobDef DE_HarvestCerebrum;
 		public static HeadTypeDef TimelessOne;
-        static DefsOf()
+		public static HediffDef DE_ClawHand;
+		public static BodyPartGroupDef Arms, Shoulders;
+		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

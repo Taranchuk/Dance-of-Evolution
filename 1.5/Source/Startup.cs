@@ -68,8 +68,8 @@ namespace DanceOfEvolution
 					}
 				}
 
-				if (inserted)
-					Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringHuman()}");
+				//if (inserted)
+				//	Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringHuman()}");
 
 			}
 		}
