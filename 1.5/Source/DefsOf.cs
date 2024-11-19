@@ -35,7 +35,8 @@ namespace DanceOfEvolution
 		public static HediffDef DE_ClawHand;
 		public static BodyPartGroupDef Arms, Shoulders;
 		public static ShaderTypeDef CutoutPlant;
-		static DefsOf()
+		public static ThingDef DE_HardenedFungusWall;
+        static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

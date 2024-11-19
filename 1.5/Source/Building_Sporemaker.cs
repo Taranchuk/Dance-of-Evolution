@@ -58,7 +58,7 @@ namespace DanceOfEvolution
 				var offset = new Vector3(0, 1, 0.75f);
 				SporeGraphic.MatSingle.SetFloat(ShaderPropertyIDs.SwayHead, sporeSway);
 				SporeGraphic.Draw(DrawPos + offset + FloatingOffset(Find.TickManager.TicksGame), Rot4.South, this);
-				
+
 			}
 		}
 
@@ -79,12 +79,12 @@ namespace DanceOfEvolution
 				sporeHediff = DefsOf.DE_HangingSporesMood;
 			}
 		}
-		
+
 		public bool ShouldBeLitNow()
 		{
 			return refuelableComp.HasFuel;
 		}
-		
+
 		public override void Tick()
 		{
 			base.Tick();
@@ -102,7 +102,7 @@ namespace DanceOfEvolution
 			}
 			sporeSway += 0.1f;
 		}
-		
+
 		public static Texture2D Icon = ContentFinder<Texture2D>.Get("UI/Icons/Sporemaker");
 		public override IEnumerable<Gizmo> GetGizmos()
 		{

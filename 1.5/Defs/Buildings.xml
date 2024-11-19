@@ -222,4 +222,44 @@
 		<label>hardened cerebrum</label>
 		<designationCategory IsNull="True"/>
 	</ThingDef>
+
+  <ThingDef ParentName="Wall" Name="DE_FungusWallBase">
+    <defName>DE_FungusWall</defName>
+    <label>fungus wall</label>
+    <description>A large fungus that has grown like a wall. It's rather frail and flamable. It requires special soil to grow.</description>
+    <thingClass>DanceOfEvolution.Building_FungusWall</thingClass>
+	<tickerType>Long</tickerType>
+	<graphicData>
+		<texPath>Things/Building/FungusWall_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <Flammability>1</Flammability>
+      <MaxHitPoints>130</MaxHitPoints>
+    </statBases>
+	<stuffCategories IsNull="True"></stuffCategories>
+	<costList>
+		<RawFungus>5</RawFungus>
+	</costList>
+	<useStuffTerrainAffordance>False</useStuffTerrainAffordance>
+	<designationCategory>DE_Fungal</designationCategory>
+	<modExtensions>
+		<li Class="DanceOfEvolution.FungalBuilding"/>
+	</modExtensions>
+  </ThingDef>
+
+  	<ThingDef ParentName="DE_FungusWallBase">
+		<defName>DE_HardenedFungusWall</defName>
+		<label>petrified fungus wall</label>
+		<description>A large fungus that has grown like a wall. With help of its kin, it has gathered minerals from the earth and effectively petrified itself into this shape, becoming harder than most stones and losing its vulnerability to fire.</description>
+		<designationCategory IsNull="True"/>
+    	<statBases>
+    	  <Flammability>0</Flammability>
+    	  <MaxHitPoints>550</MaxHitPoints>
+    	</statBases>
+		<graphicData>
+			<texPath>Things/Building/HardenedFungusWall_Atlas</texPath>
+		</graphicData>
+	</ThingDef>
+
 </Defs>
