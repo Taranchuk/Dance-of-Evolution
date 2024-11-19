@@ -34,6 +34,7 @@ namespace DanceOfEvolution
 		public static HeadTypeDef TimelessOne;
 		public static HediffDef DE_ClawHand;
 		public static BodyPartGroupDef Arms, Shoulders;
+		public static ShaderTypeDef CutoutPlant;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

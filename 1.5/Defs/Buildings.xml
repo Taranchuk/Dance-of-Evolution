@@ -96,6 +96,7 @@
 		<passability>Impassable</passability>
 		<blockWind>true</blockWind>
 		<fillPercent>1</fillPercent>
+		<drawerType>RealtimeOnly</drawerType>
 		<statBases>
 			<MaxHitPoints>300</MaxHitPoints>
 			<WorkToBuild>2500</WorkToBuild>
