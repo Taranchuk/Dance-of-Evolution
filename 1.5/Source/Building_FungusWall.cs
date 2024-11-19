@@ -11,7 +11,7 @@ namespace DanceOfEvolution
 			base.PostMake();
 			if (Hardened is false)
 			{
-				ticksToHarden = (int)Rand.Range(4f, 9f) * GenDate.TicksPerDay;
+				ticksToHarden = (int)(Rand.Range(4f, 9f) * GenDate.TicksPerDay);
 			}
 		}
 
