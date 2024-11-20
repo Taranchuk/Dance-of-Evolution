@@ -18,12 +18,12 @@ namespace DanceOfEvolution
 		public Hediff_FungalNexus masterHediff;
 		private HediffStage stage;
 		public override HediffStage CurStage => stage;
-		public override bool ShouldRemove => false;
+		public override bool ShouldRemove => masterHediff is null || masterHediff.pawn is null;
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_References.Look(ref masterHediff, "master");
-			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			if (Scribe.mode == LoadSaveMode.PostLoadInit && masterHediff != null)
 			{
 				SetupStage();
 			}
@@ -36,11 +36,22 @@ namespace DanceOfEvolution
 			if (coordinator != null)
 			{
 				stage.statOffsets ??= new List<StatModifier>();
-				stage.statOffsets.Add(new StatModifier
+				var modifier = stage.statOffsets.FirstOrDefault(sm => sm.stat == StatDefOf.WorkSpeedGlobal);
+				if (modifier is null)
 				{
-					stat = StatDefOf.WorkSpeedGlobal,
-					value = coordinator.level * 0.02f
-				});
+					modifier = new StatModifier
+					{
+						stat = StatDefOf.WorkSpeedGlobal,
+					};
+					stage.statOffsets.Add(modifier);
+				}
+				modifier.value = coordinator.level * 0.02f;
+			}
+			var growthStimulator = masterHediff.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_GrowthStimulatorImplant) as Hediff_Level;
+			if (growthStimulator != null)
+			{
+				stage.regeneration += 10 * growthStimulator.level;
+				stage.showRegenerationStat = true;
 			}
 		}
 

@@ -1,87 +1,69 @@
 <Defs>
-Items
-Name: Psychic Coordinator
 
-Increase the workspeed of all fungal servants under this nexus by 2% 
-increase burrower spawning speed by 50%. 
-Can be installed up to 3 times by right clicking the implant just like mechanitor upgrades.
+	<ThingCategoryDef>
+		<defName>DE_BodyPartsFungal</defName>
+		<label>fungal implants</label>
+		<parent>BodyParts</parent>
+	</ThingCategoryDef>
 
-Name: Fungal Spine
-Description: made from a revenant spine, 50 bioferrite and an archotech shard. Makes the pawn able to turn invisible for a short duration, and gives them a ghoul regen that only heals 10 hp per day. Can only be installed once by right clicking the implant just like mechanitor upgrades.
-In-game description: "A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus."
-Name: Growth stimulator
-Description: made from 40 bioferrite, 2 archotech shards, and a juggernaut serum. Permanently increases the regen of all fungal servants of this pawn by 10hp per day. Can be installed up to 4 times by right clicking the implant just like mechanitor upgrades.
-In-game description: "While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.”
-Name: Deadlife Spore generator
-Description: made from 120 bioferrite and a deadlife shell. Can be implanted in a Fungal Nexus pawn. This implant lets them shoot a projectile that explodes into deadlife dust on impact, just like the deadlife pack item. This ability has a 15 days cooldown by right clicking the implant just like mechanitor upgrades.
-In-game description:  "A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud."
-Name: Motor Enhancer
-Description: Made from 120 bioferrite and 2 bionic arms. Upgrades both basic claws of a fungal nexus into upgraded claws, and makes gives efficiency of 125% for both claws. upgraded claws have 20 damage cut (can cleave) with 30% armor piercing and a 2 seconds cooldown. Requires an operation to be installed, can only be installed into a fungal nexus.
-In-game description: "A myco-mutator that improves the host body of a fungal nexus, not only rendering them not only more efficient but more powerful. retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest."
-      <ThingCategoryDef>
-        <defName>DE_BodyPartsFungal</defName>
-        <label>fungal implants</label>
-        <parent>BodyParts</parent>
-      </ThingCategoryDef>
-
-    <HediffDef Name="DE_FungalImplantBase" Abstract="True">
-        <defaultLabelColor>(214, 90, 24)</defaultLabelColor>
-    </HediffDef>
+	<HediffDef Name="DE_FungalImplantBase" Abstract="True">
+		<defaultLabelColor>(214, 90, 24)</defaultLabelColor>
+	</HediffDef>
 	
-  <ThingDef Abstract="True" Name="DE_FungalNexusImplantBase">
-    <thingClass>ThingWithComps</thingClass>
-    <category>Item</category>
-    <drawerType>MapMeshOnly</drawerType>
-    <techLevel>Archotech</techLevel>
-    <useHitPoints>true</useHitPoints>
-    <pathCost>14</pathCost>
-    <selectable>true</selectable>
-    <altitudeLayer>Item</altitudeLayer>
-    <tickerType>Never</tickerType>
-    <alwaysHaulable>true</alwaysHaulable>
-    <resourceReadoutPriority>Middle</resourceReadoutPriority>
-    <thingCategories>
-      <li>DE_BodyPartsFungal</li>
-    </thingCategories>
-    <comps>
-      <li Class="CompProperties_UseEffectDestroySelf" />
-    </comps>
-  </ThingDef>
+	<ThingDef Abstract="True" Name="DE_FungalNexusImplantBase">
+		<thingClass>ThingWithComps</thingClass>
+		<category>Item</category>
+		<drawerType>MapMeshOnly</drawerType>
+		<techLevel>Archotech</techLevel>
+		<useHitPoints>true</useHitPoints>
+		<pathCost>14</pathCost>
+		<selectable>true</selectable>
+		<altitudeLayer>Item</altitudeLayer>
+		<tickerType>Never</tickerType>
+		<alwaysHaulable>true</alwaysHaulable>
+		<resourceReadoutPriority>Middle</resourceReadoutPriority>
+		<thingCategories>
+			<li>DE_BodyPartsFungal</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_UseEffectDestroySelf"/>
+		</comps>
+	</ThingDef>
   
-  <ThingDef Abstract="True" Name="DE_FungalNexusCraftableBase" ParentName="DE_FungalNexusImplantBase">
-    <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Beauty>-4</Beauty>
-      <Mass>1</Mass>
-      <MarketValue>1200</MarketValue>
-      <DeteriorationRate>0</DeteriorationRate>
-      <WorkToMake>3200</WorkToMake>
-    </statBases>
-    <graphicData>
-      <texPath>Things/Item/FungalImplant</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>0.80</drawSize>
-    </graphicData>
-    <recipeMaker>
-      <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
-      <recipeUsers>
-        <li>BioferriteShaper</li>
-      </recipeUsers>
-      <useIngredientsForColor>false</useIngredientsForColor>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Machining</soundWorking>
-      <skillRequirements>
-        <Crafting>6</Crafting>
-      </skillRequirements>
-      <displayPriority>650</displayPriority>
-    </recipeMaker>
-    <comps>
-      <li Class="CompProperties_Forbiddable"/>
-    </comps>
-    <tradeability>Sellable</tradeability>
-  </ThingDef>
+	<ThingDef Abstract="True" Name="DE_FungalNexusCraftableBase" ParentName="DE_FungalNexusImplantBase">
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Beauty>-4</Beauty>
+			<Mass>1</Mass>
+			<MarketValue>1200</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
+			<WorkToMake>3200</WorkToMake>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Item/FungalImplant</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
+			<recipeUsers>
+				<li>BioferriteShaper</li>
+			</recipeUsers>
+			<useIngredientsForColor>false</useIngredientsForColor>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+			<displayPriority>650</displayPriority>
+		</recipeMaker>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<tradeability>Sellable</tradeability>
+	</ThingDef>
 
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_PsychicCoordinator</defName>
@@ -100,7 +82,7 @@ In-game description: "A myco-mutator that improves the host body of a fungal nex
 				<compClass>CompUsableImplant</compClass>
 				<useJob>UseItem</useJob>
 				<useLabel>Implant psychic coordinator</useLabel>
-                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+				<userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
 			</li>
 			<li Class="CompProperties_UseEffectInstallImplant">
 				<hediffDef>DE_PsychicCoordinatorImplant</hediffDef>
@@ -146,7 +128,7 @@ In-game description: "A myco-mutator that improves the host body of a fungal nex
 				<compClass>CompUsableImplant</compClass>
 				<useJob>UseItem</useJob>
 				<useLabel>Implant fungal spine</useLabel>
-                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+				<userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
 			</li>
 			<li Class="CompProperties_UseEffectInstallImplant">
 				<hediffDef>DE_FungalSpineImplant</hediffDef>
@@ -167,45 +149,45 @@ In-game description: "A myco-mutator that improves the host body of a fungal nex
 				</abilityDefs>
 			</li>
 		</comps>
-        <stages>
-            <li>
-                <regeneration>10</regeneration>
-                <showRegenerationStat>true</showRegenerationStat>
-            </li>
-        </stages>
+		<stages>
+			<li>
+				<regeneration>10</regeneration>
+				<showRegenerationStat>true</showRegenerationStat>
+			</li>
+		</stages>
 	</HediffDef>
 
-    <AbilityDef>
-        <defName>DE_Invisibility</defName>
-        <label>invisibility</label>
-        <description>text.todo.</description>
-        <iconPath>UI/Abilities/WraithInvisibility</iconPath>
-        <cooldownTicksRange>180000</cooldownTicksRange>
-        <writeCombatLog>True</writeCombatLog>
-        <targetRequired>false</targetRequired>
-        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-        <statBases>
-            <Ability_Duration>30</Ability_Duration>
-        </statBases>
-        <verbProperties>
-            <verbClass>Verb_CastAbility</verbClass>
-            <drawAimPie>false</drawAimPie>
-            <requireLineOfSight>false</requireLineOfSight>
-            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-            <warmupTime>1</warmupTime>
-            <range>0</range>
-            <targetable>false</targetable>
-            <targetParams>
-                <canTargetSelf>true</canTargetSelf>
-            </targetParams>
-        </verbProperties>
-        <comps>
-            <li Class="CompProperties_AbilityGiveHediff">
-                <compClass>CompAbilityEffect_GiveHediff</compClass>
-                <hediffDef>DE_Invisibility</hediffDef>
-            </li>
-        </comps>
-    </AbilityDef>
+	<AbilityDef>
+		<defName>DE_Invisibility</defName>
+		<label>invisibility</label>
+		<description>text.todo.</description>
+		<iconPath>UI/Abilities/WraithInvisibility</iconPath>
+		<cooldownTicksRange>180000</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<statBases>
+			<Ability_Duration>30</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<warmupTime>1</warmupTime>
+			<range>0</range>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>DE_Invisibility</hediffDef>
+			</li>
+		</comps>
+	</AbilityDef>
 
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_GrowthStimulator</defName>
@@ -224,11 +206,11 @@ In-game description: "A myco-mutator that improves the host body of a fungal nex
 				<compClass>CompUsableImplant</compClass>
 				<useJob>UseItem</useJob>
 				<useLabel>Implant growth stimulator</useLabel>
-                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+				<userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
 			</li>
 			<li Class="CompProperties_UseEffectInstallImplant">
 				<hediffDef>DE_GrowthStimulatorImplant</hediffDef>
-				<bodyPart>Brain</bodyPart>
+				<bodyPart>Torso</bodyPart>
 				<canUpgrade>true</canUpgrade>
 			</li>
 		</comps>
@@ -236,7 +218,7 @@ In-game description: "A myco-mutator that improves the host body of a fungal nex
 
 	<HediffDef ParentName="DE_FungalImplantBase">
 		<defName>DE_GrowthStimulatorImplant</defName>
-		<hediffClass>Hediff_Level</hediffClass>
+		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
 		<label>growth stimulator</label>
 		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
 		<initialSeverity>1</initialSeverity>
@@ -272,7 +254,7 @@ In-game description: "A myco-mutator that improves the host body of a fungal nex
 				<compClass>CompUsableImplant</compClass>
 				<useJob>UseItem</useJob>
 				<useLabel>Implant deadlife spore generator</useLabel>
-                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+				<userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
 			</li>
 			<li Class="CompProperties_UseEffectInstallImplant">
 				<hediffDef>DE_DeadlifeSporeGeneratorImplant</hediffDef>
@@ -294,7 +276,37 @@ In-game description: "A myco-mutator that improves the host body of a fungal nex
 			</li>
 		</comps>
 	</HediffDef>
-
+	
+	<AbilityDef>
+		<defName>DE_DeadlifeSporeCloud</defName>
+		<label>deploy deadlife dust</label>
+		<description>Deploy a cloud of deadlife dust to obscure and debilitate.</description>
+		<writeCombatLog>True</writeCombatLog>
+		<showPsycastEffects>False</showPsycastEffects>
+		<cooldownTicksRange>900000</cooldownTicksRange>
+		<verbProperties>
+			<verbClass>Verb_LaunchProjectileStatic</verbClass>
+			<label>deploy deadlife dust</label>
+			<defaultProjectile>Grenade_Deadlife</defaultProjectile>
+			<warmupTime>1.0</warmupTime>
+			<range>23.9</range>
+			<forcedMissRadius>0.1</forcedMissRadius>
+			<burstShotCount>1</burstShotCount>
+			<onlyManualCast>true</onlyManualCast>
+			<violent>false</violent>
+			<hasStandardCommand>true</hasStandardCommand>
+			<targetable>true</targetable>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+			<soundCast>ThrowGrenade</soundCast>
+			<rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+			<canGoWild>false</canGoWild>
+		</verbProperties>
+	</AbilityDef>
+	
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_MotorEnhancer</defName>
 		<label>motor enhancer</label>
@@ -303,25 +315,48 @@ In-game description: "A myco-mutator that improves the host body of a fungal nex
 			<Bioferrite>120</Bioferrite>
 			<BionicArm>2</BionicArm>
 		</costList>
-		<comps>
-			<li Class="CompProperties_Usable">
-				<compClass>CompUsableImplant</compClass>
-				<useJob>UseItem</useJob>
-				<useLabel>Implant motor enhancer</useLabel>
-                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
-			</li>
-			<li Class="CompProperties_UseEffectInstallImplant">
-				<hediffDef>DE_MotorEnhancerImplant</hediffDef>
-				<bodyPart>Hands</bodyPart>
-			</li>
-		</comps>
 	</ThingDef>
 
-	<HediffDef ParentName="DE_FungalImplantBase">
-		<defName>DE_MotorEnhancerImplant</defName>
-		<hediffClass>HediffWithComps</hediffClass>
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_MotorEnhancer</defName>
 		<label>motor enhancer</label>
+		<labelNoun>a motor enhancer</labelNoun>
 		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them not only more efficient but more powerful. Retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest.</description>
+		<descriptionHyperlinks><ThingDef>DE_MotorEnhancer</ThingDef></descriptionHyperlinks>
+		<hediffClass>DanceOfEvolution.Hediff_MotorEnhancer</hediffClass>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<spawnThingOnRemoved>DE_MotorEnhancer</spawnThingOnRemoved>
 	</HediffDef>
+
+	<RecipeDef ParentName="SurgeryInstallImplantBase">
+		<defName>DE_InstallMotorEnhancer</defName>
+		<label>install motor enhancer</label>
+		<description>Install a motor enhancer into a fungal nexus.</description>
+		<descriptionHyperlinks>
+			<ThingDef>DE_MotorEnhancer</ThingDef>
+			<HediffDef>DE_MotorEnhancer</HediffDef>
+		</descriptionHyperlinks>
+    	<workerClass>DanceOfEvolution.Recipe_InstallMotoEnhancer</workerClass>
+		<jobString>Installing motor enhancer.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>DE_MotorEnhancer</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>DE_MotorEnhancer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
+  		<addsHediff>DE_MotorEnhancer</addsHediff>
+	</RecipeDef>
 
 </Defs>

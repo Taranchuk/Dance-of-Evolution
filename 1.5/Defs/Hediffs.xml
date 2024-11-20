@@ -503,4 +503,33 @@
         </comps>
     </HediffDef>
 
+    <HediffDef ParentName="DE_FungalHediffBase">
+        <defName>DE_UpgradedClawHand</defName>
+        <label>upgraded claw hand</label>
+        <labelNoun>an upgraded claw hand</labelNoun>
+        <description>text.todo.</description>
+        <hediffClass>Hediff_Implant</hediffClass>
+        <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>upgraded claw</label>
+						<capacities>
+							<li>Cut</li>
+						</capacities>
+						<power>20</power>
+						<cooldownTime>2</cooldownTime>
+						<armorPenetration>0.3</armorPenetration>
+					</li>
+				</tools>
+			</li>
+		</comps>
+        <stages>
+            <li>
+                <partEfficiencyOffset>0.25</partEfficiencyOffset>
+            </li>
+        </stages>
+    </HediffDef>
+
 </Defs>
