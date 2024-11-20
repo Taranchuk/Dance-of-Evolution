@@ -5,10 +5,11 @@ using System.Linq;
 
 namespace DanceOfEvolution
 {
+
 	[HotSwappable]
 	public class Hediff_FungalNexus : HediffWithComps
 	{
-		private int timer = 0;
+		private float timer = 0;
 		public List<Pawn> servants = new();
 		public int MaxServants => 4 + servantCountOffset;
 		public int servantCountOffset;
@@ -44,7 +45,13 @@ namespace DanceOfEvolution
 			base.PostTick();
 			if (pawn.Spawned)
 			{
-				timer++;
+				var burrowerSpawnSpeed = 1f;
+				var coordinator = pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_PsychicCoordinatorImplant) as Hediff_Level;
+				if (coordinator != null)
+				{
+					burrowerSpawnSpeed *= 1 + (coordinator.level * 0.5f);
+				}
+				timer += burrowerSpawnSpeed;
 				if (timer >= GenDate.TicksPerDay * 2f)
 				{
 					CheckAndUpdateBurrowers();
@@ -59,7 +66,7 @@ namespace DanceOfEvolution
 			{
 				yield return new FungalNexusGizmo(this);
 			}
-			
+
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
@@ -74,11 +81,32 @@ namespace DanceOfEvolution
 		{
 			if (TotalServantsCount < MaxServants)
 			{
-				return "DE_NextBurrowerSpawnIn".Translate(((int)((GenDate.TicksPerDay * 2f) - timer)).ToStringTicksToPeriod());
+				var burrowerSpawnSpeed = 1f;
+				var coordinator = pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_PsychicCoordinatorImplant) as Hediff_Level;
+				if (coordinator != null)
+				{
+					burrowerSpawnSpeed *= 1 + (coordinator.level * 0.5f);
+				}
+
+				// Use the same formula as in PostTick for total spawn time
+				float spawnInterval = GenDate.TicksPerDay * 2f;
+				float remainingTime = spawnInterval - timer;
+
+				// Adjust remaining time by spawn speed
+				remainingTime /= burrowerSpawnSpeed;
+
+				// Ensure non-negative value
+				if (remainingTime < 0)
+				{
+					remainingTime = 0;
+				}
+				return "DE_NextBurrowerSpawnIn".Translate(((int)remainingTime).ToStringTicksToPeriod());
 			}
+
 			return null;
 		}
-		
+
+
 		private void CheckAndUpdateBurrowers()
 		{
 			if (TotalServantsCount < MaxServants)

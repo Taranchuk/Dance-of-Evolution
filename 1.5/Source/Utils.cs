@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using RimWorld;
 using Verse;
 using System.Linq;
+using System.Reflection;
 
 namespace DanceOfEvolution
 {
-    public static class Utils
+	public static class Utils
 	{
 		public static bool IsImmuneTo(this Pawn pawn, Hediff other)
 		{
@@ -98,6 +99,12 @@ namespace DanceOfEvolution
 			MedicalRecipesUtility.SpawnThingsFromHediffs(pawn, bodyPartRecord, pawn.PositionHeld, pawn.MapHeld);
 			pawn.health.AddHediff(mutationDef, bodyPartRecord);
 			return true;
+		}
+
+		public static T Clone<T>(this T obj)
+		{
+			var inst = obj.GetType().GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
+			return (T)inst?.Invoke(obj, null);
 		}
 	}
 }

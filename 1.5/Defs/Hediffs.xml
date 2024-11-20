@@ -216,14 +216,14 @@
         <comps>
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
-                <hediffDef>DE_WraithInvisibility</hediffDef>
+                <hediffDef>DE_Invisibility</hediffDef>
             </li>
         </comps>
     </AbilityDef>
 
     <HediffDef>
-        <defName>DE_WraithInvisibility</defName>
-        <label>wraith invisibility</label>
+        <defName>DE_Invisibility</defName>
+        <label>invisibility</label>
         <hediffClass>HediffWithComps</hediffClass>
         <description>Psychically-induced invisibility. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
         <isBad>false</isBad>

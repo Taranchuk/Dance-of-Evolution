@@ -10,7 +10,7 @@ namespace DanceOfEvolution
 		{
 			if (dinfo.Instigator is Pawn attacker)
 			{
-				var invisiblity = attacker.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_WraithInvisibility);
+				var invisiblity = attacker.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_Invisibility);
 				if (invisiblity != null)
 				{
 					attacker.health.RemoveHediff(invisiblity);

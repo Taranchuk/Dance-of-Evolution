@@ -1,0 +1,327 @@
+<Defs>
+Items
+Name: Psychic Coordinator
+
+Increase the workspeed of all fungal servants under this nexus by 2% 
+increase burrower spawning speed by 50%. 
+Can be installed up to 3 times by right clicking the implant just like mechanitor upgrades.
+
+Name: Fungal Spine
+Description: made from a revenant spine, 50 bioferrite and an archotech shard. Makes the pawn able to turn invisible for a short duration, and gives them a ghoul regen that only heals 10 hp per day. Can only be installed once by right clicking the implant just like mechanitor upgrades.
+In-game description: "A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus."
+Name: Growth stimulator
+Description: made from 40 bioferrite, 2 archotech shards, and a juggernaut serum. Permanently increases the regen of all fungal servants of this pawn by 10hp per day. Can be installed up to 4 times by right clicking the implant just like mechanitor upgrades.
+In-game description: "While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.”
+Name: Deadlife Spore generator
+Description: made from 120 bioferrite and a deadlife shell. Can be implanted in a Fungal Nexus pawn. This implant lets them shoot a projectile that explodes into deadlife dust on impact, just like the deadlife pack item. This ability has a 15 days cooldown by right clicking the implant just like mechanitor upgrades.
+In-game description:  "A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud."
+Name: Motor Enhancer
+Description: Made from 120 bioferrite and 2 bionic arms. Upgrades both basic claws of a fungal nexus into upgraded claws, and makes gives efficiency of 125% for both claws. upgraded claws have 20 damage cut (can cleave) with 30% armor piercing and a 2 seconds cooldown. Requires an operation to be installed, can only be installed into a fungal nexus.
+In-game description: "A myco-mutator that improves the host body of a fungal nexus, not only rendering them not only more efficient but more powerful. retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest."
+      <ThingCategoryDef>
+        <defName>DE_BodyPartsFungal</defName>
+        <label>fungal implants</label>
+        <parent>BodyParts</parent>
+      </ThingCategoryDef>
+
+    <HediffDef Name="DE_FungalImplantBase" Abstract="True">
+        <defaultLabelColor>(214, 90, 24)</defaultLabelColor>
+    </HediffDef>
+	
+  <ThingDef Abstract="True" Name="DE_FungalNexusImplantBase">
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <drawerType>MapMeshOnly</drawerType>
+    <techLevel>Archotech</techLevel>
+    <useHitPoints>true</useHitPoints>
+    <pathCost>14</pathCost>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <tickerType>Never</tickerType>
+    <alwaysHaulable>true</alwaysHaulable>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <thingCategories>
+      <li>DE_BodyPartsFungal</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+  
+  <ThingDef Abstract="True" Name="DE_FungalNexusCraftableBase" ParentName="DE_FungalNexusImplantBase">
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Beauty>-4</Beauty>
+      <Mass>1</Mass>
+      <MarketValue>1200</MarketValue>
+      <DeteriorationRate>0</DeteriorationRate>
+      <WorkToMake>3200</WorkToMake>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Item/FungalImplant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+    </graphicData>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
+      <recipeUsers>
+        <li>BioferriteShaper</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <displayPriority>650</displayPriority>
+    </recipeMaker>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <tradeability>Sellable</tradeability>
+  </ThingDef>
+
+	<ThingDef ParentName="DE_FungalNexusCraftableBase">
+		<defName>DE_PsychicCoordinator</defName>
+		<label>psychic coordinator</label>
+		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections.</description>
+		<costList>
+			<Bioferrite>35</Bioferrite>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Shard>3</Shard>
+		</costList>
+		<statBases>
+			<MaxInstallCount>3</MaxInstallCount>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<compClass>CompUsableImplant</compClass>
+				<useJob>UseItem</useJob>
+				<useLabel>Implant psychic coordinator</useLabel>
+                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+			</li>
+			<li Class="CompProperties_UseEffectInstallImplant">
+				<hediffDef>DE_PsychicCoordinatorImplant</hediffDef>
+				<bodyPart>Brain</bodyPart>
+				<canUpgrade>true</canUpgrade>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef ParentName="DE_FungalImplantBase">
+		<defName>DE_PsychicCoordinatorImplant</defName>
+		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
+		<label>psychic coordinator</label>
+		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections.</description>
+		<initialSeverity>1</initialSeverity>
+		<minSeverity>0</minSeverity>
+		<maxSeverity>3</maxSeverity>
+		<levelIsQuantity>true</levelIsQuantity>
+		<stages>
+			<li>
+				<minSeverity>1</minSeverity>
+			</li>
+			<li>
+				<minSeverity>2</minSeverity>
+			</li>
+			<li>
+				<minSeverity>3</minSeverity>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="DE_FungalNexusCraftableBase">
+		<defName>DE_FungalSpine</defName>
+		<label>fungal spine</label>
+		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus.</description>
+		<costList>
+			<RevenantSpine>1</RevenantSpine>
+			<Bioferrite>50</Bioferrite>
+			<Shard>1</Shard>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<compClass>CompUsableImplant</compClass>
+				<useJob>UseItem</useJob>
+				<useLabel>Implant fungal spine</useLabel>
+                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+			</li>
+			<li Class="CompProperties_UseEffectInstallImplant">
+				<hediffDef>DE_FungalSpineImplant</hediffDef>
+				<bodyPart>Spine</bodyPart>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef ParentName="DE_FungalImplantBase">
+		<defName>DE_FungalSpineImplant</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>fungal spine</label>
+		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus.</description>
+		<comps>
+			<li Class="HediffCompProperties_GiveAbility">
+				<abilityDefs>
+					<li>DE_Invisibility</li>
+				</abilityDefs>
+			</li>
+		</comps>
+        <stages>
+            <li>
+                <regeneration>10</regeneration>
+                <showRegenerationStat>true</showRegenerationStat>
+            </li>
+        </stages>
+	</HediffDef>
+
+    <AbilityDef>
+        <defName>DE_Invisibility</defName>
+        <label>invisibility</label>
+        <description>text.todo.</description>
+        <iconPath>UI/Abilities/WraithInvisibility</iconPath>
+        <cooldownTicksRange>180000</cooldownTicksRange>
+        <writeCombatLog>True</writeCombatLog>
+        <targetRequired>false</targetRequired>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <statBases>
+            <Ability_Duration>30</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <drawAimPie>false</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <warmupTime>1</warmupTime>
+            <range>0</range>
+            <targetable>false</targetable>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>DE_Invisibility</hediffDef>
+            </li>
+        </comps>
+    </AbilityDef>
+
+	<ThingDef ParentName="DE_FungalNexusCraftableBase">
+		<defName>DE_GrowthStimulator</defName>
+		<label>growth stimulator</label>
+		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
+		<costList>
+			<Bioferrite>40</Bioferrite>
+			<Shard>2</Shard>
+			<JuggernautSerum>1</JuggernautSerum>
+		</costList>
+		<statBases>
+			<MaxInstallCount>4</MaxInstallCount>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<compClass>CompUsableImplant</compClass>
+				<useJob>UseItem</useJob>
+				<useLabel>Implant growth stimulator</useLabel>
+                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+			</li>
+			<li Class="CompProperties_UseEffectInstallImplant">
+				<hediffDef>DE_GrowthStimulatorImplant</hediffDef>
+				<bodyPart>Brain</bodyPart>
+				<canUpgrade>true</canUpgrade>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef ParentName="DE_FungalImplantBase">
+		<defName>DE_GrowthStimulatorImplant</defName>
+		<hediffClass>Hediff_Level</hediffClass>
+		<label>growth stimulator</label>
+		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
+		<initialSeverity>1</initialSeverity>
+		<minSeverity>0</minSeverity>
+		<maxSeverity>4</maxSeverity>
+		<levelIsQuantity>true</levelIsQuantity>
+		<stages>
+			<li>
+				<minSeverity>1</minSeverity>
+			</li>
+			<li>
+				<minSeverity>2</minSeverity>
+			</li>
+			<li>
+				<minSeverity>3</minSeverity>
+			</li>
+			<li>
+				<minSeverity>4</minSeverity>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="DE_FungalNexusCraftableBase">
+		<defName>DE_DeadlifeSporeGenerator</defName>
+		<label>deadlife spore generator</label>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<costList>
+			<Bioferrite>120</Bioferrite>
+			<Shell_Deadlife>1</Shell_Deadlife>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<compClass>CompUsableImplant</compClass>
+				<useJob>UseItem</useJob>
+				<useLabel>Implant deadlife spore generator</useLabel>
+                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+			</li>
+			<li Class="CompProperties_UseEffectInstallImplant">
+				<hediffDef>DE_DeadlifeSporeGeneratorImplant</hediffDef>
+				<bodyPart>Brain</bodyPart>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef ParentName="DE_FungalImplantBase">
+		<defName>DE_DeadlifeSporeGeneratorImplant</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>deadlife spore generator</label>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<comps>
+			<li Class="HediffCompProperties_GiveAbility">
+				<abilityDefs>
+					<li>DE_DeadlifeSporeCloud</li>
+				</abilityDefs>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<ThingDef ParentName="DE_FungalNexusCraftableBase">
+		<defName>DE_MotorEnhancer</defName>
+		<label>motor enhancer</label>
+		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them not only more efficient but more powerful. Retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest.</description>
+		<costList>
+			<Bioferrite>120</Bioferrite>
+			<BionicArm>2</BionicArm>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<compClass>CompUsableImplant</compClass>
+				<useJob>UseItem</useJob>
+				<useLabel>Implant motor enhancer</useLabel>
+                <userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+			</li>
+			<li Class="CompProperties_UseEffectInstallImplant">
+				<hediffDef>DE_MotorEnhancerImplant</hediffDef>
+				<bodyPart>Hands</bodyPart>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef ParentName="DE_FungalImplantBase">
+		<defName>DE_MotorEnhancerImplant</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>motor enhancer</label>
+		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them not only more efficient but more powerful. Retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest.</description>
+	</HediffDef>
+
+</Defs>

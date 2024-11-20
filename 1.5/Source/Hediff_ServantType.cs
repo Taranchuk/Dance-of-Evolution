@@ -16,13 +16,34 @@ namespace DanceOfEvolution
 	{
 		public abstract ServantType ServantType { get; }
 		public Hediff_FungalNexus masterHediff;
+		private HediffStage stage;
+		public override HediffStage CurStage => stage;
 		public override bool ShouldRemove => false;
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_References.Look(ref masterHediff, "master");
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				SetupStage();
+			}
 		}
-		
+
+		public void SetupStage()
+		{
+			stage = def.stages[CurStageIndex].Clone();
+			var coordinator = masterHediff.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_PsychicCoordinatorImplant) as Hediff_Level;
+			if (coordinator != null)
+			{
+				stage.statOffsets ??= new List<StatModifier>();
+				stage.statOffsets.Add(new StatModifier
+				{
+					stat = StatDefOf.WorkSpeedGlobal,
+					value = coordinator.level * 0.02f
+				});
+			}
+		}
+
 		public bool Controllable
 		{
 			get

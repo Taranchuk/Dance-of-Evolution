@@ -27,7 +27,6 @@ namespace DanceOfEvolution
 				if (corpse.Destroyed)
 				{
 					infectedCorpses.RemoveAt(i);
-					Log.Message("Destroying " + corpse);
 				}
 				else
 				{
