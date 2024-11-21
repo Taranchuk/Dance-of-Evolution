@@ -359,4 +359,56 @@
   		<addsHediff>DE_MotorEnhancer</addsHediff>
 	</RecipeDef>
 
+<ThingDef ParentName="DE_FungalNexusCraftableBase">
+    <defName>DE_NeuralEnhancer</defName>
+    <label>neural enhancer</label>
+    <description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized.</description>
+    <costList>
+        <Bioferrite>120</Bioferrite>
+        <Shard>2</Shard>
+    </costList>
+</ThingDef>
+
+<HediffDef ParentName="DE_FungalHediffBase">
+    <defName>DE_NeuralEnhancer</defName>
+    <label>neural enhancer</label>
+    <labelNoun>a neural enhancer</labelNoun>
+    <description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized.</description>
+    <descriptionHyperlinks><ThingDef>DE_NeuralEnhancer</ThingDef></descriptionHyperlinks>
+    <hediffClass>DanceOfEvolution.Hediff_NeuralEnhancer</hediffClass>
+    <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+    <spawnThingOnRemoved>DE_NeuralEnhancer</spawnThingOnRemoved>
+</HediffDef>
+
+<RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>DE_InstallNeuralEnhancer</defName>
+    <label>install neural enhancer</label>
+    <description>Install a neural enhancer into a fungal ghoul.</description>
+    <descriptionHyperlinks>
+        <ThingDef>DE_NeuralEnhancer</ThingDef>
+        <HediffDef>DE_NeuralEnhancer</HediffDef>
+    </descriptionHyperlinks>
+    <workerClass>DanceOfEvolution.Recipe_InstallNeuralEnhancer</workerClass>
+    <jobString>Installing neural enhancer.</jobString>
+    <ingredients>
+        <li>
+            <filter>
+                <thingDefs>
+                    <li>DE_NeuralEnhancer</li>
+                </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+    </ingredients>
+    <fixedIngredientFilter>
+        <thingDefs>
+            <li>DE_NeuralEnhancer</li>
+        </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+        <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>DE_NeuralEnhancer</addsHediff>
+</RecipeDef>
+
 </Defs>

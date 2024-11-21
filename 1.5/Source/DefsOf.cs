@@ -21,7 +21,7 @@ namespace DanceOfEvolution
 
 		public static ThingDef DE_Gun_SpikeThrower;
 
-		public static MutantDef DE_FungalGhoul;
+		public static MutantDef DE_FungalGhoul, DE_FungalGhoulSpecialized;
 
 		public static HediffDef DE_Invisibility;
 		public static ThingDef DE_FungalNode;
@@ -38,6 +38,7 @@ namespace DanceOfEvolution
 		public static ThingDef DE_HardenedFungusWall;
 		public static HediffDef DE_PsychicCoordinatorImplant, DE_GrowthStimulatorImplant;
 		public static HediffDef DE_UpgradedClawHand;
+		public static HediffDef Regeneration;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

@@ -177,12 +177,39 @@ namespace DanceOfEvolution
 	public class Hediff_ServantGhoul : Hediff_ServantType
 	{
 		public override ServantType ServantType => ServantType.Ghoul;
-
+		public bool specialized;
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
 			pawn.mutant = new Pawn_MutantTracker(pawn, DefsOf.DE_FungalGhoul, RotStage.Fresh);
 			pawn.mutant.Turn(clearLord: true);
+		}
+
+		public void Specialize()
+		{
+			specialized = true;
+			pawn.mutant = new Pawn_MutantTracker(pawn, DefsOf.DE_FungalGhoulSpecialized, RotStage.Fresh);
+			pawn.mutant.Turn(clearLord: true);
+			var regeneration = pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.Regeneration);
+			if (regeneration != null)
+			{
+				pawn.health.RemoveHediff(regeneration);
+			}
+			pawn.skills = new Pawn_SkillTracker(pawn);
+			var skills = new List<SkillDef>
+			{
+				SkillDefOf.Animals, SkillDefOf.Plants, SkillDefOf.Crafting, SkillDefOf.Medicine, SkillDefOf.Social, SkillDefOf.Intellectual
+			};
+			foreach (var skill in skills)
+			{
+				pawn.skills.GetSkill(skill).Level = 10;
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref specialized, "specialized");
 		}
 	}
 

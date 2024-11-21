@@ -1,7 +1,5 @@
 <Defs>
-    <MutantDef>
-        <defName>DE_FungalGhoul</defName>
-        <label>fungal ghoul</label>
+    <MutantDef Name="DE_FungalGhoul" Abstract="True">
         <description>text.todo</description>
         <hediff>Ghoul</hediff>
         <thinkTree>Ghoul</thinkTree>
@@ -19,7 +17,8 @@
         <hasHostilityResponse>true</hasHostilityResponse>
         <canUseDrugs>true</canUseDrugs>
         <deathLetter>One of your fungal ghouls has died.</deathLetter>
-        <deathLetterExtra>Unlike regular colonists, fungal ghouls do not need to be buried and their death will not upset others. You may choose to bury them should you wish.</deathLetterExtra>
+        <deathLetterExtra>Unlike regular colonists, fungal ghouls do not need to be buried and their
+            death will not upset others. You may choose to bury them should you wish.</deathLetterExtra>
         <!-- Sounds -->
         <soundCall>Pawn_Ghoul_Call</soundCall>
         <soundAttack>Pawn_Ghoul_Attack</soundAttack>
@@ -99,4 +98,144 @@
             </li>
         </tools>
     </MutantDef>
+
+    <MutantDef ParentName="DE_FungalGhoul">
+        <defName>DE_FungalGhoul</defName>
+        <label>fungal ghoul</label>
+        <givesHediffs>
+            <li>
+                <def>Regeneration</def>
+                <severity>0.1</severity>
+            </li>
+        </givesHediffs>
+    </MutantDef>
+
+    <MutantDef ParentName="DE_FungalGhoul">
+        <defName>DE_FungalGhoulSpecialized</defName>
+        <label>fungal ghoul</label>
+        <thinkTree>DE_GhoulSpecialized</thinkTree>
+        <workDisables>None</workDisables>
+    </MutantDef>
+
+  <ThinkTreeDef>
+    <defName>DE_GhoulSpecialized</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Keep lying down if we have to -->
+        <li Class="ThinkNode_ConditionalMustKeepLyingDown">
+          <subNodes>
+            <!-- Do a queued job if possible -->
+            <li Class="ThinkNode_QueuedJob">
+              <inBedOnly>true</inBedOnly>
+            </li>
+
+            <!-- Keep lying down -->
+            <li Class="JobGiver_KeepLyingDown" />
+          </subNodes>
+        </li>
+
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>BurningResponse</treeDef>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>MentalStateCritical</treeDef>
+        </li>
+
+        <!-- Escaping-->
+        <li Class="ThinkNodeConditional_EscapingHoldingPlatform">
+          <subNodes>
+            <li Class="JobGiver_EscapingHoldingPlatform" />
+          </subNodes>
+        </li>
+
+        <!-- React to close melee threat -->
+        <li Class="JobGiver_ReactToCloseMeleeThreat" />
+
+        <!-- Do a queued job -->
+        <li Class="ThinkNode_QueuedJob" />
+
+        <!-- Mental state non critical -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>MentalStateNonCritical</treeDef>
+        </li>
+
+        <!-- Wait if drafted -->
+        <li Class="ThinkNode_ConditionalOfPlayerFaction">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>DraftedOrder</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_MoveToStandable" />
+                <li Class="JobGiver_Orders" />
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <!-- Lord directives -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>LordDuty</treeDef>
+        </li>
+
+        <!-- Insertion hook for modders -->
+        <li Class="ThinkNode_SubtreesByTag">
+          <insertTag>Ghoul_PreMain</insertTag>
+        </li>
+
+        <li Class="JobGiver_Work"/>
+
+        <!-- Seek allowed area -->
+        <li Class="JobGiver_SeekAllowedArea" />
+        <li Class="JobGiver_SeekSafeTemperature">
+          <requiresInjury>false</requiresInjury>
+          <waitInSafeTemp>false</waitInSafeTemp>
+          <maxRadius>15</maxRadius>
+        </li>
+
+        <!-- Fight enemies -->
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>30</targetAcquireRadius>
+          <targetKeepRadius>35</targetKeepRadius>
+        </li>
+
+        <!-- Resting for medical reasons -->
+        <li Class="ThinkNode_ConditionalOfPlayerFaction">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>RestingForMedicalReasons</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_PatientGoToBed">
+                  <urgentOnly>true</urgentOnly>
+                </li>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <!-- Satisfy basic needs -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>SatisfyBasicNeeds</treeDef>
+        </li>
+
+        <!-- Insertion hook for modders -->
+        <li Class="ThinkNode_SubtreesByTag">
+          <insertTag>Ghoul_PreWander</insertTag>
+        </li>
+
+        <!-- Wander -->
+        <li Class="ThinkNode_Tagger">
+          <subNodes>
+            <li Class="JobGiver_ShamblerWander">
+              <wanderRadius>12</wanderRadius>
+            </li>
+          </subNodes>
+        </li>
+
+        <li Class="JobGiver_IdleError"/>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
 </Defs>

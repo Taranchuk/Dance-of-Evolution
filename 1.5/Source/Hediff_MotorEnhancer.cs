@@ -15,7 +15,7 @@ namespace DanceOfEvolution
 			return base.AvailableOnNow(thing, part);
 		}
 	}
-	
+
 	public class Hediff_MotorEnhancer : Hediff_Implant
 	{
 		public override void PostAdd(DamageInfo? dinfo)
