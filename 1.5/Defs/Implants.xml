@@ -64,9 +64,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_PsychicCoordinator</defName>
 		<label>psychic coordinator</label>
-		<description>A fungal collective relies deeply on psychic connections to function, sharing
-			thoughts instantaneously over long distances. By using archotech shards, it is possible
-			to manually improve these connections.</description>
+		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections.</description>
 		<costList>
 			<Bioferrite>35</Bioferrite>
 			<ComponentSpacer>2</ComponentSpacer>
@@ -93,9 +91,7 @@
 		<defName>DE_PsychicCoordinatorImplant</defName>
 		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
 		<label>psychic coordinator</label>
-		<description>A fungal collective relies deeply on psychic connections to function, sharing
-			thoughts instantaneously over long distances. By using archotech shards, it is possible
-			to manually improve these connections.</description>
+		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
 		<maxSeverity>3</maxSeverity>
@@ -115,10 +111,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_FungalSpine</defName>
 		<label>fungal spine</label>
-		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and
-			used like any other living being, no matter how hard it resists. By taking away its will
-			and sealing it within the collective's mind, the revenant's power to turn invisible can
-			be added to a fungal nexus.</description>
+		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus.</description>
 		<costList>
 			<RevenantSpine>1</RevenantSpine>
 			<Bioferrite>50</Bioferrite>
@@ -141,10 +134,7 @@
 		<defName>DE_FungalSpineImplant</defName>
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>fungal spine</label>
-		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and
-			used like any other living being, no matter how hard it resists. By taking away its will
-			and sealing it within the collective's mind, the revenant's power to turn invisible can
-			be added to a fungal nexus.</description>
+		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus.</description>
 		<comps>
 			<li Class="HediffCompProperties_GiveAbility">
 				<abilityDefs>
@@ -193,9 +183,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_GrowthStimulator</defName>
 		<label>growth stimulator</label>
-		<description>While all fungi can regenerate themselves over time, the process is long and
-			arduous. With no idea of how to fix their own wounds, the process is slow. By increasing
-			the calculation speed of the collective, injuries are identified and healed faster.</description>
+		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
 		<costList>
 			<Bioferrite>40</Bioferrite>
 			<Shard>2</Shard>
@@ -222,9 +210,7 @@
 		<defName>DE_GrowthStimulatorImplant</defName>
 		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
 		<label>growth stimulator</label>
-		<description>While all fungi can regenerate themselves over time, the process is long and
-			arduous. With no idea of how to fix their own wounds, the process is slow. By increasing
-			the calculation speed of the collective, injuries are identified and healed faster.</description>
+		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
 		<maxSeverity>4</maxSeverity>
@@ -247,9 +233,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_DeadlifeSporeGenerator</defName>
 		<label>deadlife spore generator</label>
-		<description>A compressed colony of fungus specialized in creating deadlife spores using
-			their own bioferrite. Allows the nexus to create a cloud of deadlife dust around
-			themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
 			<Shell_Deadlife>1</Shell_Deadlife>
@@ -271,9 +255,7 @@
 		<defName>DE_DeadlifeSporeGeneratorImplant</defName>
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>deadlife spore generator</label>
-		<description>A compressed colony of fungus specialized in creating deadlife spores using
-			their own bioferrite. Allows the nexus to create a cloud of deadlife dust around
-			themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
 		<comps>
 			<li Class="HediffCompProperties_GiveAbility">
 				<abilityDefs>
@@ -314,10 +296,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_MotorEnhancer</defName>
 		<label>motor enhancer</label>
-		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them
-			not only more efficient but more powerful. Retractable keratin-like growths begin to
-			appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage
-			while not restricting them in the slightest.</description>
+		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them not only more efficient but more powerful. Retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
 			<BionicArm>2</BionicArm>
@@ -327,10 +306,7 @@
 		<defName>DE_MotorEnhancer</defName>
 		<label>motor enhancer</label>
 		<labelNoun>a motor enhancer</labelNoun>
-		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them
-			not only more efficient but more powerful. Retractable keratin-like growths begin to
-			appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage
-			while not restricting them in the slightest.</description>
+		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them not only more efficient but more powerful. Retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest.</description>
 		<descriptionHyperlinks>
 			<ThingDef>DE_MotorEnhancer</ThingDef>
 		</descriptionHyperlinks>
@@ -371,8 +347,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_NeuralEnhancer</defName>
 		<label>neural enhancer</label>
-		<description>The human brain is an extremely complicated machine, and requires special
-			implants like this one to be properly restarted and specialized.</description>
+		<description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
 			<Shard>2</Shard>
@@ -397,8 +372,7 @@
 		<defName>DE_NeuralEnhancer</defName>
 		<label>neural enhancer</label>
 		<labelNoun>a neural enhancer</labelNoun>
-		<description>The human brain is an extremely complicated machine, and requires special
-			implants like this one to be properly restarted and specialized.</description>
+		<description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized.</description>
 		<descriptionHyperlinks>
 			<ThingDef>DE_NeuralEnhancer</ThingDef>
 		</descriptionHyperlinks>

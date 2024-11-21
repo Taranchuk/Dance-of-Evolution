@@ -39,6 +39,8 @@ namespace DanceOfEvolution
 		public static HediffDef DE_PsychicCoordinatorImplant, DE_GrowthStimulatorImplant;
 		public static HediffDef DE_UpgradedClawHand;
 		public static HediffDef Regeneration, DE_FungalGhoulTalkable;
+
+		public static ThingDef DE_Plant_TreeMycelial;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

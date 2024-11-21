@@ -120,11 +120,7 @@
   <HediffDef>
     <defName>DE_FungalGhoulTalkable</defName>
     <label>ghoul</label>
-    <description>This person has been implanted with an archotech shard, twisting them into a
-      jittering murder machine. Its body is an amalgam of flesh and metal, while its mind cycles
-      between half-conscious stupor and murderous intent.\n\nThey cannot work; they only fight.
-      Ghouls must eat raw meat. If they go hungry, they can turn hostile.\n\nMany find ghouls'
-      constant twitching to be disturbing, even when they aren't killing someone.</description>
+    <description>This person has been implanted with an archotech shard, twisting them into a jittering murder machine. Its body is an amalgam of flesh and metal, while its mind cycles between half-conscious stupor and murderous intent.\n\nThey cannot work; they only fight. Ghouls must eat raw meat. If they go hungry, they can turn hostile.\n\nMany find ghouls' constant twitching to be disturbing, even when they aren't killing someone.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <everCurableByItem>false</everCurableByItem>
     <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>

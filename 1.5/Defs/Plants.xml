@@ -1,0 +1,58 @@
+<Defs>
+
+    <ThingDef ParentName="TreeBase">
+        <defName>DE_Plant_TreeMycelial</defName>
+        <label>mycelial tree</label>
+        <description>A tall, strange looking tree. Its gnarled and odd appearance hints clearly at its nature. Sown by a highly intelligent fungus, this mushroom will drain the soil of its nutrient to produce more biomass for its kin.</description>
+        <thingClass>DanceOfEvolution.MycelialTree</thingClass>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Plant/TreeMycelial</texPath>
+            <shadowData>
+                <volume>(0.4, 0.3, 0.1)</volume>
+                <offset>(0,0,-0.3)</offset>
+            </shadowData>
+        </graphicData>
+        <minifiedDef IsNull="True" />
+        <statBases>
+            <Beauty>-5</Beauty>
+            <BeautyOutdoors>-5</BeautyOutdoors>
+            <Flammability>1</Flammability>
+            <MaxHitPoints>300</MaxHitPoints>
+        </statBases>
+        <ingestible />
+        <preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+        <canScatterOver>false</canScatterOver>
+        <plant>
+            <pollution>Any</pollution>
+            <growDays>4</growDays>
+            <visualSizeRange>1.5~2.1</visualSizeRange>
+            <sowMinSkill>0</sowMinSkill>
+            <sowTags>
+                <li>Ground</li>
+            </sowTags>
+            <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+            <fertilityMin>0.5</fertilityMin>
+            <fertilitySensitivity>0.5</fertilitySensitivity>
+            <wildClusterWeight>0</wildClusterWeight>
+            <sowWork>1000</sowWork>
+            <harvestYield>300</harvestYield>
+            <harvestedThingDef>RawFungus</harvestedThingDef>
+            <treeCategory>Super</treeCategory>
+            <cavePlant>true</cavePlant>
+            <growMinGlow>0</growMinGlow>
+            <growOptimalGlow>0</growOptimalGlow>
+            <sowResearchPrerequisites Inherit="False" />
+            <dieFromToxicFallout>false</dieFromToxicFallout>
+            <showGrowthInInspectPane>true</showGrowthInInspectPane>
+            <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
+            <harvestWork>600</harvestWork>
+            <harvestTag>Standard</harvestTag>
+            <interferesWithRoof>false</interferesWithRoof>
+            <choppedThingDef IsNull="True"></choppedThingDef>
+            <smashedThingDef IsNull="True"></smashedThingDef>
+            <mustBeWildToSow>false</mustBeWildToSow>
+        </plant>
+    </ThingDef>
+
+</Defs>
