@@ -180,7 +180,7 @@ namespace DanceOfEvolution
 		{
 			if (BeingConsumed)
 			{
-				return "ConsumedByHarbingerTree".Translate();
+				return "DE_ConsumedByMycelialTree".Translate();
 			}
 			return "";
 		}
@@ -430,11 +430,11 @@ namespace DanceOfEvolution
 			}
 			if (ConsumableNearby)
 			{
-				stringBuilder.AppendLine("MycelialTreeConsuming".Translate());
+				stringBuilder.AppendLine("HarbingerTreeConsuming".Translate());
 			}
 			else
 			{
-				stringBuilder.AppendLine("MycelialTreeNotConsuming".Translate());
+				stringBuilder.AppendLine("HarbingerTreeNotConsuming".Translate());
 			}
 			return stringBuilder.ToString().TrimEndNewlines();
 		}
