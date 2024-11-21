@@ -21,6 +21,10 @@ namespace DanceOfEvolution
 		private Corpse Corpse => parent as Corpse;
 		public bool CanBeConsumedBy(MycelialTree mycelialTree)
 		{
+			if (mycelialTree.Growth >= 1 || mycelialTree.Resting)
+			{
+				return false;
+			}
 			if (Corpse != null)
 			{
 				if (!Corpse.InnerPawn.RaceProps.IsFlesh)
