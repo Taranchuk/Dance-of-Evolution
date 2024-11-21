@@ -2,7 +2,7 @@ using HarmonyLib;
 using RimWorld;
 namespace DanceOfEvolution
 {
-    [HarmonyPatch(typeof(Pawn_TimetableTracker), "CurrentAssignment", MethodType.Getter)]
+    //[HarmonyPatch(typeof(Pawn_TimetableTracker), "CurrentAssignment", MethodType.Getter)]
     public static class Pawn_TimetableTracker_CurrentAssignment_Patch
     {
         public static void Postfix(ref TimeAssignmentDef __result, Pawn_TimetableTracker __instance)

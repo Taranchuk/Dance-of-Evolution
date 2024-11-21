@@ -178,6 +178,7 @@ namespace DanceOfEvolution
 	{
 		public override ServantType ServantType => ServantType.Ghoul;
 		public bool specialized;
+		public SkillDef specializedSkill;
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
@@ -187,7 +188,6 @@ namespace DanceOfEvolution
 
 		public void Specialize()
 		{
-			specialized = true;
 			pawn.mutant = new Pawn_MutantTracker(pawn, DefsOf.DE_FungalGhoulSpecialized, RotStage.Fresh);
 			pawn.mutant.Turn(clearLord: true);
 			var regeneration = pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.Regeneration);
@@ -195,14 +195,33 @@ namespace DanceOfEvolution
 			{
 				pawn.health.RemoveHediff(regeneration);
 			}
-			pawn.skills = new Pawn_SkillTracker(pawn);
 			var skills = new List<SkillDef>
 			{
 				SkillDefOf.Animals, SkillDefOf.Plants, SkillDefOf.Crafting, SkillDefOf.Medicine, SkillDefOf.Social, SkillDefOf.Intellectual
 			};
-			foreach (var skill in skills)
+			Find.WindowStack.Add(new Window_SkillsToSpecialize(skills, delegate (SkillDef x)
 			{
-				pawn.skills.GetSkill(skill).Level = 10;
+				Specialize(x);
+			}));
+		}
+
+		public void Specialize(SkillDef skill)
+		{
+			specialized = true;
+			specializedSkill = skill;
+			pawn.Notify_DisabledWorkTypesChanged();
+			pawn.skills = new Pawn_SkillTracker(pawn);
+			pawn.skills.GetSkill(skill).Level = 10;
+			pawn.workSettings = new Pawn_WorkSettings(pawn);
+			pawn.workSettings.EnableAndInitialize();
+			if (skill == SkillDefOf.Social)
+			{
+				var ghoul = pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_FungalGhoul.hediff);
+				if (ghoul != null)
+				{
+					pawn.health.RemoveHediff(ghoul);
+				}
+				pawn.health.AddHediff(DefsOf.DE_FungalGhoulTalkable);
 			}
 		}
 
@@ -210,6 +229,7 @@ namespace DanceOfEvolution
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref specialized, "specialized");
+			Scribe_Defs.Look(ref specializedSkill, "specializedSkill");
 		}
 	}
 

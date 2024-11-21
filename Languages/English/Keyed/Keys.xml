@@ -11,4 +11,6 @@
 	<DE_PeriodUntilMaturity>Period until maturity: {0}</DE_PeriodUntilMaturity>
 	<DE_Mature>Mature (harvestable)</DE_Mature>
 	<DE_OnlyFungalNexusCanHarvestThis>Only fungal nexus can harvest this.</DE_OnlyFungalNexusCanHarvestThis>
+	<DE_OnlyNonSpecializedFungalGhoulsCanUseIt>Only non specialized fungal ghouls can use it</DE_OnlyNonSpecializedFungalGhoulsCanUseIt>
+	<DE_SelectSkillToSpecialize>Select Skill to Specialize</DE_SelectSkillToSpecialize>
 </LanguageData>

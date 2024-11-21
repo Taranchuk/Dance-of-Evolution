@@ -1,15 +1,12 @@
 <Defs>
-
 	<ThingCategoryDef>
 		<defName>DE_BodyPartsFungal</defName>
 		<label>fungal implants</label>
 		<parent>BodyParts</parent>
 	</ThingCategoryDef>
-
 	<HediffDef Name="DE_FungalImplantBase" Abstract="True">
 		<defaultLabelColor>(214, 90, 24)</defaultLabelColor>
 	</HediffDef>
-	
 	<ThingDef Abstract="True" Name="DE_FungalNexusImplantBase">
 		<thingClass>ThingWithComps</thingClass>
 		<category>Item</category>
@@ -26,11 +23,11 @@
 			<li>DE_BodyPartsFungal</li>
 		</thingCategories>
 		<comps>
-			<li Class="CompProperties_UseEffectDestroySelf"/>
+			<li Class="CompProperties_UseEffectDestroySelf" />
 		</comps>
 	</ThingDef>
-  
-	<ThingDef Abstract="True" Name="DE_FungalNexusCraftableBase" ParentName="DE_FungalNexusImplantBase">
+	<ThingDef Abstract="True" Name="DE_FungalNexusCraftableBase"
+		ParentName="DE_FungalNexusImplantBase">
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
 			<Beauty>-4</Beauty>
@@ -60,15 +57,16 @@
 			<displayPriority>650</displayPriority>
 		</recipeMaker>
 		<comps>
-			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Forbiddable" />
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
-
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_PsychicCoordinator</defName>
 		<label>psychic coordinator</label>
-		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections.</description>
+		<description>A fungal collective relies deeply on psychic connections to function, sharing
+			thoughts instantaneously over long distances. By using archotech shards, it is possible
+			to manually improve these connections.</description>
 		<costList>
 			<Bioferrite>35</Bioferrite>
 			<ComponentSpacer>2</ComponentSpacer>
@@ -91,12 +89,13 @@
 			</li>
 		</comps>
 	</ThingDef>
-
 	<HediffDef ParentName="DE_FungalImplantBase">
 		<defName>DE_PsychicCoordinatorImplant</defName>
 		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
 		<label>psychic coordinator</label>
-		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections.</description>
+		<description>A fungal collective relies deeply on psychic connections to function, sharing
+			thoughts instantaneously over long distances. By using archotech shards, it is possible
+			to manually improve these connections.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
 		<maxSeverity>3</maxSeverity>
@@ -113,11 +112,13 @@
 			</li>
 		</stages>
 	</HediffDef>
-
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_FungalSpine</defName>
 		<label>fungal spine</label>
-		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus.</description>
+		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and
+			used like any other living being, no matter how hard it resists. By taking away its will
+			and sealing it within the collective's mind, the revenant's power to turn invisible can
+			be added to a fungal nexus.</description>
 		<costList>
 			<RevenantSpine>1</RevenantSpine>
 			<Bioferrite>50</Bioferrite>
@@ -136,12 +137,14 @@
 			</li>
 		</comps>
 	</ThingDef>
-
 	<HediffDef ParentName="DE_FungalImplantBase">
 		<defName>DE_FungalSpineImplant</defName>
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>fungal spine</label>
-		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus.</description>
+		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and
+			used like any other living being, no matter how hard it resists. By taking away its will
+			and sealing it within the collective's mind, the revenant's power to turn invisible can
+			be added to a fungal nexus.</description>
 		<comps>
 			<li Class="HediffCompProperties_GiveAbility">
 				<abilityDefs>
@@ -156,7 +159,6 @@
 			</li>
 		</stages>
 	</HediffDef>
-
 	<AbilityDef>
 		<defName>DE_Invisibility</defName>
 		<label>invisibility</label>
@@ -188,11 +190,12 @@
 			</li>
 		</comps>
 	</AbilityDef>
-
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_GrowthStimulator</defName>
 		<label>growth stimulator</label>
-		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
+		<description>While all fungi can regenerate themselves over time, the process is long and
+			arduous. With no idea of how to fix their own wounds, the process is slow. By increasing
+			the calculation speed of the collective, injuries are identified and healed faster.</description>
 		<costList>
 			<Bioferrite>40</Bioferrite>
 			<Shard>2</Shard>
@@ -215,12 +218,13 @@
 			</li>
 		</comps>
 	</ThingDef>
-
 	<HediffDef ParentName="DE_FungalImplantBase">
 		<defName>DE_GrowthStimulatorImplant</defName>
 		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
 		<label>growth stimulator</label>
-		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
+		<description>While all fungi can regenerate themselves over time, the process is long and
+			arduous. With no idea of how to fix their own wounds, the process is slow. By increasing
+			the calculation speed of the collective, injuries are identified and healed faster.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
 		<maxSeverity>4</maxSeverity>
@@ -240,11 +244,12 @@
 			</li>
 		</stages>
 	</HediffDef>
-
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_DeadlifeSporeGenerator</defName>
 		<label>deadlife spore generator</label>
-		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using
+			their own bioferrite. Allows the nexus to create a cloud of deadlife dust around
+			themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
 			<Shell_Deadlife>1</Shell_Deadlife>
@@ -262,12 +267,13 @@
 			</li>
 		</comps>
 	</ThingDef>
-
 	<HediffDef ParentName="DE_FungalImplantBase">
 		<defName>DE_DeadlifeSporeGeneratorImplant</defName>
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>deadlife spore generator</label>
-		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using
+			their own bioferrite. Allows the nexus to create a cloud of deadlife dust around
+			themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
 		<comps>
 			<li Class="HediffCompProperties_GiveAbility">
 				<abilityDefs>
@@ -276,7 +282,6 @@
 			</li>
 		</comps>
 	</HediffDef>
-	
 	<AbilityDef>
 		<defName>DE_DeadlifeSporeCloud</defName>
 		<label>deploy deadlife dust</label>
@@ -306,28 +311,33 @@
 			<canGoWild>false</canGoWild>
 		</verbProperties>
 	</AbilityDef>
-	
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_MotorEnhancer</defName>
 		<label>motor enhancer</label>
-		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them not only more efficient but more powerful. Retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest.</description>
+		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them
+			not only more efficient but more powerful. Retractable keratin-like growths begin to
+			appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage
+			while not restricting them in the slightest.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
 			<BionicArm>2</BionicArm>
 		</costList>
 	</ThingDef>
-
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_MotorEnhancer</defName>
 		<label>motor enhancer</label>
 		<labelNoun>a motor enhancer</labelNoun>
-		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them not only more efficient but more powerful. Retractable keratin-like growths begin to appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage while not restricting them in the slightest.</description>
-		<descriptionHyperlinks><ThingDef>DE_MotorEnhancer</ThingDef></descriptionHyperlinks>
+		<description>A myco-mutator that improves the host body of a fungal nexus, rendering them
+			not only more efficient but more powerful. Retractable keratin-like growths begin to
+			appear at the tips of the fingers, letting a fungal nexus' claws deal even more damage
+			while not restricting them in the slightest.</description>
+		<descriptionHyperlinks>
+			<ThingDef>DE_MotorEnhancer</ThingDef>
+		</descriptionHyperlinks>
 		<hediffClass>DanceOfEvolution.Hediff_MotorEnhancer</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
 		<spawnThingOnRemoved>DE_MotorEnhancer</spawnThingOnRemoved>
 	</HediffDef>
-
 	<RecipeDef ParentName="SurgeryInstallImplantBase">
 		<defName>DE_InstallMotorEnhancer</defName>
 		<label>install motor enhancer</label>
@@ -336,7 +346,7 @@
 			<ThingDef>DE_MotorEnhancer</ThingDef>
 			<HediffDef>DE_MotorEnhancer</HediffDef>
 		</descriptionHyperlinks>
-    	<workerClass>DanceOfEvolution.Recipe_InstallMotoEnhancer</workerClass>
+		<workerClass>DanceOfEvolution.Recipe_InstallMotoEnhancer</workerClass>
 		<jobString>Installing motor enhancer.</jobString>
 		<ingredients>
 			<li>
@@ -356,59 +366,44 @@
 		<appliedOnFixedBodyParts>
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
-  		<addsHediff>DE_MotorEnhancer</addsHediff>
+		<addsHediff>DE_MotorEnhancer</addsHediff>
 	</RecipeDef>
-
-<ThingDef ParentName="DE_FungalNexusCraftableBase">
-    <defName>DE_NeuralEnhancer</defName>
-    <label>neural enhancer</label>
-    <description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized.</description>
-    <costList>
-        <Bioferrite>120</Bioferrite>
-        <Shard>2</Shard>
-    </costList>
-</ThingDef>
-
-<HediffDef ParentName="DE_FungalHediffBase">
-    <defName>DE_NeuralEnhancer</defName>
-    <label>neural enhancer</label>
-    <labelNoun>a neural enhancer</labelNoun>
-    <description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized.</description>
-    <descriptionHyperlinks><ThingDef>DE_NeuralEnhancer</ThingDef></descriptionHyperlinks>
-    <hediffClass>DanceOfEvolution.Hediff_NeuralEnhancer</hediffClass>
-    <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
-    <spawnThingOnRemoved>DE_NeuralEnhancer</spawnThingOnRemoved>
-</HediffDef>
-
-<RecipeDef ParentName="SurgeryInstallImplantBase">
-    <defName>DE_InstallNeuralEnhancer</defName>
-    <label>install neural enhancer</label>
-    <description>Install a neural enhancer into a fungal ghoul.</description>
-    <descriptionHyperlinks>
-        <ThingDef>DE_NeuralEnhancer</ThingDef>
-        <HediffDef>DE_NeuralEnhancer</HediffDef>
-    </descriptionHyperlinks>
-    <workerClass>DanceOfEvolution.Recipe_InstallNeuralEnhancer</workerClass>
-    <jobString>Installing neural enhancer.</jobString>
-    <ingredients>
-        <li>
-            <filter>
-                <thingDefs>
-                    <li>DE_NeuralEnhancer</li>
-                </thingDefs>
-            </filter>
-            <count>1</count>
-        </li>
-    </ingredients>
-    <fixedIngredientFilter>
-        <thingDefs>
-            <li>DE_NeuralEnhancer</li>
-        </thingDefs>
-    </fixedIngredientFilter>
-    <appliedOnFixedBodyParts>
-        <li>Brain</li>
-    </appliedOnFixedBodyParts>
-    <addsHediff>DE_NeuralEnhancer</addsHediff>
-</RecipeDef>
-
+	<ThingDef ParentName="DE_FungalNexusCraftableBase">
+		<defName>DE_NeuralEnhancer</defName>
+		<label>neural enhancer</label>
+		<description>The human brain is an extremely complicated machine, and requires special
+			implants like this one to be properly restarted and specialized.</description>
+		<costList>
+			<Bioferrite>120</Bioferrite>
+			<Shard>2</Shard>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<compClass>DanceOfEvolution.CompUsableNeuralEnhancer</compClass>
+				<useJob>UseItem</useJob>
+				<useLabel>Implant neural enhancer</useLabel>
+				<allowedMutants>
+					<li>DE_FungalGhoul</li>
+				</allowedMutants>
+			</li>
+			<li Class="CompProperties_UseEffectInstallImplant">
+				<hediffDef>DE_NeuralEnhancer</hediffDef>
+				<bodyPart>Brain</bodyPart>
+				<allowNonColonists>True</allowNonColonists>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_NeuralEnhancer</defName>
+		<label>neural enhancer</label>
+		<labelNoun>a neural enhancer</labelNoun>
+		<description>The human brain is an extremely complicated machine, and requires special
+			implants like this one to be properly restarted and specialized.</description>
+		<descriptionHyperlinks>
+			<ThingDef>DE_NeuralEnhancer</ThingDef>
+		</descriptionHyperlinks>
+		<hediffClass>DanceOfEvolution.Hediff_NeuralEnhancer</hediffClass>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<spawnThingOnRemoved>DE_NeuralEnhancer</spawnThingOnRemoved>
+	</HediffDef>
 </Defs>

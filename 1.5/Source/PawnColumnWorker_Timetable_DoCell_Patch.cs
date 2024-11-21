@@ -5,7 +5,7 @@ using RimWorld;
 using Verse;
 namespace DanceOfEvolution
 {
-    [HarmonyPatch(typeof(PawnColumnWorker_Timetable), "DoCell")]
+    //[HarmonyPatch(typeof(PawnColumnWorker_Timetable), "DoCell")]
     public static class PawnColumnWorker_Timetable_DoCell_Patch
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codeInstructions)
