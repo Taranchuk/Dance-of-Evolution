@@ -17,24 +17,42 @@ namespace DanceOfEvolution
 
 		private readonly List<MycelialTree> tmpTreesInRange = new List<MycelialTree>();
 
-		public bool BeingConsumed => !tmpTreesInRange.Empty();
-
+		public bool BeingConsumed => tmpTreesInRange.Any(x => CanBeConsumedBy(x));
 		private Corpse Corpse => parent as Corpse;
-
-		public bool CanBeConsumed
+		public bool CanBeConsumedBy(MycelialTree mycelialTree)
 		{
-			get
+			if (Corpse != null)
 			{
-				if (!ModsConfig.AnomalyActive)
+				if (!Corpse.InnerPawn.RaceProps.IsFlesh)
 				{
 					return false;
 				}
-				if (!parent.Spawned)
+				else if (Corpse.InnerPawn.IsServant())
 				{
+					return mycelialTree.consumeFungalCorpses;
+				}
+				else
+				{
+					if (Corpse.GetRotStage() == RotStage.Fresh)
+					{
+						return mycelialTree.consumeFlesh;
+					}
+					else if (Corpse.GetRotStage() == RotStage.Dessicated)
+					{
+						return mycelialTree.consumeDessicated;
+					}
 					return false;
 				}
-				return parent.GetSlotGroup()?.parent.Isnt<Building>() ?? true;
 			}
+			if (!ModsConfig.AnomalyActive)
+			{
+				return false;
+			}
+			if (!parent.Spawned)
+			{
+				return false;
+			}
+			return parent.GetSlotGroup()?.parent.Isnt<Building>() ?? true;
 		}
 
 		public override void PostExposeData()
@@ -49,10 +67,6 @@ namespace DanceOfEvolution
 
 		private void ConsumedRootsLazy()
 		{
-			if (!CanBeConsumed)
-			{
-				return;
-			}
 			tmpTreesInRange.Clear();
 			foreach (Thing item in parent.Map.listerThings.ThingsOfDef(DefsOf.DE_Plant_TreeMycelial))
 			{
@@ -74,10 +88,6 @@ namespace DanceOfEvolution
 
 		public override void CompTickRare()
 		{
-			if (!CanBeConsumed)
-			{
-				return;
-			}
 			ConsumedRootsLazy();
 			if (!BeingConsumed)
 			{
@@ -186,6 +196,7 @@ namespace DanceOfEvolution
 		}
 	}
 	
+	[HotSwappable]
 	public class MycelialTree : Plant
 	{
 		private const float ConsumingGrowthRateFactor = 1.5f;
@@ -214,12 +225,15 @@ namespace DanceOfEvolution
 
 		private List<IntVec3> tmpRadialCells = new List<IntVec3>();
 
+		public bool consumeFlesh, consumeDessicated, consumeFungalCorpses = true;
+
 		private bool ConsumableNearby => rootTargets.Count > 0;
 		
 		public float ConsumeRadius => ConsumeRadiusByGrowthCurve.Evaluate(Growth);
 
 		public override float GrowthRate => base.GrowthRate * GrowthRateFactor_Consuming * GrowthRateFactor_RottenSoil;
 
+		public int? ticksFullGrowth;
 		private float GrowthRateFactor_Consuming
 		{
 			get
@@ -268,6 +282,9 @@ namespace DanceOfEvolution
 			base.ExposeData();
 			Scribe_Collections.Look(ref rootTargets, "rootTargets", LookMode.Reference);
 			Scribe_Values.Look(ref nutrition, "nutrition", 0f);
+			Scribe_Values.Look(ref consumeFlesh, "consumeFlesh", true);
+			Scribe_Values.Look(ref consumeDessicated, "consumeDessicated", true);
+			Scribe_Values.Look(ref consumeFungalCorpses, "consumeFungalCorpses", true);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				rootTargets.RemoveAll((ThingWithComps x) => x?.Destroyed ?? true);
@@ -289,6 +306,23 @@ namespace DanceOfEvolution
 		{
 			base.TickLong();
 			UpdateRoots();
+			if (Growth >= 1 && ticksFullGrowth.HasValue is false)
+			{
+				ticksFullGrowth = Find.TickManager.TicksGame;
+			}
+			if (ticksFullGrowth.HasValue && Find.TickManager.TicksGame >= ticksFullGrowth.Value + (GenDate.TicksPerDay * 2))
+			{
+				var pos = Position;
+				var map = Map;
+				int num = this.YieldNow();
+				if (num > 0)
+				{
+					Thing thing = ThingMaker.MakeThing(def.plant.harvestedThingDef);
+					thing.stackCount = num;
+					GenPlace.TryPlaceThing(thing, pos, map, ThingPlaceMode.Near);
+				}
+				Destroy(DestroyMode.KillFinalizeLeavingsOnly);
+			}
 		}
 
 		private void UpdateRoots()
@@ -301,6 +335,7 @@ namespace DanceOfEvolution
 			{
 				rootTargets = new List<ThingWithComps>();
 			}
+			rootTargets.RemoveAll(x => x.TryGetComp<CompMycelialTreeConsumable>(out var comp) && comp.CanBeConsumedBy(this) is false);
 			tmpRadialCells.Clear();
 			tmpRadialCells.AddRange(RadialCells.ToList());
 			foreach (ThingWithComps rootTarget in rootTargets)
@@ -317,7 +352,7 @@ namespace DanceOfEvolution
 				tmpThings.AddRange(tmpRadialCell.GetThingList(base.Map));
 				foreach (Thing tmpThing in tmpThings)
 				{
-					if (tmpThing is ThingWithComps thing && thing.TryGetComp<CompMycelialTreeConsumable>(out var comp) && comp.CanBeConsumed)
+					if (tmpThing is ThingWithComps thing && thing.TryGetComp<CompMycelialTreeConsumable>(out var comp) && comp.CanBeConsumedBy(this))
 					{
 						TryMakeRoot(thing);
 					}
@@ -325,7 +360,8 @@ namespace DanceOfEvolution
 			}
 			foreach (ThingWithComps rootTarget2 in rootTargets)
 			{
-				if (rootTarget2.Destroyed || !tmpRadialCells.Contains(rootTarget2.PositionHeld))
+				if (rootTarget2.Destroyed || !tmpRadialCells.Contains(rootTarget2.PositionHeld)
+				 || rootTarget2.TryGetComp<CompMycelialTreeConsumable>(out var comp) && comp.CanBeConsumedBy(this) is false)
 				{
 					deferredDestroy.Enqueue(rootTarget2);
 				}
@@ -455,6 +491,38 @@ namespace DanceOfEvolution
 					action = CreateCorpseStockpile
 				};
 			}
+
+			yield return new Command_Toggle
+			{
+				defaultLabel = "DE_ConsumeFleshCorpses".Translate(),
+				isActive = () => consumeFlesh,
+				toggleAction = delegate
+				{
+					consumeFlesh = !consumeFlesh;
+					UpdateRoots();
+				}
+			};
+			yield return new Command_Toggle
+			{
+				defaultLabel = "DE_ConsumeDessicatedCorpses".Translate(),
+				isActive = () => consumeDessicated,
+				toggleAction = delegate
+				{
+					consumeDessicated = !consumeDessicated;
+					UpdateRoots();
+				}
+			};
+			yield return new Command_Toggle
+			{
+				defaultLabel = "DE_ConsumeFungalCorpses".Translate(),
+				isActive = () => consumeFungalCorpses,
+				toggleAction = delegate
+				{
+					consumeFungalCorpses = !consumeFungalCorpses;
+					UpdateRoots();
+				}
+			};
+			
 			if (!DebugSettings.ShowDevGizmos)
 			{
 				yield break;

@@ -13,4 +13,8 @@
 	<DE_OnlyFungalNexusCanHarvestThis>Only fungal nexus can harvest this.</DE_OnlyFungalNexusCanHarvestThis>
 	<DE_OnlyNonSpecializedFungalGhoulsCanUseIt>Only non specialized fungal ghouls can use it</DE_OnlyNonSpecializedFungalGhoulsCanUseIt>
 	<DE_SelectSkillToSpecialize>Select Skill to Specialize</DE_SelectSkillToSpecialize>
+	<DE_ConsumedByMycelialTree>Being consumed by mycelial tree.</DE_ConsumedByMycelialTree>
+	<DE_ConsumeFleshCorpses>Consume flesh corpses</DE_ConsumeFleshCorpses>
+	<DE_ConsumeDessicatedCorpses>Consume dessicated corpses</DE_ConsumeDessicatedCorpses>
+	<DE_ConsumeFungalCorpses>Consume fungal corpses</DE_ConsumeFungalCorpses>
 </LanguageData>

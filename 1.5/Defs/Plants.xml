@@ -48,6 +48,9 @@
             <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
             <harvestWork>600</harvestWork>
             <harvestTag>Standard</harvestTag>
+			<harvestAfterGrowth>0</harvestAfterGrowth>
+			<harvestMinGrowth>0.99</harvestMinGrowth>
+			<harvestFailable>false</harvestFailable>
             <interferesWithRoof>false</interferesWithRoof>
             <choppedThingDef IsNull="True"></choppedThingDef>
             <smashedThingDef IsNull="True"></smashedThingDef>
