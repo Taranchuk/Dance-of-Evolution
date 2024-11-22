@@ -10,4 +10,10 @@
 		</value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/EntityCodexEntryDef[defName="Metalhorror"]/discoveredResearchProjects</xpath>
+		<value>
+			<li>DE_CreateSpecialServant</li>
+		</value>
+	</Operation>
 </Patch>

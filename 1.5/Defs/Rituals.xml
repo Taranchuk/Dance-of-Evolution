@@ -1,0 +1,39 @@
+<Defs>
+
+	<DanceOfEvolution.PsychicRitualDef_CreateSpecialServant>
+		<defName>DE_CreateSpecialServant</defName>
+		<label>create special servant</label>
+		<description>Conduct a ritual that transforms a living victim and three large servants into a special servant under the control of the invoker, a fungal nexus. The ritual consumes the victim and the three large servants. Requires a shard of archotechnology.</description>
+		<researchPrerequisite>DE_CreateSpecialServant</researchPrerequisite>
+		<outcomeDescription>At the end of the ritual, the victim and three large servants will be consumed, and a special servant will be created under the control of the invoker.</outcomeDescription>
+		<hoursUntilOutcome>5</hoursUntilOutcome>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Shard</li>
+				</thingDefs>
+			</filter>
+			<count>1</count>
+		</requiredOffering>
+		<targetRole>SpecialServantRitualTarget</targetRole>
+		<defenderRole>LargeServants</defenderRole>
+		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
+	</DanceOfEvolution.PsychicRitualDef_CreateSpecialServant>
+	
+  <PsychicRitualRoleDef>
+    <defName>SpecialServantRitualTarget</defName>
+    <label>target</label>
+    <allowedCount>1</allowedCount>
+    <allowedConditions>Default, Downed, Prisoner, Sleeping, IdeoUnwilling</allowedConditions>
+    <applyPowerOffset>false</applyPowerOffset>
+  </PsychicRitualRoleDef>
+  
+  <PsychicRitualRoleDef>
+    <defName>LargeServants</defName>
+    <label>large servants</label>
+    <description>large servants will participate in this ritual to be sacrificed alongside with the victim.</description>
+    <allowedCount>3</allowedCount>
+    <allowedConditions>Default, Sleeping, Downed, Bleeding, Burning, NoPsychicSensitivity, NonHumanlike</allowedConditions>
+  </PsychicRitualRoleDef>
+  
+</Defs>

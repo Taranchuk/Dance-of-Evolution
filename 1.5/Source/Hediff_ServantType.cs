@@ -10,7 +10,7 @@ namespace DanceOfEvolution
 		Medium,
 		Large,
 		Ghoul,
-		Strange
+		Strange,
 	}
 	public abstract class Hediff_ServantType : HediffWithComps
 	{

@@ -30,7 +30,8 @@ namespace DanceOfEvolution
 		{
 			if (thingDef.ingestible?.sourceDef != null)
 			{
-				if (thingDef.ingestible.sourceDef == DefsOf.DE_Burrower.race)
+				var race = thingDef.ingestible.sourceDef;
+				if (race == DefsOf.DE_Burrower.race || race == DefsOf.DE_MikisMetalonEfialtis.race)
 				{
 					return true;
 				}

@@ -11,7 +11,8 @@ namespace DanceOfEvolution
 		public static JobDef DE_InfectingCorpse;
 		public static PawnKindDef DE_Burrower;
 
-		public static HediffDef DE_ServantBurrower, DE_ServantSmall, DE_ServantMedium, DE_ServantLarge, DE_ServantGhoul, DE_ServantStrange;
+		public static HediffDef DE_ServantBurrower, DE_ServantSmall, DE_ServantMedium, DE_ServantLarge,
+		 DE_ServantGhoul, DE_ServantStrange;
 
 		public static HediffDef DE_FungalTentacle;
 
@@ -19,7 +20,7 @@ namespace DanceOfEvolution
 
 		public static HediffDef DE_BladedLimb, DE_PiercingLimb;
 
-		public static ThingDef DE_Gun_SpikeThrower;
+		public static ThingDef DE_Gun_SpikeThrower, DE_Gun_SporeLauncher;
 
 		public static MutantDef DE_FungalGhoul, DE_FungalGhoulSpecialized;
 
@@ -41,6 +42,8 @@ namespace DanceOfEvolution
 		public static HediffDef Regeneration, DE_FungalGhoulTalkable;
 
 		public static ThingDef DE_Plant_TreeMycelial;
+
+		public static PawnKindDef DE_MikisMetalonEfialtis;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

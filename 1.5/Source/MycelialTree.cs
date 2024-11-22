@@ -25,7 +25,7 @@ namespace DanceOfEvolution
 			{
 				return false;
 			}
-			if (Corpse != null)
+			if (Corpse?.InnerPawn?.RaceProps != null)
 			{
 				if (!Corpse.InnerPawn.RaceProps.IsFlesh)
 				{
@@ -72,12 +72,15 @@ namespace DanceOfEvolution
 		private void ConsumedRootsLazy()
 		{
 			tmpTreesInRange.Clear();
-			foreach (Thing item in parent.Map.listerThings.ThingsOfDef(DefsOf.DE_Plant_TreeMycelial))
+			if (parent.Spawned)
 			{
-				MycelialTree MycelialTree = item as MycelialTree;
-				if (MycelialTree.Position.InHorDistOf(parent.Position, MycelialTree.ConsumeRadius))
+				foreach (Thing item in parent.Map.listerThings.ThingsOfDef(DefsOf.DE_Plant_TreeMycelial))
 				{
-					tmpTreesInRange.Add(MycelialTree);
+					MycelialTree MycelialTree = item as MycelialTree;
+					if (MycelialTree.Position.InHorDistOf(parent.Position, MycelialTree.ConsumeRadius))
+					{
+						tmpTreesInRange.Add(MycelialTree);
+					}
 				}
 			}
 		}

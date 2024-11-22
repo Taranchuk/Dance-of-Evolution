@@ -29,7 +29,7 @@ namespace DanceOfEvolution
             Widgets.DrawWindowBackground(rect);
 
             int maxServants = nexus.MaxServants;
-            int currentServants = nexus.servants.Count;
+            int currentServants = nexus.TotalServantsCount;
             string text = currentServants.ToString("F0") + " / " + maxServants.ToString("F0");
             TaggedString taggedString = "DE_Servants".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text;
 

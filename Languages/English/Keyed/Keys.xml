@@ -10,11 +10,13 @@
 	<DE_SporeModeDesc>Click to toggle between spore modes. Switching between modes takes a day. Current mode: {0}\n\n{1}</DE_SporeModeDesc>
 	<DE_PeriodUntilMaturity>Period until maturity: {0}</DE_PeriodUntilMaturity>
 	<DE_Mature>Mature (harvestable)</DE_Mature>
-	<DE_OnlyFungalNexusCanHarvestThis>Only fungal nexus can harvest this.</DE_OnlyFungalNexusCanHarvestThis>
+	<DE_OnlyFungalNexusCanHarvestThis>Only a fungal nexus can harvest this.</DE_OnlyFungalNexusCanHarvestThis>
 	<DE_OnlyNonSpecializedFungalGhoulsCanUseIt>Only non specialized fungal ghouls can use it</DE_OnlyNonSpecializedFungalGhoulsCanUseIt>
 	<DE_SelectSkillToSpecialize>Select Skill to Specialize</DE_SelectSkillToSpecialize>
 	<DE_ConsumedByMycelialTree>Being consumed by mycelial tree.</DE_ConsumedByMycelialTree>
 	<DE_ConsumeFleshCorpses>Consume flesh corpses</DE_ConsumeFleshCorpses>
 	<DE_ConsumeDessicatedCorpses>Consume dessicated corpses</DE_ConsumeDessicatedCorpses>
 	<DE_ConsumeFungalCorpses>Consume fungal corpses</DE_ConsumeFungalCorpses>
+	<DE_OnlyFungalNexusWithThreeLargeServantsCanStartThis>Only a fungal nexus with three or more large servants can start this ritual.</DE_OnlyFungalNexusWithThreeLargeServantsCanStartThis>
+	<DE_ThreeLargeServantsRequired>Three large servants belonging to the fungal nexus are required for this ritual.</DE_ThreeLargeServantsRequired>
 </LanguageData>

@@ -11,7 +11,7 @@ namespace DanceOfEvolution
 		{
 			if (__instance.Dead)
 			{
-				if (__instance.kindDef == DefsOf.DE_Burrower)
+				if (__instance.kindDef == DefsOf.DE_Burrower || __instance.kindDef == DefsOf.DE_MikisMetalonEfialtis)
 				{
 					if (__instance.Corpse != null && !__instance.Corpse.Destroyed)
 					{

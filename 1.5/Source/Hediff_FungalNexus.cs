@@ -16,12 +16,20 @@ namespace DanceOfEvolution
 		public int TotalServantsCount
 		{
 			get
-			{
-				servants.RemoveAll(x => x is null || x.Destroyed || x.Dead);
-				return servants.Count + GameComponent_ReanimateCorpses.Instance.infectedCorpses.Where(x => x.hediff_FungalNexus == this).Count();
-			}
-		}
-		public override void PostAdd(DamageInfo? dinfo)
+            {
+                servants.RemoveAll(x => x is null || x.Destroyed || x.Dead);
+                return servants.Sum(x => ServantSlotCount(x))
+                + GameComponent_ReanimateCorpses.Instance.infectedCorpses.Where(x => x.hediff_FungalNexus == this)
+                .Sum(x => ServantSlotCount(x.corpse.InnerPawn));
+            }
+        }
+
+        private static int ServantSlotCount(Pawn x)
+        {
+            return x.kindDef == DefsOf.DE_MikisMetalonEfialtis ? 3 : 1;
+        }
+
+        public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
 			if (!pawn.Inhumanized())

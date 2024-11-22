@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using RimWorld;
-using Verse;
 using Verse.AI;
 
 namespace DanceOfEvolution
 {
+
 	[HotSwappable]
 	public class JobDriver_HarvestCerebrum : JobDriver
 	{

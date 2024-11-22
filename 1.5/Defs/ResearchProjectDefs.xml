@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>DE_CreateSpecialServant</defName>
+    <label>create special servant</label>
+    <description>text.todo.</description>
+    <tab>Anomaly</tab>
+    <knowledgeCost>25</knowledgeCost>
+    <knowledgeCategory>Basic</knowledgeCategory>
+	<researchViewX>2.00</researchViewX>
+	<researchViewY>1.80</researchViewY>
+  </ResearchProjectDef>
+  
+</Defs>
