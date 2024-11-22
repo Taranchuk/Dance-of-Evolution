@@ -24,6 +24,7 @@
         <preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
         <canScatterOver>false</canScatterOver>
         <plant>
+			<neverBlightable>true</neverBlightable>
             <pollution>Any</pollution>
             <growDays>4</growDays>
             <visualSizeRange>1.5~2.1</visualSizeRange>
