@@ -84,6 +84,17 @@
                                 </li>
                             </subNodes>
                         </li>
+                        <li Class="ThinkNode_ConditionalHasHediff">
+                            <hediff>DE_ServantSpecial</hediff>
+                            <subNodes>
+                                <li Class="DanceOfEvolution.JobGiver_DoWork">
+                                    <workTypes>
+                                        <li>Growing</li>
+                                        <li>PlantCutting</li>
+                                    </workTypes>
+                                </li>
+                            </subNodes>
+                        </li>
                     </subNodes>
                 </li>
             </subNodes>

@@ -133,6 +133,11 @@
     <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
     <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
   </race>
+        <comps>
+            <li>
+                <compClass>DanceOfEvolution.CompMikisMetalonEfialtis</compClass>
+            </li>
+        </comps>
 </ThingDef>
 
 <PawnKindDef ParentName="AnimalKindBase">

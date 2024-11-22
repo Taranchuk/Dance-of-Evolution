@@ -12,7 +12,7 @@ namespace DanceOfEvolution
 		public static PawnKindDef DE_Burrower;
 
 		public static HediffDef DE_ServantBurrower, DE_ServantSmall, DE_ServantMedium, DE_ServantLarge,
-		 DE_ServantGhoul, DE_ServantStrange;
+		 DE_ServantGhoul, DE_ServantStrange, DE_ServantSpecial;
 
 		public static HediffDef DE_FungalTentacle;
 
@@ -44,6 +44,8 @@ namespace DanceOfEvolution
 		public static ThingDef DE_Plant_TreeMycelial;
 
 		public static PawnKindDef DE_MikisMetalonEfialtis;
+
+		public static HediffDef DE_ConsciousnessReductionSunlight;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

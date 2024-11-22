@@ -7,11 +7,26 @@ using Verse.AI;
 using Verse.AI.Group;
 namespace DanceOfEvolution
 {
+	[HotSwappable]
 	public class PsychicRitualDef_CreateSpecialServant : PsychicRitualDef_InvocationCircle
 	{
 		public override List<PsychicRitualToil> CreateToils(PsychicRitual psychicRitual, PsychicRitualGraph parent)
 		{
 			List<PsychicRitualToil> list = base.CreateToils(psychicRitual, parent);
+			var invokation = list.OfType<PsychicRitualToil_InvokeHorax>().First();
+			invokation.defenderPositions.Clear();
+			var num2 = 0;
+			var assignments = psychicRitual.assignments;
+			int num4 = assignments.RoleAssignedCount(DefenderRole);
+			bool playerRitual = assignments.AllAssignedPawns.Any((Pawn x) => x.Faction == Faction.OfPlayer);
+			foreach (Pawn item4 in assignments.AssignedPawns(DefenderRole))
+			{
+				_ = item4;
+				IntVec3 cell3 = assignments.Target.Cell;
+				cell3 += IntVec3.FromPolar(360f * (float)num2++ / (float)num4, 1.5f);
+				//cell3 = GetBestStandableRolePosition(playerRitual, cell3, assignments.Target.Cell, assignments.Target.Map, 1.5f);
+				invokation.defenderPositions.Add(cell3);
+			}
 			list.Add(new PsychicRitualToil_CreateSpecialServant(InvokerRole, TargetRole, DefenderRole));
 			return list;
 		}
@@ -68,7 +83,7 @@ namespace DanceOfEvolution
 			
 			var spider = PawnGenerator.GeneratePawn(DefsOf.DE_MikisMetalonEfialtis, target.Faction);
 			GenSpawn.Spawn(spider, target.Position, target.Map);
-			spider.MakeServant(fungalNexus, DefsOf.DE_ServantLarge);
+			spider.MakeServant(fungalNexus, DefsOf.DE_ServantSpecial);
 			spider.equipment.AddEquipment(ThingMaker.MakeThing(DefsOf.DE_Gun_SporeLauncher) as ThingWithComps);
 
 			var victims = new List<Pawn> { target };
@@ -81,7 +96,6 @@ namespace DanceOfEvolution
 					victim.Corpse.Destroy();
 				}
 			}
-			Log.Message("Test?");
 		}
 
 

@@ -11,7 +11,8 @@ namespace DanceOfEvolution
 		Large,
 		Ghoul,
 		Strange,
-	}
+        Special,
+    }
 	public abstract class Hediff_ServantType : HediffWithComps
 	{
 		public abstract ServantType ServantType { get; }
@@ -247,5 +248,10 @@ namespace DanceOfEvolution
 				pawn.Name = new NameSingle(pawn.Label);
 			}
 		}
+	}
+
+	public class Hediff_ServantSpecial : Hediff_ServantType
+	{
+		public override ServantType ServantType => ServantType.Special;
 	}
 }

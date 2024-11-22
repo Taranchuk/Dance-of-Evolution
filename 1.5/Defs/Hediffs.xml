@@ -188,6 +188,13 @@
         </comps>
     </HediffDef>
 
+    <HediffDef ParentName="DE_ServantTypeBase">
+        <defName>DE_ServantSpecial</defName>
+        <label>special servant</label>
+        <hediffClass>DanceOfEvolution.Hediff_ServantSpecial</hediffClass>
+        <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. This fungi has renounced any and all ideas of helping its kin work, instead it used the large amount of biomass gifted to it to fortify and strengthen the body it inhabits to defend its collective. While these beasts are extremely resilient and powerful, they are more fungus that animal, making them very weak to fire.</description>
+    </HediffDef>
+
     <AbilityDef>
         <defName>DE_WraithInvisibility</defName>
         <label>wraith invisibility</label>
@@ -479,5 +486,22 @@
             </li>
         </stages>
     </HediffDef>
-
+    
+  <HediffDef>
+    <defName>DE_ConsciousnessReductionSunlight</defName>
+    <label>sunlight-induced consciousness reduction</label>
+    <description>This servant experiences a reduction in consciousness due to exposure to sunlight.</description>
+    <hediffClass>Hediff</hediffClass>
+    <isBad>true</isBad>
+    <stages>
+        <li>
+            <capMods>
+                <li>
+                    <capacity>Consciousness</capacity>
+                    <offset>-0.3</offset>
+                </li>
+            </capMods>  
+        </li>
+    </stages>
+  </HediffDef>
 </Defs>
