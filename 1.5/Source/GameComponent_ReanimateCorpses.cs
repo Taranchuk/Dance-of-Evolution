@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using RimWorld;
 using Verse;
 
 namespace DanceOfEvolution
@@ -46,7 +45,7 @@ namespace DanceOfEvolution
 				infectedCorpses.Add(new InfectedCorpse(corpse, hediff));
 			}
 		}
-		
+
 		public override void ExposeData()
 		{
 			base.ExposeData();

@@ -149,7 +149,7 @@ namespace DanceOfEvolution
 				base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
 			}
 		}
-		public const float NutritionToGrowth = 3f;
+		public const float NutritionToGrowth = 60f;
 		public void Notify_ItemAdded(Thing item)
 		{
 			base.MapHeld.listerHaulables.Notify_AddedThing(item);

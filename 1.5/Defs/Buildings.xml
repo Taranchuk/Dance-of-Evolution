@@ -211,8 +211,7 @@
 		</inspectorTabs>
 		<costList>
 			<RawFungus>400</RawFungus>
-			<ComponentIndustrial>10</ComponentIndustrial>
-			<ComponentSpacer>1</ComponentSpacer>
+			<ComponentIndustrial>4</ComponentIndustrial>
 		</costList>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 	</ThingDef>

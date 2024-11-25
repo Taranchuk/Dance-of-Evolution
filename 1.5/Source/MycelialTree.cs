@@ -232,7 +232,9 @@ namespace DanceOfEvolution
 
 		private List<IntVec3> tmpRadialCells = new List<IntVec3>();
 
-		public bool consumeFlesh, consumeDessicated, consumeFungalCorpses = true;
+		public bool consumeFlesh;
+		public bool consumeDessicated = true;
+		public bool consumeFungalCorpses = true;
 
 		private bool ConsumableNearby => rootTargets.Count > 0;
 		
@@ -289,7 +291,7 @@ namespace DanceOfEvolution
 			base.ExposeData();
 			Scribe_Collections.Look(ref rootTargets, "rootTargets", LookMode.Reference);
 			Scribe_Values.Look(ref nutrition, "nutrition", 0f);
-			Scribe_Values.Look(ref consumeFlesh, "consumeFlesh", true);
+			Scribe_Values.Look(ref consumeFlesh, "consumeFlesh");
 			Scribe_Values.Look(ref consumeDessicated, "consumeDessicated", true);
 			Scribe_Values.Look(ref consumeFungalCorpses, "consumeFungalCorpses", true);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)

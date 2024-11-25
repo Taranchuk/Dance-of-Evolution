@@ -25,6 +25,11 @@
         <canScatterOver>false</canScatterOver>
         <plant>
 			<neverBlightable>true</neverBlightable>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0</growOptimalGlow>
+			<cavePlant>true</cavePlant>
+			<wildOrder>1</wildOrder>
+			<wildEqualLocalDistribution>false</wildEqualLocalDistribution>
             <pollution>Any</pollution>
             <growDays>4</growDays>
             <visualSizeRange>1.5~2.1</visualSizeRange>
@@ -40,9 +45,6 @@
             <harvestYield>300</harvestYield>
             <harvestedThingDef>RawFungus</harvestedThingDef>
             <treeCategory>Super</treeCategory>
-            <cavePlant>true</cavePlant>
-            <growMinGlow>0</growMinGlow>
-            <growOptimalGlow>0</growOptimalGlow>
             <sowResearchPrerequisites Inherit="False" />
             <dieFromToxicFallout>false</dieFromToxicFallout>
             <showGrowthInInspectPane>true</showGrowthInInspectPane>
