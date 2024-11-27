@@ -81,7 +81,7 @@ namespace DanceOfEvolution
 			var fungalNexus = invoker.GetFungalNexus();
 			psychicRitual.ReleaseAllPawnsAndBuildings();
 			
-			var spider = PawnGenerator.GeneratePawn(DefsOf.DE_MikisMetalonEfialtis, target.Faction);
+			var spider = PawnGenerator.GeneratePawn(DefsOf.DE_MikisMetalonEfialtis, invoker.Faction);
 			GenSpawn.Spawn(spider, target.Position, target.Map);
 			spider.MakeServant(fungalNexus, DefsOf.DE_ServantSpecial);
 			spider.equipment.AddEquipment(ThingMaker.MakeThing(DefsOf.DE_Gun_SporeLauncher) as ThingWithComps);

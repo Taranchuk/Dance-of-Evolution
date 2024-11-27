@@ -63,10 +63,6 @@ namespace DanceOfEvolution
 		{
 			var pawn = corpse.InnerPawn;
 			ResurrectionUtility.TryResurrect(pawn);
-			if (pawn.Faction != hediff_FungalNexus.pawn.Faction)
-			{
-				pawn.SetFaction(hediff_FungalNexus.pawn.Faction);
-			}
 			pawn.MakeServant(hediff_FungalNexus, GetServantHediffDef(pawn));
 		}
 

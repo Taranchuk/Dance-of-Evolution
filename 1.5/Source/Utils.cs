@@ -66,6 +66,10 @@ namespace DanceOfEvolution
 		
 		public static void MakeServant(this Pawn pawn, Hediff_FungalNexus masterHediff, HediffDef servantHediff)
 		{
+			if (pawn.Faction != masterHediff.pawn.Faction)
+			{
+				pawn.SetFaction(masterHediff.pawn.Faction);
+			}
 			var hediff = pawn.health.AddHediff(servantHediff) as Hediff_ServantType;
 			hediff.masterHediff = masterHediff;
 			masterHediff.servants.Add(pawn);
