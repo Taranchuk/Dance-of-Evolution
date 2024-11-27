@@ -10,6 +10,7 @@ namespace DanceOfEvolution
 	[StaticConstructorOnStartup]
 	public static class Startup
 	{
+		public static List<HediffDef> bodyAttachments = new List<HediffDef>();
 		static Startup()
 		{
 			PatchTraders();
@@ -17,6 +18,14 @@ namespace DanceOfEvolution
 			ChangeStorageSettings(DefsOf.DE_FungalNode);
 			ChangeStorageSettings(DefsOf.DE_Cerebrum);
 			ChangeStorageSettings(DefsOf.DE_HardenedCerebrum);
+			foreach (var item in DefDatabase<HediffDef>.AllDefsListForReading)
+			{
+				var extension = item.GetModExtension<HediffExtension>();
+				if (extension != null && extension.isBodyAttachment)
+				{
+					bodyAttachments.Add(item);
+				}
+			}
 		}
 
 		private static void ChangeStorageSettings(ThingDef def)

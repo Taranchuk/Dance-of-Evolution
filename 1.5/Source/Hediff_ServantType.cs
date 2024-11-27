@@ -11,8 +11,8 @@ namespace DanceOfEvolution
 		Large,
 		Ghoul,
 		Strange,
-        Special,
-    }
+		Special,
+	}
 	public abstract class Hediff_ServantType : HediffWithComps
 	{
 		public abstract ServantType ServantType { get; }
@@ -185,6 +185,8 @@ namespace DanceOfEvolution
 			base.PostAdd(dinfo);
 			pawn.mutant = new Pawn_MutantTracker(pawn, DefsOf.DE_FungalGhoul, RotStage.Fresh);
 			pawn.mutant.Turn(clearLord: true);
+			var attachment = Startup.bodyAttachments.RandomElement();
+			pawn.health.AddHediff(attachment);
 		}
 
 		public void Specialize()
