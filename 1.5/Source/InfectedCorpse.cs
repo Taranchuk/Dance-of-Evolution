@@ -63,29 +63,35 @@ namespace DanceOfEvolution
 		{
 			var pawn = corpse.InnerPawn;
 			ResurrectionUtility.TryResurrect(pawn);
-			pawn.MakeServant(hediff_FungalNexus, GetServantHediffDef(pawn));
+			pawn.MakeServant(hediff_FungalNexus, TryGetServantTypeAndHediff(pawn).Value.servantHediffDef);
 		}
 
-		public HediffDef GetServantHediffDef(Pawn pawn)
+		public static (ServantType servantType, HediffDef servantHediffDef)? TryGetServantTypeAndHediff(Pawn pawn)
 		{
 			if (pawn.RaceProps.Humanlike)
 			{
-				return DefsOf.DE_ServantGhoul;
+				return (ServantType.Ghoul, DefsOf.DE_ServantGhoul);
 			}
+
 			if (pawn.IsEntity || pawn.IsMutant || pawn.RaceProps.FleshType == FleshTypeDefOf.EntityFlesh)
 			{
-				return DefsOf.DE_ServantStrange;
+				return (ServantType.Strange, DefsOf.DE_ServantStrange);
 			}
+
 			float bodySize = pawn.BodySize;
 			if (bodySize <= 0.99f)
 			{
-				return DefsOf.DE_ServantSmall;
+				return (ServantType.Small, DefsOf.DE_ServantSmall);
 			}
 			else if (bodySize >= 1f && bodySize <= 1.9f)
 			{
-				return DefsOf.DE_ServantMedium;
+				return (ServantType.Medium, DefsOf.DE_ServantMedium);
 			}
-			return DefsOf.DE_ServantLarge;
+			else if (bodySize > 1.9f)
+			{
+				return (ServantType.Large, DefsOf.DE_ServantLarge);
+			}
+			return null;
 		}
 
 		private void MaintainEffects()

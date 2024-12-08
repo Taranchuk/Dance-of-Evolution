@@ -74,7 +74,7 @@ namespace DanceOfEvolution
 			if (pawn.IsColonistPlayerControlled)
 			{
 				yield return new FungalNexusGizmo(this);
-				
+				yield return new Command_SetServantTypeTarget(this);
 			}
 
 			if (DebugSettings.ShowDevGizmos)

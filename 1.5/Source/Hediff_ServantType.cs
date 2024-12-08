@@ -166,7 +166,6 @@ namespace DanceOfEvolution
 				{
 					defaultLabel = "DE_SeekFood".Translate(),
 					defaultDesc = "DE_SeekFoodDesc".Translate(),
-					icon = ContentFinder<Texture2D>.Get("UI/Commands/Ingest"),
 					action = delegate
 					{
 						var job = new JobGiver_GetFood().TryGiveJob(pawn);

@@ -21,4 +21,12 @@
 	<DE_ThreeLargeServantsRequired>Three large servants belonging to the fungal nexus are required for this ritual.</DE_ThreeLargeServantsRequired>
 	<DE_SeekFood>Seek food</DE_SeekFood>
 	<DE_SeekFoodDesc>Force this servant to seek and consume available food.</DE_SeekFoodDesc>
+	<DE_SetServantTypeTarget>Infection priority: {0}</DE_SetServantTypeTarget>
+	<DE_SetServantTypeTargetDesc>Choose which type of servant to prioritize when reanimating corpses. The burrowers will try to infect corpses of this type when possible.</DE_SetServantTypeTargetDesc>
+	<DE_ServantType_Small>Small servant</DE_ServantType_Small>
+	<DE_ServantType_Medium>Medium servant</DE_ServantType_Medium>
+	<DE_ServantType_Large>Large servant</DE_ServantType_Large>
+	<DE_ServantType_Ghoul>Ghoul servant</DE_ServantType_Ghoul>
+	<DE_ServantType_Strange>Strange servant</DE_ServantType_Strange>
+	
 </LanguageData>

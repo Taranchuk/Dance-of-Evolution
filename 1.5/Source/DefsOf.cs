@@ -46,7 +46,9 @@ namespace DanceOfEvolution
 		public static PawnKindDef DE_MikisMetalonEfialtis;
 
 		public static HediffDef DE_ConsciousnessReductionSunlight;
-		static DefsOf()
+		public static HediffDef DE_Rotting;
+
+        static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

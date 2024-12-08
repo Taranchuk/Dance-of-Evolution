@@ -1,4 +1,5 @@
 using HarmonyLib;
+using RimWorld;
 using Verse;
 
 namespace DanceOfEvolution
@@ -14,6 +15,10 @@ namespace DanceOfEvolution
 				if (invisiblity != null)
 				{
 					attacker.health.RemoveHediff(invisiblity);
+				}
+				if (attacker.kindDef == DefsOf.DE_MikisMetalonEfialtis && __instance is Pawn victim)
+				{
+					victim.health.AddHediff(DefsOf.DE_Rotting);
 				}
 			}
 		}
