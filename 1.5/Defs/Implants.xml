@@ -64,7 +64,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_PsychicCoordinator</defName>
 		<label>psychic coordinator</label>
-		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections.</description>
+		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections. This improves the work speed of the collective, but also how fast the nexus can produce burrowers. This can be installed up to 3 times.</description>
 		<costList>
 			<Bioferrite>35</Bioferrite>
 			<ComponentSpacer>2</ComponentSpacer>
@@ -91,7 +91,7 @@
 		<defName>DE_PsychicCoordinatorImplant</defName>
 		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
 		<label>psychic coordinator</label>
-		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections.</description>
+		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections. This improves the work speed of the collective, but also how fast the nexus can produce burrowers. This can be installed up to 3 times.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
 		<maxSeverity>3</maxSeverity>
@@ -183,7 +183,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_GrowthStimulator</defName>
 		<label>growth stimulator</label>
-		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
+		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster. Can be installed up to 4 times.</description>
 		<costList>
 			<Bioferrite>40</Bioferrite>
 			<Shard>2</Shard>
@@ -210,7 +210,7 @@
 		<defName>DE_GrowthStimulatorImplant</defName>
 		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
 		<label>growth stimulator</label>
-		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster.</description>
+		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster. Can be installed up to 4 times.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
 		<maxSeverity>4</maxSeverity>
@@ -233,7 +233,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_DeadlifeSporeGenerator</defName>
 		<label>deadlife spore generator</label>
-		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust an aimed location. The colony needs 5 days to remake enough spores for another cloud.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
 			<Shell_Deadlife>1</Shell_Deadlife>
@@ -255,7 +255,7 @@
 		<defName>DE_DeadlifeSporeGeneratorImplant</defName>
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>deadlife spore generator</label>
-		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust around themselves. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using their own bioferrite. Allows the nexus to create a cloud of deadlife dust an aimed location. The colony needs 5 days to remake enough spores for another cloud.</description>
 		<comps>
 			<li Class="HediffCompProperties_GiveAbility">
 				<abilityDefs>
@@ -270,9 +270,9 @@
 		<description>Deploy a cloud of deadlife dust to obscure and debilitate.</description>
 		<writeCombatLog>True</writeCombatLog>
 		<showPsycastEffects>False</showPsycastEffects>
-		<cooldownTicksRange>900000</cooldownTicksRange>
+		<cooldownTicksRange>300000</cooldownTicksRange>
 		<verbProperties>
-			<verbClass>Verb_LaunchProjectileStatic</verbClass>
+			<verbClass>DanceOfEvolution.Verb_LaunchAbilityProjectile</verbClass>
 			<label>deploy deadlife dust</label>
 			<defaultProjectile>Grenade_Deadlife</defaultProjectile>
 			<warmupTime>1.0</warmupTime>
@@ -347,7 +347,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_NeuralEnhancer</defName>
 		<label>neural enhancer</label>
-		<description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized.</description>
+		<description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized. This implant allows the activation of higher brain functions in fungal ghouls.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
 			<Shard>2</Shard>
@@ -372,7 +372,7 @@
 		<defName>DE_NeuralEnhancer</defName>
 		<label>neural enhancer</label>
 		<labelNoun>a neural enhancer</labelNoun>
-		<description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized.</description>
+		<description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized. This implant allows the activation of higher brain functions in fungal ghouls.</description>
 		<descriptionHyperlinks>
 			<ThingDef>DE_NeuralEnhancer</ThingDef>
 		</descriptionHyperlinks>

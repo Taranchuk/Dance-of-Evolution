@@ -7,7 +7,7 @@ namespace DanceOfEvolution
 	public class CompMikisMetalonEfialtis : ThingComp
 	{
 		private const float daysUntilShedding = 14f;
-		private int ticksUntilShedding; 
+		private int ticksUntilShedding;
 		public override void PostPostMake()
 		{
 			base.PostPostMake();

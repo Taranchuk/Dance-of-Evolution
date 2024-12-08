@@ -128,7 +128,8 @@ namespace DanceOfEvolution
 		}
 		public bool IsImmuneTo(Hediff hediff)
 		{
-			if (hediff.def == HediffDefOf.LungRotExposure || hediff.def == HediffDefOf.LungRot || hediff.def == HediffDefOf.BloodLoss)
+			if (hediff.def == HediffDefOf.LungRotExposure || hediff.def == HediffDefOf.LungRot 
+			|| hediff.def == HediffDefOf.BloodLoss || hediff.def == HediffDefOf.ToxGasExposure)
 			{
 				return true;
 			}

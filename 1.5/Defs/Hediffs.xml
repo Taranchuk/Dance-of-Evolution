@@ -192,7 +192,21 @@
         <defName>DE_ServantSpecial</defName>
         <label>special servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantSpecial</hediffClass>
-        <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. This fungi has renounced any and all ideas of helping its kin work, instead it used the large amount of biomass gifted to it to fortify and strengthen the body it inhabits to defend its collective. While these beasts are extremely resilient and powerful, they are more fungus that animal, making them very weak to fire.</description>
+        <description>A mass of amalgamated fungal matter as well as several infected bodies, and most importantly, the conciousness of a live human. This lumbering behemoth, despite being imposing, is not as threatening as it seems in melee. Its stiff and puppet-like movements make it very easy to dodge in close quarters. However, it posses a large organ meant to dispense deadly spores at long range. The spores latch onto whatever they land and rapidly begin spreading diseases in biological targets or sabotaging the structural integrity of mechanical ones. Despite possessing no eyes, this creature can perceive its environment perfectly using its advanced psychic senses.</description>
+        <stages Inherit="False">
+            <li>
+                <painFactor>0</painFactor>
+                <regeneration>10</regeneration>
+                <showRegenerationStat>true</showRegenerationStat>
+                <statFactors>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
+                    <FilthRate>0</FilthRate>
+               </statFactors>
+                <statOffsets>
+                    <Flammability>1</Flammability>
+                </statOffsets>
+            </li>
+        </stages>
     </HediffDef>
 
     <AbilityDef>
