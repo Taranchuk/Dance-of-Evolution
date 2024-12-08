@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using RimWorld;
+using UnityEngine;
 using Verse;
 namespace DanceOfEvolution
 {
@@ -13,6 +14,8 @@ namespace DanceOfEvolution
 		Strange,
 		Special,
 	}
+	
+	[HotSwappable]
 	public abstract class Hediff_ServantType : HediffWithComps
 	{
 		public abstract ServantType ServantType { get; }
@@ -148,6 +151,33 @@ namespace DanceOfEvolution
 				return true;
 			}
 			return false;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			Log.Message("GetGizmos:" + this);
+			foreach (var gizmo in base.GetGizmos())
+			{
+				yield return gizmo;
+			}
+
+			if (ControllableNoTileCheck && pawn.needs.food != null)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DE_SeekFood".Translate(),
+					defaultDesc = "DE_SeekFoodDesc".Translate(),
+					icon = ContentFinder<Texture2D>.Get("UI/Commands/Ingest"),
+					action = delegate
+					{
+						var job = new JobGiver_GetFood().TryGiveJob(pawn);
+						if (job != null)
+						{
+							pawn.jobs.TryTakeOrderedJob(job);
+						}
+					}
+				};
+			}
 		}
 	}
 

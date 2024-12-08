@@ -19,4 +19,6 @@
 	<DE_ConsumeFungalCorpses>Consume fungal corpses</DE_ConsumeFungalCorpses>
 	<DE_OnlyFungalNexusWithThreeLargeServantsCanStartThis>Only a fungal nexus with three or more large servants can start this ritual.</DE_OnlyFungalNexusWithThreeLargeServantsCanStartThis>
 	<DE_ThreeLargeServantsRequired>Three large servants belonging to the fungal nexus are required for this ritual.</DE_ThreeLargeServantsRequired>
+	<DE_SeekFood>Seek food</DE_SeekFood>
+	<DE_SeekFoodDesc>Force this servant to seek and consume available food.</DE_SeekFoodDesc>
 </LanguageData>
