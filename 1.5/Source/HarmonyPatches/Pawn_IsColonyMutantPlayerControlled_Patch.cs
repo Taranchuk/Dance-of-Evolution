@@ -12,6 +12,10 @@ namespace DanceOfEvolution
 			{
 				__result = true;
 			}
+			else if (__result is false && ColonistBar_CheckRecacheEntries_Patch.recachingNow && __instance.IsServant())
+			{
+				__result = true;
+			}
 		}
 	}
 }

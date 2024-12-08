@@ -60,15 +60,23 @@ namespace DanceOfEvolution
 		{
 			get
 			{
+				if (pawn.Tile != masterHediff.pawn?.Tile)
+				{
+					return false;
+				}
+				return ControllableNoTileCheck;
+			}
+		}
+
+		public bool ControllableNoTileCheck
+		{
+			get
+			{
 				if (pawn.kindDef == DefsOf.DE_Burrower)
 				{
 					return false;
 				}
 				if (masterHediff?.pawn is null)
-				{
-					return false;
-				}
-				if (pawn.MapHeld != masterHediff.pawn?.MapHeld)
 				{
 					return false;
 				}
@@ -83,6 +91,7 @@ namespace DanceOfEvolution
 				return pawn.Faction == Faction.OfPlayer && pawn.MentalStateDef == null;
 			}
 		}
+
 
 		public override void PostAdd(DamageInfo? dinfo)
 		{

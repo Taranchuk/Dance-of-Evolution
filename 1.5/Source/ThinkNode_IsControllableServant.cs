@@ -6,7 +6,7 @@ namespace DanceOfEvolution
     {
         public override bool Satisfied(Pawn pawn)
         {
-            return pawn.IsControllableServant();
+            return pawn.IsServant(out var hediff) && hediff.ControllableNoTileCheck;
         }
     }
 }

@@ -39,7 +39,7 @@ namespace DanceOfEvolution
         static public float ChangePathCostIfNeeded(Pawn pawn, int xCell, int zCell, float cost)
         {
             var cell = new IntVec3(xCell, 0, zCell);
-            if (pawn.HasFungalNexus() && pawn.CanPassOver(cell))
+            if (pawn != null && pawn.HasFungalNexus() && pawn.CanPassOver(cell))
             {
                 return pawn.GetPawnBasePathCost(cell);
             }
