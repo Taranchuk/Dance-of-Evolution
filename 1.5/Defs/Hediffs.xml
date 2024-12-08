@@ -150,7 +150,7 @@
         <defName>DE_ServantLarge</defName>
         <label>large servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantLarge</hediffClass>
-        <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. This fungi has renounced any and all ideas of helping its kin work, instead it used the large amount of biomass gifted to it to fortify and strengthen the body it inhabits to defend its collective. While these beasts are extremely resilient and powerful, they are more fungus that animal, making them very weak to fire.</description>
+        <description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. This fungi has renounced any and all ideas of helping its kin work, instead it used the large amount of biomass gifted to it to fortify and strengthen the body it inhabits to defend its collective. While these beasts are extremely resilient and powerful, they are more fungus than animal, making them very weak to fire.</description>
         <stages Inherit="False">
             <li>
                 <painFactor>0</painFactor>
@@ -501,7 +501,7 @@
         </stages>
     </HediffDef>
     
-  <HediffDef>
+  <HediffDef ParentName="DE_FungalHediffBase">
     <defName>DE_ConsciousnessReductionSunlight</defName>
     <label>sunlight-induced consciousness reduction</label>
     <description>This servant experiences a reduction in consciousness due to exposure to sunlight.</description>
@@ -518,4 +518,17 @@
         </li>
     </stages>
   </HediffDef>
+
+  <HediffDef ParentName="DE_FungalHediffBase">
+    <defName>DE_Rotting</defName>
+    <label>rotting</label>
+    <description>This creature is being consumed by a potent rotting agent. If it dies, it will release toxic gases.</description>
+    <hediffClass>DanceOfEvolution.Hediff_Rotting</hediffClass>
+    <initialSeverity>1.0</initialSeverity>
+    <comps>
+        <li Class="HediffCompProperties_Disappears">
+            <disappearsAfterTicks>60000</disappearsAfterTicks>
+        </li>
+    </comps>
+</HediffDef>
 </Defs>

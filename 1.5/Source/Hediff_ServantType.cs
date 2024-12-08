@@ -155,7 +155,6 @@ namespace DanceOfEvolution
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			Log.Message("GetGizmos:" + this);
 			foreach (var gizmo in base.GetGizmos())
 			{
 				yield return gizmo;

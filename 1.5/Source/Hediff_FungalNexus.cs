@@ -13,23 +13,24 @@ namespace DanceOfEvolution
 		public List<Pawn> servants = new();
 		public int MaxServants => 4 + servantCountOffset;
 		public int servantCountOffset;
+		public ServantType servantTypeTarget = ServantType.Large;
 		public int TotalServantsCount
 		{
 			get
-            {
-                servants.RemoveAll(x => x is null || x.Destroyed || x.Dead);
-                return servants.Sum(x => ServantSlotCount(x))
-                + GameComponent_ReanimateCorpses.Instance.infectedCorpses.Where(x => x.hediff_FungalNexus == this)
-                .Sum(x => ServantSlotCount(x.corpse.InnerPawn));
-            }
-        }
+			{
+				servants.RemoveAll(x => x is null || x.Destroyed || x.Dead);
+				return servants.Sum(x => ServantSlotCount(x))
+				+ GameComponent_ReanimateCorpses.Instance.infectedCorpses.Where(x => x.hediff_FungalNexus == this)
+				.Sum(x => ServantSlotCount(x.corpse.InnerPawn));
+			}
+		}
 
-        private static int ServantSlotCount(Pawn x)
-        {
-            return x.kindDef == DefsOf.DE_MikisMetalonEfialtis ? 3 : 1;
-        }
+		private static int ServantSlotCount(Pawn x)
+		{
+			return x.kindDef == DefsOf.DE_MikisMetalonEfialtis ? 3 : 1;
+		}
 
-        public override void PostAdd(DamageInfo? dinfo)
+		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
 			if (!pawn.Inhumanized())
@@ -73,6 +74,7 @@ namespace DanceOfEvolution
 			if (pawn.IsColonistPlayerControlled)
 			{
 				yield return new FungalNexusGizmo(this);
+				
 			}
 
 			if (DebugSettings.ShowDevGizmos)
@@ -145,6 +147,7 @@ namespace DanceOfEvolution
 			Scribe_Collections.Look(ref servants, "servants", LookMode.Reference);
 			Scribe_Values.Look(ref timer, "timer");
 			Scribe_Values.Look(ref servantCountOffset, "servantCountOffset");
+			Scribe_Values.Look(ref servantTypeTarget, "servantTypeTarget", ServantType.Large);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				servants ??= new();
