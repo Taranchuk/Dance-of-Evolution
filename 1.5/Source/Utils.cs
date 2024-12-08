@@ -70,8 +70,9 @@ namespace DanceOfEvolution
 			{
 				pawn.SetFaction(masterHediff.pawn.Faction);
 			}
-			var hediff = pawn.health.AddHediff(servantHediff) as Hediff_ServantType;
+			var hediff = HediffMaker.MakeHediff(servantHediff, pawn) as Hediff_ServantType;
 			hediff.masterHediff = masterHediff;
+			pawn.health.AddHediff(hediff);
 			masterHediff.servants.Add(pawn);
 		}
 

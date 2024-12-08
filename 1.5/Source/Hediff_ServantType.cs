@@ -63,7 +63,7 @@ namespace DanceOfEvolution
 		{
 			get
 			{
-				if (pawn.Tile != masterHediff.pawn?.Tile)
+				if (masterHediff?.pawn is null || pawn.Tile != masterHediff.pawn.Tile)
 				{
 					return false;
 				}
