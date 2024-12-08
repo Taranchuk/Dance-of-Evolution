@@ -9,7 +9,7 @@ namespace DanceOfEvolution
 	{
 		public override Job TryGiveJob(Pawn pawn)
 		{
-			var fungalNexus = pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_FungalNexus) as Hediff_FungalNexus;
+			var fungalNexus = pawn.GetServantTypeHediff()?.masterHediff?.pawn?.GetFungalNexus();
 			if (fungalNexus == null) return null;
 
 			var corpse = FindCorpse(pawn, fungalNexus, checkForTarget: true);
