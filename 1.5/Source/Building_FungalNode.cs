@@ -7,7 +7,6 @@ using RimWorld;
 using Verse;
 namespace DanceOfEvolution
 {
-
 	public class Building_FungalNode : Building_NutrientPasteDispenser, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
 	{
 		private const int MaxNutrition = 100;
@@ -157,7 +156,7 @@ namespace DanceOfEvolution
 				base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
 			}
 		}
-		
+
 		public override void Tick()
 		{
 			base.Tick();
@@ -225,21 +224,6 @@ namespace DanceOfEvolution
 		}
 
 		public override ThingDef DispensableDef => DefsOf.DE_FungalSlurry;
-
-
-		//[HarmonyPatch(typeof(Building_NutrientPasteDispenser), "CanDispenseNow", MethodType.Getter)]
-		//public static class Building_NutrientPasteDispenser_CanDispenseNow_Patch
-		//{
-		//	public static bool Prefix(ref bool __result, Building_NutrientPasteDispenser __instance)
-		//	{
-		//		if (__instance is Building_FungalNode fungalNode)
-		//		{
-		//			__result = true;
-		//			return false;
-		//		}
-		//		return true;
-		//	}
-		//}
 
 		[HarmonyPatch(typeof(Alert_PasteDispenserNeedsHopper), "BadDispensers", MethodType.Getter)]
 		public static class Alert_PasteDispenserNeedsHopper_BadDispensers_Patch
