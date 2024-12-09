@@ -47,8 +47,11 @@ namespace DanceOfEvolution
 
 		public static HediffDef DE_ConsciousnessReductionSunlight;
 		public static HediffDef DE_Rotting;
+		
+		[MayRequireBiotech]
+		public static ThoughtDef SunlightSensitivity_Mild;
 
-        static DefsOf()
+		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

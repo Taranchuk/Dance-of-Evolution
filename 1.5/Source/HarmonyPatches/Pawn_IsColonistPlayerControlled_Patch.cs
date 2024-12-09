@@ -11,7 +11,7 @@ namespace DanceOfEvolution
         [HarmonyPriority(Priority.Last)]
         public static void Postfix(Pawn __instance, ref bool __result)
         {
-            if (__instance.IsControllableServant())
+            if (__instance.IsControllableServant() && __instance.Dead is false)
             {
                 __result = true;
             }

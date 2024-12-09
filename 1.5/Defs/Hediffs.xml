@@ -76,8 +76,8 @@
         </stages>
         <renderNodeProperties>
             <li>
-              <nodeClass>DanceOfEvolution.PawnRenderNode_AttachmentHeadHideWithApparels</nodeClass>
-              <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+              <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+              <workerClass>DanceOfEvolution.PawnRenderNodeWorker_FungalNexus</workerClass>
               <texPath>Things/Pawn/FungalNexusCap/FungalNexusCap</texPath>
               <parentTagDef>Head</parentTagDef>
               <rotDrawMode>Fresh, Rotting</rotDrawMode>

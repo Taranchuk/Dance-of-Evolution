@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace DanceOfEvolution
 {
+	[HotSwappable]
 	public class CompMycelialTreeConsumable : ThingComp
 	{
 		private const int ConsumeInterval = 5000;
@@ -96,8 +98,10 @@ namespace DanceOfEvolution
 		public override void CompTickRare()
 		{
 			ConsumedRootsLazy();
-			if (!BeingConsumed)
+			if (!BeingConsumed && parent.Spawned)
 			{
+				parent.Position.GetThingList(parent.Map).Where(x => x.def
+				== ThingDefOf.Mote_HarbingerTreeRoots).ToList().Do(x => x.Destroy());
 				return;
 			}
 			ticksPassed += 250;
@@ -389,7 +393,8 @@ namespace DanceOfEvolution
 
 		private void TryMakeRoot(ThingWithComps thing)
 		{
-			if (!roots.ContainsKey(thing))
+			if (!roots.ContainsKey(thing) || thing.Position.GetThingList(base.Map)
+				.Any(x => x.def == ThingDefOf.Mote_HarbingerTreeRoots) is false)
 			{
 				float exactRot = 0f;
 				if (thing is Corpse corpse)
