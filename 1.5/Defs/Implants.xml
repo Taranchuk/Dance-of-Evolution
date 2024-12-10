@@ -26,8 +26,7 @@
 			<li Class="CompProperties_UseEffectDestroySelf" />
 		</comps>
 	</ThingDef>
-	<ThingDef Abstract="True" Name="DE_FungalNexusCraftableBase"
-		ParentName="DE_FungalNexusImplantBase">
+	<ThingDef Abstract="True" Name="DE_FungalNexusCraftableBase" ParentName="DE_FungalNexusImplantBase">
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
 			<Beauty>-4</Beauty>
@@ -117,6 +116,9 @@
 			<Bioferrite>50</Bioferrite>
 			<Shard>1</Shard>
 		</costList>
+		<recipeMaker>
+			<researchPrerequisite>RevenantInvisibility</researchPrerequisite>
+		</recipeMaker>
 		<comps>
 			<li Class="CompProperties_Usable">
 				<compClass>CompUsableImplant</compClass>
@@ -192,6 +194,9 @@
 		<statBases>
 			<MaxInstallCount>4</MaxInstallCount>
 		</statBases>
+		<recipeMaker>
+			<researchPrerequisite>JuggernautSerum</researchPrerequisite>
+		</recipeMaker>
 		<comps>
 			<li Class="CompProperties_Usable">
 				<compClass>CompUsableImplant</compClass>
@@ -238,6 +243,9 @@
 			<Bioferrite>120</Bioferrite>
 			<Shell_Deadlife>1</Shell_Deadlife>
 		</costList>
+		<recipeMaker>
+			<researchPrerequisite>DeadlifeDust</researchPrerequisite>
+		</recipeMaker>
 		<comps>
 			<li Class="CompProperties_Usable">
 				<compClass>CompUsableImplant</compClass>
