@@ -24,12 +24,12 @@
         <preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
         <canScatterOver>false</canScatterOver>
         <plant>
-			<neverBlightable>true</neverBlightable>
-			<growMinGlow>0</growMinGlow>
-			<growOptimalGlow>0</growOptimalGlow>
-			<cavePlant>true</cavePlant>
-			<wildOrder>1</wildOrder>
-			<wildEqualLocalDistribution>false</wildEqualLocalDistribution>
+            <neverBlightable>true</neverBlightable>
+            <growMinGlow>0</growMinGlow>
+            <growOptimalGlow>0</growOptimalGlow>
+            <cavePlant>true</cavePlant>
+            <wildOrder>1</wildOrder>
+            <wildEqualLocalDistribution>false</wildEqualLocalDistribution>
             <pollution>Any</pollution>
             <growDays>4</growDays>
             <visualSizeRange>1.5~2.1</visualSizeRange>
@@ -51,14 +51,60 @@
             <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
             <harvestWork>600</harvestWork>
             <harvestTag>Standard</harvestTag>
-			<harvestAfterGrowth>0</harvestAfterGrowth>
-			<harvestMinGrowth>0.99</harvestMinGrowth>
-			<harvestFailable>false</harvestFailable>
+            <harvestAfterGrowth>0</harvestAfterGrowth>
+            <harvestMinGrowth>0.99</harvestMinGrowth>
+            <harvestFailable>false</harvestFailable>
             <interferesWithRoof>false</interferesWithRoof>
             <choppedThingDef IsNull="True"></choppedThingDef>
             <smashedThingDef IsNull="True"></smashedThingDef>
             <mustBeWildToSow>false</mustBeWildToSow>
         </plant>
+    </ThingDef>
+
+    <ThingDef ParentName="CavePlantBase">
+        <defName>DE_FalseParasol</defName>
+        <label>false parasol</label>
+        <description>Originally a poisonous mushroom found in earth's forests, this species has mutated and been integrated into the collective completely. The False Parasol is no longer poisonous, and now produces thick stranges of living matter that can be into clothes, as well as producing and storing psychite in its stem. These mushrooms need large amounts of space to grow, and have a tendency to deteriorate fast when exposed to sunlight.</description>
+        <thingClass>DanceOfEvolution.FalseParasol</thingClass>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>3.0</Flammability>
+            <Beauty>5</Beauty>
+            <BeautyOutdoors>5</BeautyOutdoors>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Plant/FalseParasol</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+            <shadowData>
+                <volume>(0.15, 0.25, 0.12)</volume>
+                <offset>(0.0,0,-0.4)</offset>
+            </shadowData>
+        </graphicData>
+        <selectable>true</selectable>
+        <neverMultiSelect>false</neverMultiSelect>
+        <pathCost>40</pathCost>
+        <plant>
+            <fertilityMin>0.01</fertilityMin>
+            <fertilitySensitivity>0.1</fertilitySensitivity>
+            <growDays>16.8</growDays>
+            <dieIfLeafless>true</dieIfLeafless>
+            <harvestTag>Standard</harvestTag>
+            <harvestedThingDef>DE_MyceliumTextile</harvestedThingDef>
+            <harvestYield>8</harvestYield>
+            <harvestAfterGrowth>0</harvestAfterGrowth>
+            <harvestMinGrowth>0.99</harvestMinGrowth>
+            <harvestFailable>false</harvestFailable>
+            <neverBlightable>true</neverBlightable>
+            <visualSizeRange>0.8~1.4</visualSizeRange>
+            <topWindExposure>0.2</topWindExposure>
+            <cavePlantWeight>0.25</cavePlantWeight>
+            <purpose>Misc</purpose>
+            <pollution>Any</pollution>
+        </plant>
+        <ingestible>
+            <foodType>Plant</foodType>
+            <preferability>NeverForNutrition</preferability>
+        </ingestible>
     </ThingDef>
 
 </Defs>

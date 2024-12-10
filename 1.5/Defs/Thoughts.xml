@@ -36,5 +36,17 @@
           </li>
         </stages>
   </ThoughtDef>
+<ThoughtDef>
+  <defName>DE_UncomfortableOutfit</defName>
+  <thoughtClass>Thought_Situational</thoughtClass>
+  <workerClass>DanceOfEvolution.ThoughtWorker_UncomfortableOutfit</workerClass>
+  <stages>
+    <li>
+      <label>uncomfortable outfit</label>
+      <description>I can feel my outfit wriggling against my skin, this is the worst!</description>
+      <baseMoodEffect>-6</baseMoodEffect>
+    </li>
+  </stages>
+</ThoughtDef>
 
 </Defs>

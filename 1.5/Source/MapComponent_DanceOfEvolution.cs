@@ -5,73 +5,92 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    [HotSwappable]
-    public class MapComponent_DanceOfEvolution : MapComponent
-    {
-        public MapComponent_DanceOfEvolution(Map map) : base(map)
-        {
+	[HotSwappable]
+	public class MapComponent_DanceOfEvolution : MapComponent
+	{
+		public MapComponent_DanceOfEvolution(Map map) : base(map)
+		{
+		}
 
-        }
+		public Dictionary<ThingDef, int> nextPlantSpawn = new Dictionary<ThingDef, int>();
+		public Dictionary<IntVec3, float> cellsWithDarknessTime = new Dictionary<IntVec3, float>();
+		public const int DarknessCheckInterval = 120;
+		public static readonly Dictionary<ThingDef, FloatRange> PlantSpawnTimes = new Dictionary<ThingDef, FloatRange>
+		{
+			{ DefsOf.DE_Plant_TreeMycelial, new FloatRange(3f, 20f) },
+			{ DefsOf.DE_FalseParasol, new FloatRange(3f, 20f) }
+		};
 
-        public int nextTreeSpawn;
-        public Dictionary<IntVec3, float> cellsWithDarknessTime = new Dictionary<IntVec3, float>();
-        public const int DarknessCheckInterval = 120;
-        public const int MinDarknessTime = GenDate.TicksPerDay * 2;
-        public override void MapComponentTick()
-        {
-            base.MapComponentTick();
-            if (nextTreeSpawn == 0)
-            {
-                SetNextTreeSpawnTick();
-            }
-            else if (Find.TickManager.TicksGame % DarknessCheckInterval == 0)
-            {
-                var rottenSoil = map.AllCells.Where(x => x.GetTerrain(map) == DefsOf.DE_RottenSoil).ToList();
-                foreach (var terrain in rottenSoil)
-                {
-                    if (cellsWithDarknessTime.ContainsKey(terrain) is false)
-                    {
-                        cellsWithDarknessTime[terrain] = 0;
-                    }
-                    if (map.glowGrid.GroundGlowAt(terrain) <= 0)
-                    {
-                        cellsWithDarknessTime[terrain] += DarknessCheckInterval;
-                    }
-                    else
-                    {
-                        cellsWithDarknessTime[terrain] = 0;
-                    }
-                }
-            }
-            else if (Find.TickManager.TicksGame >= nextTreeSpawn)
-            {
-                var rottenSoil = cellsWithDarknessTime.Where(x => x.Value >= MinDarknessTime
-                && map.glowGrid.GroundGlowAt(x.Key) <= 0 && x.Key.GetFirstBuilding(map) is null
-                && x.Key.GetFirstThing<MycelialTree>(map) is null).ToList();
-                if (rottenSoil.Any())
-                {
-                    var terrain = rottenSoil.RandomElement();
-                    var plant = GenSpawn.Spawn(DefsOf.DE_Plant_TreeMycelial, terrain.Key, map) as Plant;
-                    plant.Growth = 0.05f;
-                    SetNextTreeSpawnTick();
-                }
-                else
-                {
-                    nextTreeSpawn += GenDate.TicksPerHour;
-                }
-            }
-        }
+		public override void MapComponentTick()
+		{
+			base.MapComponentTick();
 
-        public void SetNextTreeSpawnTick()
-        {
-            nextTreeSpawn = Find.TickManager.TicksGame + (int)(new FloatRange(3f, 20f).RandomInRange * GenDate.TicksPerDay);
-        }
+			if (Find.TickManager.TicksGame % DarknessCheckInterval == 0)
+			{
+				var rottenSoil = map.AllCells.Where(x => x.GetTerrain(map) == DefsOf.DE_RottenSoil).ToList();
+				foreach (var terrain in rottenSoil)
+				{
+					if (!cellsWithDarknessTime.ContainsKey(terrain))
+					{
+						cellsWithDarknessTime[terrain] = 0;
+					}
+					if (map.glowGrid.GroundGlowAt(terrain) <= 0)
+					{
+						cellsWithDarknessTime[terrain] += DarknessCheckInterval;
+					}
+					else
+					{
+						cellsWithDarknessTime[terrain] = 0;
+					}
+				}
+			}
 
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Values.Look(ref nextTreeSpawn, "nextTreeSpawn");
-            Scribe_Collections.Look(ref cellsWithDarknessTime, "cellsWithDarknessTime", LookMode.Value, LookMode.Value);
-        }
-    }
+			foreach (var kvp in PlantSpawnTimes)
+			{
+				var plantDef = kvp.Key;
+				var spawnInterval = kvp.Value;
+
+				if (!nextPlantSpawn.ContainsKey(plantDef))
+				{
+					SetNextPlantSpawnTick(plantDef, spawnInterval);
+				}
+				else if (Find.TickManager.TicksGame >= nextPlantSpawn[plantDef])
+				{
+					var validCells = cellsWithDarknessTime.Where(x => x.Value >= GenDate.TicksPerDay * 2
+					&& map.glowGrid.GroundGlowAt(x.Key) <= 0 
+					&& x.Key.GetFirstBuilding(map) is null
+					&& x.Key.GetPlant(map) is null).ToList();
+
+					if (validCells.Any())
+					{
+						var terrain = validCells.RandomElement();
+						var plant = GenSpawn.Spawn(plantDef, terrain.Key, map) as Plant;
+						plant.Growth = 0.05f;
+						SetNextPlantSpawnTick(plantDef, spawnInterval);
+					}
+					else
+					{
+						nextPlantSpawn[plantDef] += GenDate.TicksPerHour;
+					}
+				}
+			}
+		}
+
+		public void SetNextPlantSpawnTick(ThingDef plantDef, FloatRange spawnInterval)
+		{
+			nextPlantSpawn[plantDef] = Find.TickManager.TicksGame + (int)(GenDate.TicksPerDay * spawnInterval.RandomInRange);
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref nextPlantSpawn, "nextPlantSpawn", LookMode.Def, LookMode.Value);
+			Scribe_Collections.Look(ref cellsWithDarknessTime, "cellsWithDarknessTime", LookMode.Value, LookMode.Value);
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				nextPlantSpawn ??= new Dictionary<ThingDef, int>();
+				cellsWithDarknessTime ??= new Dictionary<IntVec3, float>();
+			}
+		}
+	}
 }
