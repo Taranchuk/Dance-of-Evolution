@@ -23,7 +23,7 @@ namespace DanceOfEvolution
 		{
 			var options = new List<FloatMenuOption>();
 			var servantTypes = new[] { ServantType.Small, ServantType.Medium, ServantType.Large, 
-			ServantType.Ghoul, ServantType.Strange };
+			ServantType.Ghoul};
 
 			foreach (var type in servantTypes)
 			{

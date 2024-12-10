@@ -12,18 +12,17 @@ namespace DanceOfEvolution
 		public static PawnKindDef DE_Burrower;
 
 		public static HediffDef DE_ServantBurrower, DE_ServantSmall, DE_ServantMedium, DE_ServantLarge,
-		 DE_ServantGhoul, DE_ServantStrange, DE_ServantSpecial;
+		 DE_ServantGhoul, DE_ServantSpecial;
 
 		public static HediffDef DE_FungalTentacle;
 
 		public static ThingDef DE_FungalSlurry;
 
-		public static HediffDef DE_BladedLimb, DE_PiercingLimb;
+		public static HediffDef DE_BladedLimb;
 
 		public static ThingDef DE_Gun_SpikeThrower, DE_Gun_SporeLauncher;
 
 		public static MutantDef DE_FungalGhoul, DE_FungalGhoulSpecialized;
-
 		public static HediffDef DE_Invisibility;
 		public static ThingDef DE_FungalNode;
 		public static TerrainDef DE_RottenSoil;

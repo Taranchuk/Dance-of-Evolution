@@ -175,20 +175,6 @@
     </HediffDef>
 
     <HediffDef ParentName="DE_ServantTypeBase">
-        <defName>DE_ServantStrange</defName>
-        <label>strange servant</label>
-        <hediffClass>DanceOfEvolution.Hediff_ServantStrange</hediffClass>
-        <description>This strange rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. The twisted flesh that make up this corpse have left the fungus that inhabits it into a strange state. It will often send eroneous signals to its kin and is prone to odd twitching of its limbs. Due to the inherent psychic properties of the body they inhabit, they have gained the ability to use psychic influence to render themselves effectively unseen by nearby minds.</description>
-        <comps>
-            <li Class="HediffCompProperties_GiveAbility">
-                <abilityDefs>
-                    <li>DE_WraithInvisibility</li>
-                </abilityDefs>
-            </li>
-        </comps>
-    </HediffDef>
-
-    <HediffDef ParentName="DE_ServantTypeBase">
         <defName>DE_ServantSpecial</defName>
         <label>special servant</label>
         <hediffClass>DanceOfEvolution.Hediff_ServantSpecial</hediffClass>
@@ -208,38 +194,6 @@
             </li>
         </stages>
     </HediffDef>
-
-    <AbilityDef>
-        <defName>DE_WraithInvisibility</defName>
-        <label>wraith invisibility</label>
-        <description>The wraith becomes invisible for a day. This invisibility will break if it attacks, and has a 10-day cooldown period before it can be used again.</description>
-        <iconPath>UI/Abilities/WraithInvisibility</iconPath>
-        <cooldownTicksRange>600000</cooldownTicksRange>
-        <writeCombatLog>True</writeCombatLog>
-        <targetRequired>false</targetRequired>
-        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-        <statBases>
-            <Ability_Duration>1000</Ability_Duration>
-        </statBases>
-        <verbProperties>
-            <verbClass>Verb_CastAbility</verbClass>
-            <drawAimPie>false</drawAimPie>
-            <requireLineOfSight>false</requireLineOfSight>
-            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-            <warmupTime>1</warmupTime>
-            <range>0</range>
-            <targetable>false</targetable>
-            <targetParams>
-                <canTargetSelf>true</canTargetSelf>
-            </targetParams>
-        </verbProperties>
-        <comps>
-            <li Class="CompProperties_AbilityGiveHediff">
-                <compClass>CompAbilityEffect_GiveHediff</compClass>
-                <hediffDef>DE_Invisibility</hediffDef>
-            </li>
-        </comps>
-    </AbilityDef>
 
     <HediffDef>
         <defName>DE_Invisibility</defName>
@@ -353,42 +307,6 @@
                         <power>12</power>
                         <armorPenetration>0.18</armorPenetration>
                         <cooldownTime>1.1</cooldownTime>
-                        <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
-                        <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
-                    </li>
-                </tools>
-            </li>
-        </comps>
-    </HediffDef>
-
-    <HediffDef ParentName="DE_FungalHediffBase">
-        <defName>DE_PiercingLimb</defName>
-        <label>piercing limb</label>
-        <labelNoun>a piercing limb</labelNoun>
-        <description>A sharp, piercing limb capable of delivering powerful stabbing melee attacks.</description>
-        <hediffClass>DanceOfEvolution.Hediff_Stackable</hediffClass>
-        <comps>
-            <li Class="HediffCompProperties_VerbGiver">
-                <tools>
-                    <li>
-                        <label>piercing limb</label>
-                        <capacities>
-                            <li>Stab</li>
-                        </capacities>
-                        <power>20</power>
-                        <armorPenetration>0.5</armorPenetration>
-                        <cooldownTime>2.7</cooldownTime>
-                        <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
-                        <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
-                    </li>
-                    <li>
-                        <label>piercing limb</label>
-                        <capacities>
-                            <li>Stab</li>
-                        </capacities>
-                        <power>20</power>
-                        <armorPenetration>0.5</armorPenetration>
-                        <cooldownTime>2.7</cooldownTime>
                         <soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
                         <soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
                     </li>

@@ -73,11 +73,6 @@ namespace DanceOfEvolution
 				return (ServantType.Ghoul, DefsOf.DE_ServantGhoul);
 			}
 
-			if (pawn.IsEntity || pawn.IsMutant || pawn.RaceProps.FleshType == FleshTypeDefOf.EntityFlesh)
-			{
-				return (ServantType.Strange, DefsOf.DE_ServantStrange);
-			}
-
 			float bodySize = pawn.BodySize;
 			if (bodySize <= 0.99f)
 			{
