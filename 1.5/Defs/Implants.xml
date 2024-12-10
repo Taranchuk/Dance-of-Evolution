@@ -67,7 +67,7 @@
 		<costList>
 			<Bioferrite>35</Bioferrite>
 			<ComponentSpacer>2</ComponentSpacer>
-			<Shard>3</Shard>
+			<Shard>2</Shard>
 		</costList>
 		<statBases>
 			<MaxInstallCount>3</MaxInstallCount>
@@ -188,7 +188,7 @@
 		<description>While all fungi can regenerate themselves over time, the process is long and arduous. With no idea of how to fix their own wounds, the process is slow. By increasing the calculation speed of the collective, injuries are identified and healed faster. Can be installed up to 4 times.</description>
 		<costList>
 			<Bioferrite>40</Bioferrite>
-			<Shard>2</Shard>
+			<Shard>1</Shard>
 			<JuggernautSerum>1</JuggernautSerum>
 		</costList>
 		<statBases>
@@ -358,7 +358,7 @@
 		<description>The human brain is an extremely complicated machine, and requires special implants like this one to be properly restarted and specialized. This implant allows the activation of higher brain functions in fungal ghouls.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
-			<Shard>2</Shard>
+			<Shard>1</Shard>
 		</costList>
 		<comps>
 			<li Class="CompProperties_Usable">
