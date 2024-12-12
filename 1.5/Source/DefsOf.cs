@@ -46,7 +46,7 @@ namespace DanceOfEvolution
 
 		public static HediffDef DE_ConsciousnessReductionSunlight;
 		public static HediffDef DE_Rotting;
-		
+
 		[MayRequireBiotech]
 		public static ThoughtDef SunlightSensitivity_Mild;
 
@@ -55,7 +55,7 @@ namespace DanceOfEvolution
 		public static ThingDef PsychoidLeaves;
 		public static GameConditionDef DE_CloudmakerCondition;
 
-        static DefsOf()
+		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

@@ -301,7 +301,7 @@
     <comps>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>8.0</fuelConsumptionRate>
-        <fuelCapacity>100</fuelCapacity>
+        <fuelCapacity>200</fuelCapacity>
         <fuelFilter>
           <thingDefs>
             <li>Bioferrite</li>
