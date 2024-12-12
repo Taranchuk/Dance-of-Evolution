@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace DanceOfEvolution
 {
+	[HotSwappable]
 	public class Building_Cloudmaker : Building
 	{
 		private CompRefuelable refuelableComp;
@@ -36,7 +37,11 @@ namespace DanceOfEvolution
 			mapsToRemoveConditionFrom.Clear();
 			foreach (var mapCondition in causedConditions)
 			{
-				if (mapCondition.Value.Expired || !mapCondition.Key.GameConditionManager.ConditionIsActive(mapCondition.Value.def))
+				if (mapCondition.Value.Expired)
+				{
+					mapsToRemoveConditionFrom.Add(mapCondition.Key);
+				}
+				else if (!mapCondition.Key.GameConditionManager.ConditionIsActive(mapCondition.Value.def))
 				{
 					mapsToRemoveConditionFrom.Add(mapCondition.Key);
 				}
@@ -76,8 +81,8 @@ namespace DanceOfEvolution
 		{
 			if (!causedConditions.ContainsKey(map))
 			{
-				GameCondition gameCondition = GameConditionMaker.MakeCondition(DefDatabase<GameConditionDef>.GetNamed("DE_CloudmakerCondition"));
-				gameCondition.Duration = gameCondition.TransitionTicks;
+				GameCondition gameCondition = GameConditionMaker.MakeCondition(DefsOf.DE_CloudmakerCondition);
+				gameCondition.permanent = true;
 				gameCondition.conditionCauser = this;
 				map.gameConditionManager.RegisterCondition(gameCondition);
 				causedConditions.Add(map, gameCondition);
@@ -90,7 +95,8 @@ namespace DanceOfEvolution
 			if (causedConditions.ContainsKey(map))
 			{
 				GameCondition gameCondition = causedConditions[map];
-				gameCondition.End();
+				gameCondition.Permanent = false;
+				gameCondition.TicksLeft = gameCondition.TransitionTicks;
 				causedConditions.Remove(map);
 			}
 		}
@@ -161,7 +167,7 @@ namespace DanceOfEvolution
 
 		public bool InAoE(int tile)
 		{
-			if (this.Tile == -1 || tile == -1 || !refuelableComp.HasFuel)
+			if (this.Tile == -1 || tile == -1)
 			{
 				return false;
 			}

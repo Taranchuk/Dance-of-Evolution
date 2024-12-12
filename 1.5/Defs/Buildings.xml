@@ -266,6 +266,9 @@
     <label>cloudmaker</label>
     <description>A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long is it kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is also capable of reanimating the dead.</description>
     <thingClass>DanceOfEvolution.Building_Cloudmaker</thingClass>
+    <placeWorkers>
+      <li>DanceOfEvolution.PlaceWorker_MustBuildOnRottenSoil</li>
+    </placeWorkers>
     <tickerType>Normal</tickerType>
     <graphicData>
       <texPath>Things/Building/Cloudmaker</texPath>
@@ -292,51 +295,33 @@
       <ComponentSpacer>6</ComponentSpacer>
       <Shard>3</Shard>
     </costList>
-    <terrainAffordanceNeeded>DE_RottenSoil</terrainAffordanceNeeded>
     <building>
       <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-      <fixedStorageSettings>
-        <priority>Important</priority>
-        <filter>
-          <categories>
-            <li>DE_Bioferrite</li>
-          </categories>
-        </filter>
-      </fixedStorageSettings>
-      <defaultStorageSettings>
-        <priority>Important</priority>
-        <filter>
-          <categories>
-            <li>DE_Bioferrite</li>
-          </categories>
-        </filter>
-      </defaultStorageSettings>
     </building>
-    <inspectorTabs>
-      <li>ITab_Storage</li>
-    </inspectorTabs>
     <comps>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>8.0</fuelConsumptionRate>
-        <fuelCapacity>200</fuelCapacity>
+        <fuelCapacity>100</fuelCapacity>
         <fuelFilter>
           <thingDefs>
-            <li>DE_Bioferrite</li>
+            <li>Bioferrite</li>
           </thingDefs>
         </fuelFilter>
         <consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
         <autoRefuelPercent>0.5</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
         <initialFuelPercent>0</initialFuelPercent>
-        <allowAutoRefuel>true</allowAutoRefuel>
       </li>
-	  <li Class="CompProperties_CausesGameCondition">
-		<conditionDef>SunBlocker</conditionDef>
-		<worldRange>10</worldRange>
-	</li>
     </comps>
-    <placeWorkers>
-      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
-    </placeWorkers>
   </ThingDef>
+
+  <GameConditionDef>
+	<defName>DE_CloudmakerCondition</defName>
+	<conditionClass>GameCondition_NoSunlight</conditionClass>
+	<label>sun blocked</label>
+	<description>A nearby cloudmaker is turning the upper atmosphere opaque, blocking the sun.</description>
+	<letterText>A cloudmaker has begun blocking the sun.</letterText>
+	<letterDef>NegativeEvent</letterDef>
+	<natural>false</natural>
+</GameConditionDef>
 </Defs>

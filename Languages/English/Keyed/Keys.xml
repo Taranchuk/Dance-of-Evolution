@@ -27,5 +27,7 @@
 	<DE_ServantType_Medium>Medium servant</DE_ServantType_Medium>
 	<DE_ServantType_Large>Large servant</DE_ServantType_Large>
 	<DE_ServantType_Ghoul>Ghoul servant</DE_ServantType_Ghoul>
-	
+	<DE_MustBuildOnRottenSoil>Must be placed on rotten soil.</DE_MustBuildOnRottenSoil>
+	<DE_TriggerDeathPall>Trigger death pall</DE_TriggerDeathPall>
+	<DE_TriggerDeathPallDesc>Trigger death pall which will resurrect corpses as player-controlled shamblers.</DE_TriggerDeathPallDesc>
 </LanguageData>

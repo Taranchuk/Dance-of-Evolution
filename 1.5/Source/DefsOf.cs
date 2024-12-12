@@ -53,6 +53,7 @@ namespace DanceOfEvolution
 		public static ThingDef DE_FalseParasol, DE_MyceliumTextile;
 		public static DamageArmorCategoryDef Heat;
 		public static ThingDef PsychoidLeaves;
+		public static GameConditionDef DE_CloudmakerCondition;
 
         static DefsOf()
 		{
