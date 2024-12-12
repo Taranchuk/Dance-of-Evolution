@@ -55,6 +55,7 @@ namespace DanceOfEvolution
 		public static ThingDef PsychoidLeaves;
 		public static GameConditionDef DE_CloudmakerCondition;
 
+		public static IncidentDef DeathPall;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

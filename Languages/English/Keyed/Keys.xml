@@ -30,4 +30,5 @@
 	<DE_MustBuildOnRottenSoil>Must be placed on rotten soil.</DE_MustBuildOnRottenSoil>
 	<DE_TriggerDeathPall>Trigger death pall</DE_TriggerDeathPall>
 	<DE_TriggerDeathPallDesc>Trigger death pall which will resurrect corpses as player-controlled shamblers.</DE_TriggerDeathPallDesc>
+	<DE_DeathPallCooldown>Death pall is on cooldown for {0}.</DE_DeathPallCooldown>
 </LanguageData>

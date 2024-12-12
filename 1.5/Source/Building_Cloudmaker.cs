@@ -135,15 +135,17 @@ namespace DanceOfEvolution
 			if (Faction == Faction.OfPlayer)
 			{
 				if (refuelableComp.HasFuel)
-				{
-					Command_Action deathPall = new Command_Action
+				{  
+
+					var deathPall = new Command_ActionWithCooldown
 					{
+						cooldownPercentGetter = () => (Find.TickManager.TicksGame - lastDeathPallTick) / (float)DeathPallCooldownTicks,
 						defaultLabel = "DE_TriggerDeathPall".Translate(),
 						defaultDesc = "DE_TriggerDeathPallDesc".Translate(),
 						action = delegate ()
 						{
 							TriggerDeathPall();
-						}
+						},
 					};
 
 					if (lastDeathPallTick > 0)
@@ -163,6 +165,21 @@ namespace DanceOfEvolution
 		private void TriggerDeathPall()
 		{
 			lastDeathPallTick = Find.TickManager.TicksGame;
+			var map = Map;
+			GameConditionManager gameConditionManager = map.GameConditionManager;
+			GameConditionDef gameConditionDef = GameConditionDefOf.DeathPall;
+			var def = DefsOf.DeathPall;
+			int duration = Mathf.RoundToInt(def.durationDays.RandomInRange * 60000f);
+			GameCondition gameCondition = GameConditionMaker.MakeCondition(gameConditionDef, duration);
+			gameCondition.conditionCauser = this;
+			gameConditionManager.RegisterCondition(gameCondition);
+			if (!def.letterLabel.NullOrEmpty() && !gameCondition.def.letterText.NullOrEmpty() 
+			&& (!gameCondition.HiddenByOtherCondition(map)))
+			{
+				var parms = StorytellerUtility.DefaultParmsNow(def.category,map);
+				parms.letterHyperlinkThingDefs = gameCondition.def.letterHyperlinks;
+				def.Worker.SendStandardLetter(def.letterLabel, gameCondition.LetterText, def.letterDef, parms, LookTargets.Invalid);
+			}
 		}
 
 		public bool InAoE(int tile)
