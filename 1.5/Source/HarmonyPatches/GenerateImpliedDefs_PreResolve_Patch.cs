@@ -7,21 +7,18 @@ using Verse.AI;
 
 namespace DanceOfEvolution
 {
-	[HarmonyPatch(typeof(DefGenerator), "GenerateImpliedDefs_PreResolve")]
+	[HarmonyPatch(typeof(DefGenerator), nameof(DefGenerator.GenerateImpliedDefs_PreResolve))]
 	public static class GenerateImpliedDefs_PreResolve_Patch
 	{
 		public static void Postfix()
 		{
-
-			// Find all unique PreWander tags from ThinkNode_SubtreesByTag nodes
-			var preWanderTags = new HashSet<string>();
+			var preWanderTags = new Dictionary<ThinkTreeDef, string>();
 			foreach (var thinkTreeDef in DefDatabase<ThinkTreeDef>.AllDefsListForReading)
 			{
-				if (thinkTreeDef.thinkRoot == null) continue;
-				FindPreWanderTags(thinkTreeDef.thinkRoot, preWanderTags);
+				if (thinkTreeDef.thinkRoot == null || thinkTreeDef.defName.StartsWith("DE_")) continue;
+				FindPreWanderTags(thinkTreeDef.thinkRoot, preWanderTags, thinkTreeDef);
 			}
 
-			// Create servant work types dictionary
 			var servantWorkTypes = new Dictionary<HediffDef, List<WorkTypeDef>>
 			{
 				{ DefsOf.DE_ServantSmall, new List<WorkTypeDef> { WorkTypeDefOf.Hauling, WorkTypeDefOf.Cleaning, WorkTypeDefOf.Firefighter, DefsOf.BasicWorker } },
@@ -30,58 +27,78 @@ namespace DanceOfEvolution
 				{ DefsOf.DE_ServantSpecial, new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting } }
 			};
 
-			// For each PreWander tag, create a new ThinkTreeDef
-			foreach (var tag in preWanderTags)
+			foreach (var kvp in preWanderTags)
 			{
-				var prefix = tag.Split('_')[0]; // Get the prefix (e.g., "Ghoul" from "Ghoul_PreWander")
-				Log.Message("Added " + prefix + " servant work");
+				var prefix = kvp.Value.Split('_')[0]; // Get the prefix (e.g., "Ghoul" from "Ghoul_PreWander")
 				var servantDef = new ThinkTreeDef
 				{
 					defName = $"DE_{prefix}ServantWork",
-					insertTag = tag,
+					insertTag = kvp.Value,
 					insertPriority = 100,
 					thinkRoot = new ThinkNode_Priority
 					{
 						subNodes = new List<ThinkNode>
-						{
-							new ThinkNode_IsControllableServant
-							{
-								subNodes = servantWorkTypes.Select(kvp => new ThinkNode_ConditionalHasHediff
-								{
-									hediff = kvp.Key,
-									subNodes = new List<ThinkNode>
-									{
-										new JobGiver_DoWork
-										{
-											workTypes = kvp.Value
-										}
-									}
-								}).ToList<ThinkNode>()
-							}
+						{ 
+							MakeServantNode(servantWorkTypes)
 						}
 					}
 				};
-
-				DefGenerator.AddImpliedDef(servantDef);
+				
+				if (DefDatabase<ThinkTreeDef>.GetNamedSilentFail(servantDef.defName) is null)
+				{
+					Log.Message("Added " + servantDef.defName + " servant work");
+					DefGenerator.AddImpliedDef(servantDef);
+				}
 			}
 
+			var nonPatchedThinkTreeDefs = DefDatabase<ThingDef>.AllDefsListForReading.
+			Where(x => x.race?.thinkTreeMain != null && x.race.Humanlike is false).Select(x => x.race.thinkTreeMain)
+			.Distinct().Where(t => preWanderTags.ContainsKey(t) is false).ToList();
+			foreach (var thinkTreeDef in nonPatchedThinkTreeDefs)
+			{
+				var wander = thinkTreeDef.thinkRoot.subNodes.Where(x => x is JobGiver_Wander wander).LastOrDefault();
+				if (wander != null)
+				{
+					thinkTreeDef.thinkRoot.subNodes.Insert(thinkTreeDef.thinkRoot.subNodes
+					.IndexOf(wander), MakeServantNode(servantWorkTypes));
+					Log.Message("Patched " + thinkTreeDef.defName + " - " 
+					+ thinkTreeDef.thinkRoot.subNodes.ToStringSafeEnumerable());
+				}
+			}
 		}
 
-		private static void FindPreWanderTags(ThinkNode node, HashSet<string> tags)
+		private static ThinkNode_IsControllableServant MakeServantNode(Dictionary<HediffDef, List<WorkTypeDef>> servantWorkTypes)
+		{
+			return new ThinkNode_IsControllableServant
+			{
+				subNodes = servantWorkTypes.Select(workKvp => new ThinkNode_ConditionalHasHediff
+				{
+					hediff = workKvp.Key,
+					subNodes = new List<ThinkNode>
+									{
+										new JobGiver_DoWork
+										{
+											workTypes = workKvp.Value
+										}
+									}
+				}).ToList<ThinkNode>()
+			};
+		}
+
+		private static void FindPreWanderTags(ThinkNode node, Dictionary<ThinkTreeDef, string> tags, ThinkTreeDef def)
 		{
 			if (node is ThinkNode_SubtreesByTag subtreeNode && subtreeNode.insertTag?.EndsWith("_PreWander") == true)
 			{
-				tags.Add(subtreeNode.insertTag);
+				tags[def] = subtreeNode.insertTag;
 			}
 
 			if (node.subNodes != null)
 			{
 				foreach (var subNode in node.subNodes)
 				{
-					FindPreWanderTags(subNode, tags);
+					FindPreWanderTags(subNode, tags, def);
 				}
 			}
 		}
-
 	}
 }

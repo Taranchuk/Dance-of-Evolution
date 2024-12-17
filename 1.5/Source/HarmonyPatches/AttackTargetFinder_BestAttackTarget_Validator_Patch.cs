@@ -59,9 +59,9 @@ namespace DanceOfEvolution
 		{
 			if (pawn1.IsServant() && pawn2.IsForbidden(pawn1))
 			{
-				return false;
+				return true;
 			}
-			return true;
+			return false;
 		}
 	}
 }
