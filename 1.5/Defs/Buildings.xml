@@ -37,7 +37,7 @@
 		</statBases>
 		<building>
 			<isMealSource>true</isMealSource>
-			<nutritionCostPerDispense>2</nutritionCostPerDispense>
+			<nutritionCostPerDispense>4</nutritionCostPerDispense>
 			<soundDispense>DispensePaste</soundDispense>
 			<forceShowRoomStats>true</forceShowRoomStats>
 			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>

@@ -9,7 +9,7 @@ namespace DanceOfEvolution
 {
 	public class Building_FungalNode : Building_NutrientPasteDispenser, IThingHolder, IStoreSettingsParent, IStorageGroupMember, IHaulDestination, IHaulSource, ISearchableContents
 	{
-		private const int MaxNutrition = 100;
+		private const int MaxNutrition = 200;
 		private ThingOwner<Thing> innerContainer;
 		private StorageSettings settings;
 		private StorageGroup storageGroup;

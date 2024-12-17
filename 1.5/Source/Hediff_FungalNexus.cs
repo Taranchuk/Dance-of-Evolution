@@ -30,6 +30,15 @@ namespace DanceOfEvolution
 			return x.kindDef == DefsOf.DE_MikisMetalonEfialtis ? 3 : 1;
 		}
 
+		public override void Notify_Spawned()
+		{
+			base.Notify_Spawned();
+			foreach (var item in servants)
+			{
+				PawnComponentsUtility.AddAndRemoveDynamicComponents(item);
+			}
+		}
+
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
