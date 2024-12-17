@@ -56,7 +56,10 @@ namespace DanceOfEvolution
 		public static GameConditionDef DE_CloudmakerCondition;
 
 		public static IncidentDef DeathPall;
-		static DefsOf()
+		public static WorkTypeDef Cooking;
+		public static WorkTypeDef BasicWorker;
+
+        static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}
