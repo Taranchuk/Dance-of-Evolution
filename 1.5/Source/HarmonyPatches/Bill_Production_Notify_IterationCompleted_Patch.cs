@@ -12,7 +12,6 @@ namespace DanceOfEvolution
 			if (__instance.recipe == DefsOf.DE_FeedCorpse &&__instance.billStack.billGiver is Building_Cerebrum buildingCerebrum)
 			{
 				buildingCerebrum.corpseCount++;
-				Log.Message("Feed corpse: " + buildingCerebrum.corpseCount);
 			}
 		}
 	}
