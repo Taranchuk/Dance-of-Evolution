@@ -24,7 +24,7 @@ public static class JobDriver_GetReport_Patch
 		{
 			ThingDefOf.MealNutrientPaste = buildingNutrientPasteDispenser.DispensableDef;
 		}
-		else if (thing.def == DefsOf.DE_FungalSlurry)
+		else if (thing?.def == DefsOf.DE_FungalSlurry)
 		{
 			ThingDefOf.MealNutrientPaste = DefsOf.DE_FungalSlurry;
 		}

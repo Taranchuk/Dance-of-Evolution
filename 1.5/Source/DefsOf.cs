@@ -58,8 +58,10 @@ namespace DanceOfEvolution
 		public static IncidentDef DeathPall;
 		public static WorkTypeDef Cooking;
 		public static WorkTypeDef BasicWorker;
+		public static WorkGiverDef DoBillsCremate, DE_FeedCorpseToCerebrum;
+		public static RecipeDef DE_FeedCorpse;
 
-        static DefsOf()
+		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

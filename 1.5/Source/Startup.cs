@@ -16,8 +16,6 @@ namespace DanceOfEvolution
 			PatchTraders();
 			PatchThinkTreeDefs();
 			ChangeStorageSettings(DefsOf.DE_FungalNode);
-			ChangeStorageSettings(DefsOf.DE_Cerebrum);
-			ChangeStorageSettings(DefsOf.DE_HardenedCerebrum);
 			foreach (var item in DefDatabase<HediffDef>.AllDefsListForReading)
 			{
 				var extension = item.GetModExtension<HediffExtension>();

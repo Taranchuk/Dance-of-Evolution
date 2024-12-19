@@ -174,6 +174,8 @@
 		<passability>Impassable</passability>
 		<blockWind>true</blockWind>
 		<fillPercent>1</fillPercent>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
 		<statBases>
 			<WorkToBuild>14000</WorkToBuild>
 			<MaxHitPoints>400</MaxHitPoints>
@@ -183,31 +185,13 @@
 			<isMealSource>false</isMealSource>
 			<forceShowRoomStats>true</forceShowRoomStats>
 			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
-			<fixedStorageSettings>
-				<priority>Important</priority>
-				<filter>
-					<categories>
-						<li>Foods</li>
-						<li>Corpses</li>
-					</categories>
-					<disallowedThingDefs>
-						<li>DE_FungalSlurry</li>
-					</disallowedThingDefs>
-				</filter>
-			</fixedStorageSettings>
-			<defaultStorageSettings>
-				<priority>Important</priority>
-				<filter>
-					<categories>
-						<li>Foods</li>
-						<li>Corpses</li>
-					</categories>
-				</filter>
-			</defaultStorageSettings>
 		</building>
 		<size>(4,4)</size>
+		<recipes>
+			<li>DE_FeedCorpse</li>
+		</recipes>
 		<inspectorTabs>
-			<li>ITab_Storage</li>
+			<li>ITab_Bills</li>
 		</inspectorTabs>
 		<costList>
 			<RawFungus>400</RawFungus>
@@ -264,7 +248,7 @@
   <ThingDef ParentName="DE_FungalBuildingBase">
     <defName>DE_Cloudmaker</defName>
     <label>cloudmaker</label>
-    <description>A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long is it kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is also capable of reanimating the dead.</description>
+    <description>A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long is it kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is not only capable of reanimating the dead, but can even protect living creatures from anomalous and deadly conditions.</description>
     <thingClass>DanceOfEvolution.Building_Cloudmaker</thingClass>
     <placeWorkers>
       <li>DanceOfEvolution.PlaceWorker_MustBuildOnRottenSoil</li>

@@ -19,12 +19,12 @@ namespace DanceOfEvolution
 				FindPreWanderTags(thinkTreeDef.thinkRoot, preWanderTags, thinkTreeDef);
 			}
 
-			var servantWorkTypes = new Dictionary<HediffDef, List<WorkTypeDef>>
+			var servantWorkTypes = new Dictionary<HediffDef, (List<WorkTypeDef> workTypeDefs, List<WorkGiverDef> workgivers)>
 			{
-				{ DefsOf.DE_ServantSmall, new List<WorkTypeDef> { WorkTypeDefOf.Hauling, WorkTypeDefOf.Cleaning, WorkTypeDefOf.Firefighter, DefsOf.BasicWorker } },
-				{ DefsOf.DE_ServantMedium, new List<WorkTypeDef> { WorkTypeDefOf.Mining, WorkTypeDefOf.Hunting, DefsOf.Cooking, WorkTypeDefOf.Construction } },
-				{ DefsOf.DE_ServantLarge, new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting } },
-				{ DefsOf.DE_ServantSpecial, new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting } }
+				{ DefsOf.DE_ServantSmall, (new List<WorkTypeDef> { WorkTypeDefOf.Hauling, WorkTypeDefOf.Cleaning, WorkTypeDefOf.Firefighter, DefsOf.BasicWorker }, new List<WorkGiverDef> { }) },
+				{ DefsOf.DE_ServantMedium, (new List<WorkTypeDef> { WorkTypeDefOf.Mining, WorkTypeDefOf.Hunting, DefsOf.Cooking, WorkTypeDefOf.Construction }, new List<WorkGiverDef> { DefsOf.DoBillsCremate, DefsOf.DE_FeedCorpseToCerebrum }) },
+				{ DefsOf.DE_ServantLarge, (new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting }, new List<WorkGiverDef> { }) },
+				{ DefsOf.DE_ServantSpecial, (new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting }, new List<WorkGiverDef> { }) }
 			};
 
 			foreach (var kvp in preWanderTags)
@@ -38,15 +38,14 @@ namespace DanceOfEvolution
 					thinkRoot = new ThinkNode_Priority
 					{
 						subNodes = new List<ThinkNode>
-						{ 
+						{
 							MakeServantNode(servantWorkTypes)
 						}
 					}
 				};
-				
+
 				if (DefDatabase<ThinkTreeDef>.GetNamedSilentFail(servantDef.defName) is null)
 				{
-					Log.Message("Added " + servantDef.defName + " servant work");
 					DefGenerator.AddImpliedDef(servantDef);
 				}
 			}
@@ -60,14 +59,13 @@ namespace DanceOfEvolution
 				if (wander != null)
 				{
 					thinkTreeDef.thinkRoot.subNodes.Insert(thinkTreeDef.thinkRoot.subNodes
-					.IndexOf(wander), MakeServantNode(servantWorkTypes));
-					Log.Message("Patched " + thinkTreeDef.defName + " - " 
-					+ thinkTreeDef.thinkRoot.subNodes.ToStringSafeEnumerable());
+						.IndexOf(wander), MakeServantNode(servantWorkTypes));
 				}
 			}
 		}
 
-		private static ThinkNode_IsControllableServant MakeServantNode(Dictionary<HediffDef, List<WorkTypeDef>> servantWorkTypes)
+		private static ThinkNode_IsControllableServant MakeServantNode(Dictionary<HediffDef,
+		(List<WorkTypeDef> workTypes, List<WorkGiverDef> workgivers)> servantWorkTypes)
 		{
 			return new ThinkNode_IsControllableServant
 			{
@@ -78,7 +76,8 @@ namespace DanceOfEvolution
 									{
 										new JobGiver_DoWork
 										{
-											workTypes = workKvp.Value
+											workTypes = workKvp.Value.workTypes,
+											workgivers = workKvp.Value.workgivers
 										}
 									}
 				}).ToList<ThinkNode>()

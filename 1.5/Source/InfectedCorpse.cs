@@ -78,11 +78,11 @@ namespace DanceOfEvolution
 			{
 				return (ServantType.Small, DefsOf.DE_ServantSmall);
 			}
-			else if (bodySize >= 1f && bodySize <= 1.9f)
+			else if (bodySize >= 1f && bodySize < 2.11f)
 			{
 				return (ServantType.Medium, DefsOf.DE_ServantMedium);
 			}
-			else if (bodySize > 1.9f)
+			else if (bodySize >= 2.11f)
 			{
 				return (ServantType.Large, DefsOf.DE_ServantLarge);
 			}

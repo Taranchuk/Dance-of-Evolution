@@ -82,7 +82,7 @@ namespace DanceOfEvolution
 				cerebrum.Destroy();
 				var hardenedCerebrum = (Building_Cerebrum)ThingMaker.MakeThing(DefsOf.DE_HardenedCerebrum);
 				GenSpawn.Spawn(hardenedCerebrum, cerebrum.Position, map);
-				hardenedCerebrum.growth = cerebrum.growth;
+				hardenedCerebrum.corpseCount = cerebrum.corpseCount;
 				hardenedCerebrum.SetFactionDirect(cerebrum.Faction);
 			}
 		}

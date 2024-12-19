@@ -1,0 +1,38 @@
+<Defs>
+<RecipeDef>
+    <defName>DE_FeedCorpse</defName>
+    <label>feed corpse</label>
+    <description>Feed a corpse to cerebrum.</description>
+    <jobString>Feeding a corpse to cerebrum.</jobString>
+    <workAmount>216</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cremate</effectWorking>
+    <soundWorking>Recipe_Cremate</soundWorking>
+    <autoStripCorpses>true</autoStripCorpses>
+    <ingredients>
+        <li>
+            <filter>
+                <categories>
+                    <li>CorpsesHumanlike</li>
+                </categories>
+            </filter>
+            <count>1</count>
+        </li>
+    </ingredients>
+    <fixedIngredientFilter>
+        <categories>
+            <li>CorpsesHumanlike</li>
+        </categories>
+    </fixedIngredientFilter>
+    <defaultIngredientFilter>
+        <thingDefs>
+            <li>Corpse_Human</li>
+        </thingDefs>
+        <specialFiltersToAllow>
+            <li>AllowCorpsesColonist</li>
+            <li MayRequire="Ludeon.RimWorld.Ideology">AllowCorpsesSlave</li>
+            <li>AllowCorpsesStranger</li>
+        </specialFiltersToAllow>
+    </defaultIngredientFilter>
+</RecipeDef>
+</Defs>
