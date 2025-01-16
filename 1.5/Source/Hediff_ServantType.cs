@@ -115,6 +115,7 @@ namespace DanceOfEvolution
 				pawn.skills = new Pawn_SkillTracker(pawn);
 				pawn.story ??= new Pawn_StoryTracker(pawn);
 			}
+			pawn.playerSettings ??= new Pawn_PlayerSettings(pawn);
 			pawn.drafter ??= new Pawn_DraftController(pawn);
 			pawn.equipment ??= new Pawn_EquipmentTracker(pawn);
 			pawn.abilities ??= new Pawn_AbilityTracker(pawn);
@@ -186,7 +187,6 @@ namespace DanceOfEvolution
 	public class Hediff_ServantSmall : Hediff_ServantType
 	{
 		public override ServantType ServantType => ServantType.Small;
-
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);

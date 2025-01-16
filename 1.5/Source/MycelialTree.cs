@@ -154,22 +154,32 @@ namespace DanceOfEvolution
 			{
 				TryMakeRoot(rootTarget);
 			}
-			foreach (IntVec3 tmpRadialCell in tmpRadialCells)
+			if (base.Map != null)
 			{
-				if (!tmpRadialCell.InBounds(base.Map))
+				foreach (IntVec3 tmpRadialCell in tmpRadialCells)
 				{
-					continue;
-				}
-				tmpThings.Clear();
-				tmpThings.AddRange(tmpRadialCell.GetThingList(base.Map));
-				foreach (Thing tmpThing in tmpThings)
-				{
-					if (tmpThing is ThingWithComps thing && thing.TryGetComp<CompMycelialTreeConsumable>(out var comp) && comp.CanBeConsumedBy(this))
+					if (!tmpRadialCell.InBounds(base.Map))
 					{
-						TryMakeRoot(thing);
+						continue;
+					}
+					tmpThings.Clear();
+					tmpThings.AddRange(tmpRadialCell.GetThingList(base.Map));
+					foreach (Thing tmpThing in tmpThings.ToList())
+					{
+						if (tmpThing is ThingWithComps thing && thing.TryGetComp<CompMycelialTreeConsumable>
+						(out var comp) && comp.CanBeConsumedBy(this))
+						{
+							TryMakeRoot(thing);
+						}
+						if (tmpThing.def == ThingDefOf.Mote_HarbingerTreeRoots 
+							&& tmpThing.Position.GetFirstThing<Corpse>(tmpThing.Map) is null)
+						{
+							tmpThing.Destroy();
+						}
 					}
 				}
 			}
+
 			foreach (ThingWithComps rootTarget2 in rootTargets)
 			{
 				if (rootTarget2.Destroyed || !tmpRadialCells.Contains(rootTarget2.PositionHeld)
@@ -181,7 +191,7 @@ namespace DanceOfEvolution
 			while (deferredDestroy.Count > 0)
 			{
 				ThingWithComps thingWithComps = deferredDestroy.Dequeue();
-				if (roots.TryGetValue(thingWithComps, out var value))
+				if (roots.TryGetValue(thingWithComps, out var value) && !value.DestroyedOrNull())
 				{
 					value?.Destroy();
 				}

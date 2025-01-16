@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
@@ -55,13 +56,37 @@ namespace DanceOfEvolution
 			.Distinct().Where(t => preWanderTags.ContainsKey(t) is false).ToList();
 			foreach (var thinkTreeDef in nonPatchedThinkTreeDefs)
 			{
-				var wander = thinkTreeDef.thinkRoot.subNodes.Where(x => x is JobGiver_Wander wander).LastOrDefault();
-				if (wander != null)
+				var targetNode = thinkTreeDef.thinkRoot.subNodes
+					.Where(x => HasNode(x, typeof(JobGiver_Wander))).LastOrDefault();
+				if (targetNode != null)
 				{
 					thinkTreeDef.thinkRoot.subNodes.Insert(thinkTreeDef.thinkRoot.subNodes
-						.IndexOf(wander), MakeServantNode(servantWorkTypes));
+						.IndexOf(targetNode), MakeServantNode(servantWorkTypes));
+				}
+				else
+				{
+					Log.Message("Failed to patch " + thinkTreeDef);
 				}
 			}
+		}
+		
+		private static bool HasNode(ThinkNode node, Type nodeType)
+		{
+			if (nodeType.IsAssignableFrom(node.GetType()))
+			{
+				return true;
+			}
+			else if (node.subNodes != null)
+			{
+				foreach (var subNode in node.subNodes)
+				{
+					if (HasNode(subNode, nodeType))
+					{
+						return true;
+					}
+				}
+			}
+			return false;
 		}
 
 		private static ThinkNode_IsControllableServant MakeServantNode(Dictionary<HediffDef,

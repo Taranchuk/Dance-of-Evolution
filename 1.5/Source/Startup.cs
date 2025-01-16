@@ -125,6 +125,10 @@ namespace DanceOfEvolution
 			{
 				newNode.subNodes.Insert(0, new JobGiver_ReactToCloseMeleeThreat());
 			}
+			if (subNodes.Any(x => x is JobGiver_SeekAllowedArea is false))
+			{
+				newNode.subNodes.Insert(newNode.subNodes.Count - 1, new JobGiver_SeekAllowedArea());
+			}
 			subNodes.Insert(index, newNode);
 			subNodes.Insert(index + 2, new JobGiver_ConsumeSpores());
 		}

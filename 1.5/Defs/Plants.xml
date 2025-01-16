@@ -74,7 +74,7 @@
         </statBases>
         <graphicData>
             <texPath>Things/Plant/FalseParasol</texPath>
-            <graphicClass>Graphic_Random</graphicClass>
+            <graphicClass>Graphic_Single</graphicClass>
             <shadowData>
                 <volume>(0.15, 0.25, 0.12)</volume>
                 <offset>(0.0,0,-0.4)</offset>

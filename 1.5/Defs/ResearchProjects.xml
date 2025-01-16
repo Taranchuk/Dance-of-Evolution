@@ -3,13 +3,13 @@
 
   <ResearchProjectDef>
     <defName>DE_CreateSpecialServant</defName>
-    <label>create special servant</label>
-    <description>text.todo.</description>
+    <label>Living Metal</label>
+    <description>The collective has perceived the wonders of metal that flows like blood. This archotech primordial ooze will serve us well, whether it wants it or not. The barrier between life and unlife is blurred once more.</description>
     <tab>Anomaly</tab>
     <knowledgeCost>25</knowledgeCost>
     <knowledgeCategory>Basic</knowledgeCategory>
-	<researchViewX>2.00</researchViewX>
-	<researchViewY>1.80</researchViewY>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>1.80</researchViewY>
   </ResearchProjectDef>
-  
+
 </Defs>

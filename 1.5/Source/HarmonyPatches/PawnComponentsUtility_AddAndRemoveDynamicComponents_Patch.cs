@@ -12,6 +12,10 @@ namespace DanceOfEvolution
 			{
 				hediff.AssignComponents();
 			}
+			else if (hediff != null)
+			{
+				pawn.drafter ??= new Pawn_DraftController(pawn);
+			}
 		}
 	}
 }
