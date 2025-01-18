@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "SaveAllFiles",
+			"command": "${command:workbench.action.files.saveAll}",
+			"type": "shell",
+			"problemMatcher": []
+		},
+		{
+			"type": "dotnet",
+			"task": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "build",
+			"dependsOrder": "sequence",   // need this, "parallel" is the default otherwise
+            "dependsOn": "Save All Files"  // Add this line to ensure saving happens before build
+		}
+	]
+}
