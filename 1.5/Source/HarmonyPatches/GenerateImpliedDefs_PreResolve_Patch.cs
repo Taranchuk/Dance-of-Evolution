@@ -63,10 +63,10 @@ namespace DanceOfEvolution
 					thinkTreeDef.thinkRoot.subNodes.Insert(thinkTreeDef.thinkRoot.subNodes
 						.IndexOf(targetNode), MakeServantNode(servantWorkTypes));
 				}
-				else
-				{
-					Log.Message("Failed to patch " + thinkTreeDef);
-				}
+				//else
+				//{
+				//	Log.Message("Failed to patch " + thinkTreeDef);
+				//}
 			}
 		}
 		

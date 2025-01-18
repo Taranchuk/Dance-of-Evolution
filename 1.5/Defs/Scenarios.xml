@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ScenarioDef>
+        <defName>DE_FungalAwakening</defName>
+        <label>Fungal Awakening</label>
+        <description>A lone fungal nexus arrives in a ship chunk, accompanied by three servants. The secrets of the void call, and the monolith stirs to life on its own accord.</description>
+        <scenario>
+            <summary>Start with a fungal nexus and its servants. Entity containment and void provocation are already researched. The Monolith activates after a day.</summary>
+            <playerFaction>
+                <def>PlayerFaction</def>
+                <factionDef>PlayerColony</factionDef>
+            </playerFaction>
+            <parts>
+                <li Class="DanceOfEvolution.ScenPart_ConfigPage_ConfigureStartingFungalNexus">
+                    <def>ConfigPage_ConfigureStartingPawns</def>
+                    <pawnCount>1</pawnCount>
+					<pawnChoiceCount>0</pawnChoiceCount>
+                    <customSummary>Start with one fungal nexus and three servants.</customSummary>
+                </li>
+				<li Class="ScenPart_StartingResearch">
+					<def>StartingResearch</def>
+					<project>EntityContainment</project>
+				</li>
+				
+				<li Class="ScenPart_StartingResearch">
+					<def>StartingResearch</def>
+					<project>BasicPsychicRituals</project>
+				</li>
+
+                <li Class="ScenPart_MonolithGeneration">
+                    <def>ScenPart_MonolithGeneration</def>
+                    <method>NearColonists</method>
+                </li>
+
+                <li Class="ScenPart_AutoActivateMonolith">
+                    <def>AutoActivateMonolith</def>
+                    <delayTicks>60000</delayTicks>
+                </li>
+
+                <li Class="DanceOfEvolution.ScenPart_PlayerPawnsArriveInShipChunk">
+					<def>PlayerPawnsArriveMethod</def>
+                </li>
+
+                <li Class="ScenPart_GameStartDialog">
+                    <def>GameStartDialog</def>
+                    <text>text.todo</text>
+                    <closeSound>GameStartSting</closeSound>
+                </li>
+            </parts>
+        </scenario>
+    </ScenarioDef>
+</Defs>

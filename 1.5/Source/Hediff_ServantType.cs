@@ -108,7 +108,10 @@ namespace DanceOfEvolution
 
 		public void AssignComponents()
 		{
-			pawn.natives.cachedVerbProperties = null;
+			if (pawn.natives != null)
+			{
+				pawn.natives.cachedVerbProperties = null;
+			}
 			pawn.needs.AddOrRemoveNeedsAsAppropriate();
 			if (pawn.skills is null)
 			{

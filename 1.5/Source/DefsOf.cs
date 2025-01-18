@@ -54,14 +54,14 @@ namespace DanceOfEvolution
 		public static DamageArmorCategoryDef Heat;
 		public static ThingDef PsychoidLeaves;
 		public static GameConditionDef DE_CloudmakerCondition;
-
 		public static IncidentDef DeathPall;
 		public static WorkTypeDef Cooking;
 		public static WorkTypeDef BasicWorker;
 		public static WorkGiverDef DoBillsCremate, DE_FeedCorpseToCerebrum;
 		public static RecipeDef DE_FeedCorpse;
-
-		static DefsOf()
+		public static ScenarioDef DE_FungalAwakening;
+		public static PawnKindDef Noctol;
+        static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}
