@@ -20,7 +20,17 @@ namespace DanceOfEvolution
 		public abstract ServantType ServantType { get; }
 		public Hediff_FungalNexus masterHediff;
 		private HediffStage stage;
-		public override HediffStage CurStage => stage;
+		public override HediffStage CurStage
+		{
+			get
+			{
+				if (stage is null)
+				{
+					SetupStage();
+				}
+				return stage;
+			}
+		}
 		public override bool ShouldRemove => masterHediff is null || masterHediff.pawn is null;
 		public override void ExposeData()
 		{
@@ -34,6 +44,10 @@ namespace DanceOfEvolution
 
 		public void SetupStage()
 		{
+			if (masterHediff is null)
+			{
+				return;
+			}
 			stage = def.stages[CurStageIndex].Clone();
 			var coordinator = masterHediff.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_PsychicCoordinatorImplant) as Hediff_Level;
 			if (coordinator != null)
@@ -207,6 +221,18 @@ namespace DanceOfEvolution
 			pawn.health.AddHediff(DefsOf.DE_BladedLimb);
 			pawn.health.AddHediff(DefsOf.DE_BladedLimb);
 			pawn.equipment.AddEquipment(ThingMaker.MakeThing(DefsOf.DE_Gun_SpikeThrower) as ThingWithComps);
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (Find.TickManager.TicksGame % 60 == 0)
+			{
+				if (pawn.equipment.Primary == null)
+				{
+					pawn.equipment.AddEquipment(ThingMaker.MakeThing(DefsOf.DE_Gun_SpikeThrower) as ThingWithComps);
+				}
+			}
 		}
 	}
 
