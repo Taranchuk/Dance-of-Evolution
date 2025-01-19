@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 namespace DanceOfEvolution
@@ -8,9 +9,10 @@ namespace DanceOfEvolution
 		public string customSummary;
 		public override string Summary(Scenario scenario) => customSummary; 
 		public override int TotalPawnCount => pawnCount;
-		public int pawnCount = 1;
+		public int pawnCount = 1;		
 		public override void GenerateStartingPawns()
 		{
+			Find.GameInitData.startingPawnKind = DefsOf.DE_FungalNexusKind;
 			int num = 0;
 			do
 			{

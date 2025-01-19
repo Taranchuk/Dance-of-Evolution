@@ -61,6 +61,8 @@ namespace DanceOfEvolution
 		public static RecipeDef DE_FeedCorpse;
 		public static ScenarioDef DE_FungalAwakening;
 		public static PawnKindDef Noctol;
+		public static PawnKindDef DE_FungalNexusKind;
+
         static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
