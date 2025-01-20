@@ -44,6 +44,11 @@ namespace DanceOfEvolution
 		{
 			return pawn.IsServant(out _);
 		}
+		
+		public static bool IsServantEntity(this Pawn pawn)
+		{
+			return pawn.IsServant() && pawn.RaceProps.IsAnomalyEntity;
+		}
 		public static bool IsControllableServant(this Pawn pawn)
 		{
 			return pawn.IsControllableServant(out _);

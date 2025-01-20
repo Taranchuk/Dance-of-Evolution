@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 namespace DanceOfEvolution
 {
 	public enum ServantType
@@ -185,7 +186,11 @@ namespace DanceOfEvolution
 					defaultDesc = "DE_SeekFoodDesc".Translate(),
 					action = delegate
 					{
-						var job = new JobGiver_GetFood().TryGiveJob(pawn);
+						var jobGiver = new JobGiver_GetFood();
+						jobGiver.forceScanWholeMap = true;
+						jobGiver.minCategory = HungerCategory.Fed;
+						jobGiver.maxLevelPercentage = 999f;
+						var job = jobGiver.TryGiveJob(pawn);
 						if (job != null)
 						{
 							pawn.jobs.TryTakeOrderedJob(job);

@@ -57,9 +57,16 @@ namespace DanceOfEvolution
 
 		public static bool PreventHostility(Pawn pawn1, Pawn pawn2)
 		{
-			if (pawn1.IsServant() && pawn2.IsForbidden(pawn1))
+			try
 			{
-				return true;
+				if (pawn1.IsServant() && pawn2.IsForbidden(pawn1))
+				{
+					return true;
+				}
+			}
+			catch
+			{
+				
 			}
 			return false;
 		}

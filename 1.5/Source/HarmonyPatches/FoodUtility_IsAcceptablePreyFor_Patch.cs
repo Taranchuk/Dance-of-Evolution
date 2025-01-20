@@ -9,7 +9,7 @@ namespace DanceOfEvolution
     {
         public static void Postfix(Pawn prey, ref bool __result)
         {
-            if (prey.IsEntity && prey.IsServant())
+            if (prey.IsServantEntity() && prey.IsServant())
             {
                 __result = false;
             }
