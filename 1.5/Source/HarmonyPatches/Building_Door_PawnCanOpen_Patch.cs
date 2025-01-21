@@ -8,7 +8,7 @@ namespace DanceOfEvolution
 	{
 		public static void Postfix(ref bool __result, Pawn p, Building_Door __instance)
 		{
-			if (p.IsControllableServant())
+			if (p.IsControllableServantNoTileCheck())
 			{
 				__result = true;
 			}

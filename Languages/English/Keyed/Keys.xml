@@ -31,4 +31,5 @@
 	<DE_TriggerDeathPall>Trigger death pall</DE_TriggerDeathPall>
 	<DE_TriggerDeathPallDesc>Trigger death pall which will resurrect corpses as player-controlled shamblers.</DE_TriggerDeathPallDesc>
 	<DE_DeathPallCooldown>Death pall is on cooldown for {0}.</DE_DeathPallCooldown>
+	<DE_ServantsMustHaveNexus>Servants require a nexus.</DE_ServantsMustHaveNexus>
 </LanguageData>

@@ -53,6 +53,11 @@ namespace DanceOfEvolution
 		{
 			return pawn.IsControllableServant(out _);
 		}
+		
+		public static bool IsControllableServantNoTileCheck(this Pawn pawn)
+		{
+			return pawn.IsServant(out var hediff) && hediff.ControllableNoTileCheck;
+		}
 		public static bool IsControllableServant(this Pawn pawn, out Hediff_ServantType hediff)
 		{
 			return pawn.IsServant(out hediff) && hediff.Controllable;

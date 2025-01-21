@@ -129,6 +129,10 @@ namespace DanceOfEvolution
 			{
 				newNode.subNodes.Insert(newNode.subNodes.Count - 1, new JobGiver_SeekAllowedArea());
 			}
+			else
+			{
+				Log.Message("SeekAllowedArea already exists");
+			}
 			subNodes.Insert(index, newNode);
 			subNodes.Insert(index + 2, new JobGiver_ConsumeSpores());
 		}
