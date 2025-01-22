@@ -14,7 +14,7 @@ namespace DanceOfEvolution
 		Ghoul,
 		Special,
 	}
-	
+
 	[HotSwappable]
 	public abstract class Hediff_ServantType : HediffWithComps
 	{
@@ -81,11 +81,15 @@ namespace DanceOfEvolution
 				{
 					return false;
 				}
-				return ControllableNoTileCheck;
+				if (masterHediff.pawn.Downed)
+				{
+					return false;
+				}
+				return ControllableNoTileAndDownedCheck;
 			}
 		}
 
-		public bool ControllableNoTileCheck
+		public bool ControllableNoTileAndDownedCheck
 		{
 			get
 			{
@@ -97,7 +101,7 @@ namespace DanceOfEvolution
 				{
 					return false;
 				}
-				if (masterHediff.pawn.Downed || masterHediff.pawn.Dead || masterHediff.pawn.Destroyed)
+				if (masterHediff.pawn.Dead || masterHediff.pawn.Destroyed)
 				{
 					return false;
 				}
@@ -158,7 +162,7 @@ namespace DanceOfEvolution
 		}
 		public bool IsImmuneTo(Hediff hediff)
 		{
-			if (hediff.def == HediffDefOf.LungRotExposure || hediff.def == HediffDefOf.LungRot 
+			if (hediff.def == HediffDefOf.LungRotExposure || hediff.def == HediffDefOf.LungRot
 			|| hediff.def == HediffDefOf.BloodLoss || hediff.def == HediffDefOf.ToxGasExposure)
 			{
 				return true;
@@ -178,7 +182,7 @@ namespace DanceOfEvolution
 				yield return gizmo;
 			}
 
-			if (ControllableNoTileCheck && pawn.needs.food != null)
+			if (ControllableNoTileAndDownedCheck && pawn.needs.food != null)
 			{
 				yield return new Command_Action
 				{

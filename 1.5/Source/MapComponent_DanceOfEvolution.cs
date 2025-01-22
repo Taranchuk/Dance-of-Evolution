@@ -18,7 +18,7 @@ namespace DanceOfEvolution
 		public static readonly Dictionary<ThingDef, FloatRange> PlantSpawnTimes = new Dictionary<ThingDef, FloatRange>
 		{
 			{ DefsOf.DE_Plant_TreeMycelial, new FloatRange(3f, 20f) },
-			{ DefsOf.DE_FalseParasol, new FloatRange(3f, 20f) }
+			{ DefsOf.DE_FalseParasol, new FloatRange(1.5f, 10f) }
 		};
 
 		public override void MapComponentTick()

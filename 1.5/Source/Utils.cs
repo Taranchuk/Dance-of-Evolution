@@ -33,7 +33,7 @@ namespace DanceOfEvolution
 		{
 			return GameComponent_ReanimateCorpses.Instance.infectedCorpses.Exists(ic => ic.corpse == corpse);
 		}
-	
+
 		public static bool IsFungalNexus(this Pawn pawn, out Hediff_FungalNexus fungalNexus)
 		{
 			fungalNexus = pawn.GetFungalNexus();
@@ -44,7 +44,7 @@ namespace DanceOfEvolution
 		{
 			return pawn.IsServant(out _);
 		}
-		
+
 		public static bool IsServantEntity(this Pawn pawn)
 		{
 			return pawn.IsServant() && pawn.RaceProps.IsAnomalyEntity;
@@ -53,10 +53,10 @@ namespace DanceOfEvolution
 		{
 			return pawn.IsControllableServant(out _);
 		}
-		
-		public static bool IsControllableServantNoTileCheck(this Pawn pawn)
+
+		public static bool IsControllableServantNoTileAndDownedCheck(this Pawn pawn)
 		{
-			return pawn.IsServant(out var hediff) && hediff.ControllableNoTileCheck;
+			return pawn.IsServant(out var hediff) && hediff.ControllableNoTileAndDownedCheck;
 		}
 		public static bool IsControllableServant(this Pawn pawn, out Hediff_ServantType hediff)
 		{
@@ -68,12 +68,12 @@ namespace DanceOfEvolution
 			hediff = pawn.GetServantTypeHediff();
 			return hediff != null;
 		}
-		
+
 		public static Hediff_ServantType GetServantTypeHediff(this Pawn pawn)
 		{
 			return pawn.health.hediffSet.GetFirstHediff<Hediff_ServantType>();
 		}
-		
+
 		public static void MakeServant(this Pawn pawn, Hediff_FungalNexus masterHediff, HediffDef servantHediff)
 		{
 			if (pawn.Faction != masterHediff.pawn.Faction)

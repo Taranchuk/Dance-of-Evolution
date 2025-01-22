@@ -98,6 +98,7 @@
                 <showRegenerationStat>true</showRegenerationStat>
                 <statFactors>
                     <FilthRate>0</FilthRate>
+                    <Fertility>0</Fertility>
                 </statFactors>
             </li>
         </stages>
@@ -159,6 +160,7 @@
                 <statFactors>
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
                     <FilthRate>0</FilthRate>
+                    <Fertility>0</Fertility>
                </statFactors>
                 <statOffsets>
                     <Flammability>1</Flammability>
@@ -187,6 +189,7 @@
                 <statFactors>
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
                     <FilthRate>0</FilthRate>
+                    <Fertility>0</Fertility>
                </statFactors>
                 <statOffsets>
                     <Flammability>1</Flammability>
