@@ -21,7 +21,7 @@ namespace DanceOfEvolution
 		public Pawn MakeServant(PawnKindDef pawnKindDef, Hediff_FungalNexus hediff_FungalNexus)
 		{
 			var servant = PawnGenerator.GeneratePawn(pawnKindDef, Faction.OfPlayer);
-			servant.MakeServant(hediff_FungalNexus, InfectedCorpse.TryGetServantTypeAndHediff(servant).Value.servantHediffDef);
+			servant.MakeServant(hediff_FungalNexus);
 			return servant;
 		}
 

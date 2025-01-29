@@ -19,21 +19,40 @@
 		<defenderRole>LargeServants</defenderRole>
 		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
 	</DanceOfEvolution.PsychicRitualDef_CreateSpecialServant>
-	
-  <PsychicRitualRoleDef>
-    <defName>SpecialServantRitualTarget</defName>
-    <label>target</label>
-    <allowedCount>1</allowedCount>
-    <allowedConditions>Default, Downed, Prisoner, Sleeping, IdeoUnwilling</allowedConditions>
-    <applyPowerOffset>false</applyPowerOffset>
-  </PsychicRitualRoleDef>
-  
-  <PsychicRitualRoleDef>
-    <defName>LargeServants</defName>
-    <label>large servants</label>
-    <description>large servants will participate in this ritual to be sacrificed alongside with the victim.</description>
-    <allowedCount>3</allowedCount>
-    <allowedConditions>Default, Sleeping, Downed, Bleeding, Burning, NoPsychicSensitivity, NonHumanlike</allowedConditions>
-  </PsychicRitualRoleDef>
-  
+
+	<PsychicRitualRoleDef>
+		<defName>SpecialServantRitualTarget</defName>
+		<label>target</label>
+		<allowedCount>1</allowedCount>
+		<allowedConditions>Default, Downed, Prisoner, Sleeping, IdeoUnwilling</allowedConditions>
+		<applyPowerOffset>false</applyPowerOffset>
+	</PsychicRitualRoleDef>
+
+	<PsychicRitualRoleDef>
+		<defName>LargeServants</defName>
+		<label>large servants</label>
+		<description>large servants will participate in this ritual to be sacrificed alongside with the victim.</description>
+		<allowedCount>3</allowedCount>
+		<allowedConditions>Default, Sleeping, Downed, Bleeding, Burning, NoPsychicSensitivity, NonHumanlike</allowedConditions>
+	</PsychicRitualRoleDef>
+
+	<DanceOfEvolution.PsychicRitualDef_CoagulateMuscleMass>
+		<defName>DE_CoagulateMuscleMass</defName>
+		<label>coagulate muscle mass</label>
+		<description>Induce psychic waves into the collective to allow an simple mending of flesh, warping three large fungal servants into a single chimera, an incredibly powerful creature of twisted flesh. This ritual requires bioferrite to mend the flesh properly.</description>
+		<outcomeDescription>At the end of the ritual, three large servants and bioferrite will be consumed, and a large servant chimera will be created under the control of the invoker.</outcomeDescription>
+		<hoursUntilOutcome>4</hoursUntilOutcome>
+		<cooldownHours>120</cooldownHours>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Bioferrite</li>
+				</thingDefs>
+			</filter>
+			<count>50</count>
+		</requiredOffering>
+		<defenderRole>LargeServants</defenderRole>
+		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
+	</DanceOfEvolution.PsychicRitualDef_CoagulateMuscleMass>
+
 </Defs>

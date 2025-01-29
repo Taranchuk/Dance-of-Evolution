@@ -74,6 +74,10 @@ namespace DanceOfEvolution
 			return pawn.health.hediffSet.GetFirstHediff<Hediff_ServantType>();
 		}
 
+		public static void MakeServant(this Pawn pawn, Hediff_FungalNexus masterHediff)
+		{
+			MakeServant(pawn, masterHediff, TryGetServantTypeAndHediff(pawn).Value.servantHediffDef);
+		}
 		public static void MakeServant(this Pawn pawn, Hediff_FungalNexus masterHediff, HediffDef servantHediff)
 		{
 			if (pawn.Faction != masterHediff.pawn.Faction)
@@ -84,6 +88,29 @@ namespace DanceOfEvolution
 			hediff.masterHediff = masterHediff;
 			pawn.health.AddHediff(hediff);
 			masterHediff.servants.Add(pawn);
+		}
+
+		public static (ServantType servantType, HediffDef servantHediffDef)? TryGetServantTypeAndHediff(this Pawn pawn)
+		{
+			if (pawn.RaceProps.Humanlike)
+			{
+				return (ServantType.Ghoul, DefsOf.DE_ServantGhoul);
+			}
+
+			float bodySize = pawn.BodySize;
+			if (bodySize <= 0.99f)
+			{
+				return (ServantType.Small, DefsOf.DE_ServantSmall);
+			}
+			else if (bodySize >= 1f && bodySize < 2.11f)
+			{
+				return (ServantType.Medium, DefsOf.DE_ServantMedium);
+			}
+			else if (bodySize >= 2.11f)
+			{
+				return (ServantType.Large, DefsOf.DE_ServantLarge);
+			}
+			return null;
 		}
 
 		public static bool TryGiveMutation(this Pawn pawn, HediffDef mutationDef)

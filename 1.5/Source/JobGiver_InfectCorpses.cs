@@ -46,7 +46,7 @@ namespace DanceOfEvolution
 					}
 					if (checkForTarget)
 					{
-						var type = InfectedCorpse.TryGetServantTypeAndHediff(pawn);
+						var type = pawn.TryGetServantTypeAndHediff();
 						if (type != null && type.Value.servantType == fungalNexus.servantTypeTarget)
 						{
 							return true;
