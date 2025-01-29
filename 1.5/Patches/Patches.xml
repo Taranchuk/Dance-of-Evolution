@@ -13,7 +13,7 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/EntityCodexEntryDef[defName="Metalhorror"]/discoveredResearchProjects</xpath>
 		<value>
-			<li>DE_CreateSpecialServant</li>
+			<li>DE_LivingMetal</li>
 		</value>
 	</Operation>
 

@@ -8,7 +8,7 @@ using Verse.AI.Group;
 namespace DanceOfEvolution
 {
 	[HotSwappable]
-	public class PsychicRitualDef_CreateSpecialServant : PsychicRitualDef_InvocationCircle
+	public class PsychicRitualDef_CoagulateConciousness : PsychicRitualDef_InvocationCircle
 	{
 		public override List<PsychicRitualToil> CreateToils(PsychicRitual psychicRitual, PsychicRitualGraph parent)
 		{

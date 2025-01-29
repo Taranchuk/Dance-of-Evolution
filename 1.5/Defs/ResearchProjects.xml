@@ -2,14 +2,30 @@
 <Defs>
 
   <ResearchProjectDef>
-    <defName>DE_CreateSpecialServant</defName>
+    <defName>DE_AgglomerationRituals</defName>
+    <label>Agglomeration rituals</label>
+    <description>The collective is still young, but it already understand how to pour flesh into one another to create stronger beings still.</description>
+    <tab>Anomaly</tab>
+    <knowledgeCost>20</knowledgeCost>
+    <knowledgeCategory>Basic</knowledgeCategory>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>1.90</researchViewY>
+    <prerequisites>
+      <li>BasicPsychicRituals</li>
+    </prerequisites>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>DE_LivingMetal</defName>
     <label>Living Metal</label>
     <description>The collective has perceived the wonders of metal that flows like blood. This archotech primordial ooze will serve us well, whether it wants it or not. The barrier between life and unlife is blurred once more.</description>
     <tab>Anomaly</tab>
     <knowledgeCost>25</knowledgeCost>
     <knowledgeCategory>Basic</knowledgeCategory>
-    <researchViewX>2.00</researchViewX>
-    <researchViewY>1.80</researchViewY>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>1.90</researchViewY>
+    <prerequisites>
+      <li>DE_AgglomerationRituals</li>
+    </prerequisites>
   </ResearchProjectDef>
-
 </Defs>
