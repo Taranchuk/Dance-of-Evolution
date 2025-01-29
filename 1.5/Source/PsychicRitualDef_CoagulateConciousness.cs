@@ -73,6 +73,7 @@ namespace DanceOfEvolution
 			this.targetRole = targetRole;
 			this.defenderRole = defenderRole;
 		}
+
 		public override void Start(PsychicRitual psychicRitual, PsychicRitualGraph parent)
 		{
 			base.Start(psychicRitual, parent);

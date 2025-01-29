@@ -57,11 +57,6 @@ namespace DanceOfEvolution
 			{
 				yield return "DE_ThreeLargeServantsRequired".Translate();
 			}
-
-			if (!map.listerThings.ThingsMatching(ThingRequest.ForDef(ThingDefOf.Bioferrite)).Any(t => map.reachability.CanReach(pawn.Position, t, PathEndMode.ClosestTouch, TraverseMode.PassDoors, Danger.Deadly)))
-			{
-				yield return "DE_BioferriteRequired".Translate(); // New translation key needed
-			}
 		}
 	}
 
@@ -81,17 +76,27 @@ namespace DanceOfEvolution
 			this.defenderRole = defenderRole;
 		}
 
-		public override void Start(PsychicRitual psychicRitual, PsychicRitualGraph parent)
+		public override void End(PsychicRitual psychicRitual, PsychicRitualGraph parent, bool success)
 		{
-			base.Start(psychicRitual, parent);
+			base.End(psychicRitual, parent, success);
 			var invoker = psychicRitual.assignments.FirstAssignedPawn(invokerRole);
 			var fungalNexus = invoker.GetFungalNexus();
 			psychicRitual.ReleaseAllPawnsAndBuildings();
 
 			// Generate Chimera
-			Pawn chimera = PawnGenerator.GeneratePawn(PawnKindDefOf.Chimera, invoker.Faction);
+			var faction = success ? invoker.Faction : Faction.OfEntities; // Faction of the chimera
+			Pawn chimera = PawnGenerator.GeneratePawn(PawnKindDefOf.Chimera, faction);
+			if (success)
+			{
+				chimera.MakeServant(fungalNexus);
+			}
+			else
+			{
+				LordMaker.MakeNewLord(Faction.OfEntities, new LordJob_ChimeraAssault(), invoker.Map,
+					new List<Pawn> { chimera });
+			}
+
 			GenSpawn.Spawn(chimera, invoker.Position, invoker.Map); // Spawn at invoker's position
-			chimera.MakeServant(fungalNexus);
 
 			// Kill defenders (large servants)
 			var defenders = psychicRitual.assignments.AssignedPawns(defenderRole).ToList(); // ToList to avoid modification during iteration
