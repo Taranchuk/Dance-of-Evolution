@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
 	<DanceOfEvolution.PsychicRitualDef_CoagulateConciousness>
@@ -55,5 +56,33 @@
 		<defenderRole>LargeServants</defenderRole>
 		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
 	</DanceOfEvolution.PsychicRitualDef_CoagulateMuscleMass>
+
+	<PsychicRitualRoleDef>
+		<defName>SightstealerServant</defName>
+		<label>sightstealer servant</label>
+		<description>Sightstealer servant will be used as a base for the unstable revenant.</description>
+		<allowedCount>1</allowedCount>
+		<allowedConditions>Default, Sleeping, Downed, Bleeding, Burning, NoPsychicSensitivity, NonHumanlike</allowedConditions>
+	</PsychicRitualRoleDef>
+
+	<DanceOfEvolution.PsychicRitualDef_CoagulatePsychicWeight>
+		<defName>DE_CoagulatePsychicWeight</defName>
+		<label>coagulate psychic weight</label>
+		<description>Use immense psychic force and large quantities of bioferrite to condense the psychic aura of servants into a sightstealer body. Three large servants will be reduced to nothing, and the sightstealer will become an unstable creature that can turn invisible at will and hypnotise living beings.</description>
+		<outcomeDescription>At the end of the ritual, three large servants, a sightstealer servant and bioferrite will be consumed, and a special unstable revenant servant will be created under the control of the invoker.</outcomeDescription>
+		<researchPrerequisite>DE_AgglomerationRituals</researchPrerequisite>
+		<hoursUntilOutcome>4</hoursUntilOutcome>
+		<cooldownHours>1080</cooldownHours>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Bioferrite</li>
+				</thingDefs>
+			</filter>
+			<count>120</count>
+		</requiredOffering>
+		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
+		<defenderRole>LargeServants</defenderRole>
+	</DanceOfEvolution.PsychicRitualDef_CoagulatePsychicWeight>
 
 </Defs>
