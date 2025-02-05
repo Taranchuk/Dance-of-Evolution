@@ -83,6 +83,7 @@
 		</requiredOffering>
 		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
 		<defenderRole>LargeServants</defenderRole>
+		<extraDefenderRole>SightstealerServant</extraDefenderRole>
 	</DanceOfEvolution.PsychicRitualDef_CoagulatePsychicWeight>
 
 </Defs>

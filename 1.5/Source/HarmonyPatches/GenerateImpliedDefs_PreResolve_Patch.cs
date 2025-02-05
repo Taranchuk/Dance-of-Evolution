@@ -25,7 +25,8 @@ namespace DanceOfEvolution
 				{ DefsOf.DE_ServantSmall, (new List<WorkTypeDef> { WorkTypeDefOf.Hauling, WorkTypeDefOf.Cleaning, WorkTypeDefOf.Firefighter, DefsOf.BasicWorker }, new List<WorkGiverDef> { }) },
 				{ DefsOf.DE_ServantMedium, (new List<WorkTypeDef> { WorkTypeDefOf.Mining, WorkTypeDefOf.Hunting, DefsOf.Cooking, WorkTypeDefOf.Construction }, new List<WorkGiverDef> { DefsOf.DoBillsCremate, DefsOf.DE_FeedCorpseToCerebrum }) },
 				{ DefsOf.DE_ServantLarge, (new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting }, new List<WorkGiverDef> { }) },
-				{ DefsOf.DE_ServantSpecial, (new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting }, new List<WorkGiverDef> { }) }
+				{ DefsOf.DE_ServantSpecial, (new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting }, new List<WorkGiverDef> { }) },
+				{ DefsOf.DE_ServantUnstable, (new List<WorkTypeDef> { WorkTypeDefOf.Growing, WorkTypeDefOf.PlantCutting }, new List<WorkGiverDef> { }) },
 			};
 
 			foreach (var kvp in preWanderTags)
@@ -69,7 +70,7 @@ namespace DanceOfEvolution
 				//}
 			}
 		}
-		
+
 		private static bool HasNode(ThinkNode node, Type nodeType)
 		{
 			if (nodeType.IsAssignableFrom(node.GetType()))

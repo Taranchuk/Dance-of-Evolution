@@ -32,4 +32,6 @@
 	<DE_TriggerDeathPallDesc>Trigger death pall which will resurrect corpses as player-controlled shamblers.</DE_TriggerDeathPallDesc>
 	<DE_DeathPallCooldown>Death pall is on cooldown for {0}.</DE_DeathPallCooldown>
 	<DE_ServantsMustHaveNexus>Servants require a nexus.</DE_ServantsMustHaveNexus>
+	<DE_OnlyFungalNexusWithThreeLargeServantsAndSightstealerServantCanStartThis>Only a fungal nexus with three or more large servants and a sightstealer servant can start this ritual.</DE_OnlyFungalNexusWithThreeLargeServantsAndSightstealerServantCanStartThis>
+	<DE_SightstealerRequired>A sightstealer belonging to the fungal nexus is required for this ritual.</DE_SightstealerRequired>
 </LanguageData>

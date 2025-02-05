@@ -13,6 +13,7 @@ namespace DanceOfEvolution
 		Large,
 		Ghoul,
 		Special,
+		Unstable,
 	}
 
 	[HotSwappable]
@@ -314,5 +315,11 @@ namespace DanceOfEvolution
 	public class Hediff_ServantSpecial : Hediff_ServantType
 	{
 		public override ServantType ServantType => ServantType.Special;
+	}
+
+	[HotSwappable]
+	public class Hediff_UnstableServant : Hediff_ServantType
+	{
+		public override ServantType ServantType => ServantType.Unstable;
 	}
 }
