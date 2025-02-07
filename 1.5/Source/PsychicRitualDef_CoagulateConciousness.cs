@@ -34,7 +34,7 @@ namespace DanceOfEvolution
 		public override PsychicRitualCandidatePool FindCandidatePool()
 		{
 			var pool = base.FindCandidatePool();
-			pool.AllCandidatePawns.AddRange(Find.CurrentMap.mapPawns.SpawnedColonyAnimals.Where(x => x.IsServant(out var servantType) && servantType.ServantType == ServantType.Large));
+			pool.AllCandidatePawns.AddRange(Find.CurrentMap.mapPawns.AllPawns.Where(x => x.IsServant(out var servantType) && servantType.ServantType == ServantType.Large));
 			return pool;
 		}
 		
