@@ -1,10 +1,10 @@
-using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
+using System.Collections.Generic;
+using RimWorld;
 
 namespace DanceOfEvolution
 {
@@ -40,6 +40,7 @@ namespace DanceOfEvolution
 				//cell3 = GetBestStandableRolePosition(playerRitual, cell3, assignments.Target.Cell, assignments.Target.Map, 1.5f);
 				invokation.defenderPositions.Add(cell3);
 			}
+			num2 = 0; // Reset num2 here
 			foreach (Pawn item5 in assignments.AssignedPawns(extraDefenderRole))
 			{
 				_ = item5;
@@ -54,7 +55,7 @@ namespace DanceOfEvolution
 		public override PsychicRitualCandidatePool FindCandidatePool()
 		{
 			var pool = base.FindCandidatePool();
-			pool.AllCandidatePawns.AddRange(Find.CurrentMap.mapPawns.AllPawns.Where(x => 
+			pool.AllCandidatePawns.AddRange(Find.CurrentMap.mapPawns.AllPawns.Where(x =>
 			x.IsServant(out var servantType) && (servantType.ServantType == ServantType.Large
 			|| x.kindDef == PawnKindDefOf.Sightstealer)));
 			Log.Message(pool.allCandidatePawns.ToStringSafeEnumerable());
