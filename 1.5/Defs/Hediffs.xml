@@ -216,6 +216,14 @@
 				</statOffsets>
 			</li>
 		</stages>
+		<comps>
+			<li Class="HediffCompProperties_GiveAbility">
+				<abilityDefs>
+					<li>DE_ServantHypnotise</li>
+					<li>DE_ServantInvisibility</li>
+				</abilityDefs>
+			</li>
+		</comps>
 	</HediffDef>
 
 	<HediffDef>

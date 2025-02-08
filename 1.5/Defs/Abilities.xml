@@ -62,4 +62,62 @@
 		</verbProperties>
 	</AbilityDef>
 
+	<AbilityDef>
+		<defName>DE_ServantInvisibility</defName>
+		<label>invisibility</label>
+		<description>Renders the unstable servant invisible indefinitely. Invisibility is immediately canceled if the unstable servant deals or receives any damage.</description>
+		<iconPath>UI/Abilities/WraithInvisibility</iconPath>
+		<cooldownTicksRange>180000</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<targetRequired>false</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<verbProperties>
+			<verbClass>Verb_CastAbilitySelf</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<warmupTime>1</warmupTime>
+			<range>0</range>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>DanceOfEvolution.CompAbilityEffect_ServantInvisibility</compClass>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<AbilityDef>
+		<defName>DE_ServantHypnotise</defName>
+		<label>hypnotise</label>
+		<description>Hypnotises a target, inflicting Revenant Hypnosis. Can only be removed by killing the unstable servant that applied it.</description>
+		<iconPath>UI/Abilities/RevenantHypnotise</iconPath>
+		<cooldownTicksRange>180000</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<targetRequired>true</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<abilityClass>DanceOfEvolution.Ability_ServantHypnotise</abilityClass>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>true</drawAimPie>
+			<requireLineOfSight>true</requireLineOfSight>
+			<warmupTime>10</warmupTime>
+			<range>8.9</range>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetLocations>false</canTargetLocations>
+			</targetParams>
+			<soundCast>Psycast_SubtleCommand</soundCast>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>DanceOfEvolution.CompAbilityEffect_ServantHypnotise</compClass>
+			</li>
+		</comps>
+	</AbilityDef>
+
 </Defs>
