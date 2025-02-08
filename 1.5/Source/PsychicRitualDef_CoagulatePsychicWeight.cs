@@ -58,7 +58,6 @@ namespace DanceOfEvolution
 			pool.AllCandidatePawns.AddRange(Find.CurrentMap.mapPawns.AllPawns.Where(x =>
 			x.IsServant(out var servantType) && (servantType.ServantType == ServantType.Large
 			|| x.kindDef == PawnKindDefOf.Sightstealer)));
-			Log.Message(pool.allCandidatePawns.ToStringSafeEnumerable());
 			return pool;
 		}
 
