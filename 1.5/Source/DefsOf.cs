@@ -63,7 +63,9 @@ namespace DanceOfEvolution
 		public static PawnKindDef Noctol;
 		public static PawnKindDef DE_FungalNexusKind;
 		public static HediffDef DE_ServantUnstable;
-		static DefsOf()
+		public static JobDef DE_OpenGrowthSpotDialog;
+
+        static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

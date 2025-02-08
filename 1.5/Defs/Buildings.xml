@@ -315,6 +315,7 @@
 		<defName>DE_GrowthSpot</defName>
 		<label>growth spot</label>
 		<description>A spot for a fungal nexus to change its cosmetic features. It costs 60 raw fungus and 150000 ticks to change cosmetics at the spot.</description>
+		<thingClass>DanceOfEvolution.Building_GrowthSpot</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Production/CraftingSpot</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

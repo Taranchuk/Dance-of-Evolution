@@ -1,22 +1,29 @@
 <Defs>
-    <JobDef>
-        <defName>DE_InfectingCorpse</defName>
-        <label>infecting corpse</label>
-        <driverClass>DanceOfEvolution.JobDriver_InfectCorpse</driverClass>
-        <reportString>infecting TargetA.</reportString>
-    </JobDef>
+	<JobDef>
+		<defName>DE_InfectingCorpse</defName>
+		<label>infecting corpse</label>
+		<driverClass>DanceOfEvolution.JobDriver_InfectCorpse</driverClass>
+		<reportString>infecting TargetA.</reportString>
+	</JobDef>
 
-    <JobDef>
-        <defName>DE_ConsumeSpores</defName>
-        <label>consuming spores</label>
-        <driverClass>DanceOfEvolution.JobDriver_ConsumeSpores</driverClass>
-        <reportString>consuming spores from TargetA.</reportString>
-    </JobDef>
+	<JobDef>
+		<defName>DE_ConsumeSpores</defName>
+		<label>consuming spores</label>
+		<driverClass>DanceOfEvolution.JobDriver_ConsumeSpores</driverClass>
+		<reportString>consuming spores from TargetA.</reportString>
+	</JobDef>
 
-        <JobDef>
-        <defName>DE_HarvestCerebrum</defName>
-        <label>harvest cerebrum</label>
-        <driverClass>DanceOfEvolution.JobDriver_HarvestCerebrum</driverClass>
-        <reportString>harvesting TargetA.</reportString>
-    </JobDef>
+	<JobDef>
+		<defName>DE_HarvestCerebrum</defName>
+		<label>harvest cerebrum</label>
+		<driverClass>DanceOfEvolution.JobDriver_HarvestCerebrum</driverClass>
+		<reportString>harvesting TargetA.</reportString>
+	</JobDef>
+	
+	<JobDef>
+		<defName>DE_OpenGrowthSpotDialog</defName>
+		<label>changing style</label>
+		<driverClass>DanceOfEvolution.JobDriver_OpenGrowthSpotDialog</driverClass>
+		<reportString>changing style at TargetA.</reportString>
+	</JobDef>
 </Defs>
