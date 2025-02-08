@@ -5,6 +5,7 @@ using Verse.Sound;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Verse.AI;
 
 namespace DanceOfEvolution
 {
@@ -92,11 +93,11 @@ namespace DanceOfEvolution
 					row++;
 				}
 
-				Rect iconRect = new Rect(rect.x + num2 + (float)col * IconSize + (float)col * 10f, 
+				Rect iconRect = new Rect(rect.x + num2 + (float)col * IconSize + (float)col * 10f,
 				rect.y + (float)row * IconSize + (float)row * 10f, IconSize, IconSize);
 				Widgets.DrawMenuSection(iconRect);
 				var pawnRenderNodeProperties = cosmetic.RenderNodeProperties.First();
-				var node = (PawnRenderNode)Activator.CreateInstance(pawnRenderNodeProperties.nodeClass, pawn, 
+				var node = (PawnRenderNode)Activator.CreateInstance(pawnRenderNodeProperties.nodeClass, pawn,
 					pawnRenderNodeProperties, pawn.Drawer.renderer.renderTree);
 				var graphic = node.GraphicFor(pawn);
 				GUI.DrawTexture(iconRect, graphic.MatSouth.mainTexture);
@@ -145,8 +146,23 @@ namespace DanceOfEvolution
 		{
 			if (selectedCosmetic != null)
 			{
-				var fungalNexusHediff = pawn.GetFungalNexus();
-				fungalNexusHediff.selectedCosmetic = selectedCosmetic;
+				ThingDef rawFungus = DefsOf.RawFungus;
+				int requiredAmount = 60;
+				List<Thing> rawFungusList = new List<Thing>();
+				if (WorkGiver_DoBill.TryFindBestFixedIngredients(rawFungus, pawn, null, rawFungusList, false, out Thing ingredientStack))
+				{
+					Job job = JobMaker.MakeJob(DefsOf.DE_ApplyCosmeticChange, growthSpot);
+					job.targetB = ingredientStack;
+					job.count = requiredAmount;
+					pawn.jobs.TryTakeOrderedJob(job);
+
+					var fungalNexusHediff = pawn.GetFungalNexus();
+					fungalNexusHediff.selectedCosmetic = selectedCosmetic;
+				}
+				else
+				{
+					Messages.Message("DE_NeedRawFungusForCosmeticChange".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+				}
 			}
 		}
 	}

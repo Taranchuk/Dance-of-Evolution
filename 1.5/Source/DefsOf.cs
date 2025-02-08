@@ -64,6 +64,8 @@ namespace DanceOfEvolution
 		public static PawnKindDef DE_FungalNexusKind;
 		public static HediffDef DE_ServantUnstable;
 		public static JobDef DE_OpenGrowthSpotDialog;
+		public static ThingDef RawFungus;
+		public static JobDef DE_ApplyCosmeticChange;
 
         static DefsOf()
 		{
