@@ -81,20 +81,12 @@ namespace DanceOfEvolution
 								InsertNodeAt(rootNode.subNodes, revenantIndex);
 								inserted = true;
 							}
-							else
-							{
-								Log.Message("Could not patch " + thinkTreeDef.defName);
-							}
 						}
 					}
 				}
 
-				if (inserted)
-					Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringHuman()}");
-				else
-				{
-					Log.Message("2 Could not patch " + thinkTreeDef.defName);
-				}
+				//if (inserted)
+				//	Log.Message($"Patched {thinkTreeDef.defName} - {rootNode.subNodes.ToStringHuman()}");
 			}
 		}
 

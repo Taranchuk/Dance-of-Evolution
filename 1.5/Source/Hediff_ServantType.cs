@@ -321,5 +321,17 @@ namespace DanceOfEvolution
 	public class Hediff_UnstableServant : Hediff_ServantType
 	{
 		public override ServantType ServantType => ServantType.Unstable;
+
+		public override void PostAdd(DamageInfo? dinfo)
+		{
+			pawn.abilities ??= new Pawn_AbilityTracker(pawn);
+			base.PostAdd(dinfo);
+		}
+		public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
+		{
+			base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
+			pawn.GetComp<CompRevenant>().Invisibility.BecomeVisible();
+			pawn.GetComp<CompRevenant>().becomeInvisibleTick = int.MaxValue;
+		}
 	}
 }

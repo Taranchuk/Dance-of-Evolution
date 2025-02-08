@@ -20,6 +20,13 @@ namespace DanceOfEvolution
 				{
 					victim.health.AddHediff(DefsOf.DE_Rotting);
 				}
+
+				if (attacker.kindDef == PawnKindDefOf.Revenant && attacker.IsServant())
+				{
+					var comp = attacker.GetComp<CompRevenant>();
+					comp.Invisibility.BecomeVisible();
+					comp.becomeInvisibleTick = int.MaxValue;
+				}
 			}
 		}
 	}

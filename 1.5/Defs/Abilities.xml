@@ -72,7 +72,7 @@
 		<targetRequired>false</targetRequired>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<verbProperties>
-			<verbClass>Verb_CastAbilitySelf</verbClass>
+			<verbClass>Verb_CastAbility</verbClass>
 			<drawAimPie>false</drawAimPie>
 			<requireLineOfSight>false</requireLineOfSight>
 			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
@@ -99,7 +99,6 @@
 		<writeCombatLog>True</writeCombatLog>
 		<targetRequired>true</targetRequired>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-		<abilityClass>DanceOfEvolution.Ability_ServantHypnotise</abilityClass>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
 			<drawAimPie>true</drawAimPie>
@@ -110,8 +109,10 @@
 				<canTargetPawns>true</canTargetPawns>
 				<canTargetBuildings>false</canTargetBuildings>
 				<canTargetLocations>false</canTargetLocations>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
 			</targetParams>
-			<soundCast>Psycast_SubtleCommand</soundCast>
 		</verbProperties>
 		<comps>
 			<li Class="CompProperties_AbilityEffect">
