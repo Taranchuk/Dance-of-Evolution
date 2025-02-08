@@ -112,6 +112,7 @@
 				<canTargetAnimals>false</canTargetAnimals>
 				<canTargetHumans>true</canTargetHumans>
 				<canTargetMechs>false</canTargetMechs>
+				<onlyTargetColonistsOrPrisonersOrSlaves>True</onlyTargetColonistsOrPrisonersOrSlaves>
 			</targetParams>
 		</verbProperties>
 		<comps>

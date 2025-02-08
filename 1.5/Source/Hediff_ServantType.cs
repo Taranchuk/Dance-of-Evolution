@@ -66,11 +66,14 @@ namespace DanceOfEvolution
 				}
 				modifier.value = coordinator.level * 0.02f;
 			}
-			var growthStimulator = masterHediff.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_GrowthStimulatorImplant) as Hediff_Level;
-			if (growthStimulator != null)
+			if (this is not Hediff_UnstableServant)
 			{
-				stage.regeneration += 10 * growthStimulator.level;
-				stage.showRegenerationStat = true;
+				var growthStimulator = masterHediff.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_GrowthStimulatorImplant) as Hediff_Level;
+				if (growthStimulator != null)
+				{
+					stage.regeneration += 10 * growthStimulator.level;
+					stage.showRegenerationStat = true;
+				}
 			}
 		}
 
