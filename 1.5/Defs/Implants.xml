@@ -151,37 +151,6 @@
 			</li>
 		</stages>
 	</HediffDef>
-	<AbilityDef>
-		<defName>DE_Invisibility</defName>
-		<label>invisibility</label>
-		<description>text.todo.</description>
-		<iconPath>UI/Abilities/WraithInvisibility</iconPath>
-		<cooldownTicksRange>180000</cooldownTicksRange>
-		<writeCombatLog>True</writeCombatLog>
-		<targetRequired>false</targetRequired>
-		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-		<statBases>
-			<Ability_Duration>30</Ability_Duration>
-		</statBases>
-		<verbProperties>
-			<verbClass>Verb_CastAbility</verbClass>
-			<drawAimPie>false</drawAimPie>
-			<requireLineOfSight>false</requireLineOfSight>
-			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-			<warmupTime>1</warmupTime>
-			<range>0</range>
-			<targetable>false</targetable>
-			<targetParams>
-				<canTargetSelf>true</canTargetSelf>
-			</targetParams>
-		</verbProperties>
-		<comps>
-			<li Class="CompProperties_AbilityGiveHediff">
-				<compClass>CompAbilityEffect_GiveHediff</compClass>
-				<hediffDef>DE_Invisibility</hediffDef>
-			</li>
-		</comps>
-	</AbilityDef>
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_GrowthStimulator</defName>
 		<label>growth stimulator</label>
@@ -272,35 +241,6 @@
 			</li>
 		</comps>
 	</HediffDef>
-	<AbilityDef>
-		<defName>DE_DeadlifeSporeCloud</defName>
-		<label>deploy deadlife dust</label>
-		<description>Deploy a cloud of deadlife dust to obscure and debilitate.</description>
-		<writeCombatLog>True</writeCombatLog>
-		<showPsycastEffects>False</showPsycastEffects>
-		<cooldownTicksRange>300000</cooldownTicksRange>
-		<verbProperties>
-			<verbClass>DanceOfEvolution.Verb_LaunchAbilityProjectile</verbClass>
-			<label>deploy deadlife dust</label>
-			<defaultProjectile>Grenade_Deadlife</defaultProjectile>
-			<warmupTime>1.0</warmupTime>
-			<range>23.9</range>
-			<forcedMissRadius>0.1</forcedMissRadius>
-			<burstShotCount>1</burstShotCount>
-			<onlyManualCast>true</onlyManualCast>
-			<violent>false</violent>
-			<hasStandardCommand>true</hasStandardCommand>
-			<targetable>true</targetable>
-			<targetParams>
-				<canTargetPawns>false</canTargetPawns>
-				<canTargetBuildings>false</canTargetBuildings>
-				<canTargetLocations>true</canTargetLocations>
-			</targetParams>
-			<soundCast>ThrowGrenade</soundCast>
-			<rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
-			<canGoWild>false</canGoWild>
-		</verbProperties>
-	</AbilityDef>
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_MotorEnhancer</defName>
 		<label>motor enhancer</label>
