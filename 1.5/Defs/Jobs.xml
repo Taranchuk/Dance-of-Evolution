@@ -19,11 +19,18 @@
 		<driverClass>DanceOfEvolution.JobDriver_HarvestCerebrum</driverClass>
 		<reportString>harvesting TargetA.</reportString>
 	</JobDef>
-	
+
 	<JobDef>
 		<defName>DE_OpenGrowthSpotDialog</defName>
 		<label>changing style</label>
 		<driverClass>DanceOfEvolution.JobDriver_OpenGrowthSpotDialog</driverClass>
 		<reportString>changing style at TargetA.</reportString>
+	</JobDef>
+
+	<JobDef>
+		<defName>DE_ApplyCosmeticChange</defName>
+		<label>applying cosmetic change</label>
+		<driverClass>DanceOfEvolution.JobDriver_ApplyCosmeticChange</driverClass>
+		<reportString>applying cosmetic change at TargetA.</reportString>
 	</JobDef>
 </Defs>

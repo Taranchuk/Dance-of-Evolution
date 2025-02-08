@@ -148,12 +148,25 @@ namespace DanceOfEvolution
 			{
 				ThingDef rawFungus = DefsOf.RawFungus;
 				int requiredAmount = 60;
-				List<Thing> rawFungusList = new List<Thing>();
-				if (WorkGiver_DoBill.TryFindBestFixedIngredients(rawFungus, pawn, null, rawFungusList, false, out Thing ingredientStack))
+				IngredientCount ingredientCount = new IngredientCount();
+				ingredientCount.SetBaseCount(requiredAmount);
+				ingredientCount.filter.SetAllow(rawFungus, allow: true);
+				var rawFungusList = new List<ThingCount>();
+				if (WorkGiver_DoBill.TryFindBestFixedIngredients(new List<IngredientCount> { ingredientCount },
+				 pawn, growthSpot, rawFungusList))
 				{
 					Job job = JobMaker.MakeJob(DefsOf.DE_ApplyCosmeticChange, growthSpot);
-					job.targetB = ingredientStack;
-					job.count = requiredAmount;
+					if (!rawFungusList.NullOrEmpty())
+					{
+						job.targetQueueB = new List<LocalTargetInfo>(rawFungusList.Count);
+						job.countQueue = new List<int>(rawFungusList.Count);
+						foreach (ThingCount extraIngredient in rawFungusList)
+						{
+							job.targetQueueB.Add(extraIngredient.Thing);
+							job.countQueue.Add(extraIngredient.Count);
+						}
+					}
+					job.haulMode = HaulMode.ToCellNonStorage;
 					pawn.jobs.TryTakeOrderedJob(job);
 
 					var fungalNexusHediff = pawn.GetFungalNexus();
@@ -161,7 +174,7 @@ namespace DanceOfEvolution
 				}
 				else
 				{
-					Messages.Message("DE_NeedRawFungusForCosmeticChange".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+					Messages.Message("DE_NeedRawFungusForCosmeticChange".Translate(requiredAmount), MessageTypeDefOf.RejectInput, historical: false);
 				}
 			}
 		}

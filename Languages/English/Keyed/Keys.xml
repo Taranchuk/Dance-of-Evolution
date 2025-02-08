@@ -35,4 +35,5 @@
 	<DE_OnlyFungalNexusWithThreeLargeServantsAndSightstealerServantCanStartThis>Only a fungal nexus with three or more large servants and a sightstealer servant can start this ritual.</DE_OnlyFungalNexusWithThreeLargeServantsAndSightstealerServantCanStartThis>
 	<DE_SightstealerRequired>A sightstealer belonging to the fungal nexus is required for this ritual.</DE_SightstealerRequired>
 	<DE_GrowthSpotCosmetics>Growth spot fungal cosmetics</DE_GrowthSpotCosmetics>
+	<DE_NeedRawFungusForCosmeticChange>{0} raw fungus required for cosmetic change.</DE_NeedRawFungusForCosmeticChange>
 </LanguageData>
