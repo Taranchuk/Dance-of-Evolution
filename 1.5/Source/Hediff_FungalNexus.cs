@@ -14,6 +14,8 @@ namespace DanceOfEvolution
 		public int MaxServants => 4 + servantCountOffset;
 		public int servantCountOffset;
 		public ServantType servantTypeTarget = ServantType.Large;
+		public HediffDef selectedCosmetic;
+
 		public int TotalServantsCount
 		{
 			get
@@ -157,6 +159,7 @@ namespace DanceOfEvolution
 			Scribe_Values.Look(ref timer, "timer");
 			Scribe_Values.Look(ref servantCountOffset, "servantCountOffset");
 			Scribe_Values.Look(ref servantTypeTarget, "servantTypeTarget", ServantType.Large);
+			Scribe_Defs.Look(ref selectedCosmetic, "selectedCosmetic");
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				servants ??= new();

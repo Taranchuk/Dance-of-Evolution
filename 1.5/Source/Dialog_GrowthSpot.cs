@@ -3,32 +3,30 @@ using Verse;
 using UnityEngine;
 using Verse.Sound;
 using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace DanceOfEvolution
 {
+	[HotSwappable]
 	[StaticConstructorOnStartup]
 	public class Dialog_GrowthSpot : Window
 	{
-		private Pawn fungalNexus;
+		private Pawn pawn;
+		private Thing growthSpot;
 		private HediffDef selectedCosmetic;
 		private Vector2 cosmeticScrollPosition;
 		private float viewRectHeight;
 		private static readonly Vector2 ButSize = new Vector2(200f, 40f);
-		private const float IconSize = 60f;
+		private float IconSize => 120f;
 		private static readonly Vector3 PortraitOffset = new Vector3(0f, 0f, 0.15f);
 		private const float PortraitZoom = 1.1f;
-		private bool showHeadgear;
-		private bool showClothes;
-		private Dictionary<Apparel, Color> apparelColors = new Dictionary<Apparel, Color>();
-
 		public override Vector2 InitialSize => new Vector2(950f, 750f);
-
 		public Dialog_GrowthSpot(Pawn nexus, Thing spot)
 		{
-			this.fungalNexus = nexus;
+			this.pawn = nexus;
 			this.growthSpot = spot;
 			forcePause = true;
-			showClothes = true;
 			closeOnAccept = false;
 			closeOnCancel = false;
 		}
@@ -38,7 +36,7 @@ namespace DanceOfEvolution
 			Text.Font = GameFont.Medium;
 			Rect rect = new Rect(inRect);
 			rect.height = Text.LineHeight * 2f;
-			Widgets.Label(rect, "GrowthSpotCosmetics".Translate().CapitalizeFirst() + ": " + Find.ActiveLanguageWorker.WithDefiniteArticle(fungalNexus.Name.ToStringShort, fungalNexus.gender, plural: false, name: true).ApplyTag(TagType.Name));
+			Widgets.Label(rect, "DE_GrowthSpotCosmetics".Translate() + ": " + Find.ActiveLanguageWorker.WithDefiniteArticle(pawn.Name.ToStringShort, pawn.gender, plural: false, name: true).ApplyTag(TagType.Name));
 			Text.Font = GameFont.Small;
 			inRect.yMin = rect.yMax + 4f;
 
@@ -56,16 +54,23 @@ namespace DanceOfEvolution
 		{
 			Rect rect2 = rect;
 			rect2.yMin = rect.yMax - Text.LineHeight * 2f;
-			Widgets.CheckboxLabeled(new Rect(rect2.x, rect2.y, rect2.width, rect2.height / 2f), "ShowHeadgear".Translate(), ref showHeadgear);
-			Widgets.CheckboxLabeled(new Rect(rect2.x, rect2.y + rect2.height / 2f, rect2.width, rect2.height / 2f), "ShowApparel".Translate(), ref showClothes);
 			rect.yMax = rect2.yMin - 4f;
 			Widgets.BeginGroup(rect);
+			var allAttachments = pawn.health.hediffSet.hediffs.Where(x => Startup.bodyAttachments.Contains(x.def)).ToList();
+			allAttachments.ForEach(x => pawn.health.RemoveHediff(x));
+			if (selectedCosmetic != null)
+			{
+				pawn.health.AddHediff(selectedCosmetic);
+			}
 			for (int i = 0; i < 3; i++)
 			{
 				Rect position = new Rect(0f, rect.height / 3f * (float)i, rect.width, rect.height / 3f).ContractedBy(4f);
-				RenderTexture image = PortraitsCache.Get(fungalNexus, new Vector2(position.width, position.height), new Rot4(2 - i), PortraitOffset, PortraitZoom, supersample: true, compensateForUIScale: true, showHeadgear, showClothes, apparelColors, fungalNexus.story.HairColor, stylingStation: true);
+				RenderTexture image = PortraitsCache.Get(pawn, new Vector2(position.width, position.height), new Rot4(2 - i), PortraitOffset, PortraitZoom, supersample: true, compensateForUIScale: true, true, true, stylingStation: true);
 				GUI.DrawTexture(position, image);
 			}
+			var allAttachments2 = pawn.health.hediffSet.hediffs.Where(x => Startup.bodyAttachments.Contains(x.def)).ToList();
+			allAttachments2.ForEach(x => pawn.health.RemoveHediff(x));
+			allAttachments.ForEach(x => pawn.health.AddHediff(x));
 			Widgets.EndGroup();
 		}
 
@@ -87,14 +92,14 @@ namespace DanceOfEvolution
 					row++;
 				}
 
-				Rect iconRect = new Rect(rect.x + num2 + (float)col * IconSize + (float)col * 10f, rect.y + (float)row * IconSize + (float)row * 10f, IconSize, IconSize);
-				Widgets.DrawHighlight(iconRect);
-				if (Mouse.IsOver(iconRect))
-				{
-					Widgets.DrawHighlight(iconRect);
-					TooltipHandler.TipRegion(iconRect, cosmetic.LabelCap);
-				}
-				Widgets.DefIcon(iconRect, cosmetic, null, 1f);
+				Rect iconRect = new Rect(rect.x + num2 + (float)col * IconSize + (float)col * 10f, 
+				rect.y + (float)row * IconSize + (float)row * 10f, IconSize, IconSize);
+				Widgets.DrawMenuSection(iconRect);
+				var pawnRenderNodeProperties = cosmetic.RenderNodeProperties.First();
+				var node = (PawnRenderNode)Activator.CreateInstance(pawnRenderNodeProperties.nodeClass, pawn, 
+					pawnRenderNodeProperties, pawn.Drawer.renderer.renderTree);
+				var graphic = node.GraphicFor(pawn);
+				GUI.DrawTexture(iconRect, graphic.MatSouth.mainTexture);
 
 				if (selectedCosmetic == cosmetic)
 				{
@@ -140,7 +145,8 @@ namespace DanceOfEvolution
 		{
 			if (selectedCosmetic != null)
 			{
-
+				var fungalNexusHediff = pawn.GetFungalNexus();
+				fungalNexusHediff.selectedCosmetic = selectedCosmetic;
 			}
 		}
 	}
