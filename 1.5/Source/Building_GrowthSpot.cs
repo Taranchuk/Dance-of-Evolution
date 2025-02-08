@@ -23,7 +23,7 @@ namespace DanceOfEvolution
             }
             else
             {
-                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("ChangeStyle".Translate().CapitalizeFirst(), delegate
+                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("DE_ApplyCosmetic".Translate().CapitalizeFirst(), delegate
                 {
                     selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(DefsOf.DE_OpenGrowthSpotDialog, this), JobTag.Misc);
                 }), selPawn, this);

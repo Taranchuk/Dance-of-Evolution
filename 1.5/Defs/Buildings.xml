@@ -319,9 +319,8 @@
 		<hasInteractionCell>True</hasInteractionCell>
 		<interactionCellOffset>(0, 0, 0)</interactionCellOffset>
 		<graphicData>
-			<texPath>Things/Building/Production/CraftingSpot</texPath>
+			<texPath>Things/Building/GrowthSpot</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<color>(250, 250, 250)</color>
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<statBases>
