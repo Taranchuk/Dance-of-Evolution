@@ -74,7 +74,7 @@ namespace DanceOfEvolution
 						}
 						else
 						{
-							var revenantIndex = rootNode.subNodes.FindIndex(node => node.GetType() == 
+							var revenantIndex = rootNode.subNodes.FindIndex(node => node.GetType() ==
 								typeof(ThinkNode_ConditionalRevenantState));
 							if (revenantIndex >= 0)
 							{
@@ -97,7 +97,7 @@ namespace DanceOfEvolution
 				}
 			}
 		}
-		
+
 		public static string ToStringHuman(this List<ThinkNode> nodes)
 		{
 			var sb = new StringBuilder();
@@ -109,7 +109,14 @@ namespace DanceOfEvolution
 				}
 				else
 				{
-					sb.AppendWithComma(item.ToString());
+					if (item.subNodes != null)
+					{
+						sb.AppendWithComma(item.ToString() + " - " + item.subNodes.ToStringHuman());
+					}
+					else
+					{
+						sb.AppendWithComma(item.ToString());
+					}
 				}
 			}
 			return sb.ToString().TrimEndNewlines();
@@ -132,6 +139,12 @@ namespace DanceOfEvolution
 					}
 				}
 			};
+
+			int existingServantNodeIndex = subNodes.FindIndex(node => node is ThinkNode_IsControllableServant);
+			if (existingServantNodeIndex != -1 && existingServantNodeIndex < index)
+			{
+				index = existingServantNodeIndex;
+			}
 
 			if (subNodes.Any(x => x is ThinkNode_QueuedJob is false))
 			{

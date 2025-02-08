@@ -3,7 +3,7 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    [HarmonyPatch(typeof(Pawn), "Destroy")]
+	[HarmonyPatch(typeof(Pawn), "Destroy")]
 	public static class Pawn_Destroy_Patch
 	{
 		private static void Prefix(Pawn __instance)

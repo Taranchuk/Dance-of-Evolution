@@ -79,7 +79,7 @@
 					<li>Bioferrite</li>
 				</thingDefs>
 			</filter>
-			<count>50</count>
+			<count>75</count>
 		</requiredOffering>
 		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
 		<defenderRole>LargeServants</defenderRole>

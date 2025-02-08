@@ -141,6 +141,9 @@ namespace DanceOfEvolution
 				Pawn unstableServant = PawnGenerator.GeneratePawn(PawnKindDefOf.Revenant, faction);
 				unstableServant.MakeServant(fungalNexus, DefsOf.DE_ServantUnstable);
 				GenSpawn.Spawn(unstableServant, sightstealer.Position, invoker.Map);
+				var compRevenant = unstableServant.TryGetComp<CompRevenant>();
+				compRevenant.Invisibility.BecomeVisible();
+				compRevenant.becomeInvisibleTick = int.MaxValue;
 			}
 		}
 
