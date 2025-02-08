@@ -31,7 +31,7 @@ namespace DanceOfEvolution
 
 			foreach (var kvp in preWanderTags)
 			{
-				var prefix = kvp.Value.Split('_')[0]; // Get the prefix (e.g., "Ghoul" from "Ghoul_PreWander")
+				var prefix = kvp.Value.Split('_')[0];
 				var servantDef = new ThinkTreeDef
 				{
 					defName = $"DE_{prefix}ServantWork",
@@ -58,7 +58,8 @@ namespace DanceOfEvolution
 			foreach (var thinkTreeDef in nonPatchedThinkTreeDefs)
 			{
 				var targetNode = thinkTreeDef.thinkRoot.subNodes
-					.Where(x => HasNode(x, typeof(JobGiver_Wander))).LastOrDefault();
+					.Where(x => HasNode(x, typeof(JobGiver_Wander))
+					 || HasNode(x, typeof(JobGiver_RevenantWander))).LastOrDefault();
 				if (targetNode != null)
 				{
 					thinkTreeDef.thinkRoot.subNodes.Insert(thinkTreeDef.thinkRoot.subNodes
