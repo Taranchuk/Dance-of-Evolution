@@ -113,36 +113,6 @@ namespace DanceOfEvolution
 			return null;
 		}
 
-		public static bool TryGiveMutation(this Pawn pawn, HediffDef mutationDef)
-		{
-			if (mutationDef.defaultInstallPart == null)
-			{
-				return false;
-			}
-			List<BodyPartRecord> list = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
-										 where pawn.health.hediffSet.HasMissingPartFor(part)
-										 select part).ToList();
-			List<BodyPartRecord> list2 = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
-										  where !pawn.health.hediffSet.HasDirectlyAddedPartFor(part)
-										  select part).ToList();
-			BodyPartRecord bodyPartRecord = null;
-			if (list.Any())
-			{
-				bodyPartRecord = list.RandomElement();
-			}
-			else if (list2.Any())
-			{
-				bodyPartRecord = list2.RandomElement();
-			}
-			if (bodyPartRecord == null)
-			{
-				return false;
-			}
-			MedicalRecipesUtility.SpawnThingsFromHediffs(pawn, bodyPartRecord, pawn.PositionHeld, pawn.MapHeld);
-			pawn.health.AddHediff(mutationDef, bodyPartRecord);
-			return true;
-		}
-
 		public static T Clone<T>(this T obj)
 		{
 			var inst = obj.GetType().GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);

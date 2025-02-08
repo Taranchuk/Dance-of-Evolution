@@ -2,7 +2,7 @@
 	<ThingDef ParentName="BuildingBase" Name="DE_FungalBuildingBase" Abstract="True">
 		<designationCategory>DE_Fungal</designationCategory>
 		<modExtensions>
-			<li Class="DanceOfEvolution.FungalBuilding"/>
+			<li Class="DanceOfEvolution.FungalBuilding" />
 		</modExtensions>
 	</ThingDef>
 
@@ -144,7 +144,7 @@
 	<ThingDef ParentName="DE_SporemakerBase">
 		<defName>DE_HardenedSporemaker</defName>
 		<label>hardened sporemaker</label>
-		<designationCategory IsNull="True"/>
+		<designationCategory IsNull="True" />
 		<comps>
 			<li Class="CompProperties_Refuelable">
 				<fuelFilter>
@@ -205,109 +205,137 @@
 	<ThingDef ParentName="DE_Cerebrum">
 		<defName>DE_HardenedCerebrum</defName>
 		<label>hardened cerebrum</label>
-		<designationCategory IsNull="True"/>
+		<designationCategory IsNull="True" />
 	</ThingDef>
 
-  <ThingDef ParentName="Wall" Name="DE_FungusWallBase">
-    <defName>DE_FungusWall</defName>
-    <label>fungus wall</label>
-    <description>A large fungus that has grown like a wall. It's rather frail and flamable. It requires special soil to grow.</description>
-    <thingClass>DanceOfEvolution.Building_FungusWall</thingClass>
-	<tickerType>Long</tickerType>
-	<graphicData>
-		<texPath>Things/Building/FungusWall_Atlas</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <statBases>
-      <Flammability>1</Flammability>
-      <MaxHitPoints>130</MaxHitPoints>
-    </statBases>
-	<stuffCategories IsNull="True"></stuffCategories>
-	<costList>
-		<RawFungus>5</RawFungus>
-	</costList>
-	<useStuffTerrainAffordance>False</useStuffTerrainAffordance>
-	<designationCategory>DE_Fungal</designationCategory>
-	<modExtensions>
-		<li Class="DanceOfEvolution.FungalBuilding"/>
-	</modExtensions>
-  </ThingDef>
+	<ThingDef ParentName="Wall" Name="DE_FungusWallBase">
+		<defName>DE_FungusWall</defName>
+		<label>fungus wall</label>
+		<description>A large fungus that has grown like a wall. It's rather frail and flamable. It requires special soil to grow.</description>
+		<thingClass>DanceOfEvolution.Building_FungusWall</thingClass>
+		<tickerType>Long</tickerType>
+		<graphicData>
+			<texPath>Things/Building/FungusWall_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Flammability>1</Flammability>
+			<MaxHitPoints>130</MaxHitPoints>
+		</statBases>
+		<stuffCategories IsNull="True"></stuffCategories>
+		<costList>
+			<RawFungus>5</RawFungus>
+		</costList>
+		<useStuffTerrainAffordance>False</useStuffTerrainAffordance>
+		<designationCategory>DE_Fungal</designationCategory>
+		<modExtensions>
+			<li Class="DanceOfEvolution.FungalBuilding" />
+		</modExtensions>
+	</ThingDef>
 
-  	<ThingDef ParentName="DE_FungusWallBase">
+	<ThingDef ParentName="DE_FungusWallBase">
 		<defName>DE_HardenedFungusWall</defName>
 		<label>petrified fungus wall</label>
 		<description>A large fungus that has grown like a wall. With help of its kin, it has gathered minerals from the earth and effectively petrified itself into this shape, becoming harder than most stones and losing its vulnerability to fire.</description>
-		<designationCategory IsNull="True"/>
-    	<statBases>
-    	  <Flammability>0</Flammability>
-    	  <MaxHitPoints>550</MaxHitPoints>
-    	</statBases>
+		<designationCategory IsNull="True" />
+		<statBases>
+			<Flammability>0</Flammability>
+			<MaxHitPoints>550</MaxHitPoints>
+		</statBases>
 		<graphicData>
 			<texPath>Things/Building/HardenedFungusWall_Atlas</texPath>
 		</graphicData>
 	</ThingDef>
 
-  <ThingDef ParentName="DE_FungalBuildingBase">
-    <defName>DE_Cloudmaker</defName>
-    <label>cloudmaker</label>
-    <description>A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long is it kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is not only capable of reanimating the dead, but can even protect living creatures from anomalous and deadly conditions.</description>
-    <thingClass>DanceOfEvolution.Building_Cloudmaker</thingClass>
-    <placeWorkers>
-      <li>DanceOfEvolution.PlaceWorker_MustBuildOnRottenSoil</li>
-    </placeWorkers>
-    <tickerType>Normal</tickerType>
-    <graphicData>
-      <texPath>Things/Building/Cloudmaker</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(5,5)</drawSize>
-      <shadowData>
-        <volume>(4.5,0.75,4.5)</volume>
-        <offset>(0,0,0)</offset>
-      </shadowData>
-    </graphicData>
-    <size>(5,5)</size>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
-    <blockWind>true</blockWind>
-    <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>1</fillPercent>
-    <statBases>
-      <WorkToBuild>12000</WorkToBuild>
-      <MaxHitPoints>2000</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <costList>
-      <RawFungus>400</RawFungus>
-      <ComponentSpacer>6</ComponentSpacer>
-      <Shard>3</Shard>
-    </costList>
-    <building>
-      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-    </building>
-    <comps>
-      <li Class="CompProperties_Refuelable">
-        <fuelConsumptionRate>8.0</fuelConsumptionRate>
-        <fuelCapacity>200</fuelCapacity>
-        <fuelFilter>
-          <thingDefs>
-            <li>Bioferrite</li>
-          </thingDefs>
-        </fuelFilter>
-        <consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
-        <autoRefuelPercent>0.5</autoRefuelPercent>
-        <showFuelGizmo>true</showFuelGizmo>
-        <initialFuelPercent>0</initialFuelPercent>
-      </li>
-    </comps>
-  </ThingDef>
+	<ThingDef ParentName="DE_FungalBuildingBase">
+		<defName>DE_Cloudmaker</defName>
+		<label>cloudmaker</label>
+		<description>A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long is it kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is not only capable of reanimating the dead, but can even protect living creatures from anomalous and deadly conditions.</description>
+		<thingClass>DanceOfEvolution.Building_Cloudmaker</thingClass>
+		<placeWorkers>
+			<li>DanceOfEvolution.PlaceWorker_MustBuildOnRottenSoil</li>
+		</placeWorkers>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Building/Cloudmaker</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5,5)</drawSize>
+			<shadowData>
+				<volume>(4.5,0.75,4.5)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<size>(5,5)</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<statBases>
+			<WorkToBuild>12000</WorkToBuild>
+			<MaxHitPoints>2000</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<costList>
+			<RawFungus>400</RawFungus>
+			<ComponentSpacer>6</ComponentSpacer>
+			<Shard>3</Shard>
+		</costList>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+		</building>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>8.0</fuelConsumptionRate>
+				<fuelCapacity>200</fuelCapacity>
+				<fuelFilter>
+					<thingDefs>
+						<li>Bioferrite</li>
+					</thingDefs>
+				</fuelFilter>
+				<consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<initialFuelPercent>0</initialFuelPercent>
+			</li>
+		</comps>
+	</ThingDef>
 
-  <GameConditionDef>
-	<defName>DE_CloudmakerCondition</defName>
-	<conditionClass>GameCondition_NoSunlight</conditionClass>
-	<label>sun blocked</label>
-	<description>A nearby cloudmaker is turning the upper atmosphere opaque, blocking the sun.</description>
-	<letterText>A cloudmaker has begun blocking the sun.</letterText>
-	<letterDef>NegativeEvent</letterDef>
-	<natural>false</natural>
-</GameConditionDef>
+	<GameConditionDef>
+		<defName>DE_CloudmakerCondition</defName>
+		<conditionClass>GameCondition_NoSunlight</conditionClass>
+		<label>sun blocked</label>
+		<description>A nearby cloudmaker is turning the upper atmosphere opaque, blocking the sun.</description>
+		<letterText>A cloudmaker has begun blocking the sun.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<natural>false</natural>
+	</GameConditionDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>DE_GrowthSpot</defName>
+		<label>growth spot</label>
+		<description>A spot for a fungal nexus to change its cosmetic features. It costs 60 raw fungus and 150000 ticks to change cosmetics at the spot.</description>
+		<graphicData>
+			<texPath>Things/Building/Production/CraftingSpot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(255,255,255)</color>
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<statBases>
+			<WorkToBuild>0</WorkToBuild>
+		</statBases>
+		<rotatable>false</rotatable>
+		<scatterableOnMapGen>false</scatterableOnMapGen>
+		<useHitPoints>False</useHitPoints>
+		<designationCategory>DE_Fungal</designationCategory>
+		<uiOrder>2000</uiOrder>
+		<passability>Standable</passability>
+		<building>
+			<sowTag>SupportPlantsOnly</sowTag>
+			<canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+			<ai_chillDestination>false</ai_chillDestination>
+			<wakeDormantPawnsOnConstruction>false</wakeDormantPawnsOnConstruction>
+			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+		</building>
+	</ThingDef>
 </Defs>
