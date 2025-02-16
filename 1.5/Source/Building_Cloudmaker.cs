@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace DanceOfEvolution
 {
+
 	[HotSwappable]
 	public class Building_Cloudmaker : Building
 	{
@@ -135,7 +136,7 @@ namespace DanceOfEvolution
 			if (Faction == Faction.OfPlayer)
 			{
 				if (refuelableComp.HasFuel)
-				{  
+				{
 
 					var deathPall = new Command_ActionWithCooldown
 					{
@@ -167,16 +168,16 @@ namespace DanceOfEvolution
 			lastDeathPallTick = Find.TickManager.TicksGame;
 			var map = Map;
 			GameConditionManager gameConditionManager = map.GameConditionManager;
-			GameConditionDef gameConditionDef = GameConditionDefOf.DeathPall;
+			GameConditionDef gameConditionDef = DefsOf.DE_CloudmakerDeathPall;
 			var def = DefsOf.DeathPall;
 			int duration = Mathf.RoundToInt(def.durationDays.RandomInRange * 60000f);
 			GameCondition gameCondition = GameConditionMaker.MakeCondition(gameConditionDef, duration);
 			gameCondition.conditionCauser = this;
 			gameConditionManager.RegisterCondition(gameCondition);
-			if (!def.letterLabel.NullOrEmpty() && !gameCondition.def.letterText.NullOrEmpty() 
+			if (!def.letterLabel.NullOrEmpty() && !gameCondition.def.letterText.NullOrEmpty()
 			&& (!gameCondition.HiddenByOtherCondition(map)))
 			{
-				var parms = StorytellerUtility.DefaultParmsNow(def.category,map);
+				var parms = StorytellerUtility.DefaultParmsNow(def.category, map);
 				parms.letterHyperlinkThingDefs = gameCondition.def.letterHyperlinks;
 				def.Worker.SendStandardLetter(def.letterLabel, gameCondition.LetterText, def.letterDef, parms, LookTargets.Invalid);
 			}

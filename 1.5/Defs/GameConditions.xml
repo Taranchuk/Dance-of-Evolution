@@ -1,0 +1,24 @@
+<Defs>
+	<GameConditionDef>
+		<defName>DE_CloudmakerCondition</defName>
+		<conditionClass>GameCondition_NoSunlight</conditionClass>
+		<label>sun blocked</label>
+		<description>A nearby cloudmaker is turning the upper atmosphere opaque, blocking the sun.</description>
+		<letterText>A cloudmaker has begun blocking the sun.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<natural>false</natural>
+	</GameConditionDef>
+
+	<GameConditionDef>
+		<defName>DE_CloudmakerDeathPall</defName>
+		<conditionClass>DanceOfEvolution.GameCondition_DeathPallCloudmaker</conditionClass>
+		<label>death pall resurrection</label>
+		<description>The dead will rise! Burn, bury, destroy, or move corpses indoors to prevent them from resurrecting.</description>
+		<letterText>A death-gray cloud has descended on the area.\n\nThe cloud is made of microscopic self-powered archites created by some unknown superintelligence. Where they land on dead flesh, they will enter the body and reanimate it to create a twisted imitation of life.\n\nThe dead will rise! Burn, bury, destroy, or move corpses indoors to prevent them from resurrecting.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<weatherDef>UnnaturalFog</weatherDef>
+		<canBePermanent>true</canBePermanent>
+		<natural>false</natural>
+		<allowUnderground>false</allowUnderground>
+	</GameConditionDef>
+</Defs>

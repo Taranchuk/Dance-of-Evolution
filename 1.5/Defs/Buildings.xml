@@ -301,16 +301,6 @@
 		</comps>
 	</ThingDef>
 
-	<GameConditionDef>
-		<defName>DE_CloudmakerCondition</defName>
-		<conditionClass>GameCondition_NoSunlight</conditionClass>
-		<label>sun blocked</label>
-		<description>A nearby cloudmaker is turning the upper atmosphere opaque, blocking the sun.</description>
-		<letterText>A cloudmaker has begun blocking the sun.</letterText>
-		<letterDef>NegativeEvent</letterDef>
-		<natural>false</natural>
-	</GameConditionDef>
-
 	<ThingDef ParentName="BuildingBase">
 		<defName>DE_GrowthSpot</defName>
 		<label>growth spot</label>
