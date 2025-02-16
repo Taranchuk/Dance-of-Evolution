@@ -11,6 +11,10 @@ namespace DanceOfEvolution
 			{
 				return base.CanDrawNow(node, parms);
 			}
+			if (parms.Portrait && Prefs.HatsOnlyOnMap)
+			{
+				return base.CanDrawNow(node, parms);
+			}
 			if (parms.pawn.apparel.WornApparel.Any(x => PawnApparelGenerator.IsHeadgear(x.def)))
 			{
 				return false;
