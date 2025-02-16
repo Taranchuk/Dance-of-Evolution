@@ -4,7 +4,6 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 using Verse.AI;
-using Verse.AI.Group;
 
 namespace DanceOfEvolution
 {
@@ -66,7 +65,7 @@ namespace DanceOfEvolution
 			}
 			catch
 			{
-				
+
 			}
 			return false;
 		}

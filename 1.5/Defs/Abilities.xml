@@ -2,9 +2,9 @@
 <Defs>
 	<AbilityDef>
 		<defName>DE_Invisibility</defName>
-		<label>invisibility</label>
-		<description>text.todo.</description>
-		<iconPath>UI/Abilities/WraithInvisibility</iconPath>
+		<label>revenant invisibility</label>
+		<description>Use the revenant vertebrae to temporarily turn invisible. The prosthetic manipulates the visual centers of those nearby, letting the user pass unnoticed.</description>
+		<iconPath>UI/Abilities/RevenantInvisibility</iconPath>
 		<cooldownTicksRange>180000</cooldownTicksRange>
 		<writeCombatLog>True</writeCombatLog>
 		<targetRequired>false</targetRequired>

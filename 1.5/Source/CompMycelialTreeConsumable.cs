@@ -121,7 +121,7 @@ namespace DanceOfEvolution
 
         public float AvailableNutrition(bool applyDigestion)
         {
-            if (Corpse != null && !Corpse.InnerPawn.RaceProps.IsFlesh)
+            if (Corpse?.InnerPawn?.RaceProps != null && !Corpse.InnerPawn.RaceProps.IsFlesh)
             {
                 return 0f;
             }
