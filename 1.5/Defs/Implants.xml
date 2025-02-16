@@ -70,7 +70,7 @@
 			<Shard>2</Shard>
 		</costList>
 		<statBases>
-			<MaxInstallCount>3</MaxInstallCount>
+			<MaxInstallCount>5</MaxInstallCount>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Usable">
@@ -161,7 +161,7 @@
 			<JuggernautSerum>1</JuggernautSerum>
 		</costList>
 		<statBases>
-			<MaxInstallCount>4</MaxInstallCount>
+			<MaxInstallCount>9</MaxInstallCount>
 		</statBases>
 		<recipeMaker>
 			<researchPrerequisite>JuggernautSerum</researchPrerequisite>
