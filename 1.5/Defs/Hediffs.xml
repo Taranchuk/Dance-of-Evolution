@@ -12,6 +12,9 @@
 		<label>assimilation</label>
 		<description>Contracted after ingesting a Nexus Burgeon. The spore has is travelling inside the body. First it will move to the brain. Once the host has accepted the "deal", it will begin to spread throughout the entire body to drastically change it.</description>
 		<hediffClass>DanceOfEvolution.Hediff_Assimilation</hediffClass>
+		<descriptionHyperlinks>
+			<ThingDef>DE_NexusBurgeon</ThingDef>
+		</descriptionHyperlinks>
 		<initialSeverity>0.01</initialSeverity>
 		<comps>
 			<li Class="HediffCompProperties_SeverityPerDay">
@@ -67,6 +70,9 @@
 		<description>Transformed into a Fungal Nexus.</description>
 		<hediffClass>DanceOfEvolution.Hediff_FungalNexus</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<descriptionHyperlinks>
+			<ThingDef>DE_NexusBurgeon</ThingDef>
+		</descriptionHyperlinks>
 		<stages>
 			<li>
 				<statOffsets>
