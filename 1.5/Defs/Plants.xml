@@ -3,7 +3,7 @@
     <ThingDef ParentName="TreeBase">
         <defName>DE_Plant_TreeMycelial</defName>
         <label>mycelial tree</label>
-        <description>"A tall, strange looking tree. Its gnarled appearance is out of this world. Sown by a highly intelligent fungus, these trees consume nearby corpses to produce more biomass for their collective. Mycelial trees appear to be a mimic of the Harbinger tree, repurposed by and for their new kin. Due to their extremely fragile outer structure, Mycelial trees will begin to wither if exposed to sunlight."</description>
+        <description>A tall, strange looking tree. Its gnarled appearance is out of this world. Sown by a highly intelligent fungus, these trees consume nearby corpses to produce more biomass for their collective. Mycelial trees appear to be a mimic of the Harbinger tree, repurposed by and for their new kin. Due to their extremely fragile outer structure, Mycelial trees will begin to wither if exposed to sunlight.</description>
         <thingClass>DanceOfEvolution.MycelialTree</thingClass>
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>

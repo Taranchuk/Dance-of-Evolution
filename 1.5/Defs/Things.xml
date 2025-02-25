@@ -2,7 +2,7 @@
     <ThingDef ParentName="DrugBase">
         <defName>DE_NexusBurgeon</defName>
         <label>Nexus Burgeon</label>
-        <description>The spore of an extremely intelligent fungus who will transform anyone who swallows it into a Fungal Nexus. Once ingested, it will travel up to the host's brain and form a psychic link with it. From then on, the transformation can only continue if the host is fully willing. Their bodies will start to mutate into an ideal receptacle for the new guest. Their psychic presence also greately increases and becomes erratic and nonsensical, as if thousands were speaking and thinking at the same time. Once the transformation is completely however, it becomes a low constant hum.
+        <description>The spore of an extremely intelligent fungus who will transform anyone who swallows it into a Fungal Nexus. Once ingested, it will travel up to the host's brain and form a psychic link with it. From then on, the transformation can only continue if the host is fully willing. Their bodies will start to mutate into an ideal receptacle for the new guest. Their psychic presence also greatly increases and becomes erratic and nonsensical, as if thousands were speaking and thinking at the same time. Once the transformation is complete however, it becomes a low constant hum.
 While it is clear the original host remains at least somewhat in control of their new body, there is no way to know or understand what happens to the mind of a person that undergoes this process. One thing is clear however: They are kin, and they are ashamed of having ever been human.</description>
         <descriptionHyperlinks>
             <HediffDef>DE_Assimilation</HediffDef>
@@ -81,7 +81,7 @@ While it is clear the original host remains at least somewhat in control of thei
     <ThingDef ParentName="ResourceBase">
         <defName>DE_MyceliumTextile</defName>
         <label>mycelium textile</label>
-        <description>A whooly substance produced by a specialized mushroom. A very tough textile that can be cut into a wide variety of shapes, it burns extremely easily. While it looks beautiful, the "fur" is a living, wriggling organism and most people feel extremely uncomfortable wearing it.</description>
+        <description>A woolly substance produced by a specialized mushroom. A very tough textile that can be cut into a wide variety of shapes, it burns extremely easily. While it looks beautiful, the "fur" is a living, wriggling organism, and most people feel extremely uncomfortable wearing it.</description>
         <graphicData>
             <texPath>Things/Item/Resource/Cloth</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
