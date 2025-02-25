@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
+using System;
 
 namespace DanceOfEvolution
 {
@@ -15,10 +16,11 @@ namespace DanceOfEvolution
 		public Dictionary<ThingDef, int> nextPlantSpawn = new Dictionary<ThingDef, int>();
 		public Dictionary<IntVec3, float> cellsWithDarknessTime = new Dictionary<IntVec3, float>();
 		public const int DarknessCheckInterval = 120;
-		public static readonly Dictionary<ThingDef, FloatRange> PlantSpawnTimes = new Dictionary<ThingDef, FloatRange>
+		public static readonly Dictionary<(ThingDef plantDef, Func<TerrainDef, bool> terrainPredicate), FloatRange> PlantSpawnTimes = new Dictionary<(ThingDef plantDef, Func<TerrainDef, bool> terrainPredicate), FloatRange>
 		{
-			{ DefsOf.DE_Plant_TreeMycelial, new FloatRange(3f, 20f) },
-			{ DefsOf.DE_FalseParasol, new FloatRange(1.5f, 10f) }
+			{ (plantDef: DefsOf.DE_Plant_TreeMycelial, terrainPredicate: (TerrainDef terrainDef) => true), new FloatRange(3f, 20f) },
+			{ (plantDef: DefsOf.DE_FalseParasol, terrainPredicate: (TerrainDef terrainDef) => terrainDef != DefsOf.DE_RottenSoil), new FloatRange(1.5f, 10f) },
+			{ (plantDef: DefsOf.DE_FalseParasol, terrainPredicate: (TerrainDef terrainDef) => terrainDef == DefsOf.DE_RottenSoil), new FloatRange(0.75f, 5f) }
 		};
 
 		public override void MapComponentTick()
@@ -44,10 +46,11 @@ namespace DanceOfEvolution
 					}
 				}
 			}
-
 			foreach (var kvp in PlantSpawnTimes)
 			{
-				var plantDef = kvp.Key;
+				var plantTerrainPredicate = kvp.Key;
+				var plantDef = plantTerrainPredicate.plantDef;
+				var terrainPredicate = plantTerrainPredicate.terrainPredicate;
 				var spawnInterval = kvp.Value;
 
 				if (!nextPlantSpawn.ContainsKey(plantDef))
@@ -57,9 +60,9 @@ namespace DanceOfEvolution
 				else if (Find.TickManager.TicksGame >= nextPlantSpawn[plantDef])
 				{
 					var validCells = cellsWithDarknessTime.Where(x => x.Value >= GenDate.TicksPerDay * 2
-					&& map.glowGrid.GroundGlowAt(x.Key) <= 0 
+					&& map.glowGrid.GroundGlowAt(x.Key) <= 0
 					&& x.Key.GetFirstBuilding(map) is null
-					&& x.Key.GetPlant(map) is null).ToList();
+					&& x.Key.GetPlant(map) is null && terrainPredicate(x.Key.GetTerrain(map))).ToList();
 
 					if (validCells.Any())
 					{
