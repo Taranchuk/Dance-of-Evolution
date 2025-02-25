@@ -163,7 +163,7 @@
 	<ThingDef ParentName="DE_FungalBuildingBase" Name="DE_Cerebrum">
 		<defName>DE_Cerebrum</defName>
 		<label>cerebrum</label>
-		<description>Cerebrums are strange biological machines, that extract multiple human's concioussness and compiles them together. The result is a "psychic goo" that is swiftly consumed by Fungal Nexus to increase the power of their collective. While they have been researched for a very long time, it has never been clear how cerebrums do this, a conclusion that is even more puzzling given that they do not use any archotechnology to function.</description>
+		<description>Cerebrums are strange biological machines, that extract multiple human's consciousness and compiles them together. The result is a "psychic goo" that is swiftly consumed by Fungal Nexus to increase the power of their collective. While they have been researched for a very long time, it has never been clear how cerebrums do this, a conclusion that is even more puzzling given that they do not use any archotechnology to function.</description>
 		<thingClass>DanceOfEvolution.Building_Cerebrum</thingClass>
 		<tickerType>Normal</tickerType>
 		<graphicData>

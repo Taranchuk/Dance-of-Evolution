@@ -11,7 +11,7 @@
 	<DE_PeriodUntilMaturity>Period until maturity: {0}</DE_PeriodUntilMaturity>
 	<DE_Mature>Mature (harvestable)</DE_Mature>
 	<DE_OnlyFungalNexusCanHarvestThis>Only a fungal nexus can harvest this.</DE_OnlyFungalNexusCanHarvestThis>
-	<DE_OnlyNonSpecializedFungalGhoulsCanUseIt>Only non specialized fungal ghouls can use it</DE_OnlyNonSpecializedFungalGhoulsCanUseIt>
+	<DE_OnlyNonSpecializedFungalGhoulsCanUseIt>Only non-specialized fungal ghouls can use it</DE_OnlyNonSpecializedFungalGhoulsCanUseIt>
 	<DE_SelectSkillToSpecialize>Select Skill to Specialize</DE_SelectSkillToSpecialize>
 	<DE_ConsumedByMycelialTree>Being consumed by mycelial tree.</DE_ConsumedByMycelialTree>
 	<DE_ConsumeFleshCorpses>Consume fresh corpses</DE_ConsumeFleshCorpses>
