@@ -29,7 +29,7 @@
 	<DE_ServantType_Ghoul>Ghoul servant</DE_ServantType_Ghoul>
 	<DE_MustBuildOnRottenSoil>Must be placed on rotten soil.</DE_MustBuildOnRottenSoil>
 	<DE_TriggerDeathPall>Trigger death pall</DE_TriggerDeathPall>
-	<DE_TriggerDeathPallDesc>Trigger death pall which will resurrect corpses as player-controlled shamblers.</DE_TriggerDeathPallDesc>
+	<DE_TriggerDeathPallDesc>Using bioferrite's strange properties, the spores dispersed in the air by the cloudmaker can reanimate the dead as "proto-servants". Loyal to their collective but still short lived, they they claw and bite at the living.</DE_TriggerDeathPallDesc>
 	<DE_DeathPallCooldown>Death pall is on cooldown for {0}.</DE_DeathPallCooldown>
 	<DE_ServantsMustHaveNexus>Servants require a nexus.</DE_ServantsMustHaveNexus>
 	<DE_OnlyFungalNexusWithThreeLargeServantsAndSightstealerServantCanStartThis>Only a fungal nexus with three or more large servants and a sightstealer servant can start this ritual.</DE_OnlyFungalNexusWithThreeLargeServantsAndSightstealerServantCanStartThis>

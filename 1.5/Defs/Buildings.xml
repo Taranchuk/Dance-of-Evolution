@@ -9,7 +9,7 @@
 	<ThingDef ParentName="DE_FungalBuildingBase">
 		<defName>DE_FungalNode</defName>
 		<label>fungal node</label>
-		<description>A large fungal node, its mycelium reaches across the ground in an attempt to terraform the terrain to better fit its kin. It converts food into slurry that can be servants can easily process. Despite the fact this organism is sessile, it is by far the one with the most foresight. Using its mycelium it detects any approaching threats and alerts its kin immediately, giving precise detail on each assailant.</description>
+		<description>A large node of slimy fungus. It drains the soil of its nutrients to spread forth mycelium. The nutrients are then organized and distributed to other sessile organisms of the collective as needed. For its more motile kin, it can turn food into a highly nutritious slurry.</description>
 		<thingClass>DanceOfEvolution.Building_FungalNode</thingClass>
 		<tickerType>Normal</tickerType>
 		<graphicData>
@@ -84,7 +84,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="DE_FungalBuildingBase" Name="DE_SporemakerBase" Abstract="True">
-		<description>Sporemakers are the collective's way of improving themselves even further. By dedicating an entire organism solely to the production of beneficial airborne nutrients, the collective can grow greater yet. Sporemakers can create a variety of spores to help their kin, as long as they are supplied with the right resources.</description>
+		<description>Sporemakers are sessile organisms entirely dedicated to producing beneficial airborne nutrients. Using some strange processes of bioferrite, Sporemakers can enhance their kin's movement or even the processing speed of their brains. a fungal collective will protect their Sporemakers at all cost, as they are expensive to create and maintain.</description>
 		<thingClass>DanceOfEvolution.Building_Sporemaker</thingClass>
 		<tickerType>Normal</tickerType>
 		<graphicData>
@@ -163,7 +163,7 @@
 	<ThingDef ParentName="DE_FungalBuildingBase" Name="DE_Cerebrum">
 		<defName>DE_Cerebrum</defName>
 		<label>cerebrum</label>
-		<description>Cerebrums are biological computers that spend all of the nutrients fed to them thinking of every possibility that has not been thought of yet. They calculate odds, simulate scenarios, and strategize battle plans. Once a cerebrum has finished its growth, it will become unable to think of new thoughts, endlessly recalculating the same simulations. At this stage, a nexus may harvest them to obtain a glimpse of their knowledge.</description>
+		<description>Cerebrums are strange biological machines, that extract multiple human's concioussness and compiles them together. The result is a "psychic goo" that is swiftly consumed by Fungal Nexus to increase the power of their collective. While they have been researched for a very long time, it has never been clear how cerebrums do this, a conclusion that is even more puzzling given that they do not use any archotechnology to function.</description>
 		<thingClass>DanceOfEvolution.Building_Cerebrum</thingClass>
 		<tickerType>Normal</tickerType>
 		<graphicData>
@@ -211,7 +211,7 @@
 	<ThingDef ParentName="Wall" Name="DE_FungusWallBase">
 		<defName>DE_FungusWall</defName>
 		<label>fungus wall</label>
-		<description>A large fungus that has grown like a wall. It's rather frail and flamable. It requires special soil to grow.</description>
+		<description>A large fungus that has grown like a wall. It's rather frail and flammable. It requires special soil to grow.</description>
 		<thingClass>DanceOfEvolution.Building_FungusWall</thingClass>
 		<tickerType>Long</tickerType>
 		<graphicData>
@@ -250,7 +250,7 @@
 	<ThingDef ParentName="DE_FungalBuildingBase">
 		<defName>DE_Cloudmaker</defName>
 		<label>cloudmaker</label>
-		<description>A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long as it is kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is not only capable of reanimating the dead, but can even protect living creatures from anomalous and deadly conditions.</description>
+		<description>"A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long as it is kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is not only capable of reanimating the dead, but can even protect living creatures from anomalous and deadly conditions."</description>
 		<thingClass>DanceOfEvolution.Building_Cloudmaker</thingClass>
 		<placeWorkers>
 			<li>DanceOfEvolution.PlaceWorker_MustBuildOnRottenSoil</li>

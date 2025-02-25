@@ -144,14 +144,14 @@
 		<defName>DE_ServantMedium</defName>
 		<label>medium servant</label>
 		<hediffClass>DanceOfEvolution.Hediff_ServantMedium</hediffClass>
-		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Due to its size, it performs complex tasks for its kin. Using their long limbs, they are able to cook mine and build. They also posess the ability to harden and sculp the bones of the body they inhabit before firing it at range.</description>
+		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. The most versatile servants of the collective. Their intellect and long limbs lets them do numerous tasks for the collective, such as mining, building, and even cooking. They have gained the ability to grow and sharpen the bones of the host the inhabit before firing them at high speeds, which makes them a threat both at short and long range.</description>
 	</HediffDef>
 
 	<HediffDef ParentName="DE_ServantTypeBase">
 		<defName>DE_ServantLarge</defName>
 		<label>large servant</label>
 		<hediffClass>DanceOfEvolution.Hediff_ServantLarge</hediffClass>
-		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. This fungi has renounced any and all ideas of helping its kin work, instead it used the large amount of biomass gifted to it to fortify and strengthen the body it inhabits to defend its collective. While these beasts are extremely resilient and powerful, they are more fungus than animal, making them very weak to fire.</description>
+		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Its large body is more mushroom than animal, which makes it extremely resilient against common weaponry, but extremely weak to fire. These servants use their own bodies as growth beds, to help the collective sow any seed or spore.</description>
 		<stages Inherit="False">
 			<li>
 				<painFactor>0</painFactor>
