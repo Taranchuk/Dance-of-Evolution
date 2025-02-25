@@ -130,7 +130,7 @@
 			<li Class="CompProperties_Refuelable">
 				<fuelFilter>
 					<thingDefs>
-						<li>PsychoidLeaves</li>
+						<li>Bioferrite</li>
 					</thingDefs>
 				</fuelFilter>
 				<fuelConsumptionRate>22</fuelConsumptionRate>
@@ -149,7 +149,7 @@
 			<li Class="CompProperties_Refuelable">
 				<fuelFilter>
 					<thingDefs>
-						<li>PsychoidLeaves</li>
+						<li>Bioferrite</li>
 					</thingDefs>
 				</fuelFilter>
 				<fuelConsumptionRate>11</fuelConsumptionRate>
@@ -250,7 +250,7 @@
 	<ThingDef ParentName="DE_FungalBuildingBase">
 		<defName>DE_Cloudmaker</defName>
 		<label>cloudmaker</label>
-		<description>A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long is it kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is not only capable of reanimating the dead, but can even protect living creatures from anomalous and deadly conditions.</description>
+		<description>A large shroom. Using bioferrite's properties, it disperses a thick cloud of long lasting spores into the atmosphere that blots out the sun completely, turning the entire region to endless night as long as it is kept fueled. Perhaps through some strange inheritance of the bioferrite's anomalous properties, the Cloudmaker is not only capable of reanimating the dead, but can even protect living creatures from anomalous and deadly conditions.</description>
 		<thingClass>DanceOfEvolution.Building_Cloudmaker</thingClass>
 		<placeWorkers>
 			<li>DanceOfEvolution.PlaceWorker_MustBuildOnRottenSoil</li>

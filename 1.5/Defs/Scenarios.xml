@@ -39,7 +39,7 @@
     <ScenarioDef>
         <defName>DE_FungalAwakening</defName>
         <label>Fungal Awakening</label>
-        <description>When the intelligent fungus you had been studying for so long began talking to you, you didn't even flinch. When your crewmates were surprised at your new form, you didn't care. When they screamed in pain as you examined cut them open, you listened in apathy. You tinkered with the shard, called things from another world and made them submit. Your ship breaks into pieces, shatterred by waves of unknowable power. You clutch the shard into your claws as your servants surround you, falling to the world below...</description>
+        <description>When the intelligent fungus you had been studying for so long began talking to you, you didn't even flinch. When your crewmates were surprised at your new form, you didn't care. When they screamed in pain as you cut them open, you listened in apathy. You tinkered with the shard, called things from another world and made them submit. Your ship breaks into pieces, shatterred by waves of unknowable power. You clutch the shard into your claws as your servants surround you, falling to the world below...</description>
         <scenario>
             <summary>A single Fungal Nexus with three servants to aid them, an archotech shard, and no other resources to speak of.</summary>
             <playerFaction>
@@ -79,7 +79,7 @@
 
                 <li Class="ScenPart_GameStartDialog">
                     <def>GameStartDialog</def>
-                    <text>Now that you have arrived on a new world, you fully intend on making it your own. You have discarded the weakness others call humanity. Be they people, monsters be they from here or elsewhere, all will become you.</text>
+                    <text>Now that you have arrived on a new world, you fully intend on making it your own. You have discarded the weakness others call humanity. Be they people, monsters, be they from here or elsewhere, all will become you.</text>
                     <closeSound>GameStartSting</closeSound>
                 </li>
                 <li Class="ScenPart_ScatterThingsNearPlayerStart">
