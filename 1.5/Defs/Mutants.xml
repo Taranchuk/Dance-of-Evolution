@@ -1,6 +1,6 @@
 <Defs>
   <MutantDef Name="DE_FungalGhoul" Abstract="True">
-    <description>text.todo</description>
+    <description>This rotting human corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Animals and insect can be controlled and used easily by pulling at muscles, puppeteering them from within. Humans however, are mostly useful for their nervous systems. Fungi that live in these hosts await for instruction from their kin. Once they receive the order and the required resources, they will begin to fully integrate themselves into their host's nervous system to repair and reawaken it.</description>
     <thinkTree>Ghoul</thinkTree>
     <thinkTreeConstant>GhoulConstant</thinkTreeConstant>
     <hediff>Ghoul</hediff>
