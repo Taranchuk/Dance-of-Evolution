@@ -2,7 +2,7 @@
     <ThingDef ParentName="AnimalThingBase">
         <defName>DE_Burrower</defName>
         <label>burrower</label>
-        <description>Burrowers are spawned by the Fungal Nexus. They seek out rotten corpses to infect. Once they find one, they will begin to reanimate the corpse using the shambler revival animation. Burrowers have no needs and die after a day.</description>
+        <description>Burrowers are weak larvae creature that only have a life expectency of about a day. They seek out corpses that have begun to decompose, and burrow into them. Once inside, they will begin to metamorphize to become a fungal servant depanding on the body's size.</description>
         <statBases>
             <MoveSpeed>5</MoveSpeed>
             <MarketValue>50</MarketValue>

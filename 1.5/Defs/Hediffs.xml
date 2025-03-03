@@ -67,7 +67,7 @@
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_FungalNexus</defName>
 		<label>fungal nexus</label>
-		<description>Transformed into a Fungal Nexus.</description>
+		<description>A fully grown Fungal Nexus. While it requires shards of archotechnology to fully develop, it is more than adept at obtaining them. Its true goal is unknown, yet it moves with purpose.</description>
 		<hediffClass>DanceOfEvolution.Hediff_FungalNexus</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
 		<descriptionHyperlinks>
@@ -402,7 +402,7 @@
 		<defName>DE_ClawHand</defName>
 		<label>claw hand</label>
 		<labelNoun>a claw hand</labelNoun>
-		<description>text.todo.</description>
+		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of a similar material as timbershrooms, and are as hard as wood.</description>
 		<hediffClass>Hediff_Implant</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
 		<comps>
@@ -428,7 +428,7 @@
 		<defName>DE_UpgradedClawHand</defName>
 		<label>upgraded claw hand</label>
 		<labelNoun>an upgraded claw hand</labelNoun>
-		<description>text.todo.</description>
+		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of a similar material as timbershrooms, and are as hard as wood.</description>
 		<hediffClass>Hediff_Implant</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
 		<comps>
