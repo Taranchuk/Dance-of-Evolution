@@ -9,4 +9,12 @@ namespace DanceOfEvolution
 			return false;
 		}
 	}
+
+	public class Hediff_Implant_Stackable : Hediff_Implant
+	{
+		public override bool TryMergeWith(Hediff other)
+		{
+			return false;
+		}
+	}
 }

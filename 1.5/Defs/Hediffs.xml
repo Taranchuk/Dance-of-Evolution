@@ -403,7 +403,7 @@
 		<label>claw hand</label>
 		<labelNoun>a claw hand</labelNoun>
 		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of a similar material as timbershrooms, and are as hard as wood.</description>
-		<hediffClass>Hediff_Implant</hediffClass>
+		<hediffClass>DanceOfEvolution.Hediff_Implant_Stackable</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
 		<comps>
 			<li Class="HediffCompProperties_VerbGiver">
@@ -429,7 +429,7 @@
 		<label>upgraded claw hand</label>
 		<labelNoun>an upgraded claw hand</labelNoun>
 		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of a similar material as timbershrooms, and are as hard as wood.</description>
-		<hediffClass>Hediff_Implant</hediffClass>
+		<hediffClass>DanceOfEvolution.Hediff_Implant_Stackable</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
 		<comps>
 			<li Class="HediffCompProperties_VerbGiver">

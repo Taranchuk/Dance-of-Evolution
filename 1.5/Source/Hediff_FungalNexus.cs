@@ -53,12 +53,10 @@ namespace DanceOfEvolution
 			pawn.story.headType = DefsOf.TimelessOne;
 			pawn.story.hairDef = HairDefOf.Bald;
 
-			var arms = pawn.health.hediffSet.GetNotMissingParts().Where(x => x.IsInGroup(DefsOf.Arms) 
-			&& x.parent.IsInGroup(DefsOf.Shoulders)).ToList();
-			foreach (var arm in arms)
-			{
-				pawn.health.AddHediff(HediffMaker.MakeHediff(DefsOf.DE_ClawHand, pawn, arm));
-			}
+			var torso = pawn.RaceProps.body.corePart;
+			pawn.health.AddHediff(HediffMaker.MakeHediff(DefsOf.DE_ClawHand, pawn, torso));
+			pawn.health.AddHediff(HediffMaker.MakeHediff(DefsOf.DE_ClawHand, pawn, torso));
+
 		}
 
 		public override void PostTick()
