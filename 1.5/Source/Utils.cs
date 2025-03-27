@@ -91,29 +91,33 @@ namespace DanceOfEvolution
 		}
 
 		public static (ServantType servantType, HediffDef servantHediffDef)? TryGetServantTypeAndHediff(this Pawn pawn)
-		{
-			if (pawn.RaceProps.Humanlike)
-			{
-				return (ServantType.Ghoul, DefsOf.DE_ServantGhoul);
-			}
+        {
+            if (pawn.RaceProps.Humanlike)
+            {
+                return (ServantType.Ghoul, DefsOf.DE_ServantGhoul);
+            }
+            return GetBaseServantType(pawn);
+        }
 
-			float bodySize = pawn.BodySize;
-			if (bodySize <= 0.99f)
-			{
-				return (ServantType.Small, DefsOf.DE_ServantSmall);
-			}
-			else if (bodySize >= 1f && bodySize < 2.11f)
-			{
-				return (ServantType.Medium, DefsOf.DE_ServantMedium);
-			}
-			else if (bodySize >= 2.11f)
-			{
-				return (ServantType.Large, DefsOf.DE_ServantLarge);
-			}
-			return null;
-		}
+		public static (ServantType servantType, HediffDef servantHediffDef)? GetBaseServantType(this Pawn pawn)
+        {
+            float bodySize = pawn.BodySize;
+            if (bodySize <= 0.99f)
+            {
+                return (ServantType.Small, DefsOf.DE_ServantSmall);
+            }
+            else if (bodySize >= 1f && bodySize < 2.11f)
+            {
+                return (ServantType.Medium, DefsOf.DE_ServantMedium);
+            }
+            else if (bodySize >= 2.11f)
+            {
+                return (ServantType.Large, DefsOf.DE_ServantLarge);
+            }
+            return null;
+        }
 
-		public static T Clone<T>(this T obj)
+        public static T Clone<T>(this T obj)
 		{
 			var inst = obj.GetType().GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
 			return (T)inst?.Invoke(obj, null);

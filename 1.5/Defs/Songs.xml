@@ -1,8 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <SongDef>
+  <SongDef Name="DE_SongBase_Fungal" Abstract="True">
+    <modExtensions>
+      <li Class="DanceOfEvolution.SongExtension_Fungal" />
+    </modExtensions>
+  </SongDef>
+
+  <SongDef ParentName="DE_SongBase_Fungal">
     <clipPath>Songs/Mycohazard</clipPath>
+  </SongDef>
+
+  <SongDef ParentName="DE_SongBase_Fungal">
+    <clipPath>Songs/Necronomos</clipPath>
   </SongDef>
 
 </Defs>
