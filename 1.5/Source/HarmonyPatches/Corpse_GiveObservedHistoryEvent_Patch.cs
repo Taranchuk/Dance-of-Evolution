@@ -8,7 +8,7 @@ namespace DanceOfEvolution
 	{
 		public static bool Prefix(Pawn observer)
 		{
-			if (observer.HasFungalNexus())
+			if (observer.IsFungalNexus())
 			{
 				return false;
 			}

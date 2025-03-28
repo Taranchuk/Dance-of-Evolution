@@ -9,7 +9,7 @@ namespace DanceOfEvolution
     {
         public static void Postfix(ref ThoughtState __result, Pawn p)
         {
-            if (p.HasFungalNexus())
+            if (p.IsFungalNexus())
             {
                 __result = ThoughtState.Inactive;
             }

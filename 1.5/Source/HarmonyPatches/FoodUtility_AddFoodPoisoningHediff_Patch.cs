@@ -10,7 +10,7 @@ public static class FoodUtility_AddFoodPoisoningHediff_Patch
     {
         if (ingestible?.def == DefsOf.DE_FungalSlurry)
         {
-            if (pawn.IsServant() || pawn.HasFungalNexus())
+            if (pawn.IsServant() || pawn.IsFungalNexus())
             {
                 return false;
             }

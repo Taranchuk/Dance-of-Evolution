@@ -8,7 +8,7 @@ namespace DanceOfEvolution
 	{
 		public override bool AvailableOnNow(Thing thing, BodyPartRecord part = null)
 		{
-			if (thing is Pawn pawn && pawn.HasFungalNexus() is false)
+			if (thing is Pawn pawn && pawn.IsFungalNexus() is false)
 			{
 				return false;
 			}

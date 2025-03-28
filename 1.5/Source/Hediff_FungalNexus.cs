@@ -15,17 +15,22 @@ namespace DanceOfEvolution
 		public int servantCountOffset;
 		public ServantType servantTypeTarget = ServantType.Large;
 		public HediffDef selectedCosmetic;
+		public HediffStage cachedStage;
 		public override HediffStage CurStage
 		{
 			get
 			{
+				if (cachedStage != null)
+				{
+					return cachedStage;
+				}
 				var baseStage = base.CurStage;
 				if (baseStage == null)
 				{
 					return null;
 				}
 				var stage = baseStage.Clone();
-				stage.statOffsets ??= new List<StatModifier>();
+				stage.statOffsets = stage.statOffsets.ListFullCopy();
 
 				int mutationCount = 0;
 				foreach (var hediff in pawn.health.hediffSet.hediffs)
@@ -40,20 +45,18 @@ namespace DanceOfEvolution
 				{
 					float bonus = mutationCount * 0.10f;
 					var sensitivityModifier = stage.statOffsets.FirstOrDefault(sm => sm.stat == StatDefOf.PsychicSensitivity);
-
 					if (sensitivityModifier != null)
 					{
-						sensitivityModifier.value += bonus;
+						bonus += sensitivityModifier.value;
+						stage.statOffsets.Remove(sensitivityModifier);
 					}
-					else
+					stage.statOffsets.Add(new StatModifier
 					{
-						stage.statOffsets.Add(new StatModifier
-						{
-							stat = StatDefOf.PsychicSensitivity,
-							value = bonus
-						});
-					}
+						stat = StatDefOf.PsychicSensitivity,
+						value = bonus
+					});
 				}
+				cachedStage = stage;
 				return stage;
 			}
 		}

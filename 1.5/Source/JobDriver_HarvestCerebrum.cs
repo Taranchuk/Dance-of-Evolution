@@ -15,7 +15,7 @@ namespace DanceOfEvolution
 		public override IEnumerable<Toil> MakeNewToils()
 		{
 			this.FailOnDespawnedOrNull(TargetIndex.A);
-			this.FailOn(() => (pawn.HasFungalNexus() is false) || Cerebrum.corpseCount < Building_Cerebrum.MAX_CORPSE_TO_HARVEST);
+			this.FailOn(() => (pawn.IsFungalNexus() is false) || Cerebrum.corpseCount < Building_Cerebrum.MAX_CORPSE_TO_HARVEST);
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
 			yield return Toils_General.Wait(180, TargetIndex.A).WithProgressBarToilDelay(TargetIndex.A);
 			yield return new Toil

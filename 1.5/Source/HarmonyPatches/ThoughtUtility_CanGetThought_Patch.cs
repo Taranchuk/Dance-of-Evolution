@@ -9,7 +9,7 @@ namespace DanceOfEvolution
     {
         public static void Postfix(Pawn pawn, ThoughtDef def, ref bool __result)
         {
-            if (__result is false && def == DefsOf.SunlightSensitivity_Mild && pawn.HasFungalNexus())
+            if (__result is false && def == DefsOf.SunlightSensitivity_Mild && pawn.IsFungalNexus())
             {
                 __result = true;
             }

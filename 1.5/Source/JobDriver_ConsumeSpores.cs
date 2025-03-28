@@ -16,7 +16,7 @@ namespace DanceOfEvolution
 		public override IEnumerable<Toil> MakeNewToils()
 		{
 			this.FailOnDespawnedOrNull(TargetIndex.A);
-			this.FailOn(() => (pawn.IsServant() is false && pawn.HasFungalNexus() is false) || Sporemaker.Active is false);
+			this.FailOn(() => (pawn.IsServant() is false && pawn.IsFungalNexus() is false) || Sporemaker.Active is false);
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
 			yield return Toils_General.Wait(180, TargetIndex.A).WithProgressBarToilDelay(TargetIndex.A);
 			yield return new Toil

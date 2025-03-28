@@ -10,7 +10,7 @@ namespace DanceOfEvolution
     {
         public static void Postfix(Pawn pawn, IntVec3 c, ref float __result)
         {
-            if (pawn.Map != null && pawn.HasFungalNexus() && pawn.CanPassOver(c))
+            if (pawn.Map != null && pawn.IsFungalNexus() && pawn.CanPassOver(c))
             {
                 __result = pawn.GetPawnBasePathCost(c);
             }

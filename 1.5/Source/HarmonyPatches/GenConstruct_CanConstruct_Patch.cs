@@ -25,7 +25,7 @@ namespace DanceOfEvolution
 			var extension = (t.def.entityDefToBuild ?? t.def).GetModExtension<FungalBuilding>();
 			if (extension != null)
 			{
-				if (p.IsServant() is false && p.HasFungalNexus() is false)
+				if (p.IsServant() is false && p.IsFungalNexus() is false)
 				{
 					__result = false;
 				}

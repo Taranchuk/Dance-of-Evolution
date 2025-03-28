@@ -13,7 +13,7 @@ namespace DanceOfEvolution
             {
                 yield return floatMenuOption;
             }
-            if (!selPawn.HasFungalNexus())
+            if (!selPawn.IsFungalNexus())
             {
                 yield break;
             }

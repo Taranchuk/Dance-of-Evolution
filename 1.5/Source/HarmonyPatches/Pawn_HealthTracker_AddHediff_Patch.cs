@@ -4,10 +4,11 @@ using Verse;
 
 namespace DanceOfEvolution
 {
+
     [HarmonyPatch(typeof(Pawn_HealthTracker), "AddHediff", new Type[]
-    {
+{
         typeof(Hediff), typeof(BodyPartRecord), typeof(DamageInfo?), typeof(DamageWorker.DamageResult)
-    })]
+})]
     public static class Pawn_HealthTracker_AddHediff_Patch
     {
         [HarmonyPriority(int.MaxValue)]
@@ -16,6 +17,10 @@ namespace DanceOfEvolution
             if (___pawn.IsImmuneTo(hediff))
             {
                 return false;
+            }
+            if (hediff.def.organicAddedBodypart && ___pawn.IsFungalNexus(out var nexus))
+            {
+                nexus.cachedStage = null;
             }
             return true;
         }

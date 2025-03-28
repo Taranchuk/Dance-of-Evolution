@@ -8,7 +8,7 @@ namespace DanceOfEvolution
 	{
 		public static bool Prefix(Pawn_GeneTracker __instance)
 		{
-			if (__instance.pawn.HasFungalNexus())
+			if (__instance.pawn.IsFungalNexus())
 			{
 				return false;
 			}

@@ -10,7 +10,7 @@ namespace DanceOfEvolution
 	public class Building_Cerebrum : Building_WorkTable, ITargetingSource
 	{
 		public int corpseCount;
-		
+
 		public const int MAX_CORPSE_TO_HARVEST = 10;
 		private Texture2D activateTex;
 
@@ -91,7 +91,7 @@ namespace DanceOfEvolution
 		{
 			if (activateBy != null)
 			{
-				if (activateBy.HasFungalNexus() is false)
+				if (activateBy.IsFungalNexus() is false)
 				{
 					return "DE_OnlyFungalNexusCanHarvestThis".Translate();
 				}
