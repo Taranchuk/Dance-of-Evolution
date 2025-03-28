@@ -13,6 +13,7 @@
 
   <SongDef ParentName="DE_SongBase_Fungal">
     <clipPath>Songs/Necronomos</clipPath>
+    <tense>true</tense>
   </SongDef>
 
 </Defs>

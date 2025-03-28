@@ -4,7 +4,7 @@ using RimWorld;
 
 namespace DanceOfEvolution
 {
-	public class CompMikisMetalonEfialtis : ThingComp
+	public class CompMetalTerror : ThingComp
 	{
 		private const float daysUntilShedding = 14f;
 		private int ticksUntilShedding;
