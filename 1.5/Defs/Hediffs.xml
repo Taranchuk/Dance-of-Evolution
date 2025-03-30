@@ -105,8 +105,10 @@
 				<showRegenerationStat>true</showRegenerationStat>
 				<statFactors>
 					<FilthRate>0</FilthRate>
-					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 				</statFactors>
+				<statOffsets>
+					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+				</statOffsets>
 			</li>
 		</stages>
 		<renderNodeProperties>
@@ -167,9 +169,9 @@
 				<statFactors>
 					<IncomingDamageFactor>0.5</IncomingDamageFactor>
 					<FilthRate>0</FilthRate>
-					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 				</statFactors>
 				<statOffsets>
+					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 					<Flammability>1</Flammability>
 				</statOffsets>
 			</li>
@@ -196,9 +198,9 @@
 				<statFactors>
 					<IncomingDamageFactor>0.5</IncomingDamageFactor>
 					<FilthRate>0</FilthRate>
-					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 				</statFactors>
 				<statOffsets>
+					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 					<Flammability>1</Flammability>
 				</statOffsets>
 			</li>
@@ -216,9 +218,9 @@
 				<statFactors>
 					<IncomingDamageFactor>0.5</IncomingDamageFactor>
 					<FilthRate>0</FilthRate>
-					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 				</statFactors>
 				<statOffsets>
+					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 					<Flammability>1</Flammability>
 				</statOffsets>
 			</li>
@@ -459,8 +461,8 @@
 
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_ConsciousnessReductionSunlight</defName>
-		<label>sunlight-induced consciousness reduction</label>
-		<description>This servant experiences a reduction in consciousness due to exposure to sunlight.</description>
+		<label>UV sensitivity</label>
+		<description>This creature's body is not adapted to survive well to UV radiation, it is extremely weak when exposed to sunlight.</description>
 		<hediffClass>Hediff</hediffClass>
 		<isBad>true</isBad>
 		<stages>
