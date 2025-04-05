@@ -37,4 +37,9 @@
 	<DE_GrowthSpotCosmetics>Growth spot fungal cosmetics</DE_GrowthSpotCosmetics>
 	<DE_NeedRawFungusForCosmeticChange>{0} raw fungus required for cosmetic change.</DE_NeedRawFungusForCosmeticChange>
 	<DE_ApplyCosmetic>Apply fungal cosmetics</DE_ApplyCosmetic>
+    <DE_ShowMushroomCap>Show mushroom cap</DE_ShowMushroomCap>
+    <DE_ShowMushroomCapTooltip>If enabled, the fungal nexus pawn will render its mushroom cap.</DE_ShowMushroomCapTooltip>
+    <DE_UseTimelessHead>Use Timeless head</DE_UseTimelessHead>
+    <DE_UseTimelessHeadTooltip>If enabled, the fungal nexus pawn will use the Timeless head type, overriding their original head.</DE_UseTimelessHeadTooltip>
+
 </LanguageData>

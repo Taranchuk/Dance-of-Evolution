@@ -95,9 +95,7 @@ namespace DanceOfEvolution
 			}
 			servants = new();
 			timer = 0;
-			pawn.story.headType = DefsOf.TimelessOne;
-			pawn.story.hairDef = HairDefOf.Bald;
-
+			ApplyAppearanceSettings();
 			var torso = pawn.RaceProps.body.corePart;
 			pawn.health.AddHediff(HediffMaker.MakeHediff(DefsOf.DE_ClawHand, pawn, torso));
 			pawn.health.AddHediff(HediffMaker.MakeHediff(DefsOf.DE_ClawHand, pawn, torso));
@@ -194,6 +192,29 @@ namespace DanceOfEvolution
 				return true;
 			}
 			return false;
+		}
+
+		private void ApplyAppearanceSettings()
+		{
+			if (pawn.story == null) return; // Safety check
+
+			if (DanceOfEvolutionMod.settings.useTimelessHead)
+			{
+				if (pawn.story.headType != DefsOf.TimelessOne)
+				{
+					pawn.story.headType = DefsOf.TimelessOne;
+					pawn.Drawer.renderer.SetAllGraphicsDirty(); // Force redraw
+				}
+			}
+
+			if (DanceOfEvolutionMod.settings.showMushroomCap)
+			{
+				if (pawn.story.hairDef != HairDefOf.Bald)
+				{
+					pawn.story.hairDef = HairDefOf.Bald;
+					pawn.Drawer.renderer.SetAllGraphicsDirty();
+				}
+			}
 		}
 
 		public override void ExposeData()

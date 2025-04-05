@@ -125,7 +125,6 @@ namespace DanceOfEvolution
             {
                 return 0f;
             }
-            float num = 0f;
             if (Corpse != null)
             {
                 return GetNutritionFromCorpse(Corpse, applyDigestion);
