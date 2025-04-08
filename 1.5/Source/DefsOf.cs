@@ -67,7 +67,9 @@ namespace DanceOfEvolution
 		public static ThingDef RawFungus;
 		public static JobDef DE_ApplyCosmeticChange;
 		public static GameConditionDef DE_CloudmakerDeathPall;
-        static DefsOf()
+
+		public static ThoughtDef AteFungus_Despised, AteFungusAsIngredient_Despised;
+		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}
