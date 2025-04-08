@@ -14,7 +14,7 @@ namespace DanceOfEvolution
 			
 			things.Add(MakeServant(PawnKindDefOf.Fingerspike, hediff_FungalNexus));
 			things.Add(MakeServant(DefsOf.Noctol, hediff_FungalNexus));
-			things.Add(MakeServant(PawnKindDefOf.Colonist, hediff_FungalNexus));
+			things.Add(MakeServant(PawnKindDefOf.Bulbfreak, hediff_FungalNexus));
 			return things;
 		}
 		
