@@ -37,9 +37,17 @@
 	<DE_GrowthSpotCosmetics>Growth spot fungal cosmetics</DE_GrowthSpotCosmetics>
 	<DE_NeedRawFungusForCosmeticChange>{0} raw fungus required for cosmetic change.</DE_NeedRawFungusForCosmeticChange>
 	<DE_ApplyCosmetic>Apply fungal cosmetics</DE_ApplyCosmetic>
-    <DE_ShowMushroomCap>Show mushroom cap</DE_ShowMushroomCap>
-    <DE_ShowMushroomCapTooltip>If enabled, the fungal nexus pawn will render its mushroom cap.</DE_ShowMushroomCapTooltip>
-    <DE_UseTimelessHead>Use Timeless head</DE_UseTimelessHead>
-    <DE_UseTimelessHeadTooltip>If enabled, the fungal nexus pawn will use the Timeless head type, overriding their original head.</DE_UseTimelessHeadTooltip>
+	<DE_ShowMushroomCap>Show mushroom cap</DE_ShowMushroomCap>
+	<DE_ShowMushroomCapTooltip>If enabled, the fungal nexus pawn will render its mushroom cap.</DE_ShowMushroomCapTooltip>
+	<DE_UseTimelessHead>Use Timeless head</DE_UseTimelessHead>
+	<DE_UseTimelessHeadTooltip>If enabled, the fungal nexus pawn will use the Timeless head type, overriding their original head.</DE_UseTimelessHeadTooltip>
+	<DE_Research_ShardDuplication_Label>Shard Duplication</DE_Research_ShardDuplication_Label>
+	<DE_Research_ShardDuplication_Description>By using human minds as a computation medium, replicating archotech shards becomes possible. Only for the low cost of a human life.</DE_Research_ShardDuplication_Description>
+	<DE_Ritual_ShardDuplication_Label>shard duplication</DE_Ritual_ShardDuplication_Label>
+	<DE_Ritual_ShardDuplication_Description>A human mind is no different than that of an archotech. While they operate at different levels of complexity, they are, at their core, simply computers. Thus a shard of archotechnology, as unknowable as it is, should be able to be produced by either minds. By subjecting a human to intense sensory deprivation we can completely disrupt the normal functions of the mind and cause the human's psyche to fracture. Once that is done, the shard can "share" its computations with the newly broken mind to create something new, dedicating the mind and body to the creation of more shards. The price for such immense knowledge is the complete and utter annihilation of the subject. This ritual is more effective if the subject has high psychic sensitivity.</DE_Ritual_ShardDuplication_Description>
+	<DE_RitualRole_ShardDuplicationTarget_Label>victim</DE_RitualRole_ShardDuplicationTarget_Label>
+	<DE_RitualTargetPsychicallyDeaf>{PAWN_labelShort} is psychically deaf and cannot be used as a target for this ritual.</DE_RitualTargetPsychicallyDeaf>
+	<DE_Ritual_ShardDuplication_Success>{TARGET_labelShort} was consumed by the ritual, producing {1} shards.</DE_Ritual_ShardDuplication_Success>
+	<DE_Ritual_ShardDuplication_Failure>The ritual failed to properly harness {TARGET_labelShort}'s psyche. The victim was consumed, but no shards were produced.</DE_Ritual_ShardDuplication_Failure>
 
 </LanguageData>

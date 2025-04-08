@@ -13,7 +13,7 @@ namespace DanceOfEvolution
         public static void Postfix(PsychicRitualDef_InvocationCircle __instance, PsychicRitualRoleAssignments assignments, ref IReadOnlyDictionary<PsychicRitualRoleDef, List<IntVec3>> __result)
         {
             if (!(__instance is PsychicRitualDef_CoagulatePsychicWeight coagulateRitual))
-                return; // Only apply to PsychicRitualDef_CoagulatePsychicWeight
+                return;
 
             PsychicRitualRoleDef extraDefenderRole = coagulateRitual.extraDefenderRole;
             if (extraDefenderRole == null)
@@ -29,11 +29,9 @@ namespace DanceOfEvolution
                     positions = new List<IntVec3>();
                     fixedPositions[extraDefenderRole] = positions;
                 }
-
-                // Add missing positions only for extra defender role
                 while (positions.Count < assignedCount)
                 {
-                    positions.Add(assignments.Target.Cell); // Placeholder fallback position
+                    positions.Add(assignments.Target.Cell);
                 }
             }
 

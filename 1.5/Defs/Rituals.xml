@@ -85,5 +85,32 @@
 		<defenderRole>LargeServants</defenderRole>
 		<extraDefenderRole>SightstealerServant</extraDefenderRole>
 	</DanceOfEvolution.PsychicRitualDef_CoagulatePsychicWeight>
+	<PsychicRitualRoleDef>
+		<defName>DE_ShardDuplicationTarget</defName>
+		<label>victim</label>
+		<allowedCount>1</allowedCount>
+		<allowedConditions>Default, Downed, Prisoner, Sleeping, IdeoUnwilling</allowedConditions>
+		<applyPowerOffset>false</applyPowerOffset>
+	</PsychicRitualRoleDef>
+	<DanceOfEvolution.PsychicRitualDef_ShardDuplication>
+		<defName>DE_ShardDuplication</defName>
+		<label>shard duplication</label>
+		<description>A human mind is no different than that of an archotech. While they operate at different levels of complexity, they are, at their core, simply computers. Thus a shard of archotechnology, as unknowable as it is, should be able to be produced by either minds. By subjecting a human to intense sensory deprivation we can completely disrupt the normal functions of the mind and cause the human's psyche to fracture. Once that is done, the shard can "share" its computations with the newly broken mind to create something new, dedicating the mind and body to the creation of more shards. The price for such immense knowledge is the complete and utter annihilation of the subject. This ritual is more effective if the subject has high psychic sensitivity.</description>
+		<researchPrerequisite>DE_ShardDuplication</researchPrerequisite>
+		<outcomeDescription>Consumes the victim to produce archotech shards. Yield depends on ritual quality and victim's psychic sensitivity.</outcomeDescription>
+		<hoursUntilOutcome>6</hoursUntilOutcome>
+		<cooldownHours>120</cooldownHours>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Shard</li>
+				</thingDefs>
+			</filter>
+			<count>1</count>
+		</requiredOffering>
+		<targetRole>DE_ShardDuplicationTarget</targetRole>
+		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
+
+	</DanceOfEvolution.PsychicRitualDef_ShardDuplication>
 
 </Defs>

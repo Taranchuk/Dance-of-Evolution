@@ -16,6 +16,20 @@
   </ResearchProjectDef>
 
   <ResearchProjectDef>
+    <defName>DE_ShardDuplication</defName>
+    <label>Shard Duplication</label>
+    <description>By using human minds as a computation medium, replicating archotech shards becomes possible. Only for the low cost of a human life.</description>
+    <tab>Anomaly</tab>
+    <prerequisites>
+      <li>Brainwipe</li>
+    </prerequisites>
+    <knowledgeCost>40</knowledgeCost>
+    <knowledgeCategory>Advanced</knowledgeCategory>
+    <researchViewX>7.50</researchViewX>
+    <researchViewY>0.10</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
     <defName>DE_LivingMetal</defName>
     <label>Living Metal</label>
     <description>The collective has perceived the wonders of metal that flows like blood. This archotech primordial ooze will serve us well, whether it wants it or not. The barrier between life and unlife is blurred once more.</description>
