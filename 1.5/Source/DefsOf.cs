@@ -69,6 +69,8 @@ namespace DanceOfEvolution
 		public static GameConditionDef DE_CloudmakerDeathPall;
 
 		public static ThoughtDef AteFungus_Despised, AteFungusAsIngredient_Despised;
+
+		public static PsychicRitualRoleDef LargeServants;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
