@@ -17,4 +17,31 @@
 		</value>
 	</Operation>
 
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="SummonPitGate"]/researchViewX</xpath>
+		<value>
+			<researchViewX>6.50</researchViewX>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="SummonPitGate"]/researchViewY</xpath>
+		<value>
+			<researchViewY>1.90</researchViewY>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="NeurosisPulse"]/researchViewX</xpath>
+		<value>
+			<researchViewX>6.50</researchViewX>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="NeurosisPulse"]/researchViewY</xpath>
+		<value>
+			<researchViewY>1.30</researchViewY>
+		</value>
+	</Operation>
 </Patch>

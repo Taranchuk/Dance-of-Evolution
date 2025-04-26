@@ -25,8 +25,8 @@
     </prerequisites>
     <knowledgeCost>40</knowledgeCost>
     <knowledgeCategory>Advanced</knowledgeCategory>
-    <researchViewX>7.50</researchViewX>
-    <researchViewY>0.10</researchViewY>
+    <researchViewX>6.50</researchViewX>
+    <researchViewY>0.70</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef>
