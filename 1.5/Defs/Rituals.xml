@@ -18,7 +18,7 @@
 		</requiredOffering>
 		<targetRole>SpecialServantRitualTarget</targetRole>
 		<defenderRole>LargeServants</defenderRole>
-		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
+		<iconPath>UI/Icons/Ritual_Metal_Terror_Arrow</iconPath>
 	</DanceOfEvolution.PsychicRitualDef_CoagulateConciousness>
 
 	<PsychicRitualRoleDef>
@@ -54,7 +54,7 @@
 			<count>50</count>
 		</requiredOffering>
 		<defenderRole>LargeServants</defenderRole>
-		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
+		<iconPath>UI/Icons/Ritual_Chimera</iconPath>
 	</DanceOfEvolution.PsychicRitualDef_CoagulateMuscleMass>
 
 	<PsychicRitualRoleDef>
@@ -81,7 +81,7 @@
 			</filter>
 			<count>75</count>
 		</requiredOffering>
-		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
+		<iconPath>UI/Icons/Ritual_Revenant_Arrow</iconPath>
 		<defenderRole>LargeServants</defenderRole>
 		<extraDefenderRole>SightstealerServant</extraDefenderRole>
 	</DanceOfEvolution.PsychicRitualDef_CoagulatePsychicWeight>
@@ -109,8 +109,7 @@
 			<count>1</count>
 		</requiredOffering>
 		<targetRole>DE_ShardDuplicationTarget</targetRole>
-		<iconPath>UI/PsychicRituals/PsychicRitual_SummonAnimals</iconPath>
-
+		<iconPath>UI/Icons/Ritual_Shard_Duplication</iconPath>
 	</DanceOfEvolution.PsychicRitualDef_ShardDuplication>
 
 </Defs>
