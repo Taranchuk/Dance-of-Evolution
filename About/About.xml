@@ -8,7 +8,7 @@
 		<li>1.5</li>
   	</supportedVersions>
 	<packageId>ThatThing.Mycohazard</packageId>
-	<description>The mod’s purpose is to have a biological, fungal themed version of the mechanitor playstyle with new creatures that are controlled by a single pawn called a Fungal Nexus, new items to upgrade the servants and their nexus, and new buildings to help the collective.</description>
+	<description>Allows you to become a Fungal Nexus, capable of raising a large colony on your own and detaching you from your humanity.</description>
 	<modDependencies>
 		<li>
 			<packageId>Ludeon.RimWorld.Anomaly</packageId>
