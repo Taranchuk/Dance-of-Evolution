@@ -1,0 +1,19 @@
+<Defs>
+<WorkGiverDef>
+    <defName>DE_FeedCorpseToCerebrum</defName>
+    <label>feed corpse to cerebrum</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>40</priorityInType>
+    <fixedBillGiverDefs>
+        <li>DE_Cerebrum</li>
+        <li>DE_HardenedCerebrum</li>
+    </fixedBillGiverDefs>
+    <verb>feed corpse</verb>
+    <gerund>feeding corpse to</gerund>
+    <requiredCapacities>
+        <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+</WorkGiverDef>
+</Defs>

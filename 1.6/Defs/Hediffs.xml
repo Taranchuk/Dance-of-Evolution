@@ -1,0 +1,508 @@
+<Defs>
+	<HediffDef Name="DE_FungalHediffBase" Abstract="True">
+		<defaultLabelColor>(214, 90, 24)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<everCurableByItem>false</everCurableByItem>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_Assimilation</defName>
+		<label>assimilation</label>
+		<description>The spores of the Nexus Burgeon have been accepted by a willing host and they have begun to change the host's body. The transformation is long and disruptive, and any psycaster will hear thousands of voices coming from the host's mind.</description>
+		<hediffClass>DanceOfEvolution.Hediff_Assimilation</hediffClass>
+		<descriptionHyperlinks>
+			<ThingDef>DE_NexusBurgeon</ThingDef>
+		</descriptionHyperlinks>
+		<initialSeverity>0.01</initialSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>0.4</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<minSeverity>0</minSeverity>
+			</li>
+			<li>
+				<minSeverity>0.15</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.30</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.50</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.80</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.01</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_FungalNexus</defName>
+		<label>fungal nexus</label>
+		<description>A fully grown Fungal Nexus. While it requires shards of archotechnology to fully develop, it is more than adept at obtaining them. Its true goal is unknown, yet it moves with purpose.</description>
+		<hediffClass>DanceOfEvolution.Hediff_FungalNexus</hediffClass>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<descriptionHyperlinks>
+			<ThingDef>DE_NexusBurgeon</ThingDef>
+		</descriptionHyperlinks>
+		<stages>
+			<li>
+				<statOffsets>
+					<PsychicSensitivity>0.2</PsychicSensitivity>
+				</statOffsets>
+			</li>
+		</stages>
+		<renderNodeProperties>
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<workerClass>DanceOfEvolution.PawnRenderNodeWorker_FungalNexus</workerClass>
+				<texPath>Things/Pawn/FungalNexusCap/FungalNexusCap</texPath>
+				<parentTagDef>Head</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<baseLayer>51</baseLayer>
+				<drawSize>(1.25, 1.25)</drawSize>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef Name="DE_ServantTypeBase" ParentName="DE_FungalHediffBase" Abstract="True">
+		<preventsPregnancy>True</preventsPregnancy>
+		<stages>
+			<li>
+				<disablesNeeds>
+					<li>Rest</li>
+				</disablesNeeds>
+				<painFactor>0</painFactor>
+				<regeneration>10</regeneration>
+				<showRegenerationStat>true</showRegenerationStat>
+				<statFactors>
+					<FilthRate>0</FilthRate>
+				</statFactors>
+				<statOffsets>
+					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+				</statOffsets>
+			</li>
+		</stages>
+		<renderNodeProperties>
+			<li Class="PawnRenderNodeProperties_Overlay">
+				<debugLabel>fungal overlay</debugLabel>
+				<workerClass>DanceOfEvolution.PawnRenderNodeWorker_FungalServant</workerClass>
+				<overlayLayer>Body</overlayLayer>
+				<baseLayer>20</baseLayer>
+				<pawnType>HumanlikeOnly</pawnType>
+			</li>
+			<li>
+				<debugLabel>fungal overlay</debugLabel>
+				<nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+				<workerClass>DanceOfEvolution.PawnRenderNodeWorker_FungalServant</workerClass>
+				<overlayLayer>Body</overlayLayer>
+				<baseLayer>20</baseLayer>
+				<pawnType>NonHumanlikeOnly</pawnType>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_ServantBurrower</defName>
+		<label>burrower servant</label>
+		<description>A burrower servant type.</description>
+		<hediffClass>DanceOfEvolution.Hediff_ServantBurrower</hediffClass>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_ServantTypeBase">
+		<defName>DE_ServantSmall</defName>
+		<label>small servant</label>
+		<hediffClass>DanceOfEvolution.Hediff_ServantSmall</hediffClass>
+		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Due to the small size of the organism it inhabits, it performs menial tasks for its kin. A nexus of psychic energy allows communication between members of the collective.</description>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_ServantTypeBase">
+		<defName>DE_ServantMedium</defName>
+		<label>medium servant</label>
+		<hediffClass>DanceOfEvolution.Hediff_ServantMedium</hediffClass>
+		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. The most versatile servants of the collective. Their intellect and long limbs lets them do numerous tasks for the collective, such as mining, building, and even cooking. They have gained the ability to grow and sharpen the bones of the host they inhabit before firing them at high speeds, which makes them a threat both at short and long range.</description>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_ServantTypeBase">
+		<defName>DE_ServantLarge</defName>
+		<label>large servant</label>
+		<hediffClass>DanceOfEvolution.Hediff_ServantLarge</hediffClass>
+		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Its large body is more mushroom than animal, which makes it extremely resilient against common weaponry, but extremely weak to fire. These servants use their own bodies as growth beds to help the collective sow any seed or spore.</description>
+		<stages Inherit="False">
+			<li>
+				<disablesNeeds>
+					<li>Rest</li>
+				</disablesNeeds>
+				<painFactor>0</painFactor>
+				<regeneration>10</regeneration>
+				<showRegenerationStat>true</showRegenerationStat>
+				<statFactors>
+					<IncomingDamageFactor>0.5</IncomingDamageFactor>
+					<FilthRate>0</FilthRate>
+				</statFactors>
+				<statOffsets>
+					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+					<Flammability>1</Flammability>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_ServantTypeBase">
+		<defName>DE_ServantGhoul</defName>
+		<label>ghoul servant</label>
+		<hediffClass>DanceOfEvolution.Hediff_ServantGhoul</hediffClass>
+		<description>This rotting human corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Animals and insect can be controlled and used easily by pulling at muscles, puppeteering them from within. Humans however, are mostly useful for their nervous systems. Fungi that live in these hosts await for instruction from their kin. Once they receive the order and the required resources, they will begin to fully integrate themselves into their host's nervous system to repair and reawaken it.</description>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_ServantTypeBase">
+		<defName>DE_ServantSpecial</defName>
+		<label>special servant</label>
+		<hediffClass>DanceOfEvolution.Hediff_ServantSpecial</hediffClass>
+		<description>A mass of amalgamated fungal matter as well as several infected bodies, and most importantly, the conciousness of a live human. This lumbering behemoth, despite being imposing, is not as threatening as it seems in melee. Its stiff and puppet-like movements make it very easy to dodge in close quarters. However, it posses a large organ meant to dispense deadly spores at long range. The spores latch onto whatever they land and rapidly begin spreading diseases in biological targets or sabotaging the structural integrity of mechanical ones. Despite possessing no eyes, this creature can perceive its environment perfectly using its advanced psychic senses.</description>
+		<stages Inherit="False">
+			<li>
+				<disablesNeeds>
+					<li>Rest</li>
+				</disablesNeeds>
+				<painFactor>0</painFactor>
+				<regeneration>10</regeneration>
+				<showRegenerationStat>true</showRegenerationStat>
+				<statFactors>
+					<IncomingDamageFactor>0.5</IncomingDamageFactor>
+					<FilthRate>0</FilthRate>
+				</statFactors>
+				<statOffsets>
+					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+					<Flammability>1</Flammability>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_ServantTypeBase">
+		<defName>DE_ServantUnstable</defName>
+		<label>unstable servant</label>
+		<hediffClass>DanceOfEvolution.Hediff_UnstableServant</hediffClass>
+		<description>This servant is unstable.</description>
+		<stages Inherit="False">
+			<li>
+				<disablesNeeds>
+					<li>Rest</li>
+				</disablesNeeds>
+				<naturalHealingFactor>0</naturalHealingFactor>
+				<statFactors>
+					<IncomingDamageFactor>0.5</IncomingDamageFactor>
+					<FilthRate>0</FilthRate>
+				</statFactors>
+				<statOffsets>
+					<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+					<Flammability>1</Flammability>
+				</statOffsets>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_GiveAbility">
+				<abilityDefs>
+					<li>DE_ServantHypnotise</li>
+					<li>DE_ServantInvisibility</li>
+				</abilityDefs>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>DE_Invisibility</defName>
+		<label>invisibility</label>
+		<hediffClass>HediffWithComps</hediffClass>
+		<description>Psychically-induced invisibility. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Invisibility">
+				<visibleToPlayer>true</visibleToPlayer>
+			</li>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_FungalTentacle</defName>
+		<label>fungal tentacle</label>
+		<labelNoun>a fungal tentacle</labelNoun>
+		<description>text.todo.</description>
+		<stages>
+			<li>
+				<statOffsets>
+					<PawnBeauty>-1</PawnBeauty>
+					<CarryingCapacity>50</CarryingCapacity>
+				</statOffsets>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>tentacle</label>
+						<capacities>
+							<li>Blunt</li>
+						</capacities>
+						<power>5</power>
+						<cooldownTime>2</cooldownTime>
+						<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+						<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+					</li>
+				</tools>
+			</li>
+		</comps>
+		<renderNodeProperties>
+			<li Class="PawnRenderNodeProperties_Spastic">
+				<texPaths>
+					<li>Things/Pawn/Humanlike/BodyAttachments/TentacleLimb/TentacleLimbA</li>
+					<li>Things/Pawn/Humanlike/BodyAttachments/TentacleLimb/TentacleLimbB</li>
+					<li>Things/Pawn/Humanlike/BodyAttachments/TentacleLimb/TentacleLimbC</li>
+				</texPaths>
+				<parentTagDef>Body</parentTagDef>
+				<overrideMeshSize>1</overrideMeshSize>
+				<drawSize>1.3</drawSize>
+				<colorType>Skin</colorType>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<useSkinShader>true</useSkinShader>
+				<useRottenColor>true</useRottenColor>
+				<rotationRange>-30~30</rotationRange>
+				<durationTicksRange>10~35</durationTicksRange>
+				<nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+				<drawData>
+					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+					<useBodyPartAnchor>true</useBodyPartAnchor>
+					<childScale>0.7</childScale>
+					<bodyTypeScales>
+						<Hulk>1.2</Hulk>
+						<Fat>1.4</Fat>
+						<Thin>0.8</Thin>
+					</bodyTypeScales>
+					<defaultData>
+						<layer>49</layer>
+					</defaultData>
+					<dataNorth>
+						<rotationOffset>310</rotationOffset>
+						<flip>true</flip>
+						<layer>0</layer>
+					</dataNorth>
+					<dataEast>
+						<rotationOffset>270</rotationOffset>
+						<flip>true</flip>
+					</dataEast>
+					<dataSouth>
+						<rotationOffset>220</rotationOffset>
+					</dataSouth>
+					<dataWest>
+						<rotationOffset>270</rotationOffset>
+					</dataWest>
+				</drawData>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_BladedLimb</defName>
+		<label>bladed limb</label>
+		<labelNoun>a bladed limb</labelNoun>
+		<description>A sharp limb capable of delivering slicing melee attacks.</description>
+		<hediffClass>DanceOfEvolution.Hediff_Stackable</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>bladed limb</label>
+						<capacities>
+							<li>Cut</li>
+						</capacities>
+						<power>12</power>
+						<armorPenetration>0.18</armorPenetration>
+						<cooldownTime>1.1</cooldownTime>
+						<soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
+						<soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
+					</li>
+				</tools>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase" Name="DE_HangingSporesBase" Abstract="True">
+		<description>Floating spores full of nutrients are hovering near this creature, granting its body the resources it needs to function better.</description>
+		<initialSeverity>0.01</initialSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_HangingSporesBase">
+		<defName>DE_HangingSporesMood</defName>
+		<label>hanging spores (mood)</label>
+		<defaultLabelColor>(0, 255, 0)</defaultLabelColor>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_HangingSporesBase">
+		<defName>DE_HangingSporesConsciousness</defName>
+		<label>hanging spores (consciousness)</label>
+		<defaultLabelColor>(0, 0, 255)</defaultLabelColor>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.2</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_HangingSporesBase">
+		<defName>DE_HangingSporesMoving</defName>
+		<label>hanging spores (moving)</label>
+		<defaultLabelColor>(255, 255, 0)</defaultLabelColor>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>0.5</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_ClawHand</defName>
+		<label>claw hand</label>
+		<labelNoun>a claw hand</labelNoun>
+		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of a similar material as timbershrooms, and are as hard as wood.</description>
+		<hediffClass>DanceOfEvolution.Hediff_Implant_Stackable</hediffClass>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>claw hand</label>
+						<capacities>
+							<li>Cut</li>
+						</capacities>
+						<power>15</power>
+						<armorPenetration>0.25</armorPenetration>
+						<cooldownTime>3.0</cooldownTime>
+						<soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
+						<soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
+					</li>
+				</tools>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_UpgradedClawHand</defName>
+		<label>upgraded claw hand</label>
+		<labelNoun>an upgraded claw hand</labelNoun>
+		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of a similar material as timbershrooms, and are as hard as wood.</description>
+		<hediffClass>DanceOfEvolution.Hediff_Implant_Stackable</hediffClass>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>upgraded claw</label>
+						<capacities>
+							<li>Cut</li>
+						</capacities>
+						<power>20</power>
+						<cooldownTime>2</cooldownTime>
+						<armorPenetration>0.3</armorPenetration>
+					</li>
+				</tools>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<partEfficiencyOffset>0.25</partEfficiencyOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_ConsciousnessReductionSunlight</defName>
+		<label>UV sensitivity</label>
+		<description>This creature's body is not adapted to survive well to UV radiation, it is extremely weak when exposed to sunlight.</description>
+		<hediffClass>Hediff</hediffClass>
+		<isBad>true</isBad>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.3</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_Rotting</defName>
+		<label>rotting</label>
+		<description>This creature is experiencing rapid decomposition from a fungal parasite, and will release toxic spores on death. If death is prevented in the host for a long enough time, the parasites will die on their own.</description>
+		<hediffClass>DanceOfEvolution.Hediff_Rotting</hediffClass>
+		<initialSeverity>1.0</initialSeverity>
+		<stages>
+			<li>
+				<painOffset>0.1</painOffset>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>60000</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+	</HediffDef>
+
+</Defs>

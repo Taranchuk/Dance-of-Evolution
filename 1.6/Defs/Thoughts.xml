@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThoughtDef>
+        <defName>DE_AteFungalSlurry</defName>
+        <thoughtClass>Thought_FoodEaten</thoughtClass>
+        <showBubble>true</showBubble>
+        <icon>Things/Mote/ThoughtSymbol/Food</icon>
+        <durationDays>1</durationDays>
+        <nullifyingHediffs>
+            <li>DE_ServantSmall</li>
+            <li>DE_ServantMedium</li>
+            <li>DE_ServantLarge</li>
+            <li>DE_ServantGhoul</li>
+            <li>DE_FungalNexus</li>
+        </nullifyingHediffs>
+        <stages>
+            <li>
+                <label>ate a disgusting rotten meal</label>
+                <description>I just ate a meal made from spoiled, rotten food. It was disgusting, I want to puke.</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>DE_Spores</defName>
+        <workerClass>DanceOfEvolution.ThoughtWorker_Hediff</workerClass>
+        <hediff>DE_HangingSporesMood</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+          <li>
+            <label>floating spores</label>
+            <description>Floating spores full of nutrients are hovering near this creature, granting its body the resources it needs to function better.</description>
+            <baseMoodEffect>5</baseMoodEffect>
+          </li>
+        </stages>
+  </ThoughtDef>
+<ThoughtDef>
+  <defName>DE_UncomfortableOutfit</defName>
+  <thoughtClass>Thought_Situational</thoughtClass>
+  <workerClass>DanceOfEvolution.ThoughtWorker_UncomfortableOutfit</workerClass>
+  <stages>
+    <li>
+      <label>uncomfortable outfit</label>
+      <description>I can feel my outfit wriggling against my skin, this is the worst!</description>
+      <baseMoodEffect>-6</baseMoodEffect>
+    </li>
+  </stages>
+</ThoughtDef>
+
+</Defs>

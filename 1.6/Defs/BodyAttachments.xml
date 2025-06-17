@@ -1,0 +1,126 @@
+<Defs>
+	<HediffDef ParentName="DE_FungalHediffBase" Name="DE_BodyAttachmentBase" Abstract="True">
+		<description>A fungal body mutation.</description>
+		<stages>
+			<li>
+				<becomeVisible>True</becomeVisible>
+			</li>
+		</stages>
+		<modExtensions>
+			<li Class="DanceOfEvolution.HediffExtension">
+				<isBodyAttachment>True</isBodyAttachment>
+			</li>
+		</modExtensions>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_BodyAttachmentBase">
+		<defName>DE_BackMass</defName>
+		<label>back mass</label>
+		<renderNodeProperties>
+			<li>
+				<texPath>Things/Pawn/BackMass/BackMass</texPath>
+				<parentTagDef>Body</parentTagDef>
+				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<baseLayer>44</baseLayer>
+				<drawSize>(1.25, 1.25)</drawSize>
+				<drawData>
+					<dataEast>
+						<offset>(0, 0, 0.15)</offset>
+					</dataEast>
+					<dataWest>
+						<offset>(0, 0, 0.15)</offset>
+					</dataWest>
+				</drawData>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_BodyAttachmentBase">
+		<defName>DE_MushroomSleeves</defName>
+		<label>mushroom sleeves</label>
+		<renderNodeProperties>
+			<li>
+				<texPath>Things/Pawn/MushroomSleeves/MushroomSleeves</texPath>
+				<parentTagDef>Body</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<baseLayer>44</baseLayer>
+				<drawSize>(1, 1)</drawSize>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_BodyAttachmentBase">
+		<defName>DE_TendrilBack</defName>
+		<label>tendril back</label>
+		<renderNodeProperties>
+			<li>
+				<texPath>Things/Pawn/TendrilBack/TendrilBack</texPath>
+				<parentTagDef>Body</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<baseLayer>44</baseLayer>
+				<drawSize>(1, 1)</drawSize>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_BodyAttachmentBase">
+		<defName>DE_TendrilArm</defName>
+		<label>tendril arm</label>
+		<renderNodeProperties>
+			<li>
+				<texPath>Things/Pawn/TendrilArm/TendrilArm</texPath>
+				<parentTagDef>Body</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<baseLayer>44</baseLayer>
+				<drawSize>(1, 1)</drawSize>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_BodyAttachmentBase">
+		<defName>DE_SculptedFlowers</defName>
+		<label>sculpted flowers</label>
+		<renderNodeProperties>
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<texPath>Things/Pawn/SculptedFlowers/SculptedFlowers</texPath>
+				<parentTagDef>Head</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<baseLayer>75</baseLayer>
+				<drawSize>(1, 1)</drawSize>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_BodyAttachmentBase">
+		<defName>DE_Lamps</defName>
+		<label>lamps</label>
+		<renderNodeProperties>
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<texPath>Things/Pawn/Lamps/Lamps</texPath>
+				<parentTagDef>Head</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<baseLayer>75</baseLayer>
+				<drawSize>(1, 1)</drawSize>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+	<HediffDef ParentName="DE_BodyAttachmentBase">
+		<defName>DE_Hectohedron</defName>
+		<label>hectohedron</label>
+		<renderNodeProperties>
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<texPath>Things/Pawn/Hectohedron/Hectohedron</texPath>
+				<parentTagDef>Head</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<baseLayer>75</baseLayer>
+				<drawSize>(1, 1)</drawSize>
+			</li>
+		</renderNodeProperties>
+	</HediffDef>
+
+</Defs>

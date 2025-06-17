@@ -1,0 +1,42 @@
+<Defs>
+    <ThinkTreeDef>
+        <defName>DE_BurrowerThinkTree</defName>
+        <insertTag>Animal_PreMain</insertTag>
+        <thinkRoot Class="ThinkNode_ConditionalPawnKind">
+            <pawnKind>DE_Burrower</pawnKind>
+            <subNodes>
+                <li Class="DanceOfEvolution.JobGiver_InfectCorpses" />
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+    <ThinkTreeDef>
+        <defName>DE_HumanServantWork</defName>
+        <insertTag>Humanlike_PostMain</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="DanceOfEvolution.ThinkNode_IsControllableServant">
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasHediff">
+                            <hediff>DE_ServantGhoul</hediff>
+                            <subNodes>
+                                <li Class="DanceOfEvolution.JobGiver_DoWork">
+                                    <workTypes>
+                                        <li>Crafting</li>
+                                        <li>Handling</li>
+                                        <li>Doctor</li>
+                                        <li>Warden</li>
+                                        <li>Growing</li>
+                                        <li>PlantCutting</li>
+                                        <li>Research</li>
+                                    </workTypes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+</Defs>

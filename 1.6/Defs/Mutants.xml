@@ -1,0 +1,267 @@
+<Defs>
+  <MutantDef Name="DE_FungalGhoul" ParentName="BaseMutantEntity" Abstract="True">
+    <description>This rotting human corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Animals and insect can be controlled and used easily by pulling at muscles, puppeteering them from within. Humans however, are mostly useful for their nervous systems. Fungi that live in these hosts await for instruction from their kin. Once they receive the order and the required resources, they will begin to fully integrate themselves into their host's nervous system to repair and reawaken it.</description>
+    <thinkTree>Ghoul</thinkTree>
+    <thinkTreeConstant>GhoulConstant</thinkTreeConstant>
+    <hediff>Ghoul</hediff>
+    <showJobReport>true</showJobReport>
+    <canBleed>false</canBleed>
+    <isImmuneToInfections>true</isImmuneToInfections>
+    <disableApparel>true</disableApparel>
+    <canBeDrafted>true</canBeDrafted>
+    <relativeTurnedThought>BecameGhoul</relativeTurnedThought>
+    <canTravelInCaravan>true</canTravelInCaravan>
+    <respectsAllowedArea>true</respectsAllowedArea>
+    <canUseDrugs>true</canUseDrugs>
+    <deathLetter>One of your fungal ghouls has died.</deathLetter>
+    <deathLetterExtra>Unlike regular colonists, fungal ghouls do not need to be buried and their
+      death will not upset others. You may choose to bury them should you wish.</deathLetterExtra>
+    <!-- Sounds -->
+    <soundCall>Pawn_Ghoul_Call</soundCall>
+    <soundAttack>Pawn_Ghoul_Attack</soundAttack>
+    <soundWounded>Pawn_Ghoul_Pain</soundWounded>
+    <soundDeath>Pawn_Ghoul_Killed</soundDeath>
+    <!-- Rendering -->
+    <skinColorOverride>(0.58, 0.62, 0.55)</skinColorOverride>
+    <hairColorOverride>(0.65, 0.65, 0.65)</hairColorOverride>
+    <bodyTypeGraphicPaths>
+      <Male>Things/Pawn/Ghoul/Bodies/Ghoulskin_Male</Male>
+      <Female>Things/Pawn/Ghoul/Bodies/Ghoulskin_Female</Female>
+      <Hulk>Things/Pawn/Ghoul/Bodies/Ghoulskin_Hulk</Hulk>
+      <Fat>Things/Pawn/Ghoul/Bodies/Ghoulskin_Fat</Fat>
+      <Thin>Things/Pawn/Ghoul/Bodies/Ghoulskin_Thin</Thin>
+    </bodyTypeGraphicPaths>
+    <forcedHeadTypes>
+      <li>Ghoul_Normal</li>
+      <li>Ghoul_Heavy</li>
+      <li>Ghoul_Narrow</li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">Ghoul_Wide</li>
+    </forcedHeadTypes>
+    <hairTagFilter>
+      <whitelist>true</whitelist>
+      <tags>
+        <li>Ghoul</li>
+      </tags>
+    </hairTagFilter>
+    <beardTagFilter>
+
+      <whitelist>true</whitelist>
+      <tags>
+        <li>NoBeard</li>
+      </tags>
+    </beardTagFilter>
+    <needWhitelist>
+      <li>Food</li>
+    </needWhitelist>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.5</chanceFactor>
+        <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+        <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+      </li>
+      <li>
+        <label>left claw</label>
+        <labelNoLocation>claw</labelNoLocation>
+        <capacities>
+          <li>Scratch</li>
+        </capacities>
+        <power>7.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <chanceFactor>1.5</chanceFactor>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+        <soundMeleeHit>Pawn_Ghoul_Scratch</soundMeleeHit>
+        <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+      </li>
+      <li>
+        <label>right claw</label>
+        <labelNoLocation>claw</labelNoLocation>
+        <capacities>
+          <li>Scratch</li>
+        </capacities>
+        <power>7.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <chanceFactor>1.5</chanceFactor>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+        <soundMeleeHit>Pawn_Ghoul_Scratch</soundMeleeHit>
+        <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+      </li>
+    </tools>
+  </MutantDef>
+
+  <MutantDef ParentName="DE_FungalGhoul">
+    <defName>DE_FungalGhoul</defName>
+    <label>fungal ghoul</label>
+    <givesHediffs>
+      <li>
+        <def>Regeneration</def>
+        <severity>0.1</severity>
+      </li>
+    </givesHediffs>
+  </MutantDef>
+
+  <MutantDef ParentName="DE_FungalGhoul">
+    <defName>DE_FungalGhoulSpecialized</defName>
+    <label>fungal ghoul</label>
+    <thinkTree>DE_GhoulSpecialized</thinkTree>
+    <workDisables>
+      <li>None</li>
+    </workDisables>
+  </MutantDef>
+
+  <HediffDef>
+    <defName>DE_FungalGhoulTalkable</defName>
+    <label>ghoul</label>
+    <description>This person has been implanted with an archotech shard, twisting them into a jittering murder machine. Its body is an amalgam of flesh and metal, while its mind cycles between half-conscious stupor and murderous intent.\n\nThey cannot work; they only fight. Ghouls must eat raw meat. If they go hungry, they can turn hostile.\n\nMany find ghouls' constant twitching to be disturbing, even when they aren't killing someone.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <everCurableByItem>false</everCurableByItem>
+    <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+    <stages>
+      <li>
+        <painFactor>0</painFactor>
+        <statFactors>
+          <MaxNutrition>2</MaxNutrition>
+          <PsychicSensitivity>0</PsychicSensitivity>
+        </statFactors>
+        <statOffsets>
+          <ComfyTemperatureMin>-40</ComfyTemperatureMin>
+          <ComfyTemperatureMax>40</ComfyTemperatureMax>
+          <MinimumContainmentStrength>35</MinimumContainmentStrength>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_AttachPoints" />
+    </comps>
+  </HediffDef>
+
+  <ThinkTreeDef>
+    <defName>DE_GhoulSpecialized</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Keep lying down if we have to -->
+        <li Class="ThinkNode_ConditionalMustKeepLyingDown">
+          <subNodes>
+            <!-- Do a queued job if possible -->
+            <li Class="ThinkNode_QueuedJob">
+              <inBedOnly>true</inBedOnly>
+            </li>
+
+            <!-- Keep lying down -->
+            <li Class="JobGiver_KeepLyingDown" />
+          </subNodes>
+        </li>
+
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>BurningResponse</treeDef>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>MentalStateCritical</treeDef>
+        </li>
+
+        <!-- Escaping-->
+        <li Class="ThinkNodeConditional_EscapingHoldingPlatform">
+          <subNodes>
+            <li Class="JobGiver_EscapingHoldingPlatform" />
+          </subNodes>
+        </li>
+
+        <!-- React to close melee threat -->
+        <li Class="JobGiver_ReactToCloseMeleeThreat" />
+
+        <!-- Do a queued job -->
+        <li Class="ThinkNode_QueuedJob" />
+
+        <!-- Mental state non critical -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>MentalStateNonCritical</treeDef>
+        </li>
+
+        <!-- Wait if drafted -->
+        <li Class="ThinkNode_ConditionalOfPlayerFaction">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>DraftedOrder</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_MoveToStandable" />
+                <li Class="JobGiver_Orders" />
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <!-- Lord directives -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>LordDuty</treeDef>
+        </li>
+
+        <!-- Insertion hook for modders -->
+        <li Class="ThinkNode_SubtreesByTag">
+          <insertTag>Ghoul_PreMain</insertTag>
+        </li>
+
+        <li Class="JobGiver_Work" />
+
+        <!-- Seek allowed area -->
+        <li Class="JobGiver_SeekAllowedArea" />
+        <li Class="JobGiver_SeekSafeTemperature">
+          <requiresInjury>false</requiresInjury>
+          <waitInSafeTemp>false</waitInSafeTemp>
+          <maxRadius>15</maxRadius>
+        </li>
+
+        <!-- Fight enemies -->
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>30</targetAcquireRadius>
+          <targetKeepRadius>35</targetKeepRadius>
+        </li>
+
+        <!-- Resting for medical reasons -->
+        <li Class="ThinkNode_ConditionalOfPlayerFaction">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>RestingForMedicalReasons</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_PatientGoToBed">
+                  <urgentOnly>true</urgentOnly>
+                </li>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <!-- Satisfy basic needs -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>SatisfyBasicNeeds</treeDef>
+        </li>
+
+        <!-- Insertion hook for modders -->
+        <li Class="ThinkNode_SubtreesByTag">
+          <insertTag>Ghoul_PreWander</insertTag>
+        </li>
+
+        <!-- Wander -->
+        <li Class="ThinkNode_Tagger">
+          <subNodes>
+            <li Class="JobGiver_ShamblerWander">
+              <wanderRadius>12</wanderRadius>
+            </li>
+          </subNodes>
+        </li>
+
+        <li Class="JobGiver_IdleError" />
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+</Defs>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <PawnKindDef ParentName="BasePlayerPawnKind">
+        <defName>DE_FungalNexusKind</defName>
+        <label>fungal nexus</label>
+        <defaultFactionDef>PlayerColony</defaultFactionDef>
+        <chemicalAddictionChance>0.06</chemicalAddictionChance>
+        <apparelTags>
+            <li>IndustrialBasic</li>
+        </apparelTags>
+        <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+        <apparelMoney>350~600</apparelMoney>
+        <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+        <techHediffsChance>0.03</techHediffsChance>
+        <techHediffsMoney>50~800</techHediffsMoney>
+        <techHediffsTags>
+            <li>Poor</li>
+            <li>Simple</li>
+            <li>ImplantEmpireCommon</li>
+        </techHediffsTags>
+        <techHediffsDisallowTags>
+            <li>PainCauser</li>
+        </techHediffsDisallowTags>
+        <initialResistanceRange>13~21</initialResistanceRange>
+        <forcedTraits>
+            <Disturbing>0</Disturbing>
+            <Beauty>2</Beauty>
+        </forcedTraits>
+        <disallowedTraitsWithDegree>
+            <BodyPurist>0</BodyPurist>
+            <PsychicSensitivity>-1</PsychicSensitivity>
+            <PsychicSensitivity>-2</PsychicSensitivity>
+            <Pyromaniac>0</Pyromaniac>
+        </disallowedTraitsWithDegree>
+    </PawnKindDef>
+
+
+    <ScenarioDef ParentName="ScenarioBase">
+        <defName>DE_FungalAwakening</defName>
+        <label>Fungal Awakening</label>
+        <description>When the intelligent fungus you had been studying for so long began talking to you, you didn't even flinch. When your crewmates were surprised at your new form, you didn't care. When they screamed in pain as you cut them open, you listened in apathy. You tinkered with the shard, called things from another world and made them submit. Your ship breaks into pieces, shatterred by waves of unknowable power. You clutch the shard into your claws as your servants surround you, falling to the world below...</description>
+        <scenario>
+            <summary>A single Fungal Nexus with three servants to aid them, an archotech shard, and no other resources to speak of.</summary>
+            <playerFaction>
+                <def>PlayerFaction</def>
+                <factionDef>PlayerColony</factionDef>
+            </playerFaction>
+            <parts>
+                <li Class="DanceOfEvolution.ScenPart_ConfigPage_ConfigureStartingFungalNexus">
+                    <def>ConfigPage_ConfigureStartingPawns</def>
+                    <pawnCount>1</pawnCount>
+                    <pawnChoiceCount>0</pawnChoiceCount>
+                    <customSummary>Start with one fungal nexus and three servants.</customSummary>
+                </li>
+                <li Class="ScenPart_StartingResearch">
+                    <def>StartingResearch</def>
+                    <project>EntityContainment</project>
+                </li>
+
+                <li Class="ScenPart_StartingResearch">
+                    <def>StartingResearch</def>
+                    <project>BasicPsychicRituals</project>
+                </li>
+
+                <li Class="ScenPart_MonolithGeneration">
+                    <def>ScenPart_MonolithGeneration</def>
+                    <method>NearColonists</method>
+                </li>
+
+                <li Class="ScenPart_AutoActivateMonolith">
+                    <def>AutoActivateMonolith</def>
+                    <delayTicks>60000</delayTicks>
+                </li>
+
+                <li Class="DanceOfEvolution.ScenPart_PlayerPawnsArriveInShipChunk">
+                    <def>PlayerPawnsArriveMethod</def>
+                </li>
+
+                <li Class="ScenPart_GameStartDialog">
+                    <def>GameStartDialog</def>
+                    <text>Now that you have arrived on a new world, you fully intend on making it your own. You have discarded the weakness others call humanity. Be they people, monsters, be they from here or elsewhere, all will become you.</text>
+                    <closeSound>GameStartSting</closeSound>
+                </li>
+                <li Class="ScenPart_ScatterThingsNearPlayerStart">
+                    <def>ScatterThingsNearPlayerStart</def>
+                    <thingDef>Shard</thingDef>
+                    <count>1</count>
+                </li>
+            </parts>
+        </scenario>
+    </ScenarioDef>
+</Defs>

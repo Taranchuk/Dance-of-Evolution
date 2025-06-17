@@ -1,0 +1,110 @@
+<Defs>
+
+    <ThingDef ParentName="TreeBase">
+        <defName>DE_Plant_TreeMycelial</defName>
+        <label>mycelial tree</label>
+        <description>A tall, strange-looking tree. Its gnarled appearance is out of this world. Sown by a highly intelligent fungus, these trees consume nearby corpses to produce more biomass for their collective. Mycelial trees appear to be a mimic of the Harbinger tree, repurposed by and for their new kin. Due to their extremely fragile outer structure, Mycelial trees will begin to wither if exposed to sunlight.</description>
+        <thingClass>DanceOfEvolution.MycelialTree</thingClass>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Plant/TreeMycelial</texPath>
+            <shadowData>
+                <volume>(0.4, 0.3, 0.1)</volume>
+                <offset>(0,0,-0.3)</offset>
+            </shadowData>
+        </graphicData>
+        <minifiedDef IsNull="True" />
+        <statBases>
+            <Beauty>-5</Beauty>
+            <BeautyOutdoors>-5</BeautyOutdoors>
+            <Flammability>1</Flammability>
+            <MaxHitPoints>300</MaxHitPoints>
+        </statBases>
+        <ingestible />
+        <preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+        <canScatterOver>false</canScatterOver>
+        <plant>
+            <neverBlightable>true</neverBlightable>
+            <growMinGlow>0</growMinGlow>
+            <growOptimalGlow>0</growOptimalGlow>
+            <cavePlant>true</cavePlant>
+            <wildOrder>1</wildOrder>
+            <wildEqualLocalDistribution>false</wildEqualLocalDistribution>
+            <pollution>Any</pollution>
+            <growDays>4</growDays>
+            <visualSizeRange>1.5~2.1</visualSizeRange>
+            <sowMinSkill>0</sowMinSkill>
+            <sowTags>
+                <li>Ground</li>
+            </sowTags>
+            <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+            <fertilityMin>0.5</fertilityMin>
+            <fertilitySensitivity>0.5</fertilitySensitivity>
+            <wildClusterWeight>0</wildClusterWeight>
+            <sowWork>1000</sowWork>
+            <harvestYield>300</harvestYield>
+            <harvestedThingDef>RawFungus</harvestedThingDef>
+            <treeCategory>Super</treeCategory>
+            <sowResearchPrerequisites Inherit="False" />
+            <dieFromToxicFallout>false</dieFromToxicFallout>
+            <showGrowthInInspectPane>true</showGrowthInInspectPane>
+            <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
+            <harvestWork>600</harvestWork>
+            <harvestTag>Standard</harvestTag>
+            <harvestAfterGrowth>0</harvestAfterGrowth>
+            <harvestMinGrowth>0.99</harvestMinGrowth>
+            <harvestFailable>false</harvestFailable>
+            <interferesWithRoof>false</interferesWithRoof>
+            <choppedThingDef IsNull="True"></choppedThingDef>
+            <smashedThingDef IsNull="True"></smashedThingDef>
+            <mustBeWildToSow>false</mustBeWildToSow>
+        </plant>
+    </ThingDef>
+
+    <ThingDef ParentName="CavePlantBase">
+        <defName>DE_FalseParasol</defName>
+        <label>false parasol</label>
+        <description>Originally a poisonous mushroom found in earth's forests, only a sliver of its genetic code was left untouched by the collective that it now serves. False parasols now produce a thick, strange living matter that be sown into clothes. Through some unknown method, False parasols are also able to produce bioferrite like a fruit. These fungi are extremely large, and require wide open spaces to grow. They deteriorate extremely fast if exposed to sunlight.</description>
+        <thingClass>DanceOfEvolution.FalseParasol</thingClass>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>3.0</Flammability>
+            <Beauty>5</Beauty>
+            <BeautyOutdoors>5</BeautyOutdoors>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Plant/FalseParasol</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shadowData>
+                <volume>(0.15, 0.25, 0.12)</volume>
+                <offset>(0.0,0,-0.4)</offset>
+            </shadowData>
+        </graphicData>
+        <selectable>true</selectable>
+        <neverMultiSelect>false</neverMultiSelect>
+        <pathCost>40</pathCost>
+        <plant>
+            <fertilityMin>0.01</fertilityMin>
+            <fertilitySensitivity>0.1</fertilitySensitivity>
+            <growDays>16.8</growDays>
+            <dieIfLeafless>true</dieIfLeafless>
+            <harvestTag>Standard</harvestTag>
+            <harvestedThingDef>DE_MyceliumTextile</harvestedThingDef>
+            <harvestYield>8</harvestYield>
+            <harvestAfterGrowth>0</harvestAfterGrowth>
+            <harvestMinGrowth>0.99</harvestMinGrowth>
+            <harvestFailable>false</harvestFailable>
+            <neverBlightable>true</neverBlightable>
+            <visualSizeRange>0.8~1.4</visualSizeRange>
+            <topWindExposure>0.2</topWindExposure>
+            <cavePlantWeight>0.25</cavePlantWeight>
+            <purpose>Misc</purpose>
+            <pollution>Any</pollution>
+        </plant>
+        <ingestible>
+            <foodType>Plant</foodType>
+            <preferability>NeverForNutrition</preferability>
+        </ingestible>
+    </ThingDef>
+
+</Defs>

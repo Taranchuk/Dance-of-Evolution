@@ -1,6 +1,6 @@
 {
-	"version": "2.0.0",
-	"tasks": [
+    "version": "2.0.0",
+    "tasks": [
 		{
 			"label": "SaveAllFiles",
 			"command": "${command:workbench.action.files.saveAll}",
@@ -13,15 +13,15 @@
             "command": "dotnet",
             "args": [
                 "build",
-                "${workspaceFolder}/1.6/Source/DanceOfEvolution.csproj"
+                "${workspaceFolder}/Source/DanceOfEvolution.csproj"
             ],
             "problemMatcher": "$msCompile",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-			"dependsOrder": "sequence",
-            "dependsOn": "SaveAllFiles"
+			"dependsOrder": "sequence",   // need this, "parallel" is the default otherwise
+            "dependsOn": "Save All Files"  // Add this line to ensure saving happens before build
         }
-	]
+    ]
 }

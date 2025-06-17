@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<DanceOfEvolution.PsychicRitualDef_CoagulateConciousness>
+		<defName>DE_CoagulateConciousness</defName>
+		<label>coagulate conciousness</label>
+		<description>Conduct a ritual that transforms a living victim and three large servants into a special servant under the control of the invoker, a fungal nexus. The ritual consumes the victim and the three large servants. Requires a shard of archotechnology.</description>
+		<researchPrerequisite>DE_LivingMetal</researchPrerequisite>
+		<outcomeDescription>At the end of the ritual, the victim and three large servants will be consumed, and a special servant will be created under the control of the invoker.</outcomeDescription>
+		<hoursUntilOutcome>5</hoursUntilOutcome>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Shard</li>
+				</thingDefs>
+			</filter>
+			<count>1</count>
+		</requiredOffering>
+		<targetRole>SpecialServantRitualTarget</targetRole>
+		<defenderRole>LargeServants</defenderRole>
+		<iconPath>UI/Icons/Ritual_Metal_Terror_Arrow</iconPath>
+	</DanceOfEvolution.PsychicRitualDef_CoagulateConciousness>
+
+	<PsychicRitualRoleDef>
+		<defName>SpecialServantRitualTarget</defName>
+		<label>target</label>
+		<allowedCount>1</allowedCount>
+		<allowedConditions>Default, Downed, Prisoner, Sleeping, IdeoUnwilling</allowedConditions>
+		<applyPowerOffset>false</applyPowerOffset>
+	</PsychicRitualRoleDef>
+
+	<PsychicRitualRoleDef>
+		<defName>LargeServants</defName>
+		<label>large servants</label>
+		<description>large servants will participate in this ritual to be sacrificed alongside with the victim.</description>
+		<allowedCount>3</allowedCount>
+		<allowedConditions>Default, Sleeping, Downed, Bleeding, Burning, NoPsychicSensitivity, NonHumanlike</allowedConditions>
+	</PsychicRitualRoleDef>
+
+	<DanceOfEvolution.PsychicRitualDef_CoagulateMuscleMass>
+		<defName>DE_CoagulateMuscleMass</defName>
+		<label>coagulate muscle mass</label>
+		<description>Induce psychic waves into the collective to allow an simple mending of flesh, warping three large fungal servants into a single chimera, an incredibly powerful creature of twisted flesh. This ritual requires bioferrite to mend the flesh properly.</description>
+		<outcomeDescription>At the end of the ritual, three large servants and bioferrite will be consumed, and a large servant chimera will be created under the control of the invoker.</outcomeDescription>
+		<hoursUntilOutcome>4</hoursUntilOutcome>
+		<cooldownHours>120</cooldownHours>
+		<researchPrerequisite>DE_AgglomerationRituals</researchPrerequisite>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Bioferrite</li>
+				</thingDefs>
+			</filter>
+			<count>50</count>
+		</requiredOffering>
+		<defenderRole>LargeServants</defenderRole>
+		<iconPath>UI/Icons/Ritual_Chimera</iconPath>
+	</DanceOfEvolution.PsychicRitualDef_CoagulateMuscleMass>
+
+	<PsychicRitualRoleDef>
+		<defName>SightstealerServant</defName>
+		<label>sightstealer servant</label>
+		<description>Sightstealer servant will be used as a base for the unstable revenant.</description>
+		<allowedCount>1</allowedCount>
+		<allowedConditions>Default, Sleeping, Downed, Bleeding, Burning, NoPsychicSensitivity, NonHumanlike</allowedConditions>
+	</PsychicRitualRoleDef>
+
+	<DanceOfEvolution.PsychicRitualDef_CoagulatePsychicWeight>
+		<defName>DE_CoagulatePsychicWeight</defName>
+		<label>coagulate psychic weight</label>
+		<description>Use immense psychic force and large quantities of bioferrite to condense the psychic aura of servants into a sightstealer body. Three large servants will be reduced to nothing, and the sightstealer will become an unstable creature that can turn invisible at will and hypnotise living beings.</description>
+		<outcomeDescription>At the end of the ritual, three large servants, a sightstealer servant and bioferrite will be consumed, and a special unstable revenant servant will be created under the control of the invoker.</outcomeDescription>
+		<researchPrerequisite>DE_AgglomerationRituals</researchPrerequisite>
+		<hoursUntilOutcome>4</hoursUntilOutcome>
+		<cooldownHours>1080</cooldownHours>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Bioferrite</li>
+				</thingDefs>
+			</filter>
+			<count>75</count>
+		</requiredOffering>
+		<iconPath>UI/Icons/Ritual_Revenant_Arrow</iconPath>
+		<defenderRole>LargeServants</defenderRole>
+		<extraDefenderRole>SightstealerServant</extraDefenderRole>
+	</DanceOfEvolution.PsychicRitualDef_CoagulatePsychicWeight>
+	<PsychicRitualRoleDef>
+		<defName>DE_ShardDuplicationTarget</defName>
+		<label>victim</label>
+		<allowedCount>1</allowedCount>
+		<allowedConditions>Default, Downed, Prisoner, Sleeping, IdeoUnwilling</allowedConditions>
+		<applyPowerOffset>false</applyPowerOffset>
+	</PsychicRitualRoleDef>
+	<DanceOfEvolution.PsychicRitualDef_ShardDuplication>
+		<defName>DE_ShardDuplication</defName>
+		<label>shard duplication</label>
+		<description>A human mind is no different than that of an archotech. While they operate at different levels of complexity, they are, at their core, simply computers. Thus a shard of archotechnology, as unknowable as it is, should be able to be produced by either minds. By subjecting a human to intense sensory deprivation we can completely disrupt the normal functions of the mind and cause the human's psyche to fracture. Once that is done, the shard can "share" its computations with the newly broken mind to create something new, dedicating the mind and body to the creation of more shards. The price for such immense knowledge is the complete and utter annihilation of the subject. This ritual is more effective if the subject has high psychic sensitivity.</description>
+		<researchPrerequisite>DE_ShardDuplication</researchPrerequisite>
+		<outcomeDescription>Consumes the victim to produce archotech shards. Yield depends on ritual quality and victim's psychic sensitivity.</outcomeDescription>
+		<hoursUntilOutcome>6</hoursUntilOutcome>
+		<cooldownHours>120</cooldownHours>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Shard</li>
+				</thingDefs>
+			</filter>
+			<count>1</count>
+		</requiredOffering>
+		<targetRole>DE_ShardDuplicationTarget</targetRole>
+		<iconPath>UI/Icons/Ritual_Shard_Duplication</iconPath>
+	</DanceOfEvolution.PsychicRitualDef_ShardDuplication>
+
+</Defs>
