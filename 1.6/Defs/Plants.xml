@@ -64,7 +64,7 @@
     <ThingDef ParentName="CavePlantBase">
         <defName>DE_FalseParasol</defName>
         <label>false parasol</label>
-        <description>Originally a poisonous mushroom found in earth's forests, only a sliver of its genetic code was left untouched by the collective that it now serves. False parasols now produce a thick, strange living matter that be sown into clothes. Through some unknown method, False parasols are also able to produce bioferrite like a fruit. These fungi are extremely large, and require wide open spaces to grow. They deteriorate extremely fast if exposed to sunlight.</description>
+        <description>Originally a poisonous mushroom found in earth's forests, only a sliver of its genetic code was left untouched by the collective that it now serves. False parasols now produce a thick, strange living matter that be sown into clothes. Through some unknown method, False parasols are also able to produce bioferrite like a fruit. They are fully dependent on their collective, and cannot grow unless their kin has properly terraformed the area.</description>
         <thingClass>DanceOfEvolution.FalseParasol</thingClass>
         <statBases>
             <MaxHitPoints>100</MaxHitPoints>
