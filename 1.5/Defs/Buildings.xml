@@ -259,7 +259,7 @@
 		<graphicData>
 			<texPath>Things/Building/Cloudmaker</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(5,5)</drawSize>
+			<drawSize>(8,8)</drawSize>
 			<shadowData>
 				<volume>(4.5,0.75,4.5)</volume>
 				<offset>(0,0,0)</offset>
