@@ -93,7 +93,7 @@
 		<description>A fungal collective relies deeply on psychic connections to function, sharing thoughts instantaneously over long distances. By using archotech shards, it is possible to manually improve these connections. This improves the work speed of the collective, but also affects how fast the nexus can produce burrowers. This can be installed up to 5 times.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
-		<maxSeverity>3</maxSeverity>
+		<maxSeverity>5</maxSeverity>
 		<levelIsQuantity>true</levelIsQuantity>
 		<stages>
 			<li>
@@ -104,6 +104,12 @@
 			</li>
 			<li>
 				<minSeverity>3</minSeverity>
+			</li>
+			<li>
+				<minSeverity>4</minSeverity>
+			</li>
+			<li>
+				<minSeverity>5</minSeverity>
 			</li>
 		</stages>
 	</HediffDef>
@@ -187,7 +193,7 @@
 		<description>While all fungi can regenerate themselves over time, the process is long and arduous. This implant helps fix this problem. Growth is stimulated using the healing properties of the juggernaut serum, and "spread" throughout the collective using shards of archotechnology. This can be installed up to 9 times.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
-		<maxSeverity>4</maxSeverity>
+		<maxSeverity>9</maxSeverity>
 		<levelIsQuantity>true</levelIsQuantity>
 		<stages>
 			<li>
@@ -201,6 +207,21 @@
 			</li>
 			<li>
 				<minSeverity>4</minSeverity>
+			</li>
+			<li>
+				<minSeverity>5</minSeverity>
+			</li>
+			<li>
+				<minSeverity>6</minSeverity>
+			</li>
+			<li>
+				<minSeverity>7</minSeverity>
+			</li>
+			<li>
+				<minSeverity>8</minSeverity>
+			</li>
+			<li>
+				<minSeverity>9</minSeverity>
 			</li>
 		</stages>
 	</HediffDef>
