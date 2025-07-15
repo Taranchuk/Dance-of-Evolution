@@ -297,6 +297,7 @@
 				<consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
 				<autoRefuelPercent>0.5</autoRefuelPercent>
 				<showFuelGizmo>true</showFuelGizmo>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
 				<initialFuelPercent>0</initialFuelPercent>
 			</li>
 		</comps>

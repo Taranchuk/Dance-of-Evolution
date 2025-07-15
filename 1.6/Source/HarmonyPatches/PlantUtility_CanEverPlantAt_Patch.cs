@@ -12,10 +12,13 @@ namespace DanceOfEvolution
 	{
 		public static void Postfix(ref AcceptanceReport __result, ThingDef plantDef, IntVec3 c, Map map)
 		{
-			TerrainDef terrain = map.terrainGrid.TerrainAt(c);
-			if (terrain == DefsOf.DE_RottenSoil && !plantDef.plant.cavePlant)
+			if (c.InBounds(map))
 			{
-				__result = new AcceptanceReport("DE_CanOnlyPlantCavePlantsOnRottenSoil".Translate());
+				TerrainDef terrain = map.terrainGrid.TerrainAt(c);
+				if (terrain == DefsOf.DE_RottenSoil && !plantDef.plant.cavePlant)
+				{
+					__result = new AcceptanceReport("DE_CanOnlyPlantCavePlantsOnRottenSoil".Translate());
+				}
 			}
 		}
 	}

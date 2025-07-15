@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>DE_TimelessOne</defName>
+    <graphicPath>Things/Pawn/Humanlike/Heads/TimelessOne_Head</graphicPath>
+    <randomChosen>false</randomChosen>
+    <eyeOffsetEastWest>(0.11, 0, 0.17)</eyeOffsetEastWest>
+  </HeadTypeDef>
+
+</Defs>

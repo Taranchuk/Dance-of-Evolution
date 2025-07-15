@@ -39,7 +39,7 @@
 		<description>A sharp, high-velocity projectile launched by the spike thrower.</description>
 		<projectile>
 			<speed>90</speed>
-			<damageDef>Bullet</damageDef>
+			<damageDef>Stab</damageDef>
 			<damageAmountBase>13</damageAmountBase>
 			<armorPenetrationBase>0.35</armorPenetrationBase>
 			<stoppingPower>0.5</stoppingPower>
