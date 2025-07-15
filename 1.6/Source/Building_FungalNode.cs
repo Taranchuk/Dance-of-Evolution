@@ -53,7 +53,7 @@ namespace DanceOfEvolution
 			foreach (var cell in GenAdj.CellsOccupiedBy(this))
 			{
 				var terrain = cell.GetTerrain(map);
-				if (terrain != DefsOf.DE_RottenSoil)
+				if (terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space)
 				{
 					TurnToRottenSoil(cell);
 				}
@@ -167,11 +167,11 @@ namespace DanceOfEvolution
 				foreach (var cell in cells)
 				{
 					var terrain = cell.GetTerrain(Map);
-					if (terrain != DefsOf.DE_RottenSoil)
+					if (terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space)
 					{
 						TurnToRottenSoil(cell);
 						cell.GetThingList(Map).Where(x => x is Plant plant
-							&& plant.def.plant.cavePlant is false).ToList().Do(x => x.Destroy());
+							&& plant.def.plant.cavePlant is false && WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(plant.def.defName) is false).ToList().Do(x => x.Destroy());
 						break;
 					}
 				}

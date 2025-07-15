@@ -4,7 +4,6 @@ using HarmonyLib;
 using System.Collections.Generic;
 namespace DanceOfEvolution
 {
-
     [HotSwappable]
     [HarmonyPatch(typeof(WildPlantSpawner), "CalculatePlantsWhichCanGrowAt")]
     public static class WildPlantSpawner_CalculatePlantsWhichCanGrowAt_Patch
@@ -16,7 +15,7 @@ namespace DanceOfEvolution
                 foreach (var plant in WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities)
                 {
                     var def = DefDatabase<ThingDef>.GetNamedSilentFail(plant.Key);
-                    if (def != null && !outPlants.Contains(def))
+                    if (def != null && !outPlants.Contains(def) && def.CanEverPlantAt(c, __instance.map))
                     {
                         outPlants.Add(def);
                     }
@@ -40,6 +39,7 @@ namespace DanceOfEvolution
             {"Bryolux", 0.05f},
             {"Plant_Psilocap", 0.01f},
             {"Plant_NightRafflesia", 0.01f},
+            {"DE_FalseParasol", 0.01f},
         };
         public static void Postfix(WildPlantSpawner __instance, ref float __result, ThingDef plant)
         {
@@ -49,7 +49,6 @@ namespace DanceOfEvolution
                 {
                     __result = value;
                 }
-                Log.Message(plant + " " + __result);
             }
         }
     }

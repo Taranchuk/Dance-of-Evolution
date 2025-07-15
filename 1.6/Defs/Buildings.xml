@@ -16,11 +16,6 @@
 			<texPath>Things/Building/FungalNode</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(5,5)</drawSize>
-			<damageData>
-				<rect>(0.02,0.25,2.96,2.85)</rect>
-				<cornerTL>Damage/Corner</cornerTL>
-				<cornerTR>Damage/Corner</cornerTR>
-			</damageData>
 			<shadowData>
 				<volume>(2.87,0.75,3.05)</volume>
 				<offset>(0,0,0.38)</offset>
