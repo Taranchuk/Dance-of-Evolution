@@ -82,8 +82,8 @@
                     <text>Now that you have arrived on a new world, you fully intend on making it your own. You have discarded the weakness others call humanity. Be they people, monsters, be they from here or elsewhere, all will become you.</text>
                     <closeSound>GameStartSting</closeSound>
                 </li>
-                <li Class="ScenPart_ScatterThingsNearPlayerStart">
-                    <def>ScatterThingsNearPlayerStart</def>
+                <li Class="ScenPart_StartingThing_Defined">
+                    <def>StartingThing_Defined</def>
                     <thingDef>Shard</thingDef>
                     <count>1</count>
                 </li>
