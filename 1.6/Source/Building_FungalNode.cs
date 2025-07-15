@@ -53,7 +53,7 @@ namespace DanceOfEvolution
 			foreach (var cell in GenAdj.CellsOccupiedBy(this))
 			{
 				var terrain = cell.GetTerrain(map);
-				if (terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space)
+				if (TerrainValidator(terrain))
 				{
 					TurnToRottenSoil(cell);
 				}
@@ -165,19 +165,25 @@ namespace DanceOfEvolution
 				var cells = Map.AllCells.Where(x => x.InBounds(Map) && x.DistanceTo(Position) <= 70f)
 				.OrderBy(x => x.DistanceTo(Position)).ToList();
 				foreach (var cell in cells)
-				{
-					var terrain = cell.GetTerrain(Map);
-					if (terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space)
-					{
-						TurnToRottenSoil(cell);
-						cell.GetThingList(Map).Where(x => x is Plant plant
-							&& plant.def.plant.cavePlant is false && WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(plant.def.defName) is false).ToList().Do(x => x.Destroy());
-						break;
-					}
-				}
-			}
+                {
+                    var terrain = cell.GetTerrain(Map);
+                    if (TerrainValidator(terrain))
+                    {
+                        TurnToRottenSoil(cell);
+                        cell.GetThingList(Map).Where(x => x is Plant plant
+                            && plant.def.plant.cavePlant is false && WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(plant.def.defName) is false).ToList().Do(x => x.Destroy());
+                        break;
+                    }
+                }
+            }
 		}
-		public override void ExposeData()
+
+        private bool TerrainValidator(TerrainDef terrain)
+        {
+            return terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space && terrain.IsWater is false;
+        }
+
+        public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Deep.Look(ref innerContainer, "innerContainer", this);

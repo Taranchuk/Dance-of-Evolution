@@ -22,6 +22,7 @@
             <li>Heavy</li>
             <li>GrowSoil</li>
             <li>Diggable</li>
+            <li>Walkable</li>
         </affordances>
     </TerrainDef>
 </Defs>

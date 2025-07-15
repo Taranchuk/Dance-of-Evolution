@@ -7,6 +7,7 @@
 		<letterText>A cloudmaker has begun blocking the sun.</letterText>
 		<letterDef>NegativeEvent</letterDef>
 		<natural>false</natural>
+		<canAffectAllPlanetLayers>true</canAffectAllPlanetLayers>
 	</GameConditionDef>
 
 	<GameConditionDef>
@@ -20,5 +21,6 @@
 		<canBePermanent>true</canBePermanent>
 		<natural>false</natural>
 		<allowUnderground>false</allowUnderground>
+		<canAffectAllPlanetLayers>true</canAffectAllPlanetLayers>
 	</GameConditionDef>
 </Defs>

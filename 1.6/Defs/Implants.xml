@@ -349,4 +349,35 @@
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
 		<spawnThingOnRemoved>DE_NeuralEnhancer</spawnThingOnRemoved>
 	</HediffDef>
+
+	<ThingDef ParentName="DE_FungalNexusCraftableBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>DE_VacuumResistanceImplant</defName>
+		<label>placeholder</label>
+		<description>placeholder</description>
+		<costList>
+			<Bioferrite>35</Bioferrite>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Shard>2</Shard>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<compClass>CompUsableImplant</compClass>
+				<useJob>UseItem</useJob>
+				<useLabel>Implant placeholder</useLabel>
+				<userMustHaveHediff>DE_FungalNexus</userMustHaveHediff>
+			</li>
+			<li Class="CompProperties_UseEffectInstallImplant">
+				<hediffDef>DE_VacuumResistanceImplant</hediffDef>
+				<bodyPart>Brain</bodyPart>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<HediffDef ParentName="DE_FungalImplantBase" MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>DE_VacuumResistanceImplant</defName>
+		<label>placeholder</label>
+		<description>placeholder</description>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+	</HediffDef>
 </Defs>

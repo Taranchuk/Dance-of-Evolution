@@ -75,6 +75,24 @@ namespace DanceOfEvolution
 					stage.showRegenerationStat = true;
 				}
 			}
+			if (ModsConfig.OdysseyActive)
+			{
+				var vacuumResistanceImplantHediff = masterHediff.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_VacuumResistanceImplant);
+				if (vacuumResistanceImplantHediff != null)
+				{
+					stage.statOffsets ??= new List<StatModifier>();
+					var modifier = stage.statOffsets.FirstOrDefault(sm => sm.stat == StatDefOf.VacuumResistance);
+					if (modifier is null)
+					{
+						modifier = new StatModifier
+						{
+							stat = StatDefOf.VacuumResistance,
+						};
+						stage.statOffsets.Add(modifier);
+					}
+					modifier.value = 1f;
+				}
+			}
 		}
 
 		public bool Controllable
