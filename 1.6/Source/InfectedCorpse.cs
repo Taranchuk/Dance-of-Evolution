@@ -11,10 +11,10 @@ namespace DanceOfEvolution
 		public Effecter riseEffecter;
 		private int ticksUntilReanimation;
 		public Hediff_FungalNexus hediff_FungalNexus;
-		
+
 		public InfectedCorpse()
 		{
-			
+
 		}
 		public InfectedCorpse(Corpse corpse, Hediff_ServantType hediff)
 		{
@@ -28,15 +28,15 @@ namespace DanceOfEvolution
 			float bodySize = corpse.InnerPawn.BodySize;
 			if (bodySize <= 0.99f)
 			{
-				ticksUntilReanimation = GenDate.TicksPerDay; // 1 day in ticks
+				ticksUntilReanimation = GenDate.TicksPerDay;
 			}
 			else if (bodySize >= 1f && bodySize <= 1.9f)
 			{
-				ticksUntilReanimation = 2 * GenDate.TicksPerDay; // 2 days in ticks
+				ticksUntilReanimation = 2 * GenDate.TicksPerDay;
 			}
 			else
 			{
-				ticksUntilReanimation = 3 * GenDate.TicksPerDay; // 3 days in ticks
+				ticksUntilReanimation = 3 * GenDate.TicksPerDay;
 			}
 		}
 		public void Tick(out bool remove)
@@ -65,7 +65,7 @@ namespace DanceOfEvolution
 			ResurrectionUtility.TryResurrect(pawn);
 			pawn.MakeServant(hediff_FungalNexus);
 		}
-		
+
 		private void MaintainEffects()
 		{
 			if (riseSustainer == null || riseSustainer.Ended)

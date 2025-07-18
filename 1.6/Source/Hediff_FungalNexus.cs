@@ -150,15 +150,9 @@ namespace DanceOfEvolution
 				{
 					burrowerSpawnSpeed *= 1 + (coordinator.level * 0.5f);
 				}
-
-				// Use the same formula as in PostTick for total spawn time
 				float spawnInterval = GenDate.TicksPerDay * 2f;
 				float remainingTime = spawnInterval - timer;
-
-				// Adjust remaining time by spawn speed
 				remainingTime /= burrowerSpawnSpeed;
-
-				// Ensure non-negative value
 				if (remainingTime < 0)
 				{
 					remainingTime = 0;
@@ -196,14 +190,14 @@ namespace DanceOfEvolution
 
 		private void ApplyAppearanceSettings()
 		{
-			if (pawn.story == null) return; // Safety check
+			if (pawn.story == null) return;
 
 			if (DanceOfEvolutionMod.settings.useTimelessHead)
 			{
 				if (pawn.story.headType != DefsOf.TimelessOne)
 				{
 					pawn.story.headType = DefsOf.TimelessOne;
-					pawn.Drawer.renderer.SetAllGraphicsDirty(); // Force redraw
+					pawn.Drawer.renderer.SetAllGraphicsDirty();
 				}
 			}
 

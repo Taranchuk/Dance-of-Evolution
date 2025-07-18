@@ -157,10 +157,10 @@ namespace DanceOfEvolution
 
 		private static void PatchTraders()
 		{
-			// Get all FactionDefs
+
 			var allFactionDefs = DefDatabase<FactionDef>.AllDefsListForReading;
 
-			// Filter to get only neolithic factions
+
 			var neolithicFactions = allFactionDefs.Where(f => f.humanlikeFaction
 			 && f.techLevel == TechLevel.Neolithic);
 

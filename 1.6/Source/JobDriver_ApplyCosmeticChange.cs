@@ -29,16 +29,16 @@ namespace DanceOfEvolution
 		public override IEnumerable<Toil> MakeNewToils()
 		{
 			this.FailOnDespawnedNullOrForbidden(GrowthSpotInd);
-			// Collect each required resource using predefined toils
+
 			foreach (Toil item in CollectIngredientsToils(IngredientInd, GrowthSpotInd, GrowthSpotInd,
 				subtractNumTakenFromJobCount: true, failIfStackCountLessThanJobCount: false))
 			{
 				yield return item;
 			}
-			// Go to GrowthSpot
+
 			yield return Toils_Goto.GotoThing(GrowthSpotInd, PathEndMode.OnCell);
 			yield return Toils_General.Wait(15000).WithProgressBarToilDelay(GrowthSpotInd);
-			// Apply cosmetic change
+
 			Toil applyCosmetic = ToilMaker.MakeToil();
 			applyCosmetic.initAction = () =>
 			{
@@ -58,12 +58,12 @@ namespace DanceOfEvolution
 						pawn.Map.physicalInteractionReservationManager.ReleaseClaimedBy(pawn, job);
 						job.placedThings = null;
 					}
-					
-					// Remove existing cosmetics
-					var allAttachments = fungalNexus.health.hediffSet.hediffs.FindAll(x => Startup.bodyAttachments.Contains(x.def)); // FindAll returns List, no ToList needed
+
+
+					var allAttachments = fungalNexus.health.hediffSet.hediffs.FindAll(x => Startup.bodyAttachments.Contains(x.def));
 					allAttachments.ForEach(x => fungalNexus.health.RemoveHediff(x));
 
-					// Apply new cosmetic
+
 					fungalNexus.health.AddHediff(selectedCosmetic);
 				}
 			};
@@ -85,7 +85,7 @@ namespace DanceOfEvolution
 			yield return PlaceHauledThingInCell(ingredientPlaceCellInd, findPlaceTarget, storageMode: false);
 			yield return Toils_Jump.JumpIfHaveTargetInQueue(ingredientInd, extract);
 		}
-		
+
 		public static Toil PlaceHauledThingInCell(TargetIndex cellInd, Toil nextToilOnPlaceFailOrIncomplete, bool storageMode, bool tryStoreInSameStorageIfSpotCantHoldWholeStack = false)
 		{
 			Toil toil = new Toil();

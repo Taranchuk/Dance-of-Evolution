@@ -16,7 +16,7 @@ namespace DanceOfEvolution
         {
             this.skillsToSpecialize = skillsToSpecialize;
             this.action = action;
-            // Window settings
+
             doCloseButton = false;
             doCloseX = false;
             forcePause = true;

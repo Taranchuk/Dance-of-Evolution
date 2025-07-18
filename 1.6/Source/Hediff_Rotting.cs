@@ -10,7 +10,7 @@ namespace DanceOfEvolution
 			base.Notify_PawnDied(dinfo, culprit);
 			if (pawn?.Corpse?.Map != null)
 			{
-				// Create rot gas
+
 				var cell = pawn.Corpse.Position;
 				var map = pawn.Corpse.Map;
 				var corpse = pawn.Corpse;

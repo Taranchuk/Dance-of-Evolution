@@ -12,8 +12,8 @@ namespace DanceOfEvolution
 		private CompRefuelable refuelableComp;
 		private Dictionary<Map, GameCondition> causedConditions = new Dictionary<Map, GameCondition>();
 		private static List<Map> mapsToRemoveConditionFrom = new List<Map>();
-		private const int DeathPallCooldownTicks = 1200000; // 20 days
-		private const float WorldRange = 10f; // Range in tiles for AoE effect
+		private const int DeathPallCooldownTicks = 1200000;
+		private const float WorldRange = 10f;
 		private int lastDeathPallTick = -1;
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
@@ -29,12 +29,12 @@ namespace DanceOfEvolution
 		{
 			base.Tick();
 
-			if (this.IsHashIntervalTick(60)) // Check every game second
+			if (this.IsHashIntervalTick(60))
 			{
 				UpdateMapEffects();
 			}
 
-			// Clean up expired conditions
+
 			mapsToRemoveConditionFrom.Clear();
 			foreach (var mapCondition in causedConditions)
 			{

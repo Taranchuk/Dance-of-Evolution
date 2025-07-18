@@ -14,7 +14,7 @@ namespace DanceOfEvolution
 		public override List<PsychicRitualToil> CreateToils(PsychicRitual psychicRitual, PsychicRitualGraph parent)
 		{
 			List<PsychicRitualToil> list = base.CreateToils(psychicRitual, parent);
-			var invokation = list.OfType<PsychicRitualToil_InvokeHorax>().First(); // Assuming InvokeHorax is still relevant or can be replaced
+			var invokation = list.OfType<PsychicRitualToil_InvokeHorax>().First();
 			invokation.defenderPositions.Clear();
 			int num2 = 0;
 			var assignments = psychicRitual.assignments;
@@ -23,12 +23,12 @@ namespace DanceOfEvolution
 			foreach (Pawn item4 in assignments.AssignedPawns(DefenderRole))
 			{
 				_ = item4;
-				IntVec3 cell3 = assignments.Target.Cell; // Target is not used in the original ritual, might need to adjust
+				IntVec3 cell3 = assignments.Target.Cell;
 				cell3 += IntVec3.FromPolar(360f * (float)num2++ / (float)num4, 1.5f);
 				//cell3 = GetBestStandableRolePosition(playerRitual, cell3, assignments.Target.Cell, assignments.Target.Map, 1.5f);
 				invokation.defenderPositions.Add(cell3);
 			}
-			list.Add(new PsychicRitualToil_CoagulateMuscleMass(InvokerRole, DefenderRole)); // Removed TargetRole
+			list.Add(new PsychicRitualToil_CoagulateMuscleMass(InvokerRole, DefenderRole));
 			return list;
 		}
 
@@ -50,7 +50,7 @@ namespace DanceOfEvolution
 			if (pawn is null || !pawn.IsFungalNexus(out var fungalNexus)
 				|| fungalNexus.servants.Count(x => x.IsServant(out var servant) && servant.ServantType == ServantType.Large) < 3)
 			{
-				yield return "DE_OnlyFungalNexusWithThreeLargeServantsCanStartThis".Translate(); // Reusing the same key, consider a new one
+				yield return "DE_OnlyFungalNexusWithThreeLargeServantsCanStartThis".Translate();
 			}
 			var defenders = assignments.AssignedPawns(DefenderRole);
 			if (defenders.Count(x => x.IsServant(out var servant) && servant.masterHediff.pawn == pawn) < 3)
@@ -70,7 +70,7 @@ namespace DanceOfEvolution
 		{
 		}
 
-		public PsychicRitualToil_CoagulateMuscleMass(PsychicRitualRoleDef invokerRole, PsychicRitualRoleDef defenderRole) // Removed targetRole
+		public PsychicRitualToil_CoagulateMuscleMass(PsychicRitualRoleDef invokerRole, PsychicRitualRoleDef defenderRole)
 		{
 			this.invokerRole = invokerRole;
 			this.defenderRole = defenderRole;
@@ -83,8 +83,8 @@ namespace DanceOfEvolution
 			var fungalNexus = invoker.GetFungalNexus();
 			psychicRitual.ReleaseAllPawnsAndBuildings();
 
-			// Generate Chimera
-			var faction = success ? invoker.Faction : Faction.OfEntities; // Faction of the chimera
+
+			var faction = success ? invoker.Faction : Faction.OfEntities;
 			Pawn chimera = PawnGenerator.GeneratePawn(PawnKindDefOf.Chimera, faction);
 			if (success)
 			{
@@ -96,10 +96,10 @@ namespace DanceOfEvolution
 					new List<Pawn> { chimera });
 			}
 
-			GenSpawn.Spawn(chimera, invoker.Position, invoker.Map); // Spawn at invoker's position
+			GenSpawn.Spawn(chimera, invoker.Position, invoker.Map);
 
-			// Kill defenders (large servants)
-			var defenders = psychicRitual.assignments.AssignedPawns(defenderRole).ToList(); // ToList to avoid modification during iteration
+
+			var defenders = psychicRitual.assignments.AssignedPawns(defenderRole).ToList();
 			foreach (var defender in defenders)
 			{
 				defender.Kill(new DamageInfo(DamageDefOf.Psychic, 99999f, 0f, -1f));

@@ -2,9 +2,9 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    public class CompBurrower : ThingComp
+	public class CompBurrower : ThingComp
 	{
-		private int lifeSpan = 60000; // 1 day in ticks
+		private int lifeSpan = 60000;
 		public override void CompTick()
 		{
 			base.CompTick();

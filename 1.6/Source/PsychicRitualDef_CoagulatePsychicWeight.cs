@@ -25,7 +25,7 @@ namespace DanceOfEvolution
 		public override List<PsychicRitualToil> CreateToils(PsychicRitual psychicRitual, PsychicRitualGraph parent)
 		{
 			List<PsychicRitualToil> list = base.CreateToils(psychicRitual, parent);
-			var invokation = list.OfType<PsychicRitualToil_InvokeHorax>().First(); // Assuming InvokeHorax is still relevant or can be replaced
+			var invokation = list.OfType<PsychicRitualToil_InvokeHorax>().First();
 			invokation.defenderPositions.Clear();
 			int num2 = 0;
 			var assignments = psychicRitual.assignments;
@@ -35,12 +35,12 @@ namespace DanceOfEvolution
 			foreach (Pawn item4 in assignments.AssignedPawns(DefenderRole))
 			{
 				_ = item4;
-				IntVec3 cell3 = assignments.Target.Cell; // Target is not used in the original ritual, might need to adjust
+				IntVec3 cell3 = assignments.Target.Cell;
 				cell3 += IntVec3.FromPolar(360f * (float)num2++ / (float)num4, 1.5f);
 				//cell3 = GetBestStandableRolePosition(playerRitual, cell3, assignments.Target.Cell, assignments.Target.Map, 1.5f);
 				invokation.defenderPositions.Add(cell3);
 			}
-			num2 = 0; // Reset num2 here
+			num2 = 0;
 			foreach (Pawn item5 in assignments.AssignedPawns(extraDefenderRole))
 			{
 				_ = item5;
@@ -75,7 +75,7 @@ namespace DanceOfEvolution
 				|| fungalNexus.servants.Count(x => x.IsServant(out var servant)
 				&& servant.pawn.kindDef == PawnKindDefOf.Sightstealer) < 1)
 			{
-				yield return "DE_OnlyFungalNexusWithThreeLargeServantsAndSightstealerServantCanStartThis".Translate(); // Reusing the same key, consider a new one
+				yield return "DE_OnlyFungalNexusWithThreeLargeServantsAndSightstealerServantCanStartThis".Translate();
 			}
 			var defenders = assignments.AssignedPawns(DefenderRole);
 			if (defenders.Count(x => x.IsServant(out var servant) && servant.masterHediff.pawn == pawn) < 3)
@@ -115,11 +115,11 @@ namespace DanceOfEvolution
 			var fungalNexus = invoker.GetFungalNexus();
 			psychicRitual.ReleaseAllPawnsAndBuildings();
 
-			// Generate Unstable Revenant Servant
+
 			var faction = success ? invoker.Faction : Faction.OfEntities;
 			Pawn sightstealer = psychicRitual.assignments.FirstAssignedPawn(extraDefenderRole);
 
-			// Kill defenders (large servants) and sightstealer
+
 			var defenders = psychicRitual.assignments.AssignedPawns(defenderRole).ToList();
 			foreach (var defender in defenders)
 			{
