@@ -43,6 +43,7 @@ namespace DanceOfEvolution
 				SetupStage();
 			}
 		}
+		
 
 		public void SetupStage()
 		{
@@ -71,7 +72,7 @@ namespace DanceOfEvolution
 				var growthStimulator = masterHediff.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_GrowthStimulatorImplant) as Hediff_Level;
 				if (growthStimulator != null)
 				{
-					stage.regeneration += 10 * growthStimulator.level;
+					stage.regeneration += 10 * growthStimulator.level * masterHediff.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
 					stage.showRegenerationStat = true;
 				}
 			}
@@ -93,6 +94,8 @@ namespace DanceOfEvolution
 					modifier.value = 1f;
 				}
 			}
+			pawn.health.hediffSet.CacheNeeds();
+			pawn.needs?.AddOrRemoveNeedsAsAppropriate();
 		}
 
 		public bool Controllable

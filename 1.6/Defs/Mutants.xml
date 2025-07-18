@@ -4,6 +4,7 @@
     <thinkTree>Ghoul</thinkTree>
     <thinkTreeConstant>GhoulConstant</thinkTreeConstant>
     <hediff>Ghoul</hediff>
+    <whitelistedFloatMenuProviders IsNull="True"></whitelistedFloatMenuProviders>
     <showJobReport>true</showJobReport>
     <canBleed>false</canBleed>
     <isImmuneToInfections>true</isImmuneToInfections>

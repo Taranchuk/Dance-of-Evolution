@@ -37,7 +37,6 @@ namespace DanceOfEvolution
 
                 if (cachedTargetMethod != null)
                 {
-                    Log.Message($"[DanceOfEvolution] Found target method by signature search in type {type.FullName}: {cachedTargetMethod.Name}");
                     break;
                 }
             }
