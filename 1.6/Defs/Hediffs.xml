@@ -78,6 +78,9 @@
 				<statOffsets>
 					<PsychicSensitivity>0.2</PsychicSensitivity>
 				</statOffsets>
+				<statFactors>
+					<MarketValue>2</MarketValue>
+				</statFactors>
 			</li>
 		</stages>
 		<renderNodeProperties>

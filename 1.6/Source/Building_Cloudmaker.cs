@@ -143,6 +143,7 @@ namespace DanceOfEvolution
 						cooldownPercentGetter = () => (Find.TickManager.TicksGame - lastDeathPallTick) / (float)DeathPallCooldownTicks,
 						defaultLabel = "DE_TriggerDeathPall".Translate(),
 						defaultDesc = "DE_TriggerDeathPallDesc".Translate(),
+						icon = ContentFinder<Texture2D>.Get("UI/CodexEntries/DeathPall"),
 						action = delegate ()
 						{
 							TriggerDeathPall();

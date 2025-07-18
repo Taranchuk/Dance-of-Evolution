@@ -43,7 +43,7 @@ namespace DanceOfEvolution
 				SetupStage();
 			}
 		}
-		
+
 
 		public void SetupStage()
 		{
@@ -96,6 +96,21 @@ namespace DanceOfEvolution
 			}
 			pawn.health.hediffSet.CacheNeeds();
 			pawn.needs?.AddOrRemoveNeedsAsAppropriate();
+		}
+
+		private float curMasterPsychicSensitivity;
+		public override void Tick()
+		{
+			base.Tick();
+			if (masterHediff != null && pawn.IsHashIntervalTick(60))
+			{
+				var masterPsychicSensitivity = masterHediff.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+				if (masterPsychicSensitivity != curMasterPsychicSensitivity)
+				{
+					curMasterPsychicSensitivity = masterPsychicSensitivity;
+					SetupStage();
+				}
+			}
 		}
 
 		public bool Controllable
@@ -213,6 +228,7 @@ namespace DanceOfEvolution
 				{
 					defaultLabel = "DE_SeekFood".Translate(),
 					defaultDesc = "DE_SeekFoodDesc".Translate(),
+					icon = ContentFinder<Texture2D>.Get("UI/Abilities/Slaughter"),
 					action = delegate
 					{
 						var jobGiver = new JobGiver_GetFood();
