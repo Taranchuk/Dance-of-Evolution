@@ -9,7 +9,7 @@
 
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_Assimilation</defName>
-		<label>assimilation</label>
+		<label>Assimilation</label>
 		<description>The spores of the Nexus Burgeon have been accepted by a willing host and they have begun to change the host's body. The transformation is long and disruptive, and any psycaster will hear thousands of voices coming from the host's mind.</description>
 		<hediffClass>DanceOfEvolution.Hediff_Assimilation</hediffClass>
 		<descriptionHyperlinks>
@@ -66,7 +66,7 @@
 
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_FungalNexus</defName>
-		<label>fungal nexus</label>
+		<label>Fungal Nexus</label>
 		<description>A fully grown Fungal Nexus. While it requires shards of archotechnology to fully develop, it is more than adept at obtaining them. Its true goal is unknown, yet it moves with purpose.</description>
 		<hediffClass>DanceOfEvolution.Hediff_FungalNexus</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
@@ -135,8 +135,8 @@
 
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_ServantBurrower</defName>
-		<label>burrower servant</label>
-		<description>A burrower servant type.</description>
+		<label>Burrower</label>
+		<description>A burrower, it seeks corpses to infest.</description>
 		<hediffClass>DanceOfEvolution.Hediff_ServantBurrower</hediffClass>
 		<stages>
 			<li>
@@ -147,21 +147,21 @@
 
 	<HediffDef ParentName="DE_ServantTypeBase">
 		<defName>DE_ServantSmall</defName>
-		<label>small servant</label>
+		<label>Small Servant</label>
 		<hediffClass>DanceOfEvolution.Hediff_ServantSmall</hediffClass>
 		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Due to the small size of the organism it inhabits, it performs menial tasks for its kin. A nexus of psychic energy allows communication between members of the collective.</description>
 	</HediffDef>
 
 	<HediffDef ParentName="DE_ServantTypeBase">
 		<defName>DE_ServantMedium</defName>
-		<label>medium servant</label>
+		<label>Medium Servant</label>
 		<hediffClass>DanceOfEvolution.Hediff_ServantMedium</hediffClass>
 		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. The most versatile servants of the collective. Their intellect and long limbs lets them do numerous tasks for the collective, such as mining, building, and even cooking. They have gained the ability to grow and sharpen the bones of the host they inhabit before firing them at high speeds, which makes them a threat both at short and long range.</description>
 	</HediffDef>
 
 	<HediffDef ParentName="DE_ServantTypeBase">
 		<defName>DE_ServantLarge</defName>
-		<label>large servant</label>
+		<label>Large Servant</label>
 		<hediffClass>DanceOfEvolution.Hediff_ServantLarge</hediffClass>
 		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Its large body is more mushroom than animal, which makes it extremely resilient against common weaponry, but extremely weak to fire. These servants use their own bodies as growth beds to help the collective sow any seed or spore.</description>
 		<stages Inherit="False">
@@ -193,7 +193,7 @@
 
 	<HediffDef ParentName="DE_ServantTypeBase">
 		<defName>DE_ServantSpecial</defName>
-		<label>special servant</label>
+		<label>Metal Terror</label>
 		<hediffClass>DanceOfEvolution.Hediff_ServantSpecial</hediffClass>
 		<description>A mass of amalgamated fungal matter as well as several infected bodies, and most importantly, the conciousness of a live human. This lumbering behemoth, despite being imposing, is not as threatening as it seems in melee. Its stiff and puppet-like movements make it very easy to dodge in close quarters. However, it posses a large organ meant to dispense deadly spores at long range. The spores latch onto whatever they land and rapidly begin spreading diseases in biological targets or sabotaging the structural integrity of mechanical ones. Despite possessing no eyes, this creature can perceive its environment perfectly using its advanced psychic senses.</description>
 		<stages Inherit="False">
@@ -218,9 +218,9 @@
 
 	<HediffDef ParentName="DE_ServantTypeBase">
 		<defName>DE_ServantUnstable</defName>
-		<label>unstable servant</label>
+		<label>Unstable Servant</label>
 		<hediffClass>DanceOfEvolution.Hediff_UnstableServant</hediffClass>
-		<description>This servant is unstable.</description>
+		<description>Merging psychic weights in this manner often results in dead subjects, but despite being unstable, this servant lives. While the collective can loosely control it, it will hunt on its own, and cannot heal any wounds.</description>
 		<stages Inherit="False">
 			<li>
 				<disablesNeeds>
@@ -249,7 +249,7 @@
 
 	<HediffDef>
 		<defName>DE_Invisibility</defName>
-		<label>invisibility</label>
+		<label>Invisibility</label>
 		<hediffClass>HediffWithComps</hediffClass>
 		<description>Psychically-induced invisibility. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
 		<isBad>false</isBad>
@@ -266,9 +266,9 @@
 
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_FungalTentacle</defName>
-		<label>fungal tentacle</label>
+		<label>Fungal Tentacle</label>
 		<labelNoun>a fungal tentacle</labelNoun>
-		<description>text.todo.</description>
+		<description>A small and dextrous tentacle that increases this creature's carrying capacity.</description>
 		<stages>
 			<li>
 				<statOffsets>
@@ -281,7 +281,7 @@
 			<li Class="HediffCompProperties_VerbGiver">
 				<tools>
 					<li>
-						<label>tentacle</label>
+						<label>Tentacle</label>
 						<capacities>
 							<li>Blunt</li>
 						</capacities>
@@ -344,15 +344,15 @@
 
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_BladedLimb</defName>
-		<label>bladed limb</label>
-		<labelNoun>a bladed limb</labelNoun>
+		<label>Fungal Limb</label>
+		<labelNoun>a fungal limb</labelNoun>
 		<description>A sharp limb capable of delivering slicing melee attacks.</description>
 		<hediffClass>DanceOfEvolution.Hediff_Stackable</hediffClass>
 		<comps>
 			<li Class="HediffCompProperties_VerbGiver">
 				<tools>
 					<li>
-						<label>bladed limb</label>
+						<label>Bladed Limb</label>
 						<capacities>
 							<li>Cut</li>
 						</capacities>
@@ -380,13 +380,13 @@
 
 	<HediffDef ParentName="DE_HangingSporesBase">
 		<defName>DE_HangingSporesMood</defName>
-		<label>hanging spores (mood)</label>
+		<label>Hanging Spores (mood)</label>
 		<defaultLabelColor>(0, 255, 0)</defaultLabelColor>
 	</HediffDef>
 
 	<HediffDef ParentName="DE_HangingSporesBase">
 		<defName>DE_HangingSporesConsciousness</defName>
-		<label>hanging spores (consciousness)</label>
+		<label>Hanging Spores (consciousness)</label>
 		<defaultLabelColor>(0, 0, 255)</defaultLabelColor>
 		<stages>
 			<li>
@@ -402,7 +402,7 @@
 
 	<HediffDef ParentName="DE_HangingSporesBase">
 		<defName>DE_HangingSporesMoving</defName>
-		<label>hanging spores (moving)</label>
+		<label>Hanging Spores (moving)</label>
 		<defaultLabelColor>(255, 255, 0)</defaultLabelColor>
 		<stages>
 			<li>
@@ -418,8 +418,8 @@
 
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_ClawHand</defName>
-		<label>claw hand</label>
-		<labelNoun>a claw hand</labelNoun>
+		<label>Claw</label>
+		<labelNoun>a Claw</labelNoun>
 		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of a similar material as timbershrooms, and are as hard as wood.</description>
 		<hediffClass>DanceOfEvolution.Hediff_Implant_Stackable</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
@@ -427,7 +427,7 @@
 			<li Class="HediffCompProperties_VerbGiver">
 				<tools>
 					<li>
-						<label>claw hand</label>
+						<label>Claw</label>
 						<capacities>
 							<li>Cut</li>
 						</capacities>
@@ -444,16 +444,16 @@
 
 	<HediffDef ParentName="DE_FungalHediffBase">
 		<defName>DE_UpgradedClawHand</defName>
-		<label>upgraded claw hand</label>
-		<labelNoun>an upgraded claw hand</labelNoun>
-		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of a similar material as timbershrooms, and are as hard as wood.</description>
+		<label>Improved Claw</label>
+		<labelNoun>an upgraded Claw</labelNoun>
+		<description>An extra set of appendages present on a Fungal Nexus after their transformation is complete which end in large claw-like protrusions. These digits are made of bioferrite, and are extremely sharp and dangerous.</description>
 		<hediffClass>DanceOfEvolution.Hediff_Implant_Stackable</hediffClass>
 		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
 		<comps>
 			<li Class="HediffCompProperties_VerbGiver">
 				<tools>
 					<li>
-						<label>upgraded claw</label>
+						<label>Claw</label>
 						<capacities>
 							<li>Cut</li>
 						</capacities>
