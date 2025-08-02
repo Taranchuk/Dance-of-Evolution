@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThoughtDef>
+		<defName>DE_LivingDressMood</defName>
+		<thoughtClass>DanceOfEvolution.Thought_LivingDress</thoughtClass>
+		<workerClass>DanceOfEvolution.ThoughtWorker_LivingDressMood</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>living dress bond</label>
+				<description>text.todo</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+</Defs>

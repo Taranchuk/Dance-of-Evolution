@@ -72,7 +72,16 @@ namespace DanceOfEvolution
 		public static ThoughtDef AteFungus_Despised, AteFungusAsIngredient_Despised;
 
 		public static PsychicRitualRoleDef LargeServants;
-		static DefsOf()
+		public static ThingDef DE_LivingDress;
+		public static HediffDef FleshmassLung;
+		public static JobDef DE_DevourCorpse;
+		public static AbilityDef DE_Devour;
+		public static ThingDef Filth_Fleshmass;
+		public static MentalStateDef Binging_Food;
+		public static MentalStateDef Tantrum;
+		public static PawnKindDef Toughspike;
+
+        static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

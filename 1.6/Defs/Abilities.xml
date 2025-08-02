@@ -122,4 +122,32 @@
 		</comps>
 	</AbilityDef>
 
+	<AbilityDef>
+		<defName>DE_Devour</defName>
+		<label>devour</label>
+		<description>text.todo.</description>
+		<iconPath>UI/Abilities/Slaughter</iconPath>
+		<cooldownTicksRange>2500</cooldownTicksRange>
+		<writeCombatLog>True</writeCombatLog>
+		<targetRequired>true</targetRequired>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<range>500</range>
+			<warmupTime>0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetItems>true</canTargetItems>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetLocations>false</canTargetLocations>
+				<thingCategory>Item</thingCategory>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="DanceOfEvolution.CompProperties_AbilityDevour" />
+		</comps>
+	</AbilityDef>
 </Defs>

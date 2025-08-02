@@ -8,6 +8,15 @@ using Verse.AI;
 
 namespace DanceOfEvolution
 {
+	public class ThinkNode_ConditionalServantIdle : ThinkNode_Conditional
+	{
+		public override bool Satisfied(Pawn pawn)
+		{
+			return pawn.IsControllableServantNoTileAndDownedCheck() &&
+				   (pawn.jobs.curJob == null || pawn.jobs.curJob.def == JobDefOf.Wait_Wander);
+		}
+	}
+
 	[HarmonyPatch(typeof(DefGenerator), nameof(DefGenerator.GenerateImpliedDefs_PreResolve))]
 	public static class GenerateImpliedDefs_PreResolve_Patch
 	{
@@ -105,6 +114,19 @@ namespace DanceOfEvolution
 										{
 											workTypes = workKvp.Value.workTypes,
 											workgivers = workKvp.Value.workgivers
+										},
+										new ThinkNode_ChancePerHour_Forage
+										{
+											subNodes = new List<ThinkNode>
+											{
+												new ThinkNode_ConditionalServantIdle
+												{
+													subNodes = new List<ThinkNode>
+													{
+														new JobGiver_Forage()
+													}
+												}
+											}
 										}
 									}
 				}).ToList<ThinkNode>()

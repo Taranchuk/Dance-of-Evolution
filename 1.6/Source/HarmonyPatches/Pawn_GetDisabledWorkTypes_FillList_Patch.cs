@@ -47,6 +47,7 @@ namespace DanceOfEvolution
 							list.Add(def);
 						}
 					}
+					Log.Message("Disabled work types for " + __instance + " " + list.ToStringSafeEnumerable());
 				}
 			}
 		}
