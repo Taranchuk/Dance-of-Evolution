@@ -146,11 +146,10 @@ namespace DanceOfEvolution
 		{
 			if (selectedCosmetic != null)
 			{
-				ThingDef rawFungus = DefsOf.RawFungus;
 				int requiredAmount = 60;
 				IngredientCount ingredientCount = new IngredientCount();
 				ingredientCount.SetBaseCount(requiredAmount);
-				ingredientCount.filter.SetAllow(rawFungus, allow: true);
+				ingredientCount.filter.SetAllow(DefsOf.RawFungus, allow: true);
 				var rawFungusList = new List<ThingCount>();
 				if (WorkGiver_DoBill.TryFindBestFixedIngredients(new List<IngredientCount> { ingredientCount },
 				 pawn, growthSpot, rawFungusList))

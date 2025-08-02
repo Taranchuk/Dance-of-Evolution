@@ -113,7 +113,7 @@
     <defName>DE_FungalGhoulSpecialized</defName>
     <label>fungal ghoul</label>
     <thinkTree>DE_GhoulSpecialized</thinkTree>
-    <workDisables>
+    <workDisables Inherit="False">
       <li>None</li>
     </workDisables>
   </MutantDef>

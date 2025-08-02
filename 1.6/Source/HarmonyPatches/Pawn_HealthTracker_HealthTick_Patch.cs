@@ -32,14 +32,16 @@ namespace DanceOfEvolution
 			}
 			return originalValue;
 		}
-		
+
 		public const int LungRotExposureTickRate = 60;
 		public static void Postfix(Pawn_HealthTracker __instance)
 		{
 			if (__instance.pawn.Spawned && __instance.pawn.IsHashIntervalTick(LungRotExposureTickRate))
 			{
 				var terrain = __instance.pawn.Position.GetTerrain(__instance.pawn.Map);
-				if (terrain == DefsOf.DE_RottenSoil)
+				if (terrain == DefsOf.DE_RottenSoil &&
+					!__instance.pawn.health.hediffSet.HasHediff(DefsOf.FleshmassLung) &&
+					!__instance.pawn.health.hediffSet.HasHediff(HediffDefOf.DetoxifierLung))
 				{
 					HealthUtility.AdjustSeverity(__instance.pawn, HediffDefOf.LungRotExposure, 0.001f);
 				}

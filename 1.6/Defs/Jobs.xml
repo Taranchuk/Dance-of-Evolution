@@ -33,4 +33,13 @@
 		<driverClass>DanceOfEvolution.JobDriver_ApplyCosmeticChange</driverClass>
 		<reportString>applying cosmetic change at TargetA.</reportString>
 	</JobDef>
+
+	<JobDef>
+		<defName>DE_DevourCorpse</defName>
+		<label>devouring corpse</label>
+		<driverClass>DanceOfEvolution.JobDriver_DevourCorpse</driverClass>
+		<reportString>devouring TargetA.</reportString>
+	</JobDef>
+
+
 </Defs>

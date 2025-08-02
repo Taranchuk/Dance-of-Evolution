@@ -9,7 +9,9 @@ namespace DanceOfEvolution
 	{
 		public static void Postfix(ref ThoughtState __result, Pawn p)
 		{
-			if (p.IsServant() || p.IsFungalNexus())
+			if (p.IsServant() || p.IsFungalNexus() ||
+				p.health?.hediffSet?.HasHediff(DefsOf.FleshmassLung) == true ||
+				p.health?.hediffSet?.HasHediff(HediffDefOf.DetoxifierLung) == true)
 			{
 				__result = ThoughtState.Inactive;
 			}

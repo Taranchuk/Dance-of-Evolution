@@ -5,7 +5,7 @@ using RimWorld;
 namespace DanceOfEvolution
 {
     [HarmonyPatch(typeof(Pawn_FlightTracker), "Notify_JobStarted")]
-    public static class Pawn_JobTracker_Notify_JobStarted_Patch
+    public static class Pawn_FlightTracker_Notify_JobStarted_Patch
     {
         public static bool Prefix(Pawn_FlightTracker __instance, Job job)
         {

@@ -380,4 +380,31 @@
 		<initialSeverity>1</initialSeverity>
 		<maxSeverity>1</maxSeverity>
 	</HediffDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>DE_FleshmassLung</defName>
+		<label>fleshmass lung</label>
+		<description>A cancerous mass of semi-sentient flesh. The tissue constantly regrows and replaces itself, making it immune to effects like lung rot and asthma.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+		<statBases>
+			<WorkToMake>26000</WorkToMake>
+			<MarketValue>800</MarketValue>
+		</statBases>
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<unfinishedThingDef>UnfinishedHealthItemGhoul</unfinishedThingDef>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers>
+				<li>BioferriteShaper</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<Meat_Twisted>100</Meat_Twisted>
+			<Bioferrite>40</Bioferrite>
+		</costList>
+	</ThingDef>
 </Defs>

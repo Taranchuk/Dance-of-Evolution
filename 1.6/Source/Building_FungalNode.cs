@@ -55,14 +55,13 @@ namespace DanceOfEvolution
 				var terrain = cell.GetTerrain(map);
 				if (TerrainValidator(terrain))
 				{
-					TurnToRottenSoil(cell);
+					TurnToRottenSoil(cell, map);
 				}
 			}
 		}
 
-		private void TurnToRottenSoil(IntVec3 cell)
+		private static void TurnToRottenSoil(IntVec3 cell, Map map)
 		{
-			var map = Map;
 			map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
 			var sporeMaker = cell.GetFirstThing(map, DefsOf.DE_Sporemaker) as Building_Sporemaker;
 			if (sporeMaker != null)
@@ -160,25 +159,30 @@ namespace DanceOfEvolution
 		public override void Tick()
 		{
 			base.Tick();
-			if (this.IsHashIntervalTick(300))
+			if (Spawned && this.IsHashIntervalTick(300))
 			{
-				var cells = Map.AllCells.Where(x => x.InBounds(Map) && x.DistanceTo(Position) <= 70f)
-				.OrderBy(x => x.DistanceTo(Position)).ToList();
-				foreach (var cell in cells)
-                {
-                    var terrain = cell.GetTerrain(Map);
-                    if (TerrainValidator(terrain))
-                    {
-                        TurnToRottenSoil(cell);
-                        cell.GetThingList(Map).Where(x => x is Plant plant
-                            && plant.def.plant.cavePlant is false && WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(plant.def.defName) is false).ToList().Do(x => x.Destroy());
-                        break;
-                    }
-                }
-            }
+				SpreadRottenSoil(Map, Position);
+			}
 		}
 
-        private bool TerrainValidator(TerrainDef terrain)
+		public static void SpreadRottenSoil(Map map, IntVec3 Position)
+		{
+			var cells = map.AllCells.Where(x => x.InBounds(map) && x.DistanceTo(Position) <= 70f)
+	.OrderBy(x => x.DistanceTo(Position)).ToList();
+			foreach (var cell in cells)
+			{
+				var terrain = cell.GetTerrain(map);
+				if (TerrainValidator(terrain))
+				{
+					TurnToRottenSoil(cell, map);
+					cell.GetThingList(map).Where(x => x is Plant plant
+						&& plant.def.plant.cavePlant is false && WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(plant.def.defName) is false).ToList().Do(x => x.Destroy());
+					break;
+				}
+			}
+		}
+
+        private static bool TerrainValidator(TerrainDef terrain)
         {
             return terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space && terrain.IsWater is false;
         }
@@ -211,6 +215,31 @@ namespace DanceOfEvolution
 				isActive = () => depositFood,
 				toggleAction = () => depositFood = !depositFood
 			};
+
+			var printMealCommand = new Command_Action
+			{
+				defaultLabel = "DE_PrintMeal".Translate(),
+				defaultDesc = "DE_PrintMealDesc".Translate(),
+				icon = DefsOf.DE_FungalSlurry.uiIcon,
+				action = delegate
+				{
+					if (CanDispenseNow)
+					{
+						var meal = TryDispenseFood();
+						if (meal != null)
+						{
+							GenPlace.TryPlaceThing(meal, this.InteractionCell, Map, ThingPlaceMode.Near);
+						}
+					}
+				}
+			};
+
+			if (!CanDispenseNow)
+			{
+				printMealCommand.Disable("DE_NotEnoughFoodToPrintMeal".Translate());
+			}
+
+			yield return printMealCommand;
 		}
 
 		public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
@@ -233,7 +262,7 @@ namespace DanceOfEvolution
 
         public bool HaulDestinationEnabled => true;
 
-        public bool HaulSourceEnabled => true;
+        public bool HaulSourceEnabled => false;
 
         [HarmonyPatch(typeof(Alert_PasteDispenserNeedsHopper), "BadDispensers", MethodType.Getter)]
 		public static class Alert_PasteDispenserNeedsHopper_BadDispensers_Patch

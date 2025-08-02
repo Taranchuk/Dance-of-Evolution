@@ -49,5 +49,14 @@
 	<DE_RitualTargetPsychicallyDeaf>{PAWN_labelShort} is psychically deaf and cannot be used as a target for this ritual.</DE_RitualTargetPsychicallyDeaf>
 	<DE_Ritual_ShardDuplication_Success>{TARGET_labelShort} was consumed by the ritual, producing {1} shards.</DE_Ritual_ShardDuplication_Success>
 	<DE_Ritual_ShardDuplication_Failure>The ritual failed to properly harness {TARGET_labelShort}'s psyche. The victim was consumed, but no shards were produced.</DE_Ritual_ShardDuplication_Failure>
+	<DE_PrintMeal>Print meal</DE_PrintMeal>
+	<DE_PrintMealDesc>Force the fungal node to produce one slurry meal for its usual cost.</DE_PrintMealDesc>
+	<DE_NotEnoughFoodToPrintMeal>Not enough food stored to print a meal.</DE_NotEnoughFoodToPrintMeal>
 
+	<DE_LivingDressBonded>The living dress has bonded with {0}.</DE_LivingDressBonded>
+	<DE_LivingDressDevoured>{0}'s living dress has devoured {1}, gaining {2} healing.</DE_LivingDressDevoured>
+	<DE_BondedTo>Bonded to: {0}</DE_BondedTo>
+	<DE_NotBonded>Not bonded</DE_NotBonded>
+	<DE_LivingDressAlreadyBonded>The living dress is already bonded to another pawn.</DE_LivingDressAlreadyBonded>
+	<DE_DevourAbilityInvalidTarget>Invalid target. Must be a fresh corpse.</DE_DevourAbilityInvalidTarget>
 </LanguageData>

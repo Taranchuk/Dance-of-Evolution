@@ -1,3 +1,6 @@
 {
-    "dotnet.defaultSolution": "1.6/Source/DanceOfEvolution.sln"
+    "dotnet.defaultSolution": "1.6/Source/DanceOfEvolution.sln",
+	"files.exclude": {
+        "**/1.5/": true
+    }
 }
