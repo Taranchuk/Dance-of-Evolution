@@ -13,7 +13,7 @@ namespace DanceOfEvolution
             if (pawn.apparel != null && thing?.def == DefsOf.DE_LivingDress)
             {
                 var comp = thing.TryGetComp<CompLivingDress>();
-                if (comp?.BondedPawn != null)
+                if (comp?.BondedPawn != null && comp.BondedPawn != pawn)
                 {
                     __result = false;
                     cantReason = "DE_LivingDressAlreadyBonded".Translate();

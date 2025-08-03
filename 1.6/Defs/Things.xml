@@ -130,6 +130,7 @@ While it is clear the original host remains at least somewhat in control of thei
 
     <ThingDef ParentName="ApparelNoQualityBase">
         <defName>DE_LivingDress</defName>
+        <tickerType>Normal</tickerType>
         <label>living dress</label>
         <description>text.todo</description>
         <graphicData>
@@ -152,12 +153,12 @@ While it is clear the original host remains at least somewhat in control of thei
             <Insulation_Cold>-40</Insulation_Cold>
             <Insulation_Heat>20</Insulation_Heat>
             <EquipDelay>5</EquipDelay>
-            <Beauty>2</Beauty>
             <MarketValue>5000</MarketValue>
         </statBases>
         <equippedStatOffsets>
             <PsychicSensitivity>0.5</PsychicSensitivity>
             <PsychicEntropyMax>12</PsychicEntropyMax>
+            <Beauty>2</Beauty>
             <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
         </equippedStatOffsets>
         <apparel>
@@ -173,6 +174,9 @@ While it is clear the original host remains at least somewhat in control of thei
             <layers>
                 <li>OnSkin</li>
             </layers>
+            <renderSkipFlags>
+                <li>None</li>
+            </renderSkipFlags>
             <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
             <abilities>
                 <li>DE_Devour</li>

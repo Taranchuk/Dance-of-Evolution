@@ -117,22 +117,10 @@ namespace DanceOfEvolution
 		{
 			get
 			{
-				if (masterHediff?.pawn is null || pawn.Tile != masterHediff.pawn.Tile)
+				if (masterHediff?.pawn is null)
 				{
 					return false;
 				}
-				if (masterHediff.pawn.Downed)
-				{
-					return false;
-				}
-				return ControllableNoTileAndDownedCheck;
-			}
-		}
-
-		public bool ControllableNoTileAndDownedCheck
-		{
-			get
-			{
 				if (pawn.kindDef == DefsOf.DE_Burrower)
 				{
 					return false;
@@ -145,14 +133,9 @@ namespace DanceOfEvolution
 				{
 					return false;
 				}
-				if (masterHediff.pawn.MentalState != null)
-				{
-					return false;
-				}
-				return pawn.Faction == Faction.OfPlayer && pawn.MentalStateDef == null;
+				return pawn.Faction == Faction.OfPlayer;
 			}
 		}
-
 
 		public override void PostAdd(DamageInfo? dinfo)
 		{
@@ -222,7 +205,7 @@ namespace DanceOfEvolution
 				yield return gizmo;
 			}
 
-			if (ControllableNoTileAndDownedCheck && pawn.needs.food != null)
+			if (Controllable && pawn.needs.food != null)
 			{
 				yield return new Command_Action
 				{

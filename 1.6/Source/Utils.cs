@@ -56,7 +56,7 @@ namespace DanceOfEvolution
 
 		public static bool IsControllableServantNoTileAndDownedCheck(this Pawn pawn)
 		{
-			return pawn.IsServant(out var hediff) && hediff.ControllableNoTileAndDownedCheck;
+			return pawn.IsServant(out var hediff) && hediff.Controllable;
 		}
 		public static bool IsControllableServant(this Pawn pawn, out Hediff_ServantType hediff)
 		{
