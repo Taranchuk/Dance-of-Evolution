@@ -131,8 +131,8 @@ While it is clear the original host remains at least somewhat in control of thei
     <ThingDef ParentName="ApparelNoQualityBase">
         <defName>DE_LivingDress</defName>
         <tickerType>Normal</tickerType>
-        <label>living dress</label>
-        <description>text.todo</description>
+        <label>Living dress</label>
+        <description>A dress made of anomalous materials. This amalgamation looks like any piece of clothing, but when worn, it will bond to the wearer, both physically and on a psychic level. As long as the dress is worn, the host enjoys a pleasurable buzz, and an unnatural resistance to damage, temperature, and even the vacuum of space. As well, the dress can instantly heal the host by ingesting fresh meat directly from a corpse. Wearers tend to become more animalistic and emotionally unstable; reacting violently to any form of verbal opposition, and getting random bouts of extreme hunger. Despite its tempering with the host's body in a similar manner to a stoneskin gland, the dress tends to reshape the body and the face to be extremely attractive, effects which disappear instantly when the dress is removed. Due to its strange material requirements and strange side effects, this item is outlawed in advanced society, and shunned as a cursed object in tribal ones.</description>
         <graphicData>
             <texPath>Things/Item/Apparel/FungalDress/FungalDress</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -150,9 +150,9 @@ While it is clear the original host remains at least somewhat in control of thei
             <ArmorRating_Sharp>0.70</ArmorRating_Sharp>
             <ArmorRating_Blunt>0.60</ArmorRating_Blunt>
             <ArmorRating_Heat>0.0</ArmorRating_Heat>
-            <Insulation_Cold>-40</Insulation_Cold>
+            <Insulation_Cold>40</Insulation_Cold>
             <Insulation_Heat>20</Insulation_Heat>
-            <EquipDelay>5</EquipDelay>
+            <EquipDelay>15</EquipDelay>
             <MarketValue>5000</MarketValue>
         </statBases>
         <equippedStatOffsets>
