@@ -158,7 +158,7 @@ While it is clear the original host remains at least somewhat in control of thei
         <equippedStatOffsets>
             <PsychicSensitivity>0.5</PsychicSensitivity>
             <PsychicEntropyMax>12</PsychicEntropyMax>
-            <Beauty>2</Beauty>
+            <PawnBeauty>2</PawnBeauty>
             <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
         </equippedStatOffsets>
         <apparel>
