@@ -14,10 +14,10 @@
 		<statBases>
 			<MarketValue>0</MarketValue>
 			<Mass>2.6</Mass>
-			<AccuracyTouch>0.60</AccuracyTouch>
+			<AccuracyTouch>0.50</AccuracyTouch>
 			<AccuracyShort>0.80</AccuracyShort>
 			<AccuracyMedium>0.90</AccuracyMedium>
-			<AccuracyLong>0.85</AccuracyLong>
+			<AccuracyLong>0.90</AccuracyLong>
 			<RangedWeapon_Cooldown>2.1</RangedWeapon_Cooldown>
 		</statBases>
 		<verbs>
@@ -71,9 +71,6 @@
 			<AccuracyLong>0.18</AccuracyLong>
 			<RangedWeapon_Cooldown>2.3</RangedWeapon_Cooldown>
 		</statBases>
-		<equippedStatOffsets>
-			<MoveSpeed>-0.25</MoveSpeed>
-		</equippedStatOffsets>
 		<verbs>
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
@@ -84,7 +81,6 @@
 				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
 				<soundCast>Shot_Minigun</soundCast>
 				<soundCastTail>GunTail_Medium</soundCastTail>
-				<muzzleFlashScale>9</muzzleFlashScale>
 			</li>
 		</verbs>
 	</ThingDef>

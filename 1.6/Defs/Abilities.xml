@@ -2,7 +2,7 @@
 <Defs>
 	<AbilityDef>
 		<defName>DE_Invisibility</defName>
-		<label>revenant invisibility</label>
+		<label>Revenant invisibility</label>
 		<description>Use the revenant vertebrae to temporarily turn invisible. The prosthetic manipulates the visual centers of those nearby, letting the user pass unnoticed.</description>
 		<iconPath>UI/Abilities/RevenantInvisibility</iconPath>
 		<cooldownTicksRange>180000</cooldownTicksRange>
@@ -10,7 +10,7 @@
 		<targetRequired>false</targetRequired>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<statBases>
-			<Ability_Duration>30</Ability_Duration>
+			<Ability_Duration>300</Ability_Duration>
 		</statBases>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
@@ -34,10 +34,11 @@
 
 	<AbilityDef>
 		<defName>DE_DeadlifeSporeCloud</defName>
-		<label>deploy deadlife dust</label>
-		<description>Deploy a cloud of deadlife dust to obscure and debilitate.</description>
+		<label>Deploy deadlife spores</label>
+		<description>Deploy a cloud of deadlife spores to reanimate the dead.</description>
 		<writeCombatLog>True</writeCombatLog>
 		<showPsycastEffects>False</showPsycastEffects>
+		<iconPath>UI/Abilities/ReleaseDeadlifeDust</iconPath>
 		<cooldownTicksRange>300000</cooldownTicksRange>
 		<verbProperties>
 			<verbClass>DanceOfEvolution.Verb_LaunchAbilityProjectile</verbClass>
@@ -64,9 +65,9 @@
 
 	<AbilityDef>
 		<defName>DE_ServantInvisibility</defName>
-		<label>invisibility</label>
+		<label>Invisibility</label>
 		<description>Renders the unstable servant invisible indefinitely. Invisibility is immediately canceled if the unstable servant deals or receives any damage.</description>
-		<iconPath>UI/Abilities/WraithInvisibility</iconPath>
+		<iconPath>UI/Abilities/RevenantInvisibility</iconPath>
 		<cooldownTicksRange>180000</cooldownTicksRange>
 		<writeCombatLog>True</writeCombatLog>
 		<targetRequired>false</targetRequired>
@@ -92,9 +93,9 @@
 
 	<AbilityDef>
 		<defName>DE_ServantHypnotise</defName>
-		<label>hypnotise</label>
-		<description>Hypnotises a target, inflicting Revenant Hypnosis. Can only be removed by killing the unstable servant that applied it.</description>
-		<iconPath>UI/Abilities/RevenantHypnotise</iconPath>
+		<label>Hypnotise</label>
+		<description>Hypnotises a target, inflicting Revenant Hypnosis. Can only be removed by killing the unstable servant that applied it. Only works on allies, the unstable servant hunts hostiles on its own.</description>
+		<iconPath>UI/PsychicRituals/PsychicRitual_Brainwipe</iconPath>
 		<cooldownTicksRange>180000</cooldownTicksRange>
 		<writeCombatLog>True</writeCombatLog>
 		<targetRequired>true</targetRequired>
@@ -124,8 +125,8 @@
 
 	<AbilityDef>
 		<defName>DE_Devour</defName>
-		<label>devour</label>
-		<description>text.todo.</description>
+		<label>Devour</label>
+		<description>Order the dress to devour a fresh corpse and use the nutrients to instantly regenerate the host.</description>
 		<iconPath>UI/Abilities/Slaughter</iconPath>
 		<cooldownTicksRange>2500</cooldownTicksRange>
 		<writeCombatLog>True</writeCombatLog>

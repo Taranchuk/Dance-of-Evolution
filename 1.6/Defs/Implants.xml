@@ -116,7 +116,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_FungalSpine</defName>
 		<label>Fungal Spine</label>
-		<description>A revenant is merely a construct of metal and flesh. It can be assimilated and used like any other living being, no matter how hard it resists. By taking away its will and sealing it within the collective's mind, the revenant's power to turn invisible can be added to a fungal nexus.</description>
+		<description>A fully assimilated revenant, its mind made subservient to the collective. The spine helps the user regenerate and allows them to turn invisible.</description>
 		<costList>
 			<RevenantSpine>1</RevenantSpine>
 			<Bioferrite>50</Bioferrite>
@@ -190,7 +190,7 @@
 		<defName>DE_GrowthStimulatorImplant</defName>
 		<hediffClass>DanceOfEvolution.Hediff_FungalImplantLevel</hediffClass>
 		<label>Growth Stimulator</label>
-		<description>While all fungi can regenerate themselves over time, the process is long and arduous. This implant helps fix this problem. Growth is stimulated using the healing properties of the juggernaut serum, and "spread" throughout the collective using shards of archotechnology. This can be installed up to 9 times.</description>
+		<description>Improves a fungal nexus' psychic grip over their collective, spreading the growth property of the juggernaught serum all servants and increasing their regeneration based on the nexus' psychic sensitivity. This can be installed up to 9 times.</description>
 		<initialSeverity>1</initialSeverity>
 		<minSeverity>0</minSeverity>
 		<maxSeverity>9</maxSeverity>
@@ -228,7 +228,7 @@
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_DeadlifeSporeGenerator</defName>
 		<label>Deadlife Spore Generator</label>
-		<description>A compressed colony of fungus specialized in creating deadlife spores using its own bioferrite. Allows the nexus to create a cloud of deadlife dust around itself. The colony needs 15 days to remake enough spores for another cloud.</description>
+		<description>A compressed colony of fungus specialized in creating deadlife spores using its own bioferrite. Allows the nexus to create a cloud of deadlife dust around itself. The colony needs 5 days to remake enough spores for another cloud.</description>
 		<costList>
 			<Bioferrite>120</Bioferrite>
 			<Shell_Deadlife>1</Shell_Deadlife>

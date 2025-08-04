@@ -9,8 +9,8 @@
 		<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
 		<stages>
 			<li>
-				<label>living dress bond</label>
-				<description>text.todo</description>
+				<label>Psychic dress symbiont</label>
+				<description>I can feel it wriggling against my skin and my mind, and somehow I don't hate it.</description>
 				<baseMoodEffect>5</baseMoodEffect>
 			</li>
 		</stages>

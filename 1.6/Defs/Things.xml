@@ -143,12 +143,12 @@ While it is clear the original host remains at least somewhat in control of thei
             <Bioferrite>70</Bioferrite>
         </costList>
         <statBases>
-            <MaxHitPoints>400</MaxHitPoints>
+            <MaxHitPoints>1000</MaxHitPoints>
             <WorkToMake>9000</WorkToMake>
             <Mass>2.0</Mass>
             <Flammability>0.2</Flammability>
             <ArmorRating_Sharp>0.70</ArmorRating_Sharp>
-            <ArmorRating_Blunt>0.60</ArmorRating_Blunt>
+            <ArmorRating_Blunt>0.70</ArmorRating_Blunt>
             <ArmorRating_Heat>0.0</ArmorRating_Heat>
             <Insulation_Cold>40</Insulation_Cold>
             <Insulation_Heat>20</Insulation_Heat>
@@ -177,7 +177,7 @@ While it is clear the original host remains at least somewhat in control of thei
             <renderSkipFlags>
                 <li>None</li>
             </renderSkipFlags>
-            <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+            <canBeDesiredForIdeo>true</canBeDesiredForIdeo>
             <abilities>
                 <li>DE_Devour</li>
             </abilities>
