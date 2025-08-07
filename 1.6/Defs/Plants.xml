@@ -90,7 +90,7 @@
             <dieIfLeafless>true</dieIfLeafless>
             <harvestTag>Standard</harvestTag>
             <harvestedThingDef>DE_MyceliumTextile</harvestedThingDef>
-            <harvestYield>8</harvestYield>
+            <harvestYield>14</harvestYield>
             <harvestAfterGrowth>0</harvestAfterGrowth>
             <harvestMinGrowth>0.99</harvestMinGrowth>
             <harvestFailable>false</harvestFailable>
