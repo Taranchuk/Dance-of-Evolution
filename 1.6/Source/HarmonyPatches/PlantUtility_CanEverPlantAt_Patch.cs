@@ -15,7 +15,7 @@ namespace DanceOfEvolution
 			if (c.InBounds(map))
 			{
 				TerrainDef terrain = map.terrainGrid.TerrainAt(c);
-				if (terrain == DefsOf.DE_RottenSoil && !plantDef.plant.cavePlant)
+				if (terrain == DefsOf.DE_RottenSoil && plantDef.CanSpawnOnRottenSoil() is false)
 				{
 					__result = new AcceptanceReport("DE_CanOnlyPlantCavePlantsOnRottenSoil".Translate());
 				}

@@ -29,7 +29,7 @@ namespace DanceOfEvolution
 
 				if (corpse.GetComp<CompRottable>() is CompRottable comp)
 				{
-					comp.RotProgress = comp.PropsRot.TicksToDessicated;
+					comp.RotProgress = comp.PropsRot.TicksToRotStart;
 				}
 			}
 		}

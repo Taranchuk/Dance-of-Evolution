@@ -21,13 +21,13 @@ namespace DanceOfEvolution
 		{
 			var buildingType = AccessTools.TypeByName("VanillaRacesExpandedFungoid.Building_FungoidShip");
 			if (buildingType == null) return null;
-			return AccessTools.Method(buildingType, "Tick");
+			return AccessTools.Method(buildingType, "TickInterval");
 		}
 
 
-		public static void Postfix(object __instance)
+		public static void Postfix(object __instance, int delta)
 		{
-			if (__instance is Building building && building.Spawned && building.IsHashIntervalTick(300))
+			if (__instance is Building building && building.Spawned && building.IsHashIntervalTick(300, delta))
 			{
 				Building_FungalNode.SpreadRottenSoil(building.Map, building.Position);
 			}

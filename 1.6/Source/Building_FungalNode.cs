@@ -152,16 +152,17 @@ namespace DanceOfEvolution
 			{
 				var terrain = cell.GetTerrain(map);
 				if (TerrainValidator(terrain))
-				{
-					TurnToRottenSoil(cell, map);
-					cell.GetThingList(map).Where(x => x is Plant plant
-						&& plant.def.plant.cavePlant is false && WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(plant.def.defName) is false).ToList().Do(x => x.Destroy());
-					break;
-				}
-			}
+                {
+                    TurnToRottenSoil(cell, map);
+                    cell.GetThingList(map).Where(x => x.def.IsPlant && x.def.CanSpawnOnRottenSoil() is false).ToList().Do(x => x.Destroy());
+                    break;
+                }
+            }
 		}
 
-		private static bool TerrainValidator(TerrainDef terrain)
+
+
+        private static bool TerrainValidator(TerrainDef terrain)
 		{
 			return terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space && terrain.IsWater is false;
 		}
@@ -221,14 +222,22 @@ namespace DanceOfEvolution
 			yield return printMealCommand;
 		}
 
-		public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
-		{
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            base.Destroy(mode);
 			if (storageGroup != null)
 			{
 				storageGroup?.RemoveMember(this);
 				storageGroup = null;
 			}
-			innerContainer?.TryDropAll(Position, Map, ThingPlaceMode.Near);
+		}
+		
+		public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+		{
+			if (mode != DestroyMode.WillReplace)
+			{
+				innerContainer?.TryDropAll(Position, Map, ThingPlaceMode.Near);
+			}
 			base.DeSpawn(mode);
 		}
 

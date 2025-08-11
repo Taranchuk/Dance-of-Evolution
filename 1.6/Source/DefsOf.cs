@@ -31,7 +31,7 @@ namespace DanceOfEvolution
 		public static HediffDef DE_HangingSporesMood, DE_HangingSporesConsciousness, DE_HangingSporesMoving;
 		public static JobDef DE_ConsumeSpores;
 		public static JobDef DE_HarvestCerebrum;
-		public static HeadTypeDef TimelessOne;
+		public static HeadTypeDef DE_TimelessOne;
 		public static HediffDef DE_ClawHand;
 		public static BodyPartGroupDef Arms, Shoulders;
 		public static ShaderTypeDef CutoutPlant;

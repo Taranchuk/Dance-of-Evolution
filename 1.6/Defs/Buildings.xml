@@ -235,16 +235,12 @@
 			<texPath>Things/Building/Cloudmaker</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(6,6)</drawSize>
-			<shadowData>
-				<volume>(4.5,0.75,4.5)</volume>
-				<offset>(0,0,0)</offset>
-			</shadowData>
 		</graphicData>
 		<size>(5,5)</size>
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>Impassable</passability>
 		<blockWind>true</blockWind>
-		<castEdgeShadows>true</castEdgeShadows>
+		<castEdgeShadows>false</castEdgeShadows>
 		<fillPercent>1</fillPercent>
 		<statBases>
 			<WorkToBuild>12000</WorkToBuild>

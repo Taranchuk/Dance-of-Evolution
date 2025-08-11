@@ -3,6 +3,7 @@ using RimWorld;
 using Verse;
 using System.Linq;
 using System.Reflection;
+using HarmonyLib;
 
 namespace DanceOfEvolution
 {
@@ -116,11 +117,53 @@ namespace DanceOfEvolution
 			}
 			return null;
 		}
-
+		
+		public static bool CanSpawnOnRottenSoil(this ThingDef def)
+		{
+			return def.plant != null && (def.plant.cavePlant || WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(def.defName));
+		}
+		
 		public static T Clone<T>(this T obj)
 		{
 			var inst = obj.GetType().GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
 			return (T)inst?.Invoke(obj, null);
+		}
+	}
+
+
+	[HarmonyPatch(typeof(Thing), nameof(Thing.Destroy))]
+	public static class Thing_Destroy_Patch
+	{
+		public static void Postfix(Thing __instance)
+		{
+			if (__instance.def.saveCompressible || __instance is Filth)
+				return;
+			Log.Message("Destroying thing: " + __instance);
+		}
+	}
+
+	//[HarmonyPatch(typeof(Thing), nameof(Thing.Position), MethodType.Setter)]
+	//public static class Thing_Position_Patch
+	//{
+	//    public static void Prefix(Thing __instance, out IntVec3 __state)
+	//    {
+	//        __state = __instance.Position;
+	//    }
+	//    public static void Postfix(Thing __instance, IntVec3 __state)
+	//    {
+	//        if (__instance.Position != __state)
+	//        {
+	//            Log.Message(__instance + " changing position to " + __instance.Position);
+	//        }
+	//    }
+	//}
+
+	[HarmonyPatch(typeof(Pawn), nameof(Pawn.Kill))]
+	public static class Pawn_Kill_Patch2
+	{
+		public static void Postfix(Pawn __instance)
+		{
+			Log.Message("Killing pawn: " + __instance);
 		}
 	}
 }

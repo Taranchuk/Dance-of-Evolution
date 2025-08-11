@@ -15,9 +15,17 @@ namespace DanceOfEvolution
                 foreach (var plant in WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities)
                 {
                     var def = DefDatabase<ThingDef>.GetNamedSilentFail(plant.Key);
-                    if (def != null && !outPlants.Contains(def) && def.CanEverPlantAt(c, __instance.map))
+                    if (def != null && !outPlants.Contains(def))
                     {
-                        outPlants.Add(def);
+                        if (def.CanEverPlantAt(c, __instance.map))
+                        {
+                            outPlants.Add(def);
+                        }
+                        else
+                        {
+                            var reason = def.CanEverPlantAt(c, __instance.map, out var blockingThing);
+                            Log.Error($"Failed to add {def.defName} to wild plant spawner because {reason.Reason} - {blockingThing}");
+                        }
                     }
                 }
             }

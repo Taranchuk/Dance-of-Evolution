@@ -194,9 +194,19 @@ namespace DanceOfEvolution
 
 			if (DanceOfEvolutionMod.settings.useTimelessHead)
 			{
-				if (pawn.story.headType != DefsOf.TimelessOne)
+				var originalDefName = pawn.story.headType.defName;
+				if (!originalDefName.Contains("_Timeless"))
 				{
-					pawn.story.headType = DefsOf.TimelessOne;
+					var newDefName = "DE_" + originalDefName + "_Timeless";
+					var newHead = DefDatabase<HeadTypeDef>.GetNamed(newDefName, false);
+					if (newHead != null)
+					{
+						pawn.story.headType = newHead;
+					}
+					else if (pawn.story.headType != DefsOf.DE_TimelessOne)
+					{
+						pawn.story.headType = DefsOf.DE_TimelessOne;
+					}
 					pawn.Drawer.renderer.SetAllGraphicsDirty();
 				}
 			}

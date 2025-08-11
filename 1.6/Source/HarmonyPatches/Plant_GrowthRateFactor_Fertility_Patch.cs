@@ -9,7 +9,7 @@ namespace DanceOfEvolution
 		public static void Postfix(Plant __instance, ref float __result)
 		{
 			TerrainDef terrain = __instance.Map.terrainGrid.TerrainAt(__instance.Position);
-			if (terrain == DefsOf.DE_RottenSoil && !__instance.def.plant.cavePlant)
+			if (terrain == DefsOf.DE_RottenSoil && !__instance.def.CanSpawnOnRottenSoil())
 			{
 				__result = 0f;
 			}

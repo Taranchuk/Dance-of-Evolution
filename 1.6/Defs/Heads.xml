@@ -8,4 +8,93 @@
     <eyeOffsetEastWest>(0.11, 0, 0.17)</eyeOffsetEastWest>
   </HeadTypeDef>
 
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>DE_Female_AverageNormal_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Female/Female_Average_Normal_Timeless</graphicPath>
+    <gender>Female</gender>
+    <randomChosen>false</randomChosen>
+    <eyeOffsetEastWest>(0.13, 0, 0.17)</eyeOffsetEastWest>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>DE_Female_AveragePointy_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Female/Female_Average_Pointy_Timeless</graphicPath>
+    <gender>Female</gender>
+    <randomChosen>false</randomChosen>
+    <eyeOffsetEastWest>(0.13, 0, 0.17)</eyeOffsetEastWest>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>DE_Female_AverageWide_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Female/Female_Average_Wide_Timeless</graphicPath>
+    <gender>Female</gender>
+    <randomChosen>false</randomChosen>
+    <eyeOffsetEastWest>(0.13, 0, 0.17)</eyeOffsetEastWest>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="NarrowBase">
+    <defName>DE_Female_NarrowNormal_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Female/Female_Narrow_Normal_Timeless</graphicPath>
+    <gender>Female</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="NarrowBase">
+    <defName>DE_Female_NarrowPointy_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Female/Female_Narrow_Pointy_Timeless</graphicPath>
+    <gender>Female</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="NarrowBase">
+    <defName>DE_Female_NarrowWide_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Female/Female_Narrow_Wide_Timeless</graphicPath>
+    <gender>Female</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>DE_Male_AverageNormal_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Male/Male_Average_Normal_Timeless</graphicPath>
+    <gender>Male</gender>
+    <randomChosen>false</randomChosen>
+    <eyeOffsetEastWest>(0.18, 0, 0.17)</eyeOffsetEastWest>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>DE_Male_AveragePointy_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Male/Male_Average_Pointy_Timeless</graphicPath>
+    <gender>Male</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>DE_Male_AverageWide_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Male/Male_Average_Wide_Timeless</graphicPath>
+    <gender>Male</gender>
+    <randomChosen>false</randomChosen>
+    <eyeOffsetEastWest>(0.18, 0, 0.17)</eyeOffsetEastWest>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="NarrowBase">
+    <defName>DE_Male_NarrowNormal_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Male/Male_Narrow_Normal_Timeless</graphicPath>
+    <gender>Male</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="NarrowBase">
+    <defName>DE_Male_NarrowPointy_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Male/Male_Narrow_Pointy_Timeless</graphicPath>
+    <gender>Male</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="NarrowBase">
+    <defName>DE_Male_NarrowWide_Timeless</defName>
+    <graphicPath>Things/Pawn/Humanlikes/Heads/Male/Male_Narrow_Wide_Timeless</graphicPath>
+    <gender>Male</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
 </Defs>
