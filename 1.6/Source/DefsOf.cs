@@ -26,8 +26,8 @@ namespace DanceOfEvolution
 		public static HediffDef DE_Invisibility;
 		public static ThingDef DE_FungalNode;
 		public static TerrainDef DE_RottenSoil;
-		public static ThingDef DE_Sporemaker, DE_HardenedSporemaker;
-		public static ThingDef DE_Cerebrum, DE_HardenedCerebrum;
+		public static ThingDef DE_Sporemaker;
+		public static ThingDef DE_Cerebrum;
 		public static HediffDef DE_HangingSporesMood, DE_HangingSporesConsciousness, DE_HangingSporesMoving;
 		public static JobDef DE_ConsumeSpores;
 		public static JobDef DE_HarvestCerebrum;
@@ -81,7 +81,7 @@ namespace DanceOfEvolution
 		public static MentalStateDef Tantrum;
 		public static PawnKindDef Toughspike;
 
-        static DefsOf()
+		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

@@ -10,8 +10,7 @@ namespace DanceOfEvolution
 		{
 			if (pawn.IsControllableServantNoTileAndDownedCheck() || pawn.IsFungalNexus())
 			{
-				var sporeMakers = pawn.Map.listerThings.ThingsOfDef(DefsOf.DE_Sporemaker)
-					.Concat(pawn.Map.listerThings.ThingsOfDef(DefsOf.DE_HardenedSporemaker)).Cast<Building_Sporemaker>();
+				var sporeMakers = pawn.Map.listerThings.ThingsOfDef(DefsOf.DE_Sporemaker).Cast<Building_Sporemaker>();
 				foreach (var sporeMaker in sporeMakers.OrderBy(x => x.Position.DistanceTo(pawn.Position)))
 				{
 					if (sporeMaker.Active && pawn.health.hediffSet.GetFirstHediffOfDef(sporeMaker.sporeHediff) is null)

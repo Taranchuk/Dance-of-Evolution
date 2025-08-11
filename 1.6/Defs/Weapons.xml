@@ -26,7 +26,7 @@
 				<defaultProjectile>DE_SpikeProjectile</defaultProjectile>
 				<warmupTime>2.5</warmupTime>
 				<range>37</range>
-				<soundCast>Shot_NeedleGun</soundCast>
+				<soundCast>Gorehulk_Spine_Launch</soundCast>
 				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
 				<burstShotCount>2</burstShotCount>
 			</li>
@@ -45,9 +45,8 @@
 			<stoppingPower>0.5</stoppingPower>
 		</projectile>
 		<graphicData>
-			<texPath>Things/Projectile/Needle</texPath>
+			<texPath>Things/Projectile/Projectile_GorehulkSpike</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>1.3</drawSize>
 		</graphicData>
 	</ThingDef>
 
@@ -79,8 +78,7 @@
 				<range>30.9</range>
 				<burstShotCount>25</burstShotCount>
 				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
-				<soundCast>Shot_Minigun</soundCast>
-				<soundCastTail>GunTail_Medium</soundCastTail>
+				<soundCast>Gorehulk_Spine_Launch</soundCast>
 			</li>
 		</verbs>
 	</ThingDef>
@@ -90,14 +88,57 @@
 		<label>spore</label>
 		<description>A spore launched by the spore launcher.</description>
 		<projectile>
-			<damageDef>Bullet</damageDef>
+			<damageDef>DE_ClawingSpore</damageDef>
 			<damageAmountBase>10</damageAmountBase>
 			<speed>70</speed>
 		</projectile>
 		<graphicData>
-			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<texPath>Things/Projectile/Projectile_GorehulkSpike</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
 
+	<DamageDef>
+		<defName>DE_ClawingSpore</defName>
+		<label>Clawing Spore</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} has been shot to death.</deathMessage>
+		<hediff>DE_ClawingSpore</hediff>
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+		<impactSoundType>Bullet</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+		<isRanged>true</isRanged>
+		<makesAnimalsFlee>true</makesAnimalsFlee>
+	</DamageDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>DE_ClawingSpore</defName>
+		<label>Clawing Spore</label>
+		<labelNoun>a Clawing Spore wound</labelNoun>
+		<description>A Clawing Spore wound.</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>bandaged</labelTendedWell>
+				<labelTendedWellInner>sutured</labelTendedWellInner>
+				<labelSolidTendedWell>set</labelSolidTendedWell>
+			</li>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>0.15</infectionChance>
+			</li>
+			<li Class="HediffCompProperties_GetsPermanent">
+				<permanentLabel>old Clawing Spore</permanentLabel>
+				<instantlyPermanentLabel>permanent Clawing Spore injury</instantlyPermanentLabel>
+			</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.0125</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.06</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>Shot off</destroyedLabel>
+			<destroyedOutLabel>Shot out</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
 </Defs>

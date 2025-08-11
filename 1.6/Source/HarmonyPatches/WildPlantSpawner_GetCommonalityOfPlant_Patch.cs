@@ -34,12 +34,11 @@ namespace DanceOfEvolution
             {"Plant_Nightgrass", 12f},
             {"Boomshroom", 0.01f},
             {"Plant_Willowgill", 0.2f},
-            {"Glowstool", 0.01f},
-            {"Agarilux", 0.01f},
             {"Bryolux", 0.05f},
             {"Plant_Psilocap", 0.01f},
             {"Plant_NightRafflesia", 0.01f},
             {"DE_FalseParasol", 0.01f},
+            {"DE_MycelialTree", 0.005f},
         };
         public static void Postfix(WildPlantSpawner __instance, ref float __result, ThingDef plant)
         {

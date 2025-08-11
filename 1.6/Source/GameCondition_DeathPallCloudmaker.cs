@@ -5,7 +5,7 @@ namespace DanceOfEvolution
 {
 	public class GameCondition_DeathPallCloudmaker : GameCondition_ForceWeather
 	{
-		private static readonly IntRange ResurrectIntervalRange = new IntRange(300, 900);
+		private static readonly IntRange ResurrectIntervalRange = new IntRange(100, 300);
 		private int nextResurrectTick;
 		public override void ExposeData()
 		{
@@ -30,7 +30,7 @@ namespace DanceOfEvolution
 			{
 				return;
 			}
-			foreach (Map affectedMap in base.AffectedMaps)
+			foreach (Map affectedMap in AffectedMaps)
 			{
 				foreach (Thing item in affectedMap.listerThings.ThingsInGroup(ThingRequestGroup.Corpse))
 				{
@@ -59,7 +59,7 @@ namespace DanceOfEvolution
 		{
 			Find.LetterStack.ReceiveLetter("LetterLabelDeathPallEnded".Translate(), "LetterDeathPallEnded".Translate(), LetterDefOf.NeutralEvent);
 			base.End();
-			base.SingleMap.weatherDecider.StartNextWeather();
+			SingleMap.weatherDecider.StartNextWeather();
 		}
 	}
 }

@@ -11,7 +11,7 @@ namespace DanceOfEvolution
         {
             if (ignoreCavePlants)
             {
-                if (toAddGlower.parent.def == DefsOf.DE_Sporemaker || toAddGlower.parent.def == DefsOf.DE_HardenedSporemaker)
+                if (toAddGlower.parent.def == DefsOf.DE_Sporemaker)
                 {
                     __result = existingSum;
                     return false;

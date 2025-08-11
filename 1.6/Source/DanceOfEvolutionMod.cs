@@ -15,17 +15,7 @@ namespace DanceOfEvolution
 			settings = GetSettings<DanceOfEvolutionSettings>();
 			var assembly = Assembly.GetExecutingAssembly();
 			var harmony = new Harmony("DanceOfEvolutionMod");
-			AccessTools.GetTypesFromAssembly(assembly).Do(delegate (Type type)
-			{
-				try
-				{
-					harmony.CreateClassProcessor(type).Patch();
-				}
-				catch (Exception ex)
-				{
-					Log.Error("Failed to patch " + type + ": " + ex.Message);
-				}
-			});
+			harmony.PatchAll(assembly);
 		}
 
 		public override void DoSettingsWindowContents(Rect inRect)

@@ -138,24 +138,6 @@
 		</comps>
 	</ThingDef>
 
-	<ThingDef ParentName="DE_SporemakerBase">
-		<defName>DE_HardenedSporemaker</defName>
-		<label>hardened sporemaker</label>
-		<designationCategory IsNull="True" />
-		<comps>
-			<li Class="CompProperties_Refuelable">
-				<fuelFilter>
-					<thingDefs>
-						<li>Bioferrite</li>
-					</thingDefs>
-				</fuelFilter>
-				<fuelConsumptionRate>11</fuelConsumptionRate>
-				<fuelCapacity>100</fuelCapacity>
-				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-			</li>
-		</comps>
-	</ThingDef>
 
 	<ThingDef ParentName="DE_FungalBuildingBase" Name="DE_Cerebrum">
 		<defName>DE_Cerebrum</defName>
@@ -199,11 +181,6 @@
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 	</ThingDef>
 
-	<ThingDef ParentName="DE_Cerebrum">
-		<defName>DE_HardenedCerebrum</defName>
-		<label>hardened cerebrum</label>
-		<designationCategory IsNull="True" />
-	</ThingDef>
 
 	<ThingDef ParentName="Wall" Name="DE_FungusWallBase">
 		<defName>DE_FungusWall</defName>

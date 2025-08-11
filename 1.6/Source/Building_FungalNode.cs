@@ -27,14 +27,14 @@ namespace DanceOfEvolution
 			}
 		}
 
-		bool IStorageGroupMember.DrawConnectionOverlay => base.Spawned;
-		Map IStorageGroupMember.Map => base.MapHeld;
+		bool IStorageGroupMember.DrawConnectionOverlay => Spawned;
+		Map IStorageGroupMember.Map => MapHeld;
 		string IStorageGroupMember.StorageGroupTag => def.building.storageGroupTag;
 		StorageSettings IStorageGroupMember.StoreSettings => GetStoreSettings();
 		StorageSettings IStorageGroupMember.ParentStoreSettings => GetParentStoreSettings();
 		StorageSettings IStorageGroupMember.ThingStoreSettings => settings;
 		bool IStorageGroupMember.DrawStorageTab => true;
-		bool IStorageGroupMember.ShowRenameButton => base.Faction == Faction.OfPlayer;
+		bool IStorageGroupMember.ShowRenameButton => Faction == Faction.OfPlayer;
 		public ThingOwner SearchableContents => innerContainer;
 		public bool depositFood = true;
 		public Building_FungalNode()
@@ -63,27 +63,6 @@ namespace DanceOfEvolution
 		private static void TurnToRottenSoil(IntVec3 cell, Map map)
 		{
 			map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
-			var sporeMaker = cell.GetFirstThing(map, DefsOf.DE_Sporemaker) as Building_Sporemaker;
-			if (sporeMaker != null)
-			{
-				sporeMaker.Destroy();
-				var hardenedSporeMaker = (Building_Sporemaker)ThingMaker.MakeThing(DefsOf.DE_HardenedSporemaker);
-				GenSpawn.Spawn(hardenedSporeMaker, sporeMaker.Position, map);
-				hardenedSporeMaker.refuelableComp.fuel = sporeMaker.refuelableComp.fuel;
-				hardenedSporeMaker.sporeHediff = sporeMaker.sporeHediff;
-				hardenedSporeMaker.ticksSwitching = sporeMaker.ticksSwitching;
-				hardenedSporeMaker.SetFactionDirect(sporeMaker.Faction);
-				hardenedSporeMaker.BroadcastCompSignal("CrateContentsChanged");
-			}
-			var cerebrum = cell.GetFirstThing(map, DefsOf.DE_Cerebrum) as Building_Cerebrum;
-			if (cerebrum != null)
-			{
-				cerebrum.Destroy();
-				var hardenedCerebrum = (Building_Cerebrum)ThingMaker.MakeThing(DefsOf.DE_HardenedCerebrum);
-				GenSpawn.Spawn(hardenedCerebrum, cerebrum.Position, map);
-				hardenedCerebrum.corpseCount = cerebrum.corpseCount;
-				hardenedCerebrum.SetFactionDirect(cerebrum.Faction);
-			}
 		}
 
 		public override void PostMake()
@@ -150,9 +129,9 @@ namespace DanceOfEvolution
 
 		public void Notify_SettingsChanged()
 		{
-			if (base.Spawned)
+			if (Spawned)
 			{
-				base.MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
+				MapHeld.listerHaulables.Notify_HaulSourceChanged(this);
 			}
 		}
 
@@ -182,12 +161,12 @@ namespace DanceOfEvolution
 			}
 		}
 
-        private static bool TerrainValidator(TerrainDef terrain)
-        {
-            return terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space && terrain.IsWater is false;
-        }
+		private static bool TerrainValidator(TerrainDef terrain)
+		{
+			return terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space && terrain.IsWater is false;
+		}
 
-        public override void ExposeData()
+		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
@@ -249,7 +228,7 @@ namespace DanceOfEvolution
 				storageGroup?.RemoveMember(this);
 				storageGroup = null;
 			}
-			innerContainer?.TryDropAll(base.Position, base.Map, ThingPlaceMode.Near);
+			innerContainer?.TryDropAll(Position, Map, ThingPlaceMode.Near);
 			base.DeSpawn(mode);
 		}
 
@@ -260,11 +239,11 @@ namespace DanceOfEvolution
 
 		public override ThingDef DispensableDef => DefsOf.DE_FungalSlurry;
 
-        public bool HaulDestinationEnabled => true;
+		public bool HaulDestinationEnabled => true;
 
-        public bool HaulSourceEnabled => false;
+		public bool HaulSourceEnabled => false;
 
-        [HarmonyPatch(typeof(Alert_PasteDispenserNeedsHopper), "BadDispensers", MethodType.Getter)]
+		[HarmonyPatch(typeof(Alert_PasteDispenserNeedsHopper), "BadDispensers", MethodType.Getter)]
 		public static class Alert_PasteDispenserNeedsHopper_BadDispensers_Patch
 		{
 			public static void Postfix(ref List<Thing> ___badDispensersResult)
@@ -312,7 +291,7 @@ namespace DanceOfEvolution
 			}
 			while (remainingNutrition > 0f);
 
-			def.building.soundDispense.PlayOneShot(new TargetInfo(base.Position, base.Map));
+			def.building.soundDispense.PlayOneShot(new TargetInfo(Position, Map));
 			Thing meal = ThingMaker.MakeThing(DispensableDef);
 			CompIngredients compIngredients = meal.TryGetComp<CompIngredients>();
 			for (int i = 0; i < ingredientsList.Count; i++)

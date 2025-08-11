@@ -16,6 +16,7 @@ namespace DanceOfEvolution
 			PatchTraders();
 			PatchThinkTreeDefs();
 			ChangeStorageSettings(DefsOf.DE_FungalNode);
+			PatchPawnDefs();
 			foreach (var item in DefDatabase<HediffDef>.AllDefsListForReading)
 			{
 				var extension = item.GetModExtension<HediffExtension>();
@@ -187,6 +188,20 @@ namespace DanceOfEvolution
 					thingDef = DefsOf.DE_NexusBurgeon,
 					countRange = new IntRange(1, 10),
 				});
+			}
+		}
+
+		private static void PatchPawnDefs()
+		{
+			foreach (var thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
+			{
+				if (thingDef.race != null && thingDef.race.Humanlike is false && thingDef.IsCorpse is false)
+				{
+					thingDef.inspectorTabs ??= new List<System.Type>();
+					thingDef.inspectorTabs.Add(typeof(ITab_Servant_Inventory));
+					thingDef.inspectorTabsResolved ??= new();
+					thingDef.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(typeof(ITab_Servant_Inventory)));
+				}
 			}
 		}
 	}

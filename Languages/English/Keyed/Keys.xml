@@ -59,4 +59,5 @@
 	<DE_NotBonded>Not bonded</DE_NotBonded>
 	<DE_LivingDressAlreadyBonded>The living dress is already bonded to another pawn.</DE_LivingDressAlreadyBonded>
 	<DE_DevourAbilityInvalidTarget>Invalid target. Must be a fresh corpse.</DE_DevourAbilityInvalidTarget>
+	<DE_TabInventory>Inventory</DE_TabInventory>
 </LanguageData>

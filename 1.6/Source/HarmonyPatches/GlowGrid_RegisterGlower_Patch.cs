@@ -27,7 +27,7 @@ namespace DanceOfEvolution
 
         public static bool HelperMethod(bool flag, CompGlower glower)
         {
-            if (glower.parent.def == DefsOf.DE_Sporemaker || glower.parent.def == DefsOf.DE_HardenedSporemaker)
+            if (glower.parent.def == DefsOf.DE_Sporemaker)
             {
                 return true;
             }

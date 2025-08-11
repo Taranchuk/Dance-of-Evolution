@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using System.Linq;
 using System.Text;
 using RimWorld;
@@ -75,7 +76,7 @@ namespace DanceOfEvolution
 			}
 		}
 
-		private IEnumerable<IntVec3> RadialCells => GenRadial.RadialCellsAround(base.Position, ConsumeRadius, useCenter: true);
+		private IEnumerable<IntVec3> RadialCells => GenRadial.RadialCellsAround(Position, ConsumeRadius, useCenter: true);
 		public override string GrowthRateCalcDesc
 		{
 			get
@@ -154,16 +155,16 @@ namespace DanceOfEvolution
 			{
 				TryMakeRoot(rootTarget);
 			}
-			if (base.Map != null)
+			if (Map != null)
 			{
 				foreach (IntVec3 tmpRadialCell in tmpRadialCells)
 				{
-					if (!tmpRadialCell.InBounds(base.Map))
+					if (!tmpRadialCell.InBounds(Map))
 					{
 						continue;
 					}
 					tmpThings.Clear();
-					tmpThings.AddRange(tmpRadialCell.GetThingList(base.Map));
+					tmpThings.AddRange(tmpRadialCell.GetThingList(Map));
 					foreach (Thing tmpThing in tmpThings.ToList())
 					{
 						if (tmpThing is ThingWithComps thing && thing.TryGetComp<CompMycelialTreeConsumable>
@@ -171,7 +172,7 @@ namespace DanceOfEvolution
 						{
 							TryMakeRoot(thing);
 						}
-						if (tmpThing.def == ThingDefOf.Mote_HarbingerTreeRoots 
+						if (tmpThing.def == ThingDefOf.Mote_HarbingerTreeRoots
 							&& tmpThing.Position.GetFirstThing<Corpse>(tmpThing.Map) is null)
 						{
 							tmpThing.Destroy();
@@ -202,7 +203,7 @@ namespace DanceOfEvolution
 
 		private void TryMakeRoot(ThingWithComps thing)
 		{
-			if (!roots.ContainsKey(thing) || thing.Position.GetThingList(base.Map)
+			if (!roots.ContainsKey(thing) || thing.Position.GetThingList(Map)
 				.Any(x => x.def == ThingDefOf.Mote_HarbingerTreeRoots) is false)
 			{
 				float exactRot = 0f;
@@ -210,7 +211,7 @@ namespace DanceOfEvolution
 				{
 					exactRot = corpse.InnerPawn.Drawer.renderer.BodyAngle(PawnRenderFlags.None);
 				}
-				roots[thing] = MoteMaker.MakeStaticMote(thing.Position.ToVector3Shifted(), base.Map, ThingDefOf.Mote_HarbingerTreeRoots, 1f, makeOffscreen: false, exactRot);
+				roots[thing] = MoteMaker.MakeStaticMote(thing.Position.ToVector3Shifted(), Map, ThingDefOf.Mote_HarbingerTreeRoots, 1f, makeOffscreen: false, exactRot);
 			}
 			if (!rootTargets.Contains(thing))
 			{
@@ -229,14 +230,14 @@ namespace DanceOfEvolution
 		private void CreateCorpseStockpile()
 		{
 			List<MycelialTree> selectedTrees = Find.Selector.SelectedObjects.OfType<MycelialTree>().ToList();
-			if (base.Map.zoneManager.ZoneAt(base.Position) != null)
+			if (Map.zoneManager.ZoneAt(Position) != null)
 			{
 				Zone_Stockpile existing;
-				if ((existing = base.Map.zoneManager.ZoneAt(base.Position) as Zone_Stockpile) == null)
+				if ((existing = Map.zoneManager.ZoneAt(Position) as Zone_Stockpile) == null)
 				{
 					return;
 				}
-				base.Map.floodFiller.FloodFill(base.Position, (IntVec3 c) => selectedTrees.Any((MycelialTree tree) => tree.RadialCells.Contains(c)) && (base.Map.zoneManager.ZoneAt(c) == null || base.Map.zoneManager.ZoneAt(c) == existing) && (bool)Designator_ZoneAdd.IsZoneableCell(c, base.Map), delegate (IntVec3 c)
+				Map.floodFiller.FloodFill(Position, (IntVec3 c) => selectedTrees.Any((MycelialTree tree) => tree.RadialCells.Contains(c)) && (Map.zoneManager.ZoneAt(c) == null || Map.zoneManager.ZoneAt(c) == existing) && (bool)Designator_ZoneAdd.IsZoneableCell(c, Map), delegate (IntVec3 c)
 				{
 					if (!existing.ContainsCell(c))
 					{
@@ -245,18 +246,18 @@ namespace DanceOfEvolution
 				});
 				return;
 			}
-			Zone_Stockpile stockpile = new Zone_Stockpile(StorageSettingsPreset.CorpseStockpile, base.Map.zoneManager);
+			Zone_Stockpile stockpile = new Zone_Stockpile(StorageSettingsPreset.CorpseStockpile, Map.zoneManager);
 			stockpile.settings.filter.SetAllow(ThingCategoryDefOf.CorpsesMechanoid, allow: false);
 			stockpile.settings.filter.SetAllow(SpecialThingFilterDefOf.AllowCorpsesUnnatural, allow: false);
-			base.Map.zoneManager.RegisterZone(stockpile);
+			Map.zoneManager.RegisterZone(stockpile);
 			Zone_Stockpile existingStockpile = null;
-			base.Map.floodFiller.FloodFill(base.Position, delegate (IntVec3 c)
+			Map.floodFiller.FloodFill(Position, delegate (IntVec3 c)
 			{
-				if (base.Map.zoneManager.ZoneAt(c) is Zone_Stockpile zone_Stockpile)
+				if (Map.zoneManager.ZoneAt(c) is Zone_Stockpile zone_Stockpile)
 				{
 					existingStockpile = zone_Stockpile;
 				}
-				return selectedTrees.Any((MycelialTree tree) => tree.RadialCells.Contains(c)) && base.Map.zoneManager.ZoneAt(c) == null && (bool)Designator_ZoneAdd.IsZoneableCell(c, base.Map);
+				return selectedTrees.Any((MycelialTree tree) => tree.RadialCells.Contains(c)) && Map.zoneManager.ZoneAt(c) == null && (bool)Designator_ZoneAdd.IsZoneableCell(c, Map);
 			}, delegate (IntVec3 c)
 			{
 				stockpile.AddCell(c);
@@ -276,7 +277,7 @@ namespace DanceOfEvolution
 		public override void DrawExtraSelectionOverlays()
 		{
 			base.DrawExtraSelectionOverlays();
-			GenDraw.DrawRadiusRing(base.Position, ConsumeRadius);
+			GenDraw.DrawRadiusRing(Position, ConsumeRadius);
 		}
 
 		public override string GetInspectString()
@@ -304,7 +305,7 @@ namespace DanceOfEvolution
 			{
 				yield return gizmo;
 			}
-			if (!(base.Map.zoneManager.ZoneAt(base.Position) is Zone_Stockpile) || base.Map.zoneManager.ZoneAt(base.Position) != null)
+			if (!(Map.zoneManager.ZoneAt(Position) is Zone_Stockpile) || Map.zoneManager.ZoneAt(Position) != null)
 			{
 				yield return new Command_Action
 				{
@@ -319,6 +320,7 @@ namespace DanceOfEvolution
 			{
 				defaultLabel = "DE_ConsumeFleshCorpses".Translate(),
 				isActive = () => consumeFlesh,
+				icon = ContentFinder<Texture2D>.Get("UI/Icons/consume_fresh"),
 				toggleAction = delegate
 				{
 					consumeFlesh = !consumeFlesh;
@@ -329,6 +331,7 @@ namespace DanceOfEvolution
 			{
 				defaultLabel = "DE_ConsumeDessicatedCorpses".Translate(),
 				isActive = () => consumeDessicated,
+				icon = ContentFinder<Texture2D>.Get("UI/Icons/consume_dessicated"),
 				toggleAction = delegate
 				{
 					consumeDessicated = !consumeDessicated;
@@ -339,6 +342,7 @@ namespace DanceOfEvolution
 			{
 				defaultLabel = "DE_ConsumeFungalCorpses".Translate(),
 				isActive = () => consumeFungalCorpses,
+				icon = ContentFinder<Texture2D>.Get("UI/Icons/consume_servant"),
 				toggleAction = delegate
 				{
 					consumeFungalCorpses = !consumeFungalCorpses;

@@ -10,7 +10,6 @@ namespace DanceOfEvolution
 			base.Notify_PawnDied(dinfo, culprit);
 			if (pawn?.Corpse?.Map != null)
 			{
-
 				var cell = pawn.Corpse.Position;
 				var map = pawn.Corpse.Map;
 				var corpse = pawn.Corpse;
@@ -28,6 +27,10 @@ namespace DanceOfEvolution
 					postExplosionSpawnChance: 0f, postExplosionSpawnThingCount: 1,
 					postExplosionGasType: GasType.RotStink);
 
+				if (corpse.GetComp<CompRottable>() is CompRottable comp)
+				{
+					comp.RotProgress = comp.PropsRot.TicksToDessicated;
+				}
 			}
 		}
 	}
