@@ -156,7 +156,7 @@
 		<defName>DE_ServantMedium</defName>
 		<label>Medium Servant</label>
 		<hediffClass>DanceOfEvolution.Hediff_ServantMedium</hediffClass>
-		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. The most versatile servants of the collective. Their intellect and long limbs lets them do numerous tasks for the collective, such as mining, building, and even cooking. They have gained the ability to grow and sharpen the bones of the host they inhabit before firing them at high speeds, which makes them a threat both at short and long range.</description>
+		<description>This rotting corpse is animated by an extremely intelligent breed of fungus that serves a larger collective. Their intellect and long limbs make them the most versatile servants of the collective. This makes them suitable for complex tasks like mining, building and even cooking. They have gained the ability to grow and sharpen the bones of the host they inhabit before firing them at high speeds, which makes them a threat both at short and long range.</description>
 	</HediffDef>
 
 	<HediffDef ParentName="DE_ServantTypeBase">
