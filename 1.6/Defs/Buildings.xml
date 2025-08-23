@@ -215,7 +215,7 @@
 		<designationCategory IsNull="True" />
 		<statBases>
 			<Flammability>0</Flammability>
-			<MaxHitPoints>550</MaxHitPoints>
+			<MaxHitPoints>700</MaxHitPoints>
 		</statBases>
 		<graphicData>
 			<texPath>Things/Building/HardenedFungusWall_Atlas</texPath>

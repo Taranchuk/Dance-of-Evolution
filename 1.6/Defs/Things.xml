@@ -172,7 +172,6 @@ While it is clear the original host remains at least somewhat in control of thei
             </bodyPartGroups>
             <wornGraphicPath>Things/Item/Apparel/FungalDress/FungalDress</wornGraphicPath>
             <layers>
-                <li>OnSkin</li>
                 <li>Middle</li>
                 <li>Shell</li>
             </layers>
