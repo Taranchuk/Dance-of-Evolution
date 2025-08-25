@@ -4,7 +4,7 @@
   <ResearchProjectDef>
     <defName>DE_AgglomerationRituals</defName>
     <label>Agglomeration rituals</label>
-    <description>The collective is still young, but it already understand how to pour flesh into one another to create stronger beings still.</description>
+    <description>Allows a Mycelyss collective to create chimeras, by fusing multiple large servants together. The hive is still young, but it already learns how to merge flesh and bone.</description>
     <tab>Anomaly</tab>
     <knowledgeCost>20</knowledgeCost>
     <knowledgeCategory>Basic</knowledgeCategory>
