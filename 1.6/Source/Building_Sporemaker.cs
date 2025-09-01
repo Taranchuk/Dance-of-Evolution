@@ -112,7 +112,7 @@ namespace DanceOfEvolution
 			}
 			yield return new Command_ActionWithCooldown
 			{
-				cooldownPercentGetter = () => Mathf.InverseLerp(GenDate.TicksPerDay, 0f, ticksSwitching),
+				cooldownPercentGetter = () => Mathf.InverseLerp(GenDate.TicksPerDay * 5, 0f, ticksSwitching),
 				defaultLabel = "DE_SporeMode".Translate(sporeHediff.label),
 				defaultDesc = "DE_SporeModeDesc".Translate(sporeHediff.label, sporeHediff.description),
 				icon = Icon,
@@ -140,7 +140,7 @@ namespace DanceOfEvolution
 		{
 			this.sporeHediff = sporeHediff;
 			this.cachedSporeGraphic = null;
-			this.ticksSwitching = GenDate.TicksPerDay;
+			this.ticksSwitching = GenDate.TicksPerDay * 5;
 			BroadcastCompSignal("CrateContentsChanged");
 		}
 

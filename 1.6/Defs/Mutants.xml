@@ -131,7 +131,6 @@
         <painFactor>0</painFactor>
         <statFactors>
           <MaxNutrition>2</MaxNutrition>
-          <PsychicSensitivity>0</PsychicSensitivity>
         </statFactors>
         <statOffsets>
           <ComfyTemperatureMin>-40</ComfyTemperatureMin>
