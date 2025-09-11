@@ -4,7 +4,7 @@
 		<defName>DE_Invisibility</defName>
 		<label>Revenant invisibility</label>
 		<description>Use the revenant vertebrae to temporarily turn invisible. The prosthetic manipulates the visual centers of those nearby, letting the user pass unnoticed.</description>
-		<iconPath>UI/Abilities/RevenantInvisibility</iconPath>
+		<iconPath>UI/Abilities/WraithInvisibility</iconPath>
 		<cooldownTicksRange>180000</cooldownTicksRange>
 		<writeCombatLog>True</writeCombatLog>
 		<targetRequired>false</targetRequired>
@@ -67,7 +67,7 @@
 		<defName>DE_ServantInvisibility</defName>
 		<label>Invisibility</label>
 		<description>Renders the unstable servant invisible indefinitely. Invisibility is immediately canceled if the unstable servant deals or receives any damage.</description>
-		<iconPath>UI/Abilities/RevenantInvisibility</iconPath>
+		<iconPath>UI/Abilities/WraithInvisibility</iconPath>
 		<cooldownTicksRange>180000</cooldownTicksRange>
 		<writeCombatLog>True</writeCombatLog>
 		<targetRequired>false</targetRequired>
@@ -95,7 +95,7 @@
 		<defName>DE_ServantHypnotise</defName>
 		<label>Hypnotise</label>
 		<description>Hypnotises a target, inflicting Revenant Hypnosis. Can only be removed by killing the unstable servant that applied it. Only works on allies, the unstable servant hunts hostiles on its own.</description>
-		<iconPath>UI/PsychicRituals/PsychicRitual_Brainwipe</iconPath>
+		<iconPath>UI/Abilities/RevenantHypnotise</iconPath>
 		<cooldownTicksRange>180000</cooldownTicksRange>
 		<writeCombatLog>True</writeCombatLog>
 		<targetRequired>true</targetRequired>

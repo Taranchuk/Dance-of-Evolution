@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <ModMetaData>
-	<name>Mycohazard</name>
-	<author>That Thing</author>
+	<name>Mycohazard - A Biological Mechanitor Mod</name>
+	<author>EyelessSights</author>
 	<url></url>
 	<supportedVersions>
-		<li>1.5</li>
-  	        <li>1.6</li>
+  	     <li>1.6</li>
       </supportedVersions>
 	<packageId>ThatThing.Mycohazard</packageId>
-	<description>Allows you to become a Fungal Nexus, capable of raising a large colony on your own and detaching you from your humanity.</description>
+	<description>Allows you to become a Fungal Nexus, capable of raising a large colony on your own and detaching you from your humanity. Unlike other mods of this type, fungal servants are generic, and take on a role based on the size of the corpse that was overtaken. This means Mycohazard is compatible with all mods and dlcs that add new living things. Infest creatures from anomaly to use their terrible abilities, Infest black hive insects, Galatross, dragons, titan boas, hydras, fetid ghouls, any modded xenotype, infest the people, infest the animals, infest the monsters, infest it all. If it drops a corpse, and if that corpse can rot, you can take it over.</description>
 	<modDependencies>
 		<li>
 			<packageId>Ludeon.RimWorld.Anomaly</packageId>
