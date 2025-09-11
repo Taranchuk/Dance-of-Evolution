@@ -181,13 +181,14 @@ namespace DanceOfEvolution
 
 		private static void AddToStockGenerators(TraderKindDef traderKind)
 		{
-			if (traderKind.stockGenerators != null)
+			if (traderKind.stockGenerators != null && traderKind.stockGenerators.Any(x => x is StockGenerator_SingleDef y && y.thingDef == DefsOf.DE_NexusBurgeon) is false)
 			{
 				traderKind.stockGenerators.Add(new StockGenerator_SingleDef
 				{
 					thingDef = DefsOf.DE_NexusBurgeon,
 					countRange = new IntRange(1, 2),
 				});
+				Log.Message($"Added Nexus Burgeon to {traderKind.defName}");
 			}
 		}
 
