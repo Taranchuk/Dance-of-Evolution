@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
@@ -43,6 +44,14 @@ namespace DanceOfEvolution
 					!__instance.pawn.health.hediffSet.HasHediff(DefsOf.FleshmassLung) &&
 					!__instance.pawn.health.hediffSet.HasHediff(HediffDefOf.DetoxifierLung))
 				{
+					if (__instance.pawn.genes is not null)
+					{
+						var genes = __instance.pawn.genes.GenesListForReading.Where(x => x.Active && x.def.makeImmuneTo is not null && x.def.makeImmuneTo.Contains(HediffDefOf.LungRot));
+						if (genes.Any())
+						{
+							return;
+						}
+					}
 					HealthUtility.AdjustSeverity(__instance.pawn, HediffDefOf.LungRotExposure, 0.001f);
 				}
 			}

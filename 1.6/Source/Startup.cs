@@ -186,7 +186,7 @@ namespace DanceOfEvolution
 				traderKind.stockGenerators.Add(new StockGenerator_SingleDef
 				{
 					thingDef = DefsOf.DE_NexusBurgeon,
-					countRange = new IntRange(1, 10),
+					countRange = new IntRange(1, 2),
 				});
 			}
 		}

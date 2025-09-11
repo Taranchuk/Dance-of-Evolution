@@ -13,6 +13,7 @@ While it is clear the original host remains at least somewhat in control of thei
             <graphicClass>Graphic_StackCount</graphicClass>
             <drawSize>1</drawSize>
         </graphicData>
+        <tradeTags Inherit="False"></tradeTags>
         <rotatable>false</rotatable>
         <statBases>
             <WorkToMake>900</WorkToMake>
