@@ -10,10 +10,13 @@ namespace DanceOfEvolution
         [HarmonyPriority(Priority.First)]
         public static bool Prefix(MemoryThoughtHandler __instance, ThoughtDef def)
         {
-            if ((def == DefsOf.AteFungus_Despised || def == DefsOf.AteFungusAsIngredient_Despised)
-                && __instance.pawn.IsFungalNexus())
+            if (ModsConfig.IdeologyActive)
             {
-                return false;
+                if ((def == DefsOf.AteFungus_Despised || def == DefsOf.AteFungusAsIngredient_Despised)
+                    && __instance.pawn.IsFungalNexus())
+                {
+                    return false;
+                }
             }
             return true;
         }

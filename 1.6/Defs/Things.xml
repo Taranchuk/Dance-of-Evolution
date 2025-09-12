@@ -41,17 +41,6 @@ While it is clear the original host remains at least somewhat in control of thei
                 </li>
             </outcomeDoers>
         </ingestible>
-        <recipeMaker>
-            <recipeUsers>
-                <li>DrugLab</li>
-            </recipeUsers>
-            <soundWorking>Recipe_Drug</soundWorking>
-            <displayPriority>1700</displayPriority>
-        </recipeMaker>
-        <costList>
-            <GauranlenSeed>1</GauranlenSeed>
-            <RawFungus>200</RawFungus>
-        </costList>
     </ThingDef>
 
     <ThingDef ParentName="MealBase">
@@ -158,7 +147,7 @@ While it is clear the original host remains at least somewhat in control of thei
         </statBases>
         <equippedStatOffsets>
             <PsychicSensitivity>0.5</PsychicSensitivity>
-            <PsychicEntropyMax>12</PsychicEntropyMax>
+            <PsychicEntropyMax MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech">12</PsychicEntropyMax>
             <PawnBeauty>2</PawnBeauty>
             <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
         </equippedStatOffsets>

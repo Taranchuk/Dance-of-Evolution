@@ -359,8 +359,7 @@
 						<power>12</power>
 						<armorPenetration>0.18</armorPenetration>
 						<cooldownTime>1.1</cooldownTime>
-						<soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
-						<soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
+						<soundMeleeHit>Pawn_Fleshbeast_Attack_Spike</soundMeleeHit>
 					</li>
 				</tools>
 			</li>
@@ -434,8 +433,7 @@
 						<power>15</power>
 						<armorPenetration>0.25</armorPenetration>
 						<cooldownTime>3.0</cooldownTime>
-						<soundMeleeHit>MeleeHit_BionicSlash</soundMeleeHit>
-						<soundMeleeMiss>MeleeMiss_BionicSlash</soundMeleeMiss>
+						<soundMeleeHit>Pawn_Fleshbeast_Attack_Spike</soundMeleeHit>
 					</li>
 				</tools>
 			</li>

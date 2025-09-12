@@ -188,7 +188,6 @@ namespace DanceOfEvolution
 					thingDef = DefsOf.DE_NexusBurgeon,
 					countRange = new IntRange(1, 2),
 				});
-				Log.Message($"Added Nexus Burgeon to {traderKind.defName}");
 			}
 		}
 

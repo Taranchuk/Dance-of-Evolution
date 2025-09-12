@@ -69,7 +69,7 @@ namespace DanceOfEvolution
 		public static JobDef DE_ApplyCosmeticChange;
 		public static GameConditionDef DE_CloudmakerDeathPall;
 
-		public static ThoughtDef AteFungus_Despised, AteFungusAsIngredient_Despised;
+		[MayRequireIdeology] public static ThoughtDef AteFungus_Despised, AteFungusAsIngredient_Despised;
 
 		public static PsychicRitualRoleDef LargeServants;
 		public static ThingDef DE_LivingDress;

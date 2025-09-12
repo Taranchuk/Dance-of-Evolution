@@ -70,7 +70,7 @@
 			<Shard>2</Shard>
 		</costList>
 		<statBases>
-			<MaxInstallCount>5</MaxInstallCount>
+			<MaxInstallCount MayRequire="Ludeon.RimWorld.Biotech">5</MaxInstallCount>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Usable">
@@ -167,7 +167,7 @@
 			<JuggernautSerum>1</JuggernautSerum>
 		</costList>
 		<statBases>
-			<MaxInstallCount>9</MaxInstallCount>
+			<MaxInstallCount MayRequire="Ludeon.RimWorld.Biotech">9</MaxInstallCount>
 		</statBases>
 		<recipeMaker>
 			<researchPrerequisite>JuggernautSerum</researchPrerequisite>
