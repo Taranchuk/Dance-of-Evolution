@@ -90,7 +90,7 @@ namespace DanceOfEvolution
 			base.Tick();
 			if (ticksSwitching > 0)
 			{
-				ticksSwitching -= 100;
+				ticksSwitching--;
 				if (ticksSwitching <= 0)
 				{
 					BroadcastCompSignal("CrateContentsChanged");

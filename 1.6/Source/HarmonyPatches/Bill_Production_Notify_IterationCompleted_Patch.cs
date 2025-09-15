@@ -12,6 +12,10 @@ namespace DanceOfEvolution
 			if (__instance.recipe == DefsOf.DE_FeedCorpse &&__instance.billStack.billGiver is Building_Cerebrum buildingCerebrum)
 			{
 				buildingCerebrum.corpseCount++;
+				if (buildingCerebrum.corpseCount == Building_Cerebrum.MAX_CORPSE_TO_HARVEST)
+				{
+					Messages.Message("DE_CerebrumMatured".Translate(), buildingCerebrum, MessageTypeDefOf.PositiveEvent, historical: false);
+				}
 			}
 		}
 	}

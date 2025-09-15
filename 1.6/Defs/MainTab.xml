@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>DE_FungalServants</defName>
+    <label>fungal servants</label>
+    <description>View and organize the colony's fungal servants.</description>
+    <workerClass>DanceOfEvolution.MainButtonWorker_ToggleFungalServantsTab</workerClass>
+    <tabWindowClass>DanceOfEvolution.MainTabWindow_FungalServants</tabWindowClass>
+    <order>47</order>
+    <closesWorldView>true</closesWorldView>
+  </MainButtonDef>
+
+  <PawnTableDef>
+    <defName>DE_FungalServants</defName>
+    <workerClass>PawnTable_PlayerPawnsTimetable</workerClass>
+    <columns>
+      <li>LabelShortWithIcon</li>
+      <li>AllowedArea</li>
+    </columns>
+  </PawnTableDef>
+</Defs>

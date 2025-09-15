@@ -81,6 +81,8 @@ namespace DanceOfEvolution
 		public static MentalStateDef Tantrum;
 		public static PawnKindDef Toughspike;
 
+		public static PawnTableDef DE_FungalServants;
+
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

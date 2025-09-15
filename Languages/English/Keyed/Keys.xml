@@ -53,6 +53,8 @@
 	<DE_PrintMealDesc>Force the fungal node to produce one slurry meal for its usual cost.</DE_PrintMealDesc>
 	<DE_NotEnoughFoodToPrintMeal>Not enough food stored to print a meal.</DE_NotEnoughFoodToPrintMeal>
 
+	<DE_CerebrumMatured>A Cerebrum has reached maturity and can now be harvested.</DE_CerebrumMatured>
+
 	<DE_LivingDressBonded>The living dress has bonded with {0}.</DE_LivingDressBonded>
 	<DE_LivingDressDevoured>{0}'s living dress has devoured {1}, gaining {2} healing.</DE_LivingDressDevoured>
 	<DE_BondedTo>Bonded to: {0}</DE_BondedTo>
