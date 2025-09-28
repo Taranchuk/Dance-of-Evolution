@@ -6,6 +6,7 @@
 	</ThingCategoryDef>
 	<HediffDef Name="DE_FungalImplantBase" Abstract="True">
 		<defaultLabelColor>(214, 90, 24)</defaultLabelColor>
+		<isBad>False</isBad>
 	</HediffDef>
 	<ThingDef Abstract="True" Name="DE_FungalNexusImplantBase">
 		<thingClass>ThingWithComps</thingClass>
