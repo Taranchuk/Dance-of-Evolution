@@ -15,4 +15,16 @@
         </requiredCapacities>
         <prioritizeSustains>true</prioritizeSustains>
     </WorkGiverDef>
+    <WorkGiverDef>
+        <defName>DE_TakeBioferriteOutOfCubeFungi</defName>
+        <label>take bioferrite out of cube fungi</label>
+        <giverClass>DanceOfEvolution.WorkGiver_TakeBioferriteOutOfCubeFungi</giverClass>
+        <workType>Hauling</workType>
+        <priorityInType>110</priorityInType>
+        <verb>take bioferrite</verb>
+        <gerund>taking bioferrite from</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
 </Defs>

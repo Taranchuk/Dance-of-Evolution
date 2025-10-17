@@ -108,4 +108,11 @@
 		</value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="HoldingPlatformBase"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+		<value>
+			<li>DE_CubeFungi</li>
+		</value>
+	</Operation>
+
 </Patch>

@@ -41,5 +41,12 @@
 		<reportString>devouring TargetA.</reportString>
 	</JobDef>
 
+	<JobDef>
+		<defName>DE_TakeBioferriteOutOfCubeFungi</defName>
+		<label>take bioferrite out of cube fungi</label>
+		<driverClass>DanceOfEvolution.JobDriver_TakeBioferriteOutOfCubeFungi</driverClass>
+		<reportString>taking bioferrite out of TargetA.</reportString>
+	</JobDef>
+
 
 </Defs>

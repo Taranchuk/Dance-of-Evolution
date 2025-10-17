@@ -37,6 +37,7 @@
 			<soundDispense>DispensePaste</soundDispense>
 			<forceShowRoomStats>true</forceShowRoomStats>
 			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+			<blueprintClass>Blueprint_Storage</blueprintClass>
 			<fixedStorageSettings>
 				<priority>Important</priority>
 				<filter>
@@ -302,5 +303,154 @@
 			<wakeDormantPawnsOnConstruction>false</wakeDormantPawnsOnConstruction>
 			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
 		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="DE_FungalBuildingBase">
+		<defName>DE_CubeFungi</defName>
+		<label>cube fungi</label>
+		<description>A strange fungal growth that seems to mimic the properties of a bioferrite harvester. It can be linked to holding platforms to extract bioferrite from held entities. It also functions as a fungal node, converting food into a nutritious slurry for motile kin. Unlike a regular bioferrite harvester, it consumes nutrition from its internal storage to operate, and removes golden cube addiction from pawns that build it.</description>
+		<thingClass>DanceOfEvolution.Building_CubeFungi</thingClass>
+		<tickerType>Normal</tickerType>
+		<size>(1,2)</size>
+		<graphicData>
+			<texPath>Things/Building/BioferriteHarvester/BioferriteHarvester</texPath>
+			<graphicClass>Graphic_Multi_BuildingWorking</graphicClass>
+			<drawSize>(2,3)</drawSize>
+			<shaderType>BioferriteHarvester</shaderType>
+			<addTopAltitudeBias>true</addTopAltitudeBias>
+		</graphicData>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<buildingTags>
+				<li>Anomaly</li>
+			</buildingTags>
+			<forceShowRoomStats>true</forceShowRoomStats>
+			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+			<blueprintClass>Blueprint_Storage</blueprintClass>
+			<fixedStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Corpses</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>DE_FungalSlurry</li>
+					</disallowedThingDefs>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.5</fillPercent>
+		<pathCost>50</pathCost>
+		<designationCategory>DE_Fungal</designationCategory>
+		<uiOrder>115</uiOrder>
+		<canOverlapZones>false</canOverlapZones>
+		<defaultPlacingRot>East</defaultPlacingRot>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>4000</WorkToBuild>
+			<Flammability>0.85</Flammability>
+			<Beauty>-10</Beauty>
+			<Mass>20</Mass>
+			<MarketValue>2000</MarketValue>
+		</statBases>
+		<costList>
+			<RawFungus>100</RawFungus>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<GoldenCube>1</GoldenCube>
+		</costList>
+		<researchPrerequisites>
+			<li>DE_AdvancedFungalNetworks</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+			<li>DanceOfEvolution.ITab_ContentsFungalNode</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Facility">
+				<maxDistance>5.1</maxDistance>
+				<statOffsets>
+					<ContainmentStrength>-15</ContainmentStrength>
+				</statOffsets>
+			</li>
+			<li Class="CompProperties_AttachPoints">
+				<points>
+					<li>
+						<offset>(.1, 0, .8)</offset>
+						<type>CableConnection0</type>
+					</li>
+					<li>
+						<offset>(.1, 0, .8)</offset>
+						<type>CableConnection1</type>
+					</li>
+					<li>
+						<offset>(.1, 0, .8)</offset>
+						<type>CableConnection2</type>
+					</li>
+					<li>
+						<offset>(.1, 0, .8)</offset>
+						<type>CableConnection3</type>
+					</li>
+					<li>
+						<offset>(0, 0, .28)</offset>
+						<type>Exhaust</type>
+					</li>
+				</points>
+			</li>
+			<li Class="CompProperties_CableConnection">
+				<color>(0.36, 0.21, 0.13, 1)</color>
+				<drawMote>true</drawMote>
+				<moteDef>Mote_BioFerriteHarvested</moteDef>
+				<offsets>
+					<li>
+						<li>(0, 0, 0.9)</li>
+						<li>(0, 0, 0.48)</li>
+						<li>(0, 0, 0.3)</li>
+						<li>(0, 0, 0.1)</li>
+					</li>
+					<li>
+						<li>(0.6, 0, 0.3)</li>
+						<li>(-0.2, 0, 0)</li>
+						<li>(0.2, 0, 0)</li>
+						<li>(0.4, 0, 0)</li>
+					</li>
+					<li>
+						<li>(0, 0, -0.25)</li>
+						<li>(0.4, 0, 0.48)</li>
+						<li>(0.4, 0, 0.3)</li>
+						<li>(0.4, 0, 0.1)</li>
+					</li>
+					<li>
+						<li>(-0.65, 0, 0.3)</li>
+						<li>(-0.2, 0, 0.65)</li>
+						<li>(0.2, 0, 0.65)</li>
+						<li>(0.4, 0, 0.65)</li>
+					</li>
+				</offsets>
+			</li>
+		</comps>
 	</ThingDef>
 </Defs>

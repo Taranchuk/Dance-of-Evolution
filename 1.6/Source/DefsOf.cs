@@ -82,6 +82,10 @@ namespace DanceOfEvolution
 		public static PawnKindDef Toughspike;
 
 		public static PawnTableDef DE_FungalServants;
+		
+		public static ThingDef DE_CubeFungi;
+		
+		public static JobDef DE_TakeBioferriteOutOfCubeFungi;
 
 		static DefsOf()
 		{
