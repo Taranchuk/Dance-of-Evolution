@@ -307,15 +307,15 @@
 
 	<ThingDef ParentName="DE_FungalBuildingBase">
 		<defName>DE_CubeFungi</defName>
-		<label>cube fungi</label>
-		<description>A strange fungal growth that seems to mimic the properties of a bioferrite harvester. It can be linked to holding platforms to extract bioferrite from held entities. It also functions as a fungal node, converting food into a nutritious slurry for motile kin. Unlike a regular bioferrite harvester, it consumes nutrition from its internal storage to operate, and removes golden cube addiction from pawns that build it.</description>
+		<label>Cube Fungi</label>
+		<description>A strange fungal growth that seems to mimic the properties of a bioferrite harvester. It can be linked to holding platforms to extract bioferrite from held entities much more quicker than its electronic counterpart. It requires a golden cube of archotechnology to be fully studied before it can be safely inserted into the "machine". The mushroom itself seem to have taken on the shape of the cube, and the act of its construction immediately cures all pawns from cube addiction and withdrawal.</description>
 		<thingClass>DanceOfEvolution.Building_CubeFungi</thingClass>
 		<tickerType>Normal</tickerType>
 		<size>(1,2)</size>
 		<graphicData>
-			<texPath>Things/Building/BioferriteHarvester/BioferriteHarvester</texPath>
+			<texPath>Things/Building/CubeFungi</texPath>
 			<graphicClass>Graphic_Multi_BuildingWorking</graphicClass>
-			<drawSize>(2,3)</drawSize>
+			<drawSize>(1.5,3)</drawSize>
 			<shaderType>BioferriteHarvester</shaderType>
 			<addTopAltitudeBias>true</addTopAltitudeBias>
 		</graphicData>
@@ -334,7 +334,6 @@
 				<filter>
 					<categories>
 						<li>Foods</li>
-						<li>Corpses</li>
 					</categories>
 					<disallowedThingDefs>
 						<li>DE_FungalSlurry</li>
@@ -346,7 +345,6 @@
 				<filter>
 					<categories>
 						<li>Foods</li>
-						<li>Corpses</li>
 					</categories>
 				</filter>
 			</defaultStorageSettings>

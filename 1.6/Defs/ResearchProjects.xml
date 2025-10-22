@@ -46,7 +46,7 @@
   <ResearchProjectDef>
     <defName>DE_AdvancedFungalNetworks</defName>
     <label>Advanced Fungal Networks</label>
-    <description>text.todo.</description>
+    <description>Learn secrets of the Mycelyss. How these fungal hives could dig through spacetime to reach everywhere and nowhere. How they terraformed any world they came across into mycelium and metal. How they lived within the void like symbiotes of the dark archotech.</description>
     <tab>Anomaly</tab>
     <knowledgeCost>15</knowledgeCost>
     <knowledgeCategory>Advanced</knowledgeCategory>
