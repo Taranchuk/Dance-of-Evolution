@@ -130,4 +130,24 @@
 		<iconPath>UI/Icons/Ritual_QuantumTunneling</iconPath>
 	</DanceOfEvolution.PsychicRitualDef_QuantumTunneling>
 
+	<DanceOfEvolution.PsychicRitualDef_CoagulatePower>
+		<defName>DE_CoagulatePower</defName>
+		<label>coagulate power</label>
+		<description>Conduct a dangerous ritual that attempts to bind the power of the dreadmeld to the invoker. The ritual requires a fleshmass nucleus and takes 15,000 ticks to complete. On success, the invoker gains permanent regeneration. On failure, the invoker loses random body parts and gains carcinoma.</description>
+		<researchPrerequisite>DE_AdvancedFungalNetworks</researchPrerequisite>
+		<outcomeDescription>At the end of the ritual, the invoker will either gain permanent regeneration or suffer terrible injuries and disease.</outcomeDescription>
+		<hoursUntilOutcome>6</hoursUntilOutcome>
+		<targetRole>DE_FleshmassNucleus</targetRole>
+		<iconPath>UI/Icons/Ritual_Metal_Terror_Arrow</iconPath>
+	</DanceOfEvolution.PsychicRitualDef_CoagulatePower>
+
+	<PsychicRitualRoleDef>
+		<defName>DE_FleshmassNucleus</defName>
+		<label>fleshmass nucleus</label>
+		<description>The fleshmass nucleus to be sacrificed.</description>
+		<allowedCount>1</allowedCount>
+		<allowedConditions>Default, Sleeping, Downed, Bleeding, Burning, NoPsychicSensitivity, NonHumanlike, NonPlayerFaction, HasAnotherLord</allowedConditions>
+		<applyPowerOffset>false</applyPowerOffset>
+	</PsychicRitualRoleDef>
+
 </Defs>

@@ -76,14 +76,14 @@ namespace DanceOfEvolution
 			this.defenderRole = defenderRole;
 		}
 
-		public override void End(PsychicRitual psychicRitual, PsychicRitualGraph parent, bool success)
+		public override void Start(PsychicRitual psychicRitual, PsychicRitualGraph parent)
 		{
-			base.End(psychicRitual, parent, success);
+			base.Start(psychicRitual, parent);
 			var invoker = psychicRitual.assignments.FirstAssignedPawn(invokerRole);
 			var fungalNexus = invoker.GetFungalNexus();
 			psychicRitual.ReleaseAllPawnsAndBuildings();
 
-
+			bool success = Rand.Chance(psychicRitual.PowerPercent);
 			var faction = success ? invoker.Faction : Faction.OfEntities;
 			Pawn chimera = PawnGenerator.GeneratePawn(PawnKindDefOf.Chimera, faction);
 			if (success)

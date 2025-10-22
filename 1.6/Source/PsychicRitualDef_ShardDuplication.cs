@@ -49,9 +49,9 @@ namespace DanceOfEvolution
             this.targetRole = targetRole;
         }
 
-        public override void End(PsychicRitual psychicRitual, PsychicRitualGraph parent, bool success)
+        public override void Start(PsychicRitual psychicRitual, PsychicRitualGraph parent)
         {
-            base.End(psychicRitual, parent, success);
+            base.Start(psychicRitual, parent);
 
             var targetPawn = psychicRitual.assignments.FirstAssignedPawn(targetRole);
             if (targetPawn == null) return;
@@ -60,6 +60,8 @@ namespace DanceOfEvolution
             var cell = targetPawn.Position;
             var filthDef = DefDatabase<ThingDef>.GetNamed("Filth_Fleshmass");
             var shardDef = ThingDefOf.Shard;
+            bool success = Rand.Chance(psychicRitual.PowerPercent);
+
             if (success && psychicRitual.PowerPercent >= QualityThresholdForSuccess)
             {
                 int baseYield = 1;

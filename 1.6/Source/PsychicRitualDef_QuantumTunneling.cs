@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -25,13 +25,14 @@ namespace DanceOfEvolution
     [HotSwappable]
     public class PsychicRitualToil_CreateQuantumTunnel : PsychicRitualToil
     {
-        public override void End(PsychicRitual psychicRitual, PsychicRitualGraph parent, bool success)
+        public override void Start(PsychicRitual psychicRitual, PsychicRitualGraph parent)
         {
-            base.End(psychicRitual, parent, success);
-            
+            base.Start(psychicRitual, parent);
+
             var ritualTarget = psychicRitual.assignments.Target;
             var map = ritualTarget.Map;
-            
+            bool success = Rand.Chance(psychicRitual.PowerPercent);
+
             if (success)
             {
                 var spawnParms = new LargeBuildingSpawnParms

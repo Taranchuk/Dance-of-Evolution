@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
 	<DE_Servants>Servants</DE_Servants>
@@ -96,4 +96,7 @@
 	<DE_CancelExitQuantumTunnel>Cancel exiting quantum tunnel</DE_CancelExitQuantumTunnel>
 	<DE_LetterGateLandedInEnemyBase>The gate has arrived at {0}.</DE_LetterGateLandedInEnemyBase>
 
+	<DE_CoagulatePowerSuccess>{0} has gained permanent regeneration!</DE_CoagulatePowerSuccess>
+	<DE_CoagulatePowerFailure>{0} has suffered terrible injuries!</DE_CoagulatePowerFailure>
+	<DE_InvalidFleshmassNucleus>The selected pawn is not a valid fleshmass nucleus.</DE_InvalidFleshmassNucleus>
 </LanguageData>
