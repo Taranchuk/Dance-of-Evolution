@@ -23,8 +23,8 @@
 		<stackLimit>1</stackLimit>
 		<stages>
 			<li>
-				<label>quantum tunneling discomfort</label>
-				<description>Travelling through that quantum tunnel was deeply unsettling. My mind still feels scrambled from the experience.</description>
+				<label>Quantum Jaunt</label>
+				<description>It's eternity in there.</description>
 				<baseMoodEffect>-10</baseMoodEffect>
 			</li>
 		</stages>

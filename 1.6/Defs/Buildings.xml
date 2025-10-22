@@ -495,8 +495,8 @@
 
 	<ThingDef ParentName="DE_QuantumTunnelGateBase">
 		<defName>DE_QuantumTunnelGate</defName>
-		<label>quantum tunnel gate</label>
-		<description>A special pit gate created through quantum tunneling ritual. It allows transportation of pawns and items to other locations on the world map. Unlike regular pit gates, this one doesn't spew out flesh beasts. It can be entered like a shuttle to transport contents to selected destinations, requiring 10 bioferrite per hex traveled.</description>
+		<label>Quantum Tunnel</label>
+		<description>A strange pit that seems to defy the laws of physics. Its tunnels are winding and nonsensical, endlessly coiling in all directions. It can be "aimed" anywhere, creating a path between the two locations instantly regardless of distance. Mycelyss hives use these impossible networks to invade worlds and spread across the cosmos. Most people will find travelling through the Quantum Tunnels very distressing.</description>
 		<thingClass>DanceOfEvolution.Building_QuantumTunnelGate</thingClass>
 		<inspectorTabs>
 			<li>ITab_ContentsMapPortal</li>
@@ -511,8 +511,8 @@
 
 	<ThingDef>
 		<defName>DE_QuantumTunnelGate_Spawner</defName>
-		<label>quantum tunnel emergence</label>
-		<description>A quantum tunnel is emerging from the ground here.</description>
+		<label>Quantum Tunnel Emergence</label>
+		<description>A quantum tunnel is emerging here.</description>
 		<thingClass>RimWorld.BuildingGroundSpawner</thingClass>
 		<destroyable>false</destroyable>
 		<holdsRoof>true</holdsRoof>
@@ -536,7 +536,7 @@
 
 	<ThingDef>
 		<defName>DE_QuantumTunnelGateExit_Spawner</defName>
-		<label>quantum tunnel emergence</label>
+		<label>Quantum Tunnel emergence</label>
 		<description>A quantum tunnel is emerging from the ground here.</description>
 		<thingClass>DanceOfEvolution.BuildingGroundSpawner_QuantumTunnelExit</thingClass>
 		<destroyable>false</destroyable>
@@ -559,8 +559,8 @@
 
 	<ThingDef ParentName="DE_QuantumTunnelGateBase">
 		<defName>DE_QuantumTunnelGateExit</defName>
-		<label>quantum tunnel exit</label>
-		<description>The exit point of a quantum tunnel gate. Pawns and items transported through the quantum tunnel will emerge from this location.</description>
+		<label>Quantum Tunnel exit</label>
+		<description>The exit point of a quantum tunnel. Pawns and items transported through the quantum tunnel will emerge from this location.</description>
 		<thingClass>DanceOfEvolution.Building_QuantumTunnelGateExit</thingClass>
 	</ThingDef>
 

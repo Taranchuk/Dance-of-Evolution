@@ -86,8 +86,8 @@
 	<DE_CloseGate>Close Gate</DE_CloseGate>
 	<DE_CloseGateDesc>Close this quantum tunnel gate, destroying it permanently.</DE_CloseGateDesc>
 	<DE_NotEnoughBioferriteToSelectDestination>No bioferrite available for teleport.</DE_NotEnoughBioferriteToSelectDestination>
-	<DE_QuantumTeleportSuccessLabel>Quantum gate opened</DE_QuantumTeleportSuccessLabel>
-	<DE_QuantumTeleportSuccess>Quantum gate opened.</DE_QuantumTeleportSuccess>
+	<DE_QuantumTeleportSuccessLabel>Quantum tunnel opening</DE_QuantumTeleportSuccessLabel>
+	<DE_QuantumTeleportSuccess>The tunnels coil and sink into the void. The ground shakes.</DE_QuantumTeleportSuccess>
 	<DE_ViewOriginGate>View origin gate</DE_ViewOriginGate>
 	<DE_ViewOriginGateDesc>View origin gate.</DE_ViewOriginGateDesc>
 	<DE_ViewExitGate>View exit gate</DE_ViewExitGate>
