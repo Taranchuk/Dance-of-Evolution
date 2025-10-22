@@ -86,10 +86,21 @@ namespace DanceOfEvolution
 		public static ThingDef DE_CubeFungi;
 		
 		public static JobDef DE_TakeBioferriteOutOfCubeFungi;
+		
+		public static ThoughtDef DE_QuantumTunnelingMood;
 
-		static DefsOf()
-		{
-			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
-		}
-	}
+		public static TraitDef TorturedArtist;
+        public static TraitDef NaturalMood;
+              public static TraitDef Nerves;
+      
+        public static ThingDef DE_QuantumTunnelGate_Spawner;
+        public static ThingDef DE_QuantumTunnelGateExit_Spawner;
+        public static ThingDef DE_QuantumTunnelGate;
+        public static ThingDef DE_QuantumTunnelGateExit;
+
+        static DefsOf()
+        {
+            DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
+        }
+    }
 }

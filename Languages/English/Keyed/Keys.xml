@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
 	<DE_Servants>Servants</DE_Servants>
@@ -63,4 +63,35 @@
 	<DE_DevourAbilityInvalidTarget>Invalid target. Must be a fresh corpse.</DE_DevourAbilityInvalidTarget>
 	<DE_TabInventory>Inventory</DE_TabInventory>
 	<DE_NutritionStored>Nutrition stored</DE_NutritionStored>
+	<DE_SelectDestination>Select destination</DE_SelectDestination>
+	<DE_SelectWorldDestination>Select a destination on the world map.</DE_SelectWorldDestination>
+	<DE_NotEnoughBioferriteForTeleport>Not enough bioferrite for teleport. Required: {0}, Available: {1}.</DE_NotEnoughBioferriteForTeleport>
+	<DE_QuantumTunnelInvalidDestination>Invalid destination. Teleport canceled.</DE_QuantumTunnelInvalidDestination>
+	<DE_OriginGate>Origin Gate</DE_OriginGate>
+	<DE_DestinationGate>Destination Gate</DE_DestinationGate>
+	<DE_ReturnToOrigin>Return to origin</DE_ReturnToOrigin>
+	<DE_SelectDestinationDesc>Select a destination on the world map for the quantum tunnel.</DE_SelectDestinationDesc>
+	<DE_ReturnToOriginDesc>Return to the original gate location.</DE_ReturnToOriginDesc>
+
+	<DE_QuantumTunnelingSuccess>The ritual was a success! A quantum tunnel gate has opened.</DE_QuantumTunnelingSuccess>
+	<DE_QuantumTunnelingFailure>The ritual failed. The archotech shards were consumed, but no quantum tunnel gate appeared.</DE_QuantumTunnelingFailure>
+	<DE_ConfirmTeleport>Confirm teleport for {0} bioferrite?</DE_ConfirmTeleport>
+	<DE_Confirm>Confirm</DE_Confirm>
+	<DE_Cancel>Cancel</DE_Cancel>
+	<DE_DestinationBlocked>The destination is blocked.</DE_DestinationBlocked>
+	<DE_NoDropSpotAvailable>No valid drop spot available at the destination.</DE_NoDropSpotAvailable>
+	<DE_QuantumTunnelCanceled>Quantum tunnel teleport was cancelled.</DE_QuantumTunnelCanceled>
+	<DE_LaunchTeleport>Launch Teleport</DE_LaunchTeleport>
+	<DE_LaunchTeleportDesc>Launch the quantum tunnel teleport to the selected destination after consuming the required bioferrite.</DE_LaunchTeleportDesc>
+	<DE_CloseGate>Close Gate</DE_CloseGate>
+	<DE_CloseGateDesc>Close this quantum tunnel gate, destroying it permanently.</DE_CloseGateDesc>
+	<DE_NotEnoughBioferriteToSelectDestination>No bioferrite available for teleport.</DE_NotEnoughBioferriteToSelectDestination>
+	<DE_QuantumTeleportSuccessLabel>Quantum gate opened</DE_QuantumTeleportSuccessLabel>
+	<DE_QuantumTeleportSuccess>Quantum gate opened.</DE_QuantumTeleportSuccess>
+	<DE_ViewOriginGate>View origin gate</DE_ViewOriginGate>
+	<DE_ViewOriginGateDesc>View origin gate.</DE_ViewOriginGateDesc>
+	<DE_ViewExitGate>View exit gate</DE_ViewExitGate>
+	<DE_ViewExitGateDesc>View exit gate.</DE_ViewExitGateDesc>
+	<DE_ExitQuantumTunnel>Exit quantum tunnel</DE_ExitQuantumTunnel>
+	<DE_CancelExitQuantumTunnel>Cancel exiting quantum tunnel</DE_CancelExitQuantumTunnel>
 </LanguageData>

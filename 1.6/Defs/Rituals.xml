@@ -112,4 +112,22 @@
 		<iconPath>UI/Icons/Ritual_Shard_Duplication</iconPath>
 	</DanceOfEvolution.PsychicRitualDef_ShardDuplication>
 
+	<DanceOfEvolution.PsychicRitualDef_QuantumTunneling>
+		<defName>DE_QuantumTunneling</defName>
+		<label>quantum tunneling</label>
+		<description>Perform a complex psychic ritual to open a special pit gate that can transport pawns and items to distant locations. The ritual requires 5 shards and takes 15,000 ticks to complete. On success, a special quantum tunnel pit gate will appear that can be used for inter-map transportation.</description>
+		<researchPrerequisite>DE_AdvancedFungalNetworks</researchPrerequisite>
+		<outcomeDescription>At the end of the ritual, if successful, a quantum tunnel pit gate will appear that can be used to transport colonists and items to other locations on the world map.</outcomeDescription>
+		<hoursUntilOutcome>6</hoursUntilOutcome>
+		<requiredOffering>
+			<filter>
+				<thingDefs>
+					<li>Shard</li>
+				</thingDefs>
+			</filter>
+			<count>5</count>
+		</requiredOffering>
+		<iconPath>UI/Icons/Ritual_QuantumTunneling</iconPath>
+	</DanceOfEvolution.PsychicRitualDef_QuantumTunneling>
+
 </Defs>

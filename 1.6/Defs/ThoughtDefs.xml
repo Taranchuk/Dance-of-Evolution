@@ -15,5 +15,19 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-
+	
+	<ThoughtDef>
+		<defName>DE_QuantumTunnelingMood</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+	<durationDays>20</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>quantum tunneling discomfort</label>
+				<description>Travelling through that quantum tunnel was deeply unsettling. My mind still feels scrambled from the experience.</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	
 </Defs>

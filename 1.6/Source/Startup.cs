@@ -48,12 +48,10 @@ namespace DanceOfEvolution
 				if (thinkTreeDef.defName == "Downed") continue;
 				var rootNode = thinkTreeDef.thinkRoot;
 				if (rootNode == null || rootNode.subNodes == null) continue;
-				bool inserted = false;
 				int isColonist = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_ConditionalColonist));
 				if (isColonist >= 0)
 				{
 					rootNode.subNodes.Insert(isColonist + 1, new JobGiver_ConsumeSpores());
-					inserted = true;
 				}
 				else
 				{
@@ -61,7 +59,6 @@ namespace DanceOfEvolution
 					if (queuedJobNodeIndex >= 0)
 					{
 						InsertNodeAt(rootNode.subNodes, queuedJobNodeIndex);
-						inserted = true;
 					}
 					else
 					{
@@ -71,7 +68,6 @@ namespace DanceOfEvolution
 						if (subtreeNodeIndex >= 0)
 						{
 							InsertNodeAt(rootNode.subNodes, subtreeNodeIndex);
-							inserted = true;
 						}
 						else
 						{
@@ -80,7 +76,6 @@ namespace DanceOfEvolution
 							if (revenantIndex >= 0)
 							{
 								InsertNodeAt(rootNode.subNodes, revenantIndex);
-								inserted = true;
 							}
 						}
 					}

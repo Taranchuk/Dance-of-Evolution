@@ -453,4 +453,117 @@
 			</li>
 		</comps>
 	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase" Name="DE_QuantumTunnelGateBase" Abstract="True">
+		<size>(8,8)</size>
+		<useHitPoints>false</useHitPoints>
+		<tickerType>Normal</tickerType>
+		<rotatable>false</rotatable>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<canOverlapZones>false</canOverlapZones>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Building/PitGate/PitGate</texPath>
+			<drawSize>(8,8)</drawSize>
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<passability>Impassable</passability>
+		<holdsRoof>true</holdsRoof>
+		<destroyable>false</destroyable>
+		<building>
+			<isEdifice>true</isEdifice>
+			<deconstructible>false</deconstructible>
+			<isTargetable>false</isTargetable>
+			<isInert>true</isInert>
+			<claimable>false</claimable>
+			<expandHomeArea>false</expandHomeArea>
+		</building>
+		<portal>
+			<traverseSound>TraversePitGate</traverseSound>
+		</portal>
+		<statBases>
+			<Flammability>0</Flammability>
+		</statBases>
+		<inspectorTabs>
+			<li>ITab_ContentsMapPortal</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="CompProperties_LeaveFilthOnDestroyed">
+				<filthDef>Filth_LooseGround</filthDef>
+				<thickness>5</thickness>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="DE_QuantumTunnelGateBase">
+		<defName>DE_QuantumTunnelGate</defName>
+		<label>quantum tunnel gate</label>
+		<description>A special pit gate created through quantum tunneling ritual. It allows transportation of pawns and items to other locations on the world map. Unlike regular pit gates, this one doesn't spew out flesh beasts. It can be entered like a shuttle to transport contents to selected destinations, requiring 10 bioferrite per hex traveled.</description>
+		<thingClass>DanceOfEvolution.Building_QuantumTunnelGate</thingClass>
+		<inspectorTabs>
+			<li>ITab_ContentsMapPortal</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="DanceOfEvolution.CompProperties_QuantumTunnel">
+				<travelDurationTicks>600</travelDurationTicks>
+				<bioferriteCostPerHex>10</bioferriteCostPerHex>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>DE_QuantumTunnelGate_Spawner</defName>
+		<label>quantum tunnel emergence</label>
+		<description>A quantum tunnel is emerging from the ground here.</description>
+		<thingClass>RimWorld.BuildingGroundSpawner</thingClass>
+		<destroyable>false</destroyable>
+		<holdsRoof>true</holdsRoof>
+		<selectable>true</selectable>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<drawerType>RealtimeOnly</drawerType>
+		<size>(8, 8)</size>
+		<uiIconPath>UI/Icons/UndergroundEmergence</uiIconPath>
+		<building>
+			<groundSpawnerSustainedEffecter>EmergencePointSustained8X8</groundSpawnerSustainedEffecter>
+			<groundSpawnerCompleteEffecter>EmergencePointComplete8X8</groundSpawnerCompleteEffecter>
+			<groundSpawnerThingToSpawn>DE_QuantumTunnelGate</groundSpawnerThingToSpawn>
+			<groundSpawnerSpawnDelay>600</groundSpawnerSpawnDelay>
+			<groundSpawnerDestroyAdjacent>true</groundSpawnerDestroyAdjacent>
+			<groundSpawnerSustainerSound>PitGateOpening</groundSpawnerSustainerSound>
+			<groundSpawnerLetterLabel>Quantum tunnel opened</groundSpawnerLetterLabel>
+			<groundSpawnerLetterText>The shifting terrain has fallen into the depths below, forming a massive hole.\n\nThis quantum tunnel will remain open permanently.</groundSpawnerLetterText>
+		</building>
+	</ThingDef>
+
+	<ThingDef>
+		<defName>DE_QuantumTunnelGateExit_Spawner</defName>
+		<label>quantum tunnel emergence</label>
+		<description>A quantum tunnel is emerging from the ground here.</description>
+		<thingClass>DanceOfEvolution.BuildingGroundSpawner_QuantumTunnelExit</thingClass>
+		<destroyable>false</destroyable>
+		<holdsRoof>true</holdsRoof>
+		<selectable>true</selectable>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<drawerType>RealtimeOnly</drawerType>
+		<size>(8, 8)</size>
+		<uiIconPath>UI/Icons/UndergroundEmergence</uiIconPath>
+		<building>
+			<groundSpawnerSustainedEffecter>EmergencePointSustained8X8</groundSpawnerSustainedEffecter>
+			<groundSpawnerCompleteEffecter>EmergencePointComplete8X8</groundSpawnerCompleteEffecter>
+			<groundSpawnerThingToSpawn>DE_QuantumTunnelGateExit</groundSpawnerThingToSpawn>
+			<groundSpawnerSpawnDelay>600</groundSpawnerSpawnDelay>
+			<groundSpawnerDestroyAdjacent>true</groundSpawnerDestroyAdjacent>
+			<groundSpawnerSustainerSound>PitGateOpening</groundSpawnerSustainerSound>
+		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="DE_QuantumTunnelGateBase">
+		<defName>DE_QuantumTunnelGateExit</defName>
+		<label>quantum tunnel exit</label>
+		<description>The exit point of a quantum tunnel gate. Pawns and items transported through the quantum tunnel will emerge from this location.</description>
+		<thingClass>DanceOfEvolution.Building_QuantumTunnelGateExit</thingClass>
+	</ThingDef>
+
 </Defs>
