@@ -54,6 +54,7 @@ namespace DanceOfEvolution
 
         public override void OnEntered(Pawn pawn)
         {
+            QuantumTunnelingUtility.TryApplyMoodlet(pawn);
             Notify_ThingAdded(pawn);
             if (!beenEntered)
             {

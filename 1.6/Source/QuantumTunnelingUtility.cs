@@ -1,12 +1,14 @@
 using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace DanceOfEvolution
 {
     public static class QuantumTunnelingUtility
     {
+        private static readonly List<TraitDef> blacklistedTraits = new List<TraitDef>();
         private static PlanetTile cachedOrigin;
         private static PlanetTile cachedDest;
         private static int cachedDistance;
@@ -43,6 +45,42 @@ namespace DanceOfEvolution
             }
             cachedDistance = (int)(Find.WorldGrid.TraversalDistanceBetween((int)from, (int)to) * to.LayerDef.rangeDistanceFactor);
             return cachedDistance;
+        }
+
+        public static void TryApplyMoodlet(Pawn pawn)
+        {
+            if (pawn.needs?.mood?.thoughts == null || pawn.story?.traits == null || !pawn.RaceProps.Humanlike || pawn.Inhumanized())
+            {
+                return;
+            }
+
+            if (blacklistedTraits.Count == 0)
+            {
+                blacklistedTraits.Add(TraitDefOf.Ascetic);
+                blacklistedTraits.Add(DefsOf.TorturedArtist);
+                blacklistedTraits.Add(DefsOf.Occultist);
+                blacklistedTraits.Add(DefsOf.Disturbing);
+                blacklistedTraits.Add(DefsOf.VoidFascination);
+            }
+
+            if (blacklistedTraits.Any(t => pawn.story.traits.HasTrait(t)))
+            {
+                return;
+            }
+
+            var naturalMood = pawn.story.traits.GetTrait(DefsOf.NaturalMood);
+            if (naturalMood != null && naturalMood.Degree == -2) // Depressive
+            {
+                return;
+            }
+
+            var nerves = pawn.story.traits.GetTrait(DefsOf.Nerves);
+            if (nerves != null && (nerves.Degree == 1 || nerves.Degree == 2)) // Steadfast or Iron-willed
+            {
+                return;
+            }
+
+            pawn.needs.mood.thoughts.memories.TryGainMemory(DefsOf.DE_QuantumTunnelingMood);
         }
     }
 }

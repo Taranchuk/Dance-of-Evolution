@@ -96,9 +96,12 @@ namespace DanceOfEvolution
         public static ThingDef DE_QuantumTunnelGateExit_Spawner;
         public static ThingDef DE_QuantumTunnelGate;
         public static ThingDef DE_QuantumTunnelGateExit;
-		public static BodyPartGroupDef Eyes;
-		      public static PsychicRitualDef DE_CoagulatePower;
-		static DefsOf()
+  public static BodyPartGroupDef Eyes;
+        [MayRequire("Ludeon.RimWorld.Anomaly")] public static TraitDef Occultist;
+        [MayRequire("Ludeon.RimWorld.Anomaly")] public static TraitDef Disturbing;
+        [MayRequire("Ludeon.RimWorld.Anomaly")] public static TraitDef VoidFascination;
+        public static PsychicRitualDef DE_CoagulatePower;
+  static DefsOf()
 		{
 		    DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

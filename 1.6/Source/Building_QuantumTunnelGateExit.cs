@@ -59,6 +59,7 @@ namespace DanceOfEvolution
 
         public override void OnEntered(Pawn pawn)
         {
+            QuantumTunnelingUtility.TryApplyMoodlet(pawn);
             Notify_ThingAdded(pawn);
             if (!beenEntered)
             {
@@ -107,9 +108,9 @@ namespace DanceOfEvolution
                 action = delegate
                 {
                     entrance.exit = null;
-                    Thing.allowDestroyNonDestroyable = true;
+                    allowDestroyNonDestroyable = true;
                     Destroy();
-                    Thing.allowDestroyNonDestroyable = false;
+                    allowDestroyNonDestroyable = false;
                 }
             };
         }
