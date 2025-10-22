@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
@@ -285,9 +285,25 @@ namespace DanceOfEvolution
                 {
                     size = site.PreferredMapSize;
                 }
-                return GetOrGenerateMapUtility.GetOrGenerateMap(tile, size, mapParent.def);
+                return GenerateMap(tile, size, mapParent.def);
             }
             return mapParent.Map;
+        }
+        
+        private Map GenerateMap(PlanetTile tile, IntVec3 size, WorldObjectDef worldObjectDef)
+        {
+            var orGenerateMap = GetOrGenerateMapUtility.GetOrGenerateMap(tile, size, worldObjectDef);
+            if ((orGenerateMap.Parent is Settlement || (orGenerateMap.Parent is Site site2 && site2.parts.All((SitePart part) => part.def.considerEnteringAsAttack))) && orGenerateMap.Parent.Faction != null && orGenerateMap.Parent.Faction != Faction.OfPlayer)
+            {
+                Find.TickManager.Notify_GeneratedPotentiallyHostileMap();
+                TaggedString letterLabel = "LetterLabelCaravanEnteredEnemyBase".Translate();
+                TaggedString letterText = "DE_LetterGateLandedInEnemyBase".Translate(orGenerateMap.Parent.Label.ApplyTag(TagType.Settlement, orGenerateMap.Parent.Faction.GetUniqueLoadID())).CapitalizeFirst();
+                SettlementUtility.AffectRelationsOnAttacked(orGenerateMap.Parent, ref letterText);
+                PawnRelationUtility.Notify_PawnsSeenByPlayer_Letter(orGenerateMap.mapPawns.AllPawns, ref letterLabel, ref letterText, "LetterRelatedPawnsSettlement".Translate(Faction.OfPlayer.def.pawnsPlural), informEvenIfSeenBefore: true);
+                Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.NeutralEvent);
+                Find.GoodwillSituationManager.RecalculateAll(canSendHostilityChangedLetter: true);
+            }
+            return orGenerateMap;
         }
     }
 }

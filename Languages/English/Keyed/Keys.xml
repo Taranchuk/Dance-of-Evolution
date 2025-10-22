@@ -94,4 +94,6 @@
 	<DE_ViewExitGateDesc>View exit gate.</DE_ViewExitGateDesc>
 	<DE_ExitQuantumTunnel>Exit quantum tunnel</DE_ExitQuantumTunnel>
 	<DE_CancelExitQuantumTunnel>Cancel exiting quantum tunnel</DE_CancelExitQuantumTunnel>
+	<DE_LetterGateLandedInEnemyBase>The gate has arrived at {0}.</DE_LetterGateLandedInEnemyBase>
+
 </LanguageData>
