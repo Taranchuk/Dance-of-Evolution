@@ -120,7 +120,7 @@ namespace DanceOfEvolution
                 invoker.health.AddHediff(injury);
             }
 
-            var eyes = allNotMissingParts.Where(x => x.groups.Any(y => y == BodyPartGroupDefOf.Eyes));
+            var eyes = allNotMissingParts.Where((BodyPartRecord p) => p.def == BodyPartDefOf.Eye);
             if (eyes.Any())
             {
                 BodyPartRecord selectedEye = eyes.RandomElement();
