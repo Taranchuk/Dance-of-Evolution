@@ -1,4 +1,4 @@
-using RimWorld;
+﻿using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -44,10 +44,8 @@ namespace DanceOfEvolution
             {
                 return entrance.Map;
             }
-            // For quantum tunnel gate exits, we need to handle the case where entrance might not be properly connected yet
-            // This can happen during initial setup or if there's a desync
             Log.Warning("Quantum tunnel gate exit entrance is not properly connected, returning current map as fallback");
-            return Map; // Return current map as a safe fallback
+            return Map;
         }
 
         public override IntVec3 GetDestinationLocation()

@@ -1,4 +1,4 @@
-using RimWorld;
+﻿using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,10 +39,8 @@ namespace DanceOfEvolution
             {
                 return exit.Map;
             }
-            // For quantum tunnel gates, we need to handle the case where exit might not be properly connected yet
-            // This can happen during initial setup or if there's a desync
             Log.Warning("Quantum tunnel gate exit is not properly connected, returning current map as fallback");
-            return Map; // Return current map as a safe fallback instead of generating a pocket map
+            return Map;
         }
         
         public override IntVec3 GetDestinationLocation()
@@ -158,8 +156,6 @@ namespace DanceOfEvolution
                     {
                         planetTile = cachedClosest;
                     }
-   
-                    // Calculate max distance based on available bioferrite
                     int availableBioferrite = Map.resourceCounter.GetCount(ThingDefOf.Bioferrite);
                     int maxDistance = (int)(availableBioferrite / (float)quantumTunnel.Props.bioferriteCostPerHex);
                     GenDraw.DrawWorldRadiusRing(planetTile, maxDistance);
@@ -281,6 +277,15 @@ namespace DanceOfEvolution
                 mapParent.SetFaction(Faction.OfPlayer);
                 mapParent.GetComponent<TimedDetectionRaids>()?.StartDetectionCountdown(24000, 60000);
                 return mapParent.Map;
+            }
+            if (mapParent.HasMap is false)
+            {
+                var size = mapParent.def.overrideMapSize ?? Find.World.info.initialMapSize;
+                if (mapParent is Site site)
+                {
+                    size = site.PreferredMapSize;
+                }
+                return GetOrGenerateMapUtility.GetOrGenerateMap(tile, size, mapParent.def);
             }
             return mapParent.Map;
         }
