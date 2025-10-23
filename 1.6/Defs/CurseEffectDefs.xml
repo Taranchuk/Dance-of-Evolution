@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <DanceOfEvolution.CurseEffectDef>
+        <defName>DE_CurseNociosphere</defName>
+        <workerClass>DanceOfEvolution.CurseWorker_Nociosphere</workerClass>
+    </DanceOfEvolution.CurseEffectDef>
+
+    <DanceOfEvolution.CurseEffectDef>
+        <defName>DE_CurseRevenantHypnosis</defName>
+        <workerClass>DanceOfEvolution.CurseWorker_RevenantHypnosis</workerClass>
+    </DanceOfEvolution.CurseEffectDef>
+
+    <DanceOfEvolution.CurseEffectDef>
+        <defName>DE_CurseFleshbeasts</defName>
+        <workerClass>DanceOfEvolution.CurseWorker_Fleshbeasts</workerClass>
+    </DanceOfEvolution.CurseEffectDef>
+
+    <DanceOfEvolution.CurseEffectDef>
+        <defName>DE_CurseGoldCubeWithdrawal</defName>
+        <workerClass>DanceOfEvolution.CurseWorker_GoldCubeWithdrawal</workerClass>
+    </DanceOfEvolution.CurseEffectDef>
+
+    <DanceOfEvolution.CurseEffectDef>
+        <defName>DE_CurseSunBlock</defName>
+        <workerClass>DanceOfEvolution.CurseWorker_SunBlock</workerClass>
+    </DanceOfEvolution.CurseEffectDef>
+
+    <DanceOfEvolution.CurseEffectDef>
+        <defName>DE_CurseMetalHorror</defName>
+        <workerClass>DanceOfEvolution.CurseWorker_MetalHorror</workerClass>
+    </DanceOfEvolution.CurseEffectDef>
+</Defs>

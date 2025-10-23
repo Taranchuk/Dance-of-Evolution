@@ -80,30 +80,26 @@ namespace DanceOfEvolution
 		public static MentalStateDef Binging_Food;
 		public static MentalStateDef Tantrum;
 		public static PawnKindDef Toughspike;
-
 		public static PawnTableDef DE_FungalServants;
-		
 		public static ThingDef DE_CubeFungi;
-		
 		public static JobDef DE_TakeBioferriteOutOfCubeFungi;
-		
 		public static ThoughtDef DE_QuantumTunnelingMood;
-
 		public static TraitDef TorturedArtist;
-        public static TraitDef NaturalMood;
+		public static TraitDef NaturalMood;
 		public static TraitDef Nerves;
-        public static ThingDef DE_QuantumTunnelGate_Spawner;
-        public static ThingDef DE_QuantumTunnelGateExit_Spawner;
-        public static ThingDef DE_QuantumTunnelGate;
-        public static ThingDef DE_QuantumTunnelGateExit;
-  public static BodyPartGroupDef Eyes;
-        [MayRequire("Ludeon.RimWorld.Anomaly")] public static TraitDef Occultist;
-        [MayRequire("Ludeon.RimWorld.Anomaly")] public static TraitDef Disturbing;
-        [MayRequire("Ludeon.RimWorld.Anomaly")] public static TraitDef VoidFascination;
-        public static PsychicRitualDef DE_CoagulatePower;
-  static DefsOf()
+		public static ThingDef DE_QuantumTunnelGate_Spawner;
+		public static ThingDef DE_QuantumTunnelGateExit_Spawner;
+		public static ThingDef DE_QuantumTunnelGate;
+		public static ThingDef DE_QuantumTunnelGateExit;
+		public static BodyPartGroupDef Eyes;
+		public static TraitDef Occultist;
+		public static TraitDef Disturbing;
+		public static TraitDef VoidFascination;
+		public static PsychicRitualDef DE_CoagulatePower;
+		public static SoundDef Pawn_Sightstealer_Howl;
+		static DefsOf()
 		{
-		    DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
+			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}
-    }
+	}
 }

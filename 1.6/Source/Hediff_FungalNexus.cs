@@ -1,7 +1,10 @@
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
+using Verse.Sound;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace DanceOfEvolution
 {
@@ -11,6 +14,8 @@ namespace DanceOfEvolution
 	{
 		private float timer = 0;
 		public List<Pawn> servants = new();
+		private int lastCurseUseTick = -1;
+		private const int BaseCooldownTicks = 200 * GenDate.TicksPerDay;
 		public int MaxServants => 4 + servantCountOffset;
 		public int servantCountOffset;
 		public ServantType servantTypeTarget = ServantType.Large;
@@ -128,6 +133,19 @@ namespace DanceOfEvolution
 			{
 				yield return new FungalNexusGizmo(this);
 				yield return new Command_SetServantTypeTarget(this);
+				var command = new Command_ActionWithCooldown
+				{
+					defaultLabel = "DE_Curse".Translate(),
+					defaultDesc = "DE_CurseDesc".Translate(),
+					icon = ContentFinder<Texture2D>.Get("UI/Abilities/Curse", true),
+					cooldownPercentGetter = () => GetCurseCooldownPercent(),
+					action = () => StartCurseTargeting()
+				};
+				if (GetCurseCooldownPercent() < 1f)
+				{
+					command.Disable("DE_CurseOnCooldown".Translate());
+				}
+				yield return command;
 			}
 
 			if (DebugSettings.ShowDevGizmos)
@@ -229,10 +247,89 @@ namespace DanceOfEvolution
 			Scribe_Values.Look(ref servantCountOffset, "servantCountOffset");
 			Scribe_Values.Look(ref servantTypeTarget, "servantTypeTarget", ServantType.Large);
 			Scribe_Defs.Look(ref selectedCosmetic, "selectedCosmetic");
+			Scribe_Values.Look(ref lastCurseUseTick, "lastCurseUseTick", -1);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				servants ??= new();
 			}
+		}
+
+		private float GetCurseCooldownPercent()
+		{
+			if (lastCurseUseTick == -1)
+			{
+				return 1f;
+			}
+
+			int currentTick = Find.TickManager.TicksGame;
+			int ticksSinceUse = currentTick - lastCurseUseTick;
+			int effectiveCooldown = GetEffectiveCooldownTicks();
+
+			return Mathf.Clamp01((float)ticksSinceUse / effectiveCooldown);
+		}
+
+		private int GetEffectiveCooldownTicks()
+		{
+			float psychicSensitivity = pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+			float sensitivityFactor = Mathf.Max(psychicSensitivity, 0.1f);
+			return (int)(BaseCooldownTicks / sensitivityFactor);
+		}
+
+		private void StartCurseTargeting()
+		{
+			CameraJumper.TryJump(CameraJumper.GetWorldTarget(pawn.Map.Parent));
+			Find.WorldTargeter.BeginTargeting(
+				delegate (GlobalTargetInfo target)
+				{
+					if (Valid(target, true))
+					{
+						if (target.WorldObject is MapParent mapParent)
+						{
+							GameComponent_CurseManager.Instance.AddCursedSite(mapParent);
+							DefsOf.Pawn_Sightstealer_Howl.PlayOneShotOnCamera();
+							Messages.Message("DE_CurseSuccess".Translate(mapParent.Label), mapParent, MessageTypeDefOf.PositiveEvent, historical: false);
+							lastCurseUseTick = Find.TickManager.TicksGame;
+							CameraJumper.TryJump(CameraJumper.GetWorldTarget(mapParent));
+							return true;
+						}
+					}
+					return false;
+				},
+				true,
+				null,
+				true,
+null
+			);
+		}
+
+		private bool Valid(GlobalTargetInfo target, bool throwMessages = false)
+		{
+			if (!(target.WorldObject is MapParent mapParent))
+			{
+				if (throwMessages)
+				{
+					Messages.Message("DE_CannotCurseThis".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (mapParent.HasMap)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("DE_CannotCurseGeneratedMap".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+
+			if (GameComponent_CurseManager.Instance.IsCursed(mapParent))
+			{
+				if (throwMessages)
+				{
+					Messages.Message("DE_AlreadyCursed".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return true;
 		}
 	}
 }

@@ -99,4 +99,11 @@
 	<DE_CoagulatePowerSuccess>{0} has gained permanent regeneration!</DE_CoagulatePowerSuccess>
 	<DE_CoagulatePowerFailure>{0} has suffered terrible injuries!</DE_CoagulatePowerFailure>
 	<DE_InvalidFleshmassNucleus>The selected pawn is not a valid fleshmass nucleus.</DE_InvalidFleshmassNucleus>
+	<DE_AlreadyCursed>This location is already cursed.</DE_AlreadyCursed>
+	<DE_CurseSuccess>{0} has been cursed.</DE_CurseSuccess>
+	<DE_Curse>Curse</DE_Curse>
+	<DE_CurseDesc>Curse a location on the world map. When you visit the cursed location, a random curse effect will be applied to the map.</DE_CurseDesc>
+	<DE_CurseOnCooldown>The curse ability is on cooldown.</DE_CurseOnCooldown>
+	<DE_CannotCurseThis>Cannot curse this location.</DE_CannotCurseThis>
+	<DE_CannotCurseGeneratedMap>Cannot curse a map that has already been generated.</DE_CannotCurseGeneratedMap>
 </LanguageData>
