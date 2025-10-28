@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnKindDef Name="DE_MycelyssFungalNexus" Abstract="True">
+    <race>Human</race>
+    <combatPower>50</combatPower>
+    <apparelRequired>
+      <li>DE_LivingDress</li>
+    </apparelRequired>
+    <apparelIgnoreSeasons>True</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
+    <techHediffsChance>0.0</techHediffsChance>
+    <initialResistanceRange>5~15</initialResistanceRange>
+    <initialWillRange>1~5</initialWillRange>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="DE_MycelyssFungalNexus">
+    <defName>DE_MycelyssFungalNexus</defName>
+    <label>Mycelyss Fungal Nexus</label>
+    <defaultFactionType>DE_Mycelyss</defaultFactionType>
+  </PawnKindDef>
+
+</Defs>

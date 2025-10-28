@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RulePackDef>
+    <defName>DE_NamerFactionMycelyss</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->The [fungus_adjective] [fungus_noun]</li>
+        <li>r_name->[fungus_noun] of [fungus_adjective]</li>
+        <li>fungus_adjective->Mycelyss</li>
+        <li>fungus_adjective->Fungal</li>
+        <li>fungus_adjective->Mycelium</li>
+        <li>fungus_noun->Colony</li>
+        <li>fungus_noun->Nest</li>
+        <li>fungus_noun->Swarm</li>
+        <li>fungus_noun->Hive</li>
+        <li>fungus_noun->Nexus</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>DE_NamerSettlementMycelyss</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->[fungus_settlement_name] [fungus_settlement_type]</li>
+        <li>r_name->[fungus_settlement_type] of [fungus_settlement_name]</li>
+        <li>fungus_settlement_name->Mycelyss</li>
+        <li>fungus_settlement_name->Fungal</li>
+        <li>fungus_settlement_name->Mycelium</li>
+        <li>fungus_settlement_type->Colony</li>
+        <li>fungus_settlement_type->Nest</li>
+        <li>fungus_settlement_type->Swarm</li>
+        <li>fungus_settlement_type->Hive</li>
+        <li>fungus_settlement_type->Nexus</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

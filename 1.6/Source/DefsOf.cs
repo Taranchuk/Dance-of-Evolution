@@ -65,6 +65,7 @@ namespace DanceOfEvolution
 		public static PawnKindDef Noctol;
 		public static PawnKindDef DE_FungalNexusKind;
 		public static HediffDef DE_ServantUnstable;
+		public static PawnKindDef DE_MycelyssFungalNexus;
 		public static JobDef DE_OpenGrowthSpotDialog;
 		public static ThingDef RawFungus;
 		public static JobDef DE_ApplyCosmeticChange;
@@ -99,6 +100,8 @@ namespace DanceOfEvolution
 		public static PsychicRitualDef DE_CoagulatePower;
 		public static SoundDef Pawn_Sightstealer_Howl;
 		public static HediffDef DE_Ally;
+		public static FactionDef DE_Mycelyss;
+
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

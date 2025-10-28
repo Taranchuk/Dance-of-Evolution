@@ -33,7 +33,7 @@ namespace DanceOfEvolution
 				return stage;
 			}
 		}
-		public override bool ShouldRemove => masterHediff is null || masterHediff.pawn is null;
+		public override bool ShouldRemove => masterHediff?.pawn?.Destroyed ?? false;
 		public override void ExposeData()
 		{
 			base.ExposeData();
@@ -102,7 +102,7 @@ namespace DanceOfEvolution
 		public override void Tick()
 		{
 			base.Tick();
-			if (masterHediff != null && pawn.IsHashIntervalTick(60))
+			if (masterHediff?.pawn != null && pawn.IsHashIntervalTick(60))
 			{
 				var masterPsychicSensitivity = masterHediff.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
 				if (masterPsychicSensitivity != curMasterPsychicSensitivity)

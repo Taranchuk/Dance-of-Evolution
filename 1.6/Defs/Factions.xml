@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <FactionDef ParentName="FactionBase">
+    <defName>DE_Mycelyss</defName>
+    <label>mycelyss swarm</label>
+    <description>A hostile swarm of fungal creatures.</description>
+    <permanentEnemy>true</permanentEnemy>
+    <settlementGenerationWeight>0.2</settlementGenerationWeight>
+    <techLevel>Animal</techLevel>
+    <factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+    <factionNameMaker>DE_NamerFactionMycelyss</factionNameMaker>
+    <settlementNameMaker>DE_NamerSettlementMycelyss</settlementNameMaker>
+    <fixedLeaderKinds>
+      <li>DE_MycelyssFungalNexus</li>
+    </fixedLeaderKinds>
+    <colorSpectrum>
+      <li>(0.1, 0.4, 0.1)</li>
+      <li>(0.2, 0.6, 0.2)</li>
+    </colorSpectrum>
+    <pawnSingular>fungoid</pawnSingular>
+    <pawnsPlural>fungoids</pawnsPlural>
+    <leaderTitle>fungal overmind</leaderTitle>
+    <basicMemberKind>DE_MycelyssFungalNexus</basicMemberKind>
+    <allowedCultures>
+      <li>Rustican</li>
+    </allowedCultures>
+    <arrivalModeWhitelist>
+      <li>EdgeWalkIn</li>
+      <li>EdgeWalkInGroups</li>
+    </arrivalModeWhitelist>
+    <canSiege>false</canSiege>
+    <canStageAttacks>false</canStageAttacks>
+    <requiredMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Darkness</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Inhuman</li>
+    </requiredMemes>
+    <allowedMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+    </allowedMemes>
+    <structureMemeWeights>
+      <Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Archist>
+    </structureMemeWeights>
+    <xenotypeSet>
+      <xenotypeChances>
+        <Dirtmole MayRequire="Ludeon.RimWorld.Biotech">0.1</Dirtmole>
+        <Hussar MayRequire="Ludeon.RimWorld.Biotech">0.05</Hussar>
+        <Waster MayRequire="Ludeon.RimWorld.Biotech">0.025</Waster>
+        <Pigskin MayRequire="Ludeon.RimWorld.Biotech">0.025</Pigskin>
+        <Neanderthal MayRequire="Ludeon.RimWorld.Biotech">0.025</Neanderthal>
+        <Impid MayRequire="Ludeon.RimWorld.Biotech">0.025</Impid>
+        <Genie MayRequire="Ludeon.RimWorld.Biotech">0.025</Genie>
+        <Yttakin MayRequire="Ludeon.RimWorld.Biotech">0.025</Yttakin>
+        <Starjack MayRequire="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Odyssey">0.025</Starjack>
+        <VRE_Fungoid MayRequire="vanillaracesexpanded.fungoid">0.2</VRE_Fungoid>
+      </xenotypeChances>
+    </xenotypeSet>
+    <maxConfigurableAtWorldCreation>999</maxConfigurableAtWorldCreation>
+    <configurationListOrderPriority>20</configurationListOrderPriority>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+        <commonality>0.95</commonality>
+      </li>
+      <li>
+        <categories>
+          <li>Offworld</li>
+        </categories>
+        <commonality>0.05</commonality>
+      </li>
+    </backstoryFilters>
+    <allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>0,35</li>
+        <li>70,50</li>
+        <li>150,60</li>
+        <li>300,65</li>
+        <li>500,70</li>
+        <li>1000,75</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+    <pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <DE_MycelyssFungalNexus>1</DE_MycelyssFungalNexus>
+        </options>
+        <disallowedStrategies>
+          <li>Siege</li>
+        </disallowedStrategies>
+      </li>
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <DE_MycelyssFungalNexus>1</DE_MycelyssFungalNexus>
+        </options>
+      </li>
+    </pawnGroupMakers>
+  </FactionDef>
+
+</Defs>
