@@ -9,7 +9,7 @@ namespace DanceOfEvolution
     {
         public static bool Prefix(CompRevenant __instance)
         {
-            if (__instance.parent is Pawn pawn && pawn.IsServant())
+            if (__instance.parent is Pawn pawn && pawn.IsServantOrAlly())
             {
                 return false;
             }

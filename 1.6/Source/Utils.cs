@@ -40,6 +40,10 @@ namespace DanceOfEvolution
 			fungalNexus = pawn.GetFungalNexus();
 			return fungalNexus != null;
 		}
+		public static bool IsServantOrAlly(this Pawn pawn)
+		{
+			return pawn.IsServant(out _) || pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_Ally) != null;
+		}
 
 		public static bool IsServant(this Pawn pawn)
 		{
@@ -117,12 +121,12 @@ namespace DanceOfEvolution
 			}
 			return null;
 		}
-		
+
 		public static bool CanSpawnOnRottenSoil(this ThingDef def)
 		{
 			return def.plant != null && (def.plant.cavePlant || WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(def.defName));
 		}
-		
+
 		public static T Clone<T>(this T obj)
 		{
 			var inst = obj.GetType().GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);

@@ -97,6 +97,7 @@ namespace DanceOfEvolution
 		public static TraitDef VoidFascination;
 		public static PsychicRitualDef DE_CoagulatePower;
 		public static SoundDef Pawn_Sightstealer_Howl;
+		public static HediffDef DE_Ally;
 		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));

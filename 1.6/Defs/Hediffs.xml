@@ -506,4 +506,15 @@
 		</comps>
 	</HediffDef>
 
+	<HediffDef ParentName="DE_FungalHediffBase">
+		<defName>DE_Ally</defName>
+		<label>ally</label>
+		<description>dev hediff.</description>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+		</stages>
+	</HediffDef>
+
 </Defs>

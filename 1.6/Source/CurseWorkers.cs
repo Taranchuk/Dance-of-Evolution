@@ -31,6 +31,7 @@ namespace DanceOfEvolution
             if (TryFindRandomSpawnCell(map, out var loc))
             {
                 var revenant = GenSpawn.Spawn(PawnGenerator.GeneratePawn(PawnKindDefOf.Revenant, Faction.OfPlayer), loc, map) as Pawn;
+                revenant.health.AddHediff(DefsOf.DE_Ally);
                 var comp = revenant.GetComp<CompRevenant>();
                 var affectedEnemies = new List<Pawn>();
                 foreach (var enemy in GetAllHostilePawns(map).Where(x => x != revenant && RevenantUtility.ValidTarget(x)).ToList())
@@ -104,7 +105,7 @@ namespace DanceOfEvolution
                 }
             }
         }
-        
+
         private static readonly FloatRange NoctolPointsFactorRange = new FloatRange(0.8f, 1f);
 
         private List<Pawn> GetNoctolsForPoints(float points, Map map)
