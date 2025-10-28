@@ -17,6 +17,9 @@ namespace DanceOfEvolution
                 NociosphereUtility.SkipTo(nociosphere, loc);
                 var compActivity = nociosphere.GetComp<CompActivity>();
                 compActivity.EnterActiveState();
+                var compNociosphere = nociosphere.GetComp<CompNociosphere>();
+                compNociosphere.sentOnslaught = true;
+                compNociosphere.sentFromLocation = loc;
             }
         }
     }
@@ -27,11 +30,24 @@ namespace DanceOfEvolution
         {
             if (TryFindRandomSpawnCell(map, out var loc))
             {
-                var revenant = GenSpawn.Spawn(PawnGenerator.GeneratePawn(PawnKindDefOf.Revenant, Faction.OfEntities), loc, map) as Pawn;
+                var revenant = GenSpawn.Spawn(PawnGenerator.GeneratePawn(PawnKindDefOf.Revenant, Faction.OfPlayer), loc, map) as Pawn;
                 var comp = revenant.GetComp<CompRevenant>();
-                foreach (var enemy in GetAllHostilePawns(map).Where(x => x != revenant).ToList())
+                var affectedEnemies = new List<Pawn>();
+                foreach (var enemy in GetAllHostilePawns(map).Where(x => x != revenant && RevenantUtility.ValidTarget(x)).ToList())
                 {
-                    comp.Hypnotize(enemy);
+                    if (Rand.Chance(0.15f))
+                    {
+                        comp.Hypnotize(enemy);
+                        if (enemy.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.RevenantHypnosis) != null)
+                        {
+                            affectedEnemies.Add(enemy);
+                        }
+                    }
+                }
+                if (affectedEnemies.TryRandomElement(out var result))
+                {
+                    revenant.DeSpawn();
+                    GenSpawn.Spawn(revenant, result.Position, map);
                 }
             }
         }
@@ -45,7 +61,7 @@ namespace DanceOfEvolution
             {
                 if (TryFindRandomSpawnCell(map, out var loc))
                 {
-                    FleshbeastUtility.SpawnFleshbeastsFromPitBurrowEmergence(loc, map, StorytellerUtility.DefaultThreatPointsNow(map), new IntRange(600, 600), new IntRange(60, 180));
+                    FleshbeastUtility.SpawnFleshbeastsFromPitBurrowEmergence(loc, map, StorytellerUtility.DefaultThreatPointsNow(Find.World), new IntRange(600, 600), new IntRange(60, 180));
                 }
             }
         }
@@ -80,6 +96,7 @@ namespace DanceOfEvolution
             var noctolGroup = GetNoctolsForPoints(StorytellerUtility.DefaultSiteThreatPointsNow(), map);
             foreach (var noctol in noctolGroup)
             {
+                noctol.SetFaction(Faction.OfPlayer);
                 IntVec3 spawnLoc;
                 if (CellFinder.TryFindRandomEdgeCellWith((IntVec3 c) => c.Standable(map) && !c.Fogged(map), map, CellFinder.EdgeRoadChance_Animal, out spawnLoc))
                 {

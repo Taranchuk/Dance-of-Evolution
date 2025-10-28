@@ -106,4 +106,6 @@
 	<DE_CurseOnCooldown>The curse ability is on cooldown.</DE_CurseOnCooldown>
 	<DE_CannotCurseThis>Cannot curse this location.</DE_CannotCurseThis>
 	<DE_CannotCurseGeneratedMap>Cannot curse a map that has already been generated.</DE_CannotCurseGeneratedMap>
+	<DE_CurseApplied>Curse applied</DE_CurseApplied>
+	<DE_QuantumTunnelCollapsingIn>Collapsing in {0}</DE_QuantumTunnelCollapsingIn>
 </LanguageData>

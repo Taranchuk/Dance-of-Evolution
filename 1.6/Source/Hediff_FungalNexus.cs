@@ -284,25 +284,27 @@ namespace DanceOfEvolution
 					if (Valid(target, true))
 					{
 						if (target.WorldObject is MapParent mapParent)
-						{
-							GameComponent_CurseManager.Instance.AddCursedSite(mapParent);
-							DefsOf.Pawn_Sightstealer_Howl.PlayOneShotOnCamera();
-							Find.LetterStack.ReceiveLetter("DE_CurseApplied".Translate(), "DE_CurseSuccess".Translate(mapParent.Label), LetterDefOf.PositiveEvent, mapParent);
-							lastCurseUseTick = Find.TickManager.TicksGame;
-							CameraJumper.TryJump(CameraJumper.GetWorldTarget(mapParent));
-							return true;
-						}
-					}
+                        {
+                            DoCurse(mapParent);
+                            return true;
+                        }
+                    }
 					return false;
 				},
 				true,
 				null,
 				true,
-null
+				null
 			);
 		}
 
-		private bool Valid(GlobalTargetInfo target, bool throwMessages = false)
+        public void DoCurse(MapParent mapParent)
+        {
+            lastCurseUseTick = Find.TickManager.TicksGame;
+            GameComponent_CurseManager.Instance.AddCursedSite(mapParent);
+        }
+
+        private bool Valid(GlobalTargetInfo target, bool throwMessages = false)
 		{
 			if (!(target.WorldObject is MapParent mapParent))
 			{

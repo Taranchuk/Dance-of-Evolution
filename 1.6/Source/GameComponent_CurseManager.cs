@@ -3,6 +3,9 @@ using System.Linq;
 using RimWorld.Planet;
 using Verse;
 using UnityEngine;
+using RimWorld;
+using Verse.Sound;
+using LudeonTK;
 
 namespace DanceOfEvolution
 {
@@ -18,11 +21,33 @@ namespace DanceOfEvolution
             Instance = this;
         }
 
+        [DebugAction("General", "Add curse...", false, false, false, false, false, 0, false, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        private static List<DebugActionNode> AddCurse()
+        {
+            List<DebugActionNode> list = new List<DebugActionNode>();
+            foreach (var allDef in DefDatabase<CurseEffectDef>.AllDefs)
+            {
+                var localDef = allDef;
+                list.Add(new DebugActionNode(localDef.defName, DebugActionType.Action, delegate
+                {
+                    localDef.Worker.Apply(Find.CurrentMap);
+                }));
+            }
+            return list;
+        }
+
         public void AddCursedSite(WorldObject worldObject)
         {
             if (!cursedSites.Contains(worldObject))
             {
                 cursedSites.Add(worldObject);
+                SoundDefOf.Pawn_Sightstealer_Howl.PlayOneShotOnCamera();
+                Find.LetterStack.ReceiveLetter("DE_CurseApplied".Translate(), "DE_CurseSuccess".Translate(worldObject.Label), LetterDefOf.PositiveEvent, worldObject);
+                CameraJumper.TryJump(CameraJumper.GetWorldTarget(worldObject));
+                if (worldObject.Faction != null && worldObject.Faction.HasGoodwill)
+                {
+                    worldObject.Faction.TryAffectGoodwillWith(Faction.OfPlayer, -50, reason: HistoryEventDefOf.UsedHarmfulAbility);
+                }
             }
         }
 
