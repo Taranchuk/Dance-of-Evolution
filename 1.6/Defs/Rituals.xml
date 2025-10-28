@@ -138,7 +138,7 @@
 		<outcomeDescription>At the end of the ritual, the invoker will either gain permanent regeneration or suffer terrible injuries and disease.</outcomeDescription>
 		<hoursUntilOutcome>6</hoursUntilOutcome>
 		<targetRole>DE_FleshmassNucleus</targetRole>
-		<iconPath>UI/Icons/Ritual_Metal_Terror_Arrow</iconPath>
+		<iconPath>UI/Icons/Ritual_Regen</iconPath>
 	</DanceOfEvolution.PsychicRitualDef_CoagulatePower>
 
 	<PsychicRitualRoleDef>
