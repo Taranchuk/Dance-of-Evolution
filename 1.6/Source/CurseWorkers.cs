@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace DanceOfEvolution
@@ -13,6 +15,8 @@ namespace DanceOfEvolution
                 Pawn nociosphere = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Nociosphere, Faction.OfEntities, PawnGenerationContext.NonPlayer, map.Tile));
                 GenSpawn.Spawn(nociosphere, loc, map);
                 NociosphereUtility.SkipTo(nociosphere, loc);
+                var compActivity = nociosphere.GetComp<CompActivity>();
+                compActivity.EnterActiveState();
             }
         }
     }
@@ -24,9 +28,10 @@ namespace DanceOfEvolution
             if (TryFindRandomSpawnCell(map, out var loc))
             {
                 var revenant = GenSpawn.Spawn(PawnGenerator.GeneratePawn(PawnKindDefOf.Revenant, Faction.OfEntities), loc, map) as Pawn;
-                foreach (var enemy in GetAllHostilePawns(map))
+                var comp = revenant.GetComp<CompRevenant>();
+                foreach (var enemy in GetAllHostilePawns(map).Where(x => x != revenant).ToList())
                 {
-                    enemy.health.AddHediff(HediffDefOf.RevenantHypnosis);
+                    comp.Hypnotize(enemy);
                 }
             }
         }
@@ -52,9 +57,11 @@ namespace DanceOfEvolution
         {
             foreach (var enemy in GetAllHostilePawns(map))
             {
-                var hediff = HediffMaker.MakeHediff(HediffDefOf.CubeWithdrawal, enemy);
-                hediff.Severity = Rand.Range(0.1f, 1.0f);
+                var hediff = HediffMaker.MakeHediff(HediffDefOf.CubeInterest, enemy) as Hediff_CubeInterest;
+                hediff.Severity = 1.0f;
                 enemy.health.AddHediff(hediff);
+                hediff.StartWithdrawal();
+                hediff.WithdrawalHediff.Severity = Rand.Range(0f, 1f);
             }
         }
     }
@@ -63,15 +70,14 @@ namespace DanceOfEvolution
     {
         public override void Apply(Map map)
         {
-            map.gameConditionManager.RegisterCondition(GameConditionMaker.MakeCondition(GameConditionDefOf.UnnaturalDarkness));
-            var pawnGroupParms = new PawnGroupMakerParms
-            {
-                faction = Faction.OfEntities,
-                groupKind = PawnGroupKindDefOf.Noctols,
-                tile = map.Tile,
-                points = StorytellerUtility.DefaultThreatPointsNow(map)
-            };
-            var noctolGroup = PawnGroupMakerUtility.GeneratePawns(pawnGroupParms).ToList();
+            var cond = GameConditionMaker.MakeCondition(GameConditionDefOf.UnnaturalDarkness);
+            cond.Permanent = true;
+            map.gameConditionManager.RegisterCondition(cond);
+            map.gameConditionManager.mapBrightnessTracker.targetBrightness = 0;
+            map.gameConditionManager.mapBrightnessTracker.brightness = 0;
+            cond.startTick = Find.TickManager.TicksGame - cond.TransitionTicks;
+            map.mapDrawer.WholeMapChanged(MapMeshFlagDefOf.GroundGlow);
+            var noctolGroup = GetNoctolsForPoints(StorytellerUtility.DefaultSiteThreatPointsNow(), map);
             foreach (var noctol in noctolGroup)
             {
                 IntVec3 spawnLoc;
@@ -81,6 +87,21 @@ namespace DanceOfEvolution
                 }
             }
         }
+        
+        private static readonly FloatRange NoctolPointsFactorRange = new FloatRange(0.8f, 1f);
+
+        private List<Pawn> GetNoctolsForPoints(float points, Map map)
+        {
+            PawnGroupMakerParms pawnGroupMakerParms = new PawnGroupMakerParms
+            {
+                groupKind = PawnGroupKindDefOf.Noctols,
+                tile = map.Tile,
+                faction = Faction.OfEntities
+            };
+            pawnGroupMakerParms.points = ((points > 0f) ? points : StorytellerUtility.DefaultThreatPointsNow(map)) * NoctolPointsFactorRange.RandomInRange;
+            pawnGroupMakerParms.points = Mathf.Max(pawnGroupMakerParms.points, pawnGroupMakerParms.faction.def.MinPointsToGeneratePawnGroup(pawnGroupMakerParms.groupKind) * 1.05f);
+            return PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms)?.ToList();
+        }
     }
 
     public class CurseWorker_MetalHorror : CurseWorker
@@ -89,9 +110,12 @@ namespace DanceOfEvolution
         {
             foreach (var enemy in GetAllHostilePawns(map))
             {
-                var hediff = HediffMaker.MakeHediff(HediffDefOf.MetalhorrorImplant, enemy);
-                hediff.Severity = Rand.Range(0.1f, 1.0f);
-                enemy.health.AddHediff(hediff);
+                MetalhorrorUtility.Infect(enemy);
+                var hediff = enemy.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.MetalhorrorImplant);
+                if (hediff != null)
+                {
+                    hediff.Severity = Rand.Range(0, 1f);
+                }
             }
         }
     }

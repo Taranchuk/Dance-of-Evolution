@@ -36,9 +36,17 @@ namespace DanceOfEvolution
             var worldObject = map.Parent;
             if (IsCursed(worldObject))
             {
-                var curseDef = DefDatabase<CurseEffectDef>.AllDefs.RandomElement();
-                curseDef.Worker.Apply(map);
-                cursedSites.Remove(worldObject);
+                LongEventHandler.toExecuteWhenFinished.Add(delegate
+                {
+                    //foreach (var curseDef in DefDatabase<CurseEffectDef>.AllDefs)
+                    //{
+                    //    curseDef.Worker.Apply(map);
+                    //}
+                    var curseDef = DefDatabase<CurseEffectDef>.AllDefs.RandomElement();
+                    curseDef.Worker.Apply(map);
+                    Log.Message("Applied curse " + curseDef);
+                    cursedSites.Remove(worldObject);
+                });
             }
         }
 

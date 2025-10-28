@@ -21,14 +21,9 @@ namespace DanceOfEvolution
                 else
                 {
                     var gates = map.listerThings.ThingsOfDef(DefsOf.DE_QuantumTunnelGateExit).OfType<Building_QuantumTunnelGateExit>();
-                    foreach (var gate in gates)
+                    if (gates.Any() && map.mapPawns.FreeColonists.Any() is false)
                     {
-                        var otherMap = gate.GetOtherMap();
-                        if (otherMap != null && !SettlementDefeatUtility.IsDefeated(otherMap, faction))
-                        {
-                            __result = false;
-                            break;
-                        }
+                        __result = false;
                     }
                 }
             }

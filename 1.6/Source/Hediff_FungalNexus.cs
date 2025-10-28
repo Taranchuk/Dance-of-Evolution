@@ -287,7 +287,7 @@ namespace DanceOfEvolution
 						{
 							GameComponent_CurseManager.Instance.AddCursedSite(mapParent);
 							DefsOf.Pawn_Sightstealer_Howl.PlayOneShotOnCamera();
-							Messages.Message("DE_CurseSuccess".Translate(mapParent.Label), mapParent, MessageTypeDefOf.PositiveEvent, historical: false);
+							Find.LetterStack.ReceiveLetter("DE_CurseApplied".Translate(), "DE_CurseSuccess".Translate(mapParent.Label), LetterDefOf.PositiveEvent, mapParent);
 							lastCurseUseTick = Find.TickManager.TicksGame;
 							CameraJumper.TryJump(CameraJumper.GetWorldTarget(mapParent));
 							return true;

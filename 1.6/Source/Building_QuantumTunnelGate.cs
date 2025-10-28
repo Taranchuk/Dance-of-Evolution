@@ -253,19 +253,28 @@ namespace DanceOfEvolution
                 }, "GeneratingMap", false, null);
             }
         }
-
-        private void FinalizeTeleport(Map destinationMap)
+        
+        public static readonly LargeBuildingSpawnParms PitGateSpawnParms = new LargeBuildingSpawnParms
         {
-            if (!DropCellFinder.TryFindDropSpotNear(destinationMap.Center, destinationMap, out var dropSpot, allowFogged: false, canRoofPunch: false))
+            ignoreTerrainAffordance = true
+        };
+
+        private void FinalizeTeleport(Map map)
+        {
+            if (!LargeBuildingCellFinder.TryFindCell(out var cell, map, PitGateSpawnParms.ForThing(DefsOf.DE_QuantumTunnelGateExit)))
             {
-                dropSpot = destinationMap.Center;
+                if (!DropCellFinder.TryFindDropSpotNear(map.Center, map, out cell, allowFogged: false, canRoofPunch: false))
+                {
+                    cell = map.Center;
+                }
             }
+
             var spawner = (BuildingGroundSpawner_QuantumTunnelExit)ThingMaker.MakeThing(DefsOf.DE_QuantumTunnelGateExit_Spawner);
             spawner.SetOriginalEntranceGate(this);
-            GenSpawn.Spawn(spawner, dropSpot, destinationMap);
-            Find.CameraDriver.JumpToCurrentMapLoc(dropSpot);
+            GenSpawn.Spawn(spawner, cell, map);
+            Find.CameraDriver.JumpToCurrentMapLoc(cell);
             Find.CameraDriver.shaker.DoShake(0.1f, 120);
-            SoundDefOf.PitGateOpen.PlayOneShot(SoundInfo.InMap(new TargetInfo(dropSpot, destinationMap)));
+            SoundDefOf.PitGateOpen.PlayOneShot(SoundInfo.InMap(new TargetInfo(cell, map)));
             Find.LetterStack.ReceiveLetter("DE_QuantumTeleportSuccessLabel".Translate(), "DE_QuantumTeleportSuccess".Translate(), LetterDefOf.PositiveEvent, spawner);
         }
 
