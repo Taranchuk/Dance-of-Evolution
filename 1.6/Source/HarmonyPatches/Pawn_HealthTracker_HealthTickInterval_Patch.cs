@@ -9,7 +9,7 @@ namespace DanceOfEvolution
         public static bool suppressMessage;
         public static void Prefix(Pawn_HealthTracker __instance)
         {
-            if (__instance.pawn.IsServant())
+            if (__instance.pawn.IsServantOrAlly())
             {
                 suppressMessage = true;
             }

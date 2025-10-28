@@ -20,6 +20,7 @@ namespace DanceOfEvolution
                 var compNociosphere = nociosphere.GetComp<CompNociosphere>();
                 compNociosphere.sentOnslaught = true;
                 compNociosphere.sentFromLocation = loc;
+                nociosphere.health.AddHediff(DefsOf.DE_Ally);
             }
         }
     }
@@ -116,7 +117,7 @@ namespace DanceOfEvolution
                 tile = map.Tile,
                 faction = Faction.OfEntities
             };
-            pawnGroupMakerParms.points = ((points > 0f) ? points : StorytellerUtility.DefaultThreatPointsNow(map)) * NoctolPointsFactorRange.RandomInRange;
+            pawnGroupMakerParms.points = StorytellerUtility.DefaultThreatPointsNow(Find.World) * NoctolPointsFactorRange.RandomInRange;
             pawnGroupMakerParms.points = Mathf.Max(pawnGroupMakerParms.points, pawnGroupMakerParms.faction.def.MinPointsToGeneratePawnGroup(pawnGroupMakerParms.groupKind) * 1.05f);
             return PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms)?.ToList();
         }

@@ -19,6 +19,10 @@ namespace DanceOfEvolution
 			{
 				__result = ThoughtState.ActiveAtStage(1);
 			}
+			else if (p.Spawned && p.Position.GetTerrain(p.Map) == DefsOf.DE_MyceliumFerrite && p.HostileTo(Faction.OfPlayer))
+			{
+				__result = ThoughtState.ActiveAtStage(1);
+			}
 		}
 	}
 }

@@ -37,24 +37,52 @@ namespace DanceOfEvolution
 		public const int LungRotExposureTickRate = 60;
 		public static void Postfix(Pawn_HealthTracker __instance)
 		{
-			if (__instance.pawn.Spawned && __instance.pawn.IsHashIntervalTick(LungRotExposureTickRate))
+			if (!__instance.pawn.Spawned || !__instance.pawn.IsHashIntervalTick(LungRotExposureTickRate))
 			{
-				var terrain = __instance.pawn.Position.GetTerrain(__instance.pawn.Map);
-				if (terrain == DefsOf.DE_RottenSoil &&
-					!__instance.pawn.health.hediffSet.HasHediff(DefsOf.FleshmassLung) &&
-					!__instance.pawn.health.hediffSet.HasHediff(HediffDefOf.DetoxifierLung))
-				{
-					if (__instance.pawn.genes is not null)
-					{
-						var genes = __instance.pawn.genes.GenesListForReading.Where(x => x.Active && x.def.makeImmuneTo is not null && x.def.makeImmuneTo.Contains(HediffDefOf.LungRot));
-						if (genes.Any())
-						{
-							return;
-						}
-					}
-					HealthUtility.AdjustSeverity(__instance.pawn, HediffDefOf.LungRotExposure, 0.001f);
-				}
+				return;
 			}
+
+			var pawn = __instance.pawn;
+			var terrain = pawn.Position.GetTerrain(pawn.Map);
+
+			float exposureSeverity = GetLungRotExposureSeverity(terrain, pawn);
+			if (exposureSeverity > 0f && ShouldApplyLungRotExposure(pawn))
+			{
+				HealthUtility.AdjustSeverity(pawn, HediffDefOf.LungRotExposure, exposureSeverity);
+			}
+		}
+
+		private static float GetLungRotExposureSeverity(TerrainDef terrain, Pawn pawn)
+		{
+			if (terrain == DefsOf.DE_RottenSoil)
+			{
+				return 0.001f;
+			}
+
+			if (terrain == DefsOf.DE_MyceliumFerrite && pawn.HostileTo(Faction.OfPlayer))
+			{
+				return 0.002f;
+			}
+
+			return 0f;
+		}
+
+		private static bool ShouldApplyLungRotExposure(Pawn pawn)
+		{
+			if (pawn.health.hediffSet.HasHediff(DefsOf.FleshmassLung) ||
+				pawn.health.hediffSet.HasHediff(HediffDefOf.DetoxifierLung))
+			{
+				return false;
+			}
+			if (pawn.genes != null)
+			{
+				return !pawn.genes.GenesListForReading.Any(x =>
+					x.Active &&
+					x.def.makeImmuneTo != null &&
+					x.def.makeImmuneTo.Contains(HediffDefOf.LungRot));
+			}
+
+			return true;
 		}
 	}
 }

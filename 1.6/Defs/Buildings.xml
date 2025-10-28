@@ -564,4 +564,80 @@
 		<thingClass>DanceOfEvolution.Building_QuantumTunnelGateExit</thingClass>
 	</ThingDef>
 
+	<ThingDef ParentName="DE_FungalBuildingBase">
+		<defName>DE_BioferriteNode</defName>
+		<label>Bioferrite Node</label>
+		<description>A large node of slimy fungus. It drains the soil of its nutrients to spread forth mycelium. The nutrients are then organized and distributed to other sessile organisms of the collective as needed. For its more motile kin, it can turn food into a highly nutritious slurry. This variant also converts nearby rotten soil to mycelium ferrite.</description>
+		<thingClass>DanceOfEvolution.Building_BioferriteNode</thingClass>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Building/FungalNode</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5,5)</drawSize>
+			<shadowData>
+				<volume>(2.87,0.75,3.05)</volume>
+				<offset>(0,0,0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<statBases>
+			<WorkToBuild>2200</WorkToBuild>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Flammability>0.85</Flammability>
+			<MarketValue>2000</MarketValue>
+		</statBases>
+		<building>
+			<isMealSource>true</isMealSource>
+			<nutritionCostPerDispense>4</nutritionCostPerDispense>
+			<soundDispense>DispensePaste</soundDispense>
+			<forceShowRoomStats>true</forceShowRoomStats>
+			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+			<blueprintClass>Blueprint_Storage</blueprintClass>
+			<fixedStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Corpses</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>DE_FungalSlurry</li>
+					</disallowedThingDefs>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+			<li>DanceOfEvolution.ITab_ContentsFungalNode</li>
+		</inspectorTabs>
+		<size>(5,5)</size>
+		<costList>
+			<RawFungus>125</RawFungus>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<interactionCellOffset>(0,0,3)</interactionCellOffset>
+		<hasInteractionCell>true</hasInteractionCell>
+		<uiOrder>2130</uiOrder>
+		<designationHotKey>Misc6</designationHotKey>
+		<canOverlapZones>false</canOverlapZones>
+		<researchPrerequisites>
+			<li>DE_AdvancedFungalNetworks</li>
+		</researchPrerequisites>
+	</ThingDef>
 </Defs>

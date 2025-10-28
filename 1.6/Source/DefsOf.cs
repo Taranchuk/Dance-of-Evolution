@@ -26,6 +26,7 @@ namespace DanceOfEvolution
 		public static HediffDef DE_Invisibility;
 		public static ThingDef DE_FungalNode;
 		public static TerrainDef DE_RottenSoil;
+		public static TerrainDef DE_MyceliumFerrite;
 		public static ThingDef DE_Sporemaker;
 		public static ThingDef DE_Cerebrum;
 		public static HediffDef DE_HangingSporesMood, DE_HangingSporesConsciousness, DE_HangingSporesMoving;

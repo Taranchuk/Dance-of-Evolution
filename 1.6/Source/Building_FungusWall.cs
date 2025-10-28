@@ -18,7 +18,7 @@ namespace DanceOfEvolution
 		public override void TickLong()
 		{
 			base.TickLong();
-			if (Spawned && Hardened is false && Position.GetTerrain(Map) == DefsOf.DE_RottenSoil)
+			if (Spawned && Hardened is false && (Position.GetTerrain(Map) == DefsOf.DE_RottenSoil || Position.GetTerrain(Map) == DefsOf.DE_MyceliumFerrite))
 			{
 				ticksToHarden -= 2000;
 				if (ticksToHarden <= 0)

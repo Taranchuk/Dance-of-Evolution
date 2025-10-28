@@ -41,11 +41,16 @@ namespace DanceOfEvolution
 			return fungalNexus != null;
 		}
 		public static bool IsServantOrAlly(this Pawn pawn)
-		{
-			return pawn.IsServant(out _) || pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_Ally) != null;
-		}
+        {
+            return pawn.IsServant(out _) || pawn.IsAlly();
+        }
 
-		public static bool IsServant(this Pawn pawn)
+        public static bool IsAlly(this Pawn pawn)
+        {
+            return pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_Ally) != null;
+        }
+
+        public static bool IsServant(this Pawn pawn)
 		{
 			return pawn.IsServant(out _);
 		}

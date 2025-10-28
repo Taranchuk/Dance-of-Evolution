@@ -55,14 +55,14 @@ namespace DanceOfEvolution
 				var terrain = cell.GetTerrain(map);
 				if (TerrainValidator(terrain))
 				{
-					TurnToRottenSoil(cell, map);
+					ConvertTerrain(cell, map);
 				}
 			}
 		}
 
-		private static void TurnToRottenSoil(IntVec3 cell, Map map)
+		protected virtual void ConvertTerrain(IntVec3 cell, Map map)
 		{
-			map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
+			ConvertTerrainStatic(cell, map);
 		}
 
 		public override void PostMake()
@@ -140,31 +140,51 @@ namespace DanceOfEvolution
 			base.Tick();
 			if (Spawned && this.IsHashIntervalTick(300))
 			{
-				SpreadRottenSoil(Map, Position);
+				SpreadTerrain(this.Map, this.Position);
 			}
 		}
 
-		public static void SpreadRottenSoil(Map map, IntVec3 Position)
+		private static void ExecuteSpreadTerrain(Map map, IntVec3 Position, System.Func<TerrainDef, bool> terrainValidator, System.Action<IntVec3, Map> terrainConverter)
 		{
 			var cells = map.AllCells.Where(x => x.InBounds(map) && x.DistanceTo(Position) <= 70f)
 	.OrderBy(x => x.DistanceTo(Position)).ToList();
 			foreach (var cell in cells)
 			{
 				var terrain = cell.GetTerrain(map);
-				if (TerrainValidator(terrain))
-                {
-                    TurnToRottenSoil(cell, map);
-                    cell.GetThingList(map).Where(x => x.def.IsPlant && x.def.CanSpawnOnRottenSoil() is false).ToList().Do(x => x.Destroy());
-                    break;
-                }
-            }
+				if (terrainValidator(terrain))
+				{
+					terrainConverter(cell, map);
+					cell.GetThingList(map).Where(x => x.def.IsPlant && x.def.CanSpawnOnRottenSoil() is false).ToList().Do(x => x.Destroy());
+					break;
+				}
+			}
+		}
+
+		protected virtual void SpreadTerrain(Map map, IntVec3 Position)
+		{
+			ExecuteSpreadTerrain(map, Position, TerrainValidator, ConvertTerrain);
+		}
+
+		public static void SpreadTerrainStatic(Map map, IntVec3 Position)
+		{
+			ExecuteSpreadTerrain(map, Position, TerrainValidatorStatic, ConvertTerrainStatic);
+		}
+
+		protected static void ConvertTerrainStatic(IntVec3 cell, Map map)
+		{
+			map.terrainGrid.SetTerrain(cell, DefsOf.DE_RottenSoil);
+		}
+
+		protected static bool TerrainValidatorStatic(TerrainDef terrain)
+		{
+			return terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space && terrain.IsWater is false;
 		}
 
 
 
-        private static bool TerrainValidator(TerrainDef terrain)
+		protected virtual bool TerrainValidator(TerrainDef terrain)
 		{
-			return terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space && terrain.IsWater is false;
+			return TerrainValidatorStatic(terrain);
 		}
 
 		public override void ExposeData()
@@ -222,16 +242,16 @@ namespace DanceOfEvolution
 			yield return printMealCommand;
 		}
 
-        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
-        {
-            base.Destroy(mode);
+		public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+		{
+			base.Destroy(mode);
 			if (storageGroup != null)
 			{
 				storageGroup?.RemoveMember(this);
 				storageGroup = null;
 			}
 		}
-		
+
 		public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
 		{
 			if (mode != DestroyMode.WillReplace)

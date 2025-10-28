@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <TerrainDef>
-        <defName>DE_RottenSoil</defName>
-        <label>rotten soil</label>
-        <texturePath>Things/Terrain/RottenSoil</texturePath>
+    <TerrainDef Name="DE_FungalSoilBase" Abstract="True">
         <fertility>1.2</fertility>
         <takeFootprints>true</takeFootprints>
         <pathCost>2</pathCost>
@@ -12,7 +9,6 @@
         <layerable>true</layerable>
         <statBases>
             <Beauty>-2</Beauty>
-            <Cleanliness>-1</Cleanliness>
             <ContainmentStrength>15</ContainmentStrength>
             <Flammability>0.17</Flammability>
         </statBases>
@@ -24,5 +20,25 @@
             <li>Diggable</li>
             <li>Walkable</li>
         </affordances>
+    </TerrainDef>
+    <TerrainDef ParentName="DE_FungalSoilBase">
+        <defName>DE_RottenSoil</defName>
+        <label>rotten soil</label>
+        <texturePath>Things/Terrain/RottenSoil</texturePath>
+        <statBases>
+            <Cleanliness>-1</Cleanliness>
+        </statBases>
+    </TerrainDef>
+
+    <TerrainDef ParentName="DE_FungalSoilBase">
+        <defName>DE_MyceliumFerrite</defName>
+        <label>mycelium ferrite</label>
+        <texturePath>Things/Terrain/MyceliumFerrite</texturePath>
+        <statBases>
+            <Cleanliness>0.2</Cleanliness>
+        </statBases>
+        <filthAcceptanceMask>
+            <li>None</li>
+        </filthAcceptanceMask>
     </TerrainDef>
 </Defs>

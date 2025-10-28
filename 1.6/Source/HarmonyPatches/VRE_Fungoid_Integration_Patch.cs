@@ -29,7 +29,7 @@ namespace DanceOfEvolution
 		{
 			if (__instance is Building building && building.Spawned && building.IsHashIntervalTick(300, delta))
 			{
-				Building_FungalNode.SpreadRottenSoil(building.Map, building.Position);
+				Building_FungalNode.SpreadTerrainStatic(building.Map, building.Position);
 			}
 		}
 	}
