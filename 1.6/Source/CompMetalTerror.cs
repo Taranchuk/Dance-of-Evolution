@@ -6,7 +6,7 @@ namespace DanceOfEvolution
 {
 	public class CompMetalTerror : ThingComp
 	{
-		private const float daysUntilShedding = 14f;
+		private const float daysUntilShedding = 10f;
 		private int ticksUntilShedding;
 		public override void PostPostMake()
 		{
@@ -57,7 +57,7 @@ namespace DanceOfEvolution
 		private void Shed()
 		{
 			Thing bioferrite = ThingMaker.MakeThing(ThingDefOf.Bioferrite);
-			bioferrite.stackCount = 25;
+			bioferrite.stackCount = 75;
 			GenPlace.TryPlaceThing(bioferrite, parent.Position, parent.Map, ThingPlaceMode.Near);
 			ResetSheddingTicks();
 		}

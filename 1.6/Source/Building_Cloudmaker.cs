@@ -25,9 +25,25 @@ namespace DanceOfEvolution
 			}
 		}
 
+		public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+		{
+			foreach (GameCondition gameCondition in causedConditions.Values)
+			{
+				gameCondition.Permanent = false;
+				gameCondition.TicksLeft = gameCondition.TransitionTicks;
+			}
+			causedConditions.Clear();
+			base.DeSpawn(mode);
+		}
+
 		public override void Tick()
 		{
 			base.Tick();
+
+			if (!refuelableComp.HasFuel && causedConditions.Count > 0)
+			{
+				UpdateMapEffects();
+			}
 
 			if (this.IsHashIntervalTick(60))
 			{
@@ -63,6 +79,10 @@ namespace DanceOfEvolution
 					if (InAoE(map.Tile))
 					{
 						ApplyConditionToMap(map);
+					}
+					else
+					{
+						RemoveConditionFromMap(map);
 					}
 				}
 			}

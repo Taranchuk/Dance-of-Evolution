@@ -78,6 +78,8 @@ namespace DanceOfEvolution
 		public static HediffDef FleshmassLung;
 		public static JobDef DE_DevourCorpse;
 		public static AbilityDef DE_Devour;
+		public static AbilityDef DE_SpawnBurrower;
+		public static AbilityDef DE_DeadlifeSporeCloud;
 		public static ThingDef Filth_Fleshmass;
 		public static MentalStateDef Binging_Food;
 		public static MentalStateDef Tantrum;

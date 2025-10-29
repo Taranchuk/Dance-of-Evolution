@@ -39,7 +39,7 @@
 		<writeCombatLog>True</writeCombatLog>
 		<showPsycastEffects>False</showPsycastEffects>
 		<iconPath>UI/Abilities/ReleaseDeadlifeDust</iconPath>
-		<cooldownTicksRange>300000</cooldownTicksRange>
+		<cooldownTicksRange>600000</cooldownTicksRange>
 		<verbProperties>
 			<verbClass>DanceOfEvolution.Verb_LaunchAbilityProjectile</verbClass>
 			<label>deploy deadlife dust</label>
@@ -149,6 +149,33 @@
 		</verbProperties>
 		<comps>
 			<li Class="DanceOfEvolution.CompProperties_AbilityDevour" />
+		</comps>
+	</AbilityDef>
+
+	<AbilityDef>
+		<defName>DE_SpawnBurrower</defName>
+		<label>spawn burrower</label>
+		<description>Spawn a burrower to infect corpses.</description>
+		<iconPath>UI/Abilities/SpawnBurrower</iconPath>
+		<cooldownTicksRange>120000</cooldownTicksRange>
+		<charges>5</charges>
+		<cooldownPerCharge>true</cooldownPerCharge>
+		<hostile>false</hostile>
+		<targetRequired>false</targetRequired>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>false</drawAimPie>
+			<requireLineOfSight>false</requireLineOfSight>
+			<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+			<targetable>false</targetable>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="DanceOfEvolution.CompProperties_SpawnBurrower" />
 		</comps>
 	</AbilityDef>
 </Defs>

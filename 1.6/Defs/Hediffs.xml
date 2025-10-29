@@ -94,6 +94,9 @@
 				<drawSize>(1.25, 1.25)</drawSize>
 			</li>
 		</renderNodeProperties>
+		<abilities>
+			<li>DE_SpawnBurrower</li>
+		</abilities>
 	</HediffDef>
 
 	<HediffDef Name="DE_ServantTypeBase" ParentName="DE_FungalHediffBase" Abstract="True">

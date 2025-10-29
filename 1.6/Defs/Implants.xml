@@ -151,12 +151,6 @@
 				</abilityDefs>
 			</li>
 		</comps>
-		<stages>
-			<li>
-				<regeneration>100</regeneration>
-				<showRegenerationStat>true</showRegenerationStat>
-			</li>
-		</stages>
 	</HediffDef>
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_GrowthStimulator</defName>

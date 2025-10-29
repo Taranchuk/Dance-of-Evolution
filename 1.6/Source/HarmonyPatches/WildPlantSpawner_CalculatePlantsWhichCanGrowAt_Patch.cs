@@ -17,10 +17,14 @@ namespace DanceOfEvolution
                     var def = DefDatabase<ThingDef>.GetNamedSilentFail(plant.Key);
                     if (def != null && !outPlants.Contains(def))
                     {
-                        if (def.CanEverPlantAt(c, __instance.map))
-                        {
-                            outPlants.Add(def);
-                        }
+                       if (def.CanEverPlantAt(c, __instance.map, checkMapTemperature: false))
+                       {
+                           float outdoorTemp = __instance.map.mapTemperature.OutdoorTemp;
+                           if (outdoorTemp > def.plant.minGrowthTemperature && outdoorTemp < def.plant.maxGrowthTemperature)
+                           {
+                               outPlants.Add(def);
+                           }
+                       }
                     }
                 }
             }
