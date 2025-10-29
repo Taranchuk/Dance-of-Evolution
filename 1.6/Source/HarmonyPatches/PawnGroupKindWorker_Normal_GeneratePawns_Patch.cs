@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using RimWorld;
@@ -79,7 +79,7 @@ namespace DanceOfEvolution
 				if (Rand.Value < 0.2f && remainingPoints > 10)
 				{
 					var anomalyOptions = DefDatabase<PawnKindDef>.AllDefs
-						.Where(pk => pk.race?.race?.IsAnomalyEntity == true && pk.combatPower <= remainingPoints && pk.combatPower > 0 && pk.race.race.hasCorpse)
+						.Where(pk => pk.race?.race?.IsAnomalyEntity == true && pk.combatPower <= remainingPoints && pk.combatPower > 0 && pk.race.race.hasCorpse && pk.mutant != MutantDefOf.Shambler)
 						.ToList();
 					
 					if (anomalyOptions.Any())
