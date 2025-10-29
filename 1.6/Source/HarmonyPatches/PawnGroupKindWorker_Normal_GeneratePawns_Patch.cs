@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using RimWorld;
@@ -69,13 +69,46 @@ namespace DanceOfEvolution
 		private static void GenerateAnimals(PawnGroupMakerParms parms, List<Pawn> outPawns, float startingPoints, Hediff_FungalNexus masterHediff = null)
 		{
 			var animalOptions = DefDatabase<PawnKindDef>.AllDefs
-				.Where(pk => pk.race?.race?.Animal == true && pk.combatPower > 0)
+				.Where(pk => pk.race?.race?.Animal == true && pk.combatPower > 0 && pk != DefsOf.DE_Burrower && pk.race.race.hasCorpse)
 				.ToList();
 
 			float remainingPoints = startingPoints;
 
 			while (remainingPoints > 0)
 			{
+				if (Rand.Value < 0.2f && remainingPoints > 10)
+				{
+					var anomalyOptions = DefDatabase<PawnKindDef>.AllDefs
+						.Where(pk => pk.race?.race?.IsAnomalyEntity == true && pk.combatPower <= remainingPoints && pk.combatPower > 0 && pk.race.race.hasCorpse)
+						.ToList();
+					
+					if (anomalyOptions.Any())
+					{
+						var selectedAnomalyKind = anomalyOptions.RandomElement();
+						var anomalyRequest = new PawnGenerationRequest(
+							selectedAnomalyKind,
+							parms.faction,
+							PawnGenerationContext.NonPlayer,
+							parms.tile
+						);
+
+						var anomalyPawn = PawnGenerator.GeneratePawn(anomalyRequest);
+						var anomalyResult = Utils.TryGetServantTypeAndHediff(anomalyPawn);
+						if (anomalyResult.HasValue)
+						{
+							var hediff = HediffMaker.MakeHediff(anomalyResult.Value.servantHediffDef, anomalyPawn) as Hediff_ServantType;
+							anomalyPawn.health.AddHediff(hediff);
+							if (masterHediff != null)
+							{
+								hediff.masterHediff = null;
+							}
+						}
+						outPawns.Add(anomalyPawn);
+						remainingPoints -= selectedAnomalyKind.combatPower;
+						continue;
+					}
+				}
+				
 				var availableAnimals = animalOptions
 					.Where(pk => pk.combatPower <= remainingPoints)
 					.ToList();
