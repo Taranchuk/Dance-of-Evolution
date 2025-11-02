@@ -43,7 +43,6 @@
 				<filter>
 					<categories>
 						<li>Foods</li>
-						<li>Corpses</li>
 					</categories>
 					<disallowedThingDefs>
 						<li>DE_FungalSlurry</li>
@@ -55,7 +54,6 @@
 				<filter>
 					<categories>
 						<li>Foods</li>
-						<li>Corpses</li>
 					</categories>
 				</filter>
 			</defaultStorageSettings>
@@ -566,12 +564,12 @@
 
 	<ThingDef ParentName="DE_FungalBuildingBase">
 		<defName>DE_BioferriteNode</defName>
-		<label>Bioferrite Node</label>
-		<description>A large node of slimy fungus. It drains the soil of its nutrients to spread forth mycelium. The nutrients are then organized and distributed to other sessile organisms of the collective as needed. For its more motile kin, it can turn food into a highly nutritious slurry. This variant also converts nearby rotten soil to mycelium ferrite.</description>
+		<label>Metal Node</label>
+		<description>An improved version of the Fungal node. It keep its function of converting food into slurry. However, it has no need to drain nutrients from the soil, and instead spreads its otherworldly influence, converting nearby rotten soil into mycelium ferrite, a much improved version that benefit its collective further.</description>
 		<thingClass>DanceOfEvolution.Building_BioferriteNode</thingClass>
 		<tickerType>Normal</tickerType>
 		<graphicData>
-			<texPath>Things/Building/FungalNode</texPath>
+			<texPath>Things/Building/MetalhellNode</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(5,5)</drawSize>
 			<shadowData>
@@ -601,7 +599,6 @@
 				<filter>
 					<categories>
 						<li>Foods</li>
-						<li>Corpses</li>
 					</categories>
 					<disallowedThingDefs>
 						<li>DE_FungalSlurry</li>
@@ -613,7 +610,6 @@
 				<filter>
 					<categories>
 						<li>Foods</li>
-						<li>Corpses</li>
 					</categories>
 				</filter>
 			</defaultStorageSettings>

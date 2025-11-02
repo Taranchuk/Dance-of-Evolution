@@ -5,16 +5,14 @@
     <defName>DE_NamerFactionMycelyss</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_name->The [fungus_adjective] [fungus_noun]</li>
-        <li>r_name->[fungus_noun] of [fungus_adjective]</li>
-        <li>fungus_adjective->Mycelyss</li>
-        <li>fungus_adjective->Fungal</li>
-        <li>fungus_adjective->Mycelium</li>
-        <li>fungus_noun->Colony</li>
-        <li>fungus_noun->Nest</li>
-        <li>fungus_noun->Swarm</li>
-        <li>fungus_noun->Hive</li>
-        <li>fungus_noun->Nexus</li>
+        <li>r_name->The [fungus_noun] [fungus_adjective]</li>
+        <li>fungus_adjective->Voidling</li>
+		<li>fungus_adjective->Gardeners</li>
+		<li>fungus_adjective->Cultivators</li>
+        <li>fungus_noun->Far-seen</li>
+		<li>fungus_noun->Abysswalker</li>
+		<li>fungus_noun->Darkeater</li>
+		<li>fungus_noun->Dark Sun</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
@@ -24,15 +22,37 @@
     <rulePack>
       <rulesStrings>
         <li>r_name->[fungus_settlement_name] [fungus_settlement_type]</li>
-        <li>r_name->[fungus_settlement_type] of [fungus_settlement_name]</li>
-        <li>fungus_settlement_name->Mycelyss</li>
-        <li>fungus_settlement_name->Fungal</li>
-        <li>fungus_settlement_name->Mycelium</li>
-        <li>fungus_settlement_type->Colony</li>
         <li>fungus_settlement_type->Nest</li>
-        <li>fungus_settlement_type->Swarm</li>
-        <li>fungus_settlement_type->Hive</li>
-        <li>fungus_settlement_type->Nexus</li>
+		<li>fungus_settlement_type->Landing Site</li>
+		<li>fungus_settlement_type->Node</li>
+		<li>fungus_settlement_type->Cluster</li>
+		<li>fungus_settlement_type->Crash Site</li>
+		<li>fungus_settlement_type->Burrow</li>
+		<li>fungus_settlement_type->Eyrie</li>
+		<li>fungus_settlement_type->Lair</li>
+		<li>fungus_settlement_type->Den</li>
+		<li>fungus_settlement_type->Aerie</li>
+		<li>fungus_settlement_type->Drey</li>
+		<li>fungus_settlement_type->Haunt</li>
+		<li>fungus_settlement_type->Seedbed</li>
+		<li>fungus_settlement_type->Hollow</li>
+		<li>fungus_settlement_type->Rally Point</li>
+		<li>fungus_settlement_type->Cradle</li>
+		<li>fungus_settlement_type->Graveyard</li>
+		<li>fungus_settlement_type->Necropolis</li>
+		<li>fungus_settlement_type->Catacombs</li>
+		<li>fungus_settlement_name->Unfilled</li>
+		<li>fungus_settlement_name->Rotting</li>
+		<li>fungus_settlement_name->Desolate</li>
+		<li>fungus_settlement_name->Forgotten</li>
+		<li>fungus_settlement_name->Hollow</li>
+		<li>fungus_settlement_name->Blank</li>
+		<li>fungus_settlement_name->Bygone</li>
+		<li>fungus_settlement_name->Lost</li>
+		<li>fungus_settlement_name->Spent</li>
+		<li>fungus_settlement_name->Shambling</li>
+		<li>fungus_settlement_name->Tainted</li>
+		<li>fungus_settlement_name->Fetid</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

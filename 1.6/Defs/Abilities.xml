@@ -155,7 +155,7 @@
 	<AbilityDef>
 		<defName>DE_SpawnBurrower</defName>
 		<label>spawn burrower</label>
-		<description>Spawn a burrower to infect corpses.</description>
+		<description>Spawn a burrower, a creature that will seek the nearest rotten corpse to infect it and transform it into a servant based on the corpse's size.</description>
 		<iconPath>UI/Abilities/SpawnBurrower</iconPath>
 		<cooldownTicksRange>120000</cooldownTicksRange>
 		<charges>5</charges>
