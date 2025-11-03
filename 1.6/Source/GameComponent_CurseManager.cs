@@ -41,7 +41,6 @@ namespace DanceOfEvolution
             if (!cursedSites.Contains(worldObject))
             {
                 cursedSites.Add(worldObject);
-                SoundDefOf.Sightstealer_SummonedHowl.PlayOneShotOnCamera();
                 Find.LetterStack.ReceiveLetter("DE_CurseApplied".Translate(), "DE_CurseSuccess".Translate(worldObject.Label), LetterDefOf.PositiveEvent, worldObject, playSound: false);
                 CameraJumper.TryJump(CameraJumper.GetWorldTarget(worldObject));
                 if (worldObject.Faction != null && worldObject.Faction.HasGoodwill)

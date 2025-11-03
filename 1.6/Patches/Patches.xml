@@ -115,4 +115,11 @@
 		</value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/StatDef[defName = "PsychicSensitivity"]/parts</xpath>
+		<value>
+			<li Class="DanceOfEvolution.StatPart_PsychicSensor" />
+		</value>
+	</Operation>
+
 </Patch>

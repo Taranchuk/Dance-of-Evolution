@@ -229,11 +229,12 @@ namespace DanceOfEvolution
 
         public void DoCurse(MapParent mapParent)
         {
+			SoundDefOf.Sightstealer_SummonedHowl.PlayOneShot(pawn);
             lastCurseUseTick = Find.TickManager.TicksGame;
             GameComponent_CurseManager.Instance.AddCursedSite(mapParent);
-        }
+		}
 
-        private bool Valid(GlobalTargetInfo target, bool throwMessages = false)
+		private bool Valid(GlobalTargetInfo target, bool throwMessages = false)
 		{
 			if (!(target.WorldObject is MapParent mapParent))
 			{
