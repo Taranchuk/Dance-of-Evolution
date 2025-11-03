@@ -228,13 +228,21 @@ namespace DanceOfEvolution
 
         public void DoCurse(MapParent mapParent)
         {
-			Current.Game.CurrentMap = pawn.Map;
-			Find.CameraDriver.JumpToCurrentMapLoc(pawn.Position);
-			SoundDefOf.Sightstealer_SummonedHowl.PlayOneShot(pawn);
+			playSound = true;
 			lastCurseUseTick = Find.TickManager.TicksGame;
             GameComponent_CurseManager.Instance.AddCursedSite(mapParent);
 		}
-
+		private bool playSound;
+        public override void Tick()
+        {
+            base.Tick();
+            if (playSound)
+            {
+				SoundDefOf.Sightstealer_SummonedHowl.PlayOneShot(pawn);
+				playSound = false;
+			}
+		}
+		
 		private bool Valid(GlobalTargetInfo target, bool throwMessages = false)
 		{
 			if (!(target.WorldObject is MapParent mapParent))
