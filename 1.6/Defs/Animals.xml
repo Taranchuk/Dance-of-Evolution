@@ -109,7 +109,7 @@
       </li>
     </tools>
     <race>
-      <body>BeetleLike</body>
+      <body>DE_MetalTerrorBody</body>
       <deathAction>
         <workerClass>DanceOfEvolution.DeathActionWorker_Firefoam</workerClass>
       </deathAction>

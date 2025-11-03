@@ -177,7 +177,7 @@ namespace DanceOfEvolution
 
 		protected static bool TerrainValidatorStatic(TerrainDef terrain)
 		{
-			return terrain != DefsOf.DE_RottenSoil && terrain != TerrainDefOf.Space && terrain.IsWater is false;
+			return terrain != DefsOf.DE_RottenSoil && terrain != DefsOf.DE_MyceliumFerrite && terrain != TerrainDefOf.Space && terrain.IsWater is false;
 		}
 
 

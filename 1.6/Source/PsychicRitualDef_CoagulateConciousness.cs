@@ -83,9 +83,8 @@ namespace DanceOfEvolution
 			psychicRitual.ReleaseAllPawnsAndBuildings();
 			
 			var spider = PawnGenerator.GeneratePawn(DefsOf.DE_MikisMetalonEfialtis, invoker.Faction);
-			GenSpawn.Spawn(spider, target.Position, target.Map);
 			spider.MakeServant(fungalNexus, DefsOf.DE_ServantSpecial);
-			spider.equipment.AddEquipment(ThingMaker.MakeThing(DefsOf.DE_Gun_SporeLauncher) as ThingWithComps);
+			GenSpawn.Spawn(spider, target.Position, target.Map);
 
 			var victims = new List<Pawn> { target };
 			victims.AddRange(psychicRitual.assignments.AssignedPawns(defenderRole));

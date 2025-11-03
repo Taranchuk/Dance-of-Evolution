@@ -3,7 +3,7 @@
 
   <FactionDef ParentName="FactionBase">
     <defName>DE_Mycelyss</defName>
-    <label>mycelyss swarm</label>
+    <label>Mycelyss Rothive</label>
     <description>A growing rothive of Mycelyss. This colony of extremely intelligent fungi is hellbent on assimilating life into itself. Mycelyss are relatively harmless as long as not approached, but will turn extremely aggressive to anyone who encroach onto their territory. Weaker hives often allow stronger ones to fully assimilate them for ease of survival. Rothives do not use any form of standard technology, and instead ressurect available wildlife into their collective to work and fight for them. These corpses are sent to raid settlements that are either too close or that have a large quantity of humans to assimilate.</description>
     <permanentEnemy>true</permanentEnemy>
     <settlementGenerationWeight>0.2</settlementGenerationWeight>
@@ -38,9 +38,9 @@
     </requiredMemes>
     <allowedMemes>
       <li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
-	  <li MayRequire="Ludeon.RimWorld.Ideology">Collectivist</li>
-	  <li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
-	  <li MayRequire="Ludeon.RimWorld.Ideology">Ritualist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Collectivist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Ritualist</li>
     </allowedMemes>
     <structureMemeWeights>
       <Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Archist>

@@ -178,10 +178,11 @@ namespace DanceOfEvolution
 		{
 			if (traderKind.stockGenerators != null && traderKind.stockGenerators.Any(x => x is StockGenerator_SingleDef y && y.thingDef == DefsOf.DE_NexusBurgeon) is false)
 			{
-				traderKind.stockGenerators.Add(new StockGenerator_SingleDef
+				traderKind.stockGenerators.Add(new StockGenerator_SingleDefWithChance
 				{
 					thingDef = DefsOf.DE_NexusBurgeon,
-					countRange = new IntRange(1, 2),
+					countRange = new IntRange(1, 1),
+					chance = 0.02f
 				});
 			}
 		}

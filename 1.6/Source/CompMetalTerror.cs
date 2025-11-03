@@ -14,6 +14,20 @@ namespace DanceOfEvolution
 			ResetSheddingTicks();
 		}
 
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+			var pawn = parent as Pawn;
+			if (!pawn.health.hediffSet.HasHediff(DefsOf.DE_ServantSpecial))
+			{
+				pawn.health.AddHediff(DefsOf.DE_ServantSpecial);
+			}
+			if (pawn.equipment.Primary == null || pawn.equipment.Primary.def != DefsOf.DE_Gun_SporeLauncher)
+			{
+				var weapon = ThingMaker.MakeThing(DefsOf.DE_Gun_SporeLauncher);
+				pawn.equipment.AddEquipment(weapon as ThingWithComps);
+			}
+		}
 		private void ResetSheddingTicks()
 		{
 			ticksUntilShedding = (int)(daysUntilShedding * 60000);
