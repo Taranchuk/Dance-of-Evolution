@@ -12,12 +12,10 @@ namespace DanceOfEvolution
         {
             if (Rand.Chance(chance))
             {
-                yield break;
-            }
-
-            foreach (Thing thing in base.GenerateThings(forTile, forFaction))
-            {
-                yield return thing;
+                foreach (Thing thing in base.GenerateThings(forTile, forFaction))
+                {
+                    yield return thing;
+                }
             }
         }
     }
