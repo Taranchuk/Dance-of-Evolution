@@ -42,7 +42,6 @@ namespace DanceOfEvolution
             {
                 cursedSites.Add(worldObject);
                 Find.LetterStack.ReceiveLetter("DE_CurseApplied".Translate(), "DE_CurseSuccess".Translate(worldObject.Label), LetterDefOf.PositiveEvent, worldObject, playSound: false);
-                CameraJumper.TryJump(CameraJumper.GetWorldTarget(worldObject));
                 if (worldObject.Faction != null && worldObject.Faction.HasGoodwill)
                 {
                     worldObject.Faction.TryAffectGoodwillWith(Faction.OfPlayer, -50, reason: HistoryEventDefOf.UsedHarmfulAbility);

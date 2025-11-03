@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace DanceOfEvolution
 {
-
 	[HotSwappable]
 	public class Hediff_FungalNexus : HediffWithComps
 	{
@@ -229,11 +228,10 @@ namespace DanceOfEvolution
 
         public void DoCurse(MapParent mapParent)
         {
-			LongEventHandler.toExecuteWhenFinished.Add(delegate
-			{
-				SoundDefOf.Sightstealer_SummonedHowl.PlayOneShot(pawn);
-			});
-            lastCurseUseTick = Find.TickManager.TicksGame;
+			Current.Game.CurrentMap = pawn.Map;
+			Find.CameraDriver.JumpToCurrentMapLoc(pawn.Position);
+			SoundDefOf.Sightstealer_SummonedHowl.PlayOneShot(pawn);
+			lastCurseUseTick = Find.TickManager.TicksGame;
             GameComponent_CurseManager.Instance.AddCursedSite(mapParent);
 		}
 
