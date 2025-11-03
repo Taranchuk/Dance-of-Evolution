@@ -229,7 +229,10 @@ namespace DanceOfEvolution
 
         public void DoCurse(MapParent mapParent)
         {
-			SoundDefOf.Sightstealer_SummonedHowl.PlayOneShot(pawn);
+			LongEventHandler.toExecuteWhenFinished.Add(delegate
+			{
+				SoundDefOf.Sightstealer_SummonedHowl.PlayOneShot(pawn);
+			});
             lastCurseUseTick = Find.TickManager.TicksGame;
             GameComponent_CurseManager.Instance.AddCursedSite(mapParent);
 		}
