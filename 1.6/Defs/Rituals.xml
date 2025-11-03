@@ -115,7 +115,7 @@
 	<DanceOfEvolution.PsychicRitualDef_QuantumTunneling>
 		<defName>DE_QuantumTunneling</defName>
 		<label>quantum tunneling</label>
-		<description>Perform a complex psychic ritual to open a special pit gate that can transport pawns and items to distant locations. The ritual requires 5 shards and takes 15,000 ticks to complete. On success, a special quantum tunnel pit gate will appear that can be used for inter-map transportation.</description>
+		<description>Conduct a terrible ritual to summon a quantum gate. A tunnel that seems to go down endlessly into the abyss, and can be used to transport pawns and items anywhere.</description>
 		<researchPrerequisite>DE_AdvancedFungalNetworks</researchPrerequisite>
 		<outcomeDescription>At the end of the ritual, if successful, a quantum tunnel pit gate will appear that can be used to transport colonists and items to other locations on the world map.</outcomeDescription>
 		<hoursUntilOutcome>6</hoursUntilOutcome>
@@ -133,7 +133,7 @@
 	<DanceOfEvolution.PsychicRitualDef_CoagulatePower>
 		<defName>DE_CoagulatePower</defName>
 		<label>coagulate power</label>
-		<description>Conduct a dangerous ritual that attempts to bind the power of the dreadmeld to the invoker. The ritual requires a fleshmass nucleus and takes 15,000 ticks to complete. On success, the invoker gains permanent regeneration. On failure, the invoker loses random body parts and gains carcinoma.</description>
+		<description>Conduct a dangerous ritual that attempts to grant incredible regeneration to the invoker. The ritual requires a fleshmass nucleus as a regenerative conduit. If it fails, the invoker's body will be horribly mangled.</description>
 		<researchPrerequisite>DE_AdvancedFungalNetworks</researchPrerequisite>
 		<outcomeDescription>At the end of the ritual, the invoker will either gain permanent regeneration or suffer terrible injuries and disease.</outcomeDescription>
 		<hoursUntilOutcome>6</hoursUntilOutcome>
