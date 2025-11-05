@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -199,7 +199,7 @@ namespace DanceOfEvolution
                     CameraJumper.TryJumpAndSelect(entrance);
                 }
             };
-            
+
             yield return new Command_Action
             {
                 defaultLabel = "DE_CloseGate".Translate(),

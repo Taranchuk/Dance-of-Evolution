@@ -81,7 +81,7 @@ namespace DanceOfEvolution
 					var anomalyOptions = DefDatabase<PawnKindDef>.AllDefs
 						.Where(pk => pk.race?.race?.IsAnomalyEntity == true && pk.combatPower <= remainingPoints && pk.combatPower > 0 && pk.race.race.hasCorpse && pk.mutant != MutantDefOf.Shambler)
 						.ToList();
-					
+
 					if (anomalyOptions.Any())
 					{
 						var selectedAnomalyKind = anomalyOptions.RandomElement();
@@ -108,7 +108,7 @@ namespace DanceOfEvolution
 						continue;
 					}
 				}
-				
+
 				var availableAnimals = animalOptions
 					.Where(pk => pk.combatPower <= remainingPoints)
 					.ToList();

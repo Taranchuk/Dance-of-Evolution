@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 using System;
@@ -23,12 +23,11 @@ namespace DanceOfEvolution
             return AccessTools.Method(targetType, "CheckFaction");
         }
 
-        public static bool Prefix(ThingComp __instance, ref bool __result)
+        public static bool Prefix(ThingComp __instance)
         {
             Pawn pawn = __instance.parent as Pawn;
             if (pawn.IsServant())
             {
-                __result = false;
                 return false;
             }
             return true;

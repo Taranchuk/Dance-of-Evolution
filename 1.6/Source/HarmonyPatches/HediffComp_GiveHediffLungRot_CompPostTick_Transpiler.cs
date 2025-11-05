@@ -23,7 +23,7 @@ namespace DanceOfEvolution
 				}
 			}
 		}
-		
+
 		public static bool InterceptAnyGas(bool result, Pawn pawn)
 		{
 			if (!result && pawn.Spawned && pawn.Position.GetTerrain(pawn.Map) == DefsOf.DE_RottenSoil)

@@ -120,7 +120,6 @@ namespace DanceOfEvolution
 			var faction = success ? invoker.Faction : Faction.OfEntities;
 			Pawn sightstealer = psychicRitual.assignments.FirstAssignedPawn(extraDefenderRole);
 
-
 			var defenders = psychicRitual.assignments.AssignedPawns(defenderRole).ToList();
 			foreach (var defender in defenders)
 			{

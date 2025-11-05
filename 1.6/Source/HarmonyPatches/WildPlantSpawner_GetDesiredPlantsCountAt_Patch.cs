@@ -10,7 +10,7 @@ namespace DanceOfEvolution
     {
         public static void Postfix(WildPlantSpawner __instance, ref float __result, IntVec3 forCell, float plantDensityFactor)
         {
-            if (__instance.map.gameConditionManager.ConditionIsActive(DefsOf.DE_CloudmakerCondition) && forCell.GetTerrain(__instance.map) == DefsOf.DE_RottenSoil)
+            if (__instance.map.gameConditionManager.ConditionIsActive(DefsOf.DE_CloudmakerCondition) && forCell.GetTerrain(__instance.map).IsFungalTerrain())
             {
                 float fertility = __instance.map.fertilityGrid.FertilityAt(forCell);
                 if (fertility <= 0f && __instance.HaveAnyPlantsWhichIgnoreFertility)

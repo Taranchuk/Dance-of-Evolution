@@ -123,7 +123,6 @@ namespace DanceOfEvolution
 			Widgets.EndScrollView();
 		}
 
-
 		private void DrawBottomButtons(Rect inRect)
 		{
 			if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Cancel".Translate()))

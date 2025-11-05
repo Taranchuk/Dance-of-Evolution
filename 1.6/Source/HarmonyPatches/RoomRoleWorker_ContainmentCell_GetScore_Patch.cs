@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -21,7 +21,7 @@ namespace DanceOfEvolution
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(RoomRoleWorker_ContainmentCell), "GetScoreDeltaIfBuildingPlaced")]
     public static class RoomRoleWorker_ContainmentCell_GetScoreDeltaIfBuildingPlaced_Patch
     {

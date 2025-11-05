@@ -11,7 +11,7 @@ namespace DanceOfEvolution
 			foreach (var cell in GenAdj.CellsOccupiedBy(loc, rot, checkingDef.Size))
 			{
 				TerrainDef terrain = map.terrainGrid.TerrainAt(cell);
-				if (terrain != DefsOf.DE_RottenSoil)
+				if (terrain.IsFungalTerrain() is false)
 				{
 					return new AcceptanceReport("DE_MustBuildOnRottenSoil".Translate());
 				}

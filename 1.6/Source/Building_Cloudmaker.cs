@@ -50,7 +50,6 @@ namespace DanceOfEvolution
 				UpdateMapEffects();
 			}
 
-
 			mapsToRemoveConditionFrom.Clear();
 			foreach (var mapCondition in causedConditions)
 			{

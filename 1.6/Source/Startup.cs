@@ -45,7 +45,7 @@ namespace DanceOfEvolution
 			var thinkTreeDefs = DefDatabase<ThinkTreeDef>.AllDefsListForReading;
 			foreach (var thinkTreeDef in thinkTreeDefs)
 			{
-				if (thinkTreeDef.defName == "Downed") continue;
+				if (thinkTreeDef == DefsOf.Downed) continue;
 				var rootNode = thinkTreeDef.thinkRoot;
 				if (rootNode == null || rootNode.subNodes == null) continue;
 				int isColonist = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_ConditionalColonist));
@@ -63,7 +63,7 @@ namespace DanceOfEvolution
 					else
 					{
 						int subtreeNodeIndex = rootNode.subNodes.FindIndex(node => node.GetType() == typeof(ThinkNode_Subtree) &&
-							(node as ThinkNode_Subtree)?.treeDef.defName == "LordDuty");
+							(node as ThinkNode_Subtree)?.treeDef == DefsOf.LordDuty);
 
 						if (subtreeNodeIndex >= 0)
 						{
@@ -155,7 +155,6 @@ namespace DanceOfEvolution
 		{
 
 			var allFactionDefs = DefDatabase<FactionDef>.AllDefsListForReading;
-
 
 			var neolithicFactions = allFactionDefs.Where(f => f.humanlikeFaction
 			 && f.techLevel == TechLevel.Neolithic);

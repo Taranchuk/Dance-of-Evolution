@@ -44,7 +44,6 @@ namespace DanceOfEvolution
 			}
 		}
 
-
 		public void SetupStage()
 		{
 			if (masterHediff is null)

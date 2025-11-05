@@ -42,7 +42,7 @@ namespace DanceOfEvolution
             Log.Warning("Quantum tunnel gate exit is not properly connected, returning current map as fallback");
             return Map;
         }
-        
+
         public override IntVec3 GetDestinationLocation()
         {
             if (exit != null && exit.Position != IntVec3.Invalid)
@@ -253,7 +253,7 @@ namespace DanceOfEvolution
                 }, "GeneratingMap", false, null);
             }
         }
-        
+
         public static readonly LargeBuildingSpawnParms PitGateSpawnParms = new LargeBuildingSpawnParms
         {
             ignoreTerrainAffordance = true
@@ -299,7 +299,7 @@ namespace DanceOfEvolution
             }
             return mapParent.Map;
         }
-        
+
         private Map GenerateMap(PlanetTile tile, IntVec3 size, WorldObjectDef worldObjectDef)
         {
             var orGenerateMap = GetOrGenerateMapUtility.GetOrGenerateMap(tile, size, worldObjectDef);

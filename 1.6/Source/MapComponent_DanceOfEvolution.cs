@@ -19,8 +19,8 @@ namespace DanceOfEvolution
 		public static readonly Dictionary<(ThingDef plantDef, Func<TerrainDef, bool> terrainPredicate), FloatRange> PlantSpawnTimes = new Dictionary<(ThingDef plantDef, Func<TerrainDef, bool> terrainPredicate), FloatRange>
 		{
 			{ (plantDef: DefsOf.DE_Plant_TreeMycelial, terrainPredicate: (TerrainDef terrainDef) => true), new FloatRange(3f, 20f) },
-			{ (plantDef: DefsOf.DE_FalseParasol, terrainPredicate: (TerrainDef terrainDef) => terrainDef != DefsOf.DE_RottenSoil), new FloatRange(1.5f, 10f) },
-			{ (plantDef: DefsOf.DE_FalseParasol, terrainPredicate: (TerrainDef terrainDef) => terrainDef == DefsOf.DE_RottenSoil), new FloatRange(0.75f, 5f) }
+			{ (plantDef: DefsOf.DE_FalseParasol, terrainPredicate: (TerrainDef terrainDef) => terrainDef.IsFungalTerrain() is false), new FloatRange(1.5f, 10f) },
+			{ (plantDef: DefsOf.DE_FalseParasol, terrainPredicate: (TerrainDef terrainDef) => terrainDef.IsFungalTerrain()), new FloatRange(0.75f, 5f) }
 		};
 
 		public override void MapComponentTick()

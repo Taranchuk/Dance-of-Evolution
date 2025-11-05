@@ -50,7 +50,7 @@ namespace DanceOfEvolution
         private Sustainer workingSustainer;
         private List<Thing> previousPlatforms;
 
-        public RimWorld.CompFacility FacilityComp => facilityComp ?? (facilityComp = GetComp<RimWorld.CompFacility>());
+        public CompFacility FacilityComp => facilityComp ?? (facilityComp = GetComp<CompFacility>());
         public List<Thing> Platforms => FacilityComp.LinkedBuildings;
         public bool ReadyForHauling => Mathf.FloorToInt(containedBioferrite) >= HaulingThreshold;
 
@@ -190,7 +190,7 @@ namespace DanceOfEvolution
             {
                 CheckForPlatformChanges();
             }
-            
+
             if (this.IsHashIntervalTick(250))
             {
                 containedBioferrite = Mathf.Min(containedBioferrite + BioferritePerDay / 60000f * 250f, MaxBioferriteCapacity);

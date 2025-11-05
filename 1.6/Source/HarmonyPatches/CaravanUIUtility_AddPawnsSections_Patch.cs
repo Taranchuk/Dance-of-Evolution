@@ -23,7 +23,7 @@ namespace DanceOfEvolution
 			}
 			return null;
 		}
-		
+
 		public static void Postfix(TransferableOneWay x, ref bool __result)
 		{
 			if (!__result && x.AnyThing is Pawn pawn && pawn.IsServantEntity())

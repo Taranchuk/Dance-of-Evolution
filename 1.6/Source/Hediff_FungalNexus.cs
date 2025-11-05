@@ -242,7 +242,7 @@ namespace DanceOfEvolution
 				playSound = false;
 			}
 		}
-		
+
 		private bool Valid(GlobalTargetInfo target, bool throwMessages = false)
 		{
 			if (!(target.WorldObject is MapParent mapParent))

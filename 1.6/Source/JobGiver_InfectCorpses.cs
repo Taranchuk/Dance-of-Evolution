@@ -32,7 +32,7 @@ namespace DanceOfEvolution
 			TraverseParms.For(pawn), 9999, c => CorpseValidator(c, fungalNexus, checkForTarget) 
 			&& pawn.CanReserve(c));
 		}
-		
+
 		private static bool CorpseValidator(Thing c, Hediff_FungalNexus fungalNexus, bool checkForTarget)
 		{
 			if (c is Corpse corpse && !corpse.IsInfected())

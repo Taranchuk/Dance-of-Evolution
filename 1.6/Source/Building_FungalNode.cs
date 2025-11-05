@@ -146,15 +146,17 @@ namespace DanceOfEvolution
 
 		private static void ExecuteSpreadTerrain(Map map, IntVec3 Position, System.Func<TerrainDef, bool> terrainValidator, System.Action<IntVec3, Map> terrainConverter)
 		{
-			var cells = map.AllCells.Where(x => x.InBounds(map) && x.DistanceTo(Position) <= 70f)
-	.OrderBy(x => x.DistanceTo(Position)).ToList();
-			foreach (var cell in cells)
+			foreach (var cell in GenRadial.RadialCellsAround(Position, 70f, true))
 			{
+				if (!cell.InBounds(map))
+				{
+					continue;
+				}
 				var terrain = cell.GetTerrain(map);
 				if (terrainValidator(terrain))
 				{
 					terrainConverter(cell, map);
-					cell.GetThingList(map).Where(x => x.def.IsPlant && x.def.CanSpawnOnRottenSoil() is false).ToList().Do(x => x.Destroy());
+					cell.GetThingList(map).Where(x => x.def.IsPlant && x.def.CanSpawnOnFungalTerrain() is false).ToList().Do(x => x.Destroy());
 					break;
 				}
 			}
@@ -177,10 +179,8 @@ namespace DanceOfEvolution
 
 		protected static bool TerrainValidatorStatic(TerrainDef terrain)
 		{
-			return terrain != DefsOf.DE_RottenSoil && terrain != DefsOf.DE_MyceliumFerrite && terrain != TerrainDefOf.Space && terrain.IsWater is false;
+			return terrain.IsFungalTerrain() is false && terrain != TerrainDefOf.Space && terrain.IsWater is false;
 		}
-
-
 
 		protected virtual bool TerrainValidator(TerrainDef terrain)
 		{
@@ -286,8 +286,7 @@ namespace DanceOfEvolution
 		{
 			public static void Postfix(ThingDef def, ThingRequestGroup group, ref bool __result)
 			{
-				if (__result is false && (group == ThingRequestGroup.FoodSourceNotPlantOrTree || group == ThingRequestGroup.FoodSource)
-					&& typeof(Building_FungalNode) == def.thingClass)
+				if (__result is false && (group == ThingRequestGroup.FoodSourceNotPlantOrTree || group == ThingRequestGroup.FoodSource) && typeof(Building_FungalNode).IsAssignableFrom(def.thingClass))
 				{
 					__result = true;
 				}

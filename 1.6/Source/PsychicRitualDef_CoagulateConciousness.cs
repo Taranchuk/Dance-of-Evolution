@@ -37,7 +37,7 @@ namespace DanceOfEvolution
 			pool.AllCandidatePawns.AddRange(Find.CurrentMap.mapPawns.AllPawns.Where(x => x.IsServant(out var servantType) && servantType.ServantType == ServantType.Large));
 			return pool;
 		}
-		
+
 		public override IEnumerable<string> BlockingIssues(PsychicRitualRoleAssignments assignments, Map map)
 		{
 			using (new ProfilerBlock("PsychicRitualDef.BlockingIssues"))
@@ -81,7 +81,7 @@ namespace DanceOfEvolution
 			var invoker = psychicRitual.assignments.FirstAssignedPawn(invokerRole);
 			var fungalNexus = invoker.GetFungalNexus();
 			psychicRitual.ReleaseAllPawnsAndBuildings();
-			
+
 			var spider = PawnGenerator.GeneratePawn(DefsOf.DE_MikisMetalonEfialtis, invoker.Faction);
 			spider.MakeServant(fungalNexus, DefsOf.DE_ServantSpecial);
 			GenSpawn.Spawn(spider, target.Position, target.Map);
@@ -97,7 +97,6 @@ namespace DanceOfEvolution
 				}
 			}
 		}
-
 
 		public override void ExposeData()
 		{

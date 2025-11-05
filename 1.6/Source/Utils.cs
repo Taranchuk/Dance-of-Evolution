@@ -9,6 +9,10 @@ namespace DanceOfEvolution
 {
 	public static class Utils
 	{
+		public static bool IsFungalTerrain(this TerrainDef terrainDef)
+		{
+			return terrainDef == DefsOf.DE_RottenSoil || terrainDef == DefsOf.DE_MyceliumFerrite;
+		}
 		public static bool IsImmuneTo(this Pawn pawn, Hediff other)
 		{
 			if (pawn.IsFungalNexus(out Hediff_FungalNexus fungalNexus))
@@ -41,16 +45,16 @@ namespace DanceOfEvolution
 			return fungalNexus != null;
 		}
 		public static bool IsServantOrAlly(this Pawn pawn)
-        {
-            return pawn.IsServant(out _) || pawn.IsAlly();
-        }
+		{
+			return pawn.IsServant(out _) || pawn.IsAlly();
+		}
 
-        public static bool IsAlly(this Pawn pawn)
-        {
-            return pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_Ally) != null;
-        }
+		public static bool IsAlly(this Pawn pawn)
+		{
+			return pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.DE_Ally) != null;
+		}
 
-        public static bool IsServant(this Pawn pawn)
+		public static bool IsServant(this Pawn pawn)
 		{
 			return pawn.IsServant(out _);
 		}
@@ -127,7 +131,7 @@ namespace DanceOfEvolution
 			return null;
 		}
 
-		public static bool CanSpawnOnRottenSoil(this ThingDef def)
+		public static bool CanSpawnOnFungalTerrain(this ThingDef def)
 		{
 			return def.plant != null && (def.plant.cavePlant || WildPlantSpawner_GetCommonalityOfPlant_Patch.commonalities.ContainsKey(def.defName));
 		}

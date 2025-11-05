@@ -100,7 +100,6 @@ namespace DanceOfEvolution
                         standablePos = largeServantPositions[i];
                     }
 
-
                     largeServantPositions[i] = standablePos;
                     occupiedCells.Add(standablePos);
                 }

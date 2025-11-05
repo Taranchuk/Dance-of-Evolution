@@ -98,7 +98,6 @@ namespace DanceOfEvolution
 
 			GenSpawn.Spawn(chimera, invoker.Position, invoker.Map);
 
-
 			var defenders = psychicRitual.assignments.AssignedPawns(defenderRole).ToList();
 			foreach (var defender in defenders)
 			{

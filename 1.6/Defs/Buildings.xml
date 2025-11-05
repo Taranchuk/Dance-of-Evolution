@@ -137,7 +137,6 @@
 		</comps>
 	</ThingDef>
 
-
 	<ThingDef ParentName="DE_FungalBuildingBase" Name="DE_Cerebrum">
 		<defName>DE_Cerebrum</defName>
 		<label>cerebrum</label>
@@ -179,7 +178,6 @@
 		</costList>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 	</ThingDef>
-
 
 	<ThingDef ParentName="Wall" Name="DE_FungusWallBase">
 		<defName>DE_FungusWall</defName>
@@ -511,7 +509,7 @@
 		<defName>DE_QuantumTunnelGate_Spawner</defName>
 		<label>Quantum Tunnel Emergence</label>
 		<description>A quantum tunnel is emerging here.</description>
-		<thingClass>RimWorld.BuildingGroundSpawner</thingClass>
+		<thingClass>BuildingGroundSpawner</thingClass>
 		<destroyable>false</destroyable>
 		<holdsRoof>true</holdsRoof>
 		<selectable>true</selectable>

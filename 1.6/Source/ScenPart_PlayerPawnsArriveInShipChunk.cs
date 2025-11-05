@@ -11,13 +11,13 @@ namespace DanceOfEvolution
 			var things = new List<Thing>();
 			var master = Find.GameInitData.startingAndOptionalPawns.First();
 			var hediff_FungalNexus = master.GetFungalNexus();
-			
+
 			things.Add(MakeServant(PawnKindDefOf.Fingerspike, hediff_FungalNexus));
 			things.Add(MakeServant(DefsOf.Noctol, hediff_FungalNexus));
 			things.Add(MakeServant(PawnKindDefOf.Bulbfreak, hediff_FungalNexus));
 			return things;
 		}
-		
+
 		public Pawn MakeServant(PawnKindDef pawnKindDef, Hediff_FungalNexus hediff_FungalNexus)
 		{
 			var servant = PawnGenerator.GeneratePawn(pawnKindDef, Faction.OfPlayer);

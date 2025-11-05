@@ -132,7 +132,7 @@ namespace DanceOfEvolution
             var carcinoma = HediffMaker.MakeHediff(HediffDefOf.Carcinoma, invoker);
             invoker.health.AddHediff(carcinoma);
         }
-    
+
     	public override void ExposeData()
         {
             base.ExposeData();

@@ -24,7 +24,6 @@ namespace DanceOfEvolution
 			return AccessTools.Method(buildingType, "TickInterval");
 		}
 
-
 		public static void Postfix(object __instance, int delta)
 		{
 			if (__instance is Building building && building.Spawned && building.IsHashIntervalTick(300, delta))

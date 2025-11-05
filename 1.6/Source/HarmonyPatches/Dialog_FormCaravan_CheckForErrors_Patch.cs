@@ -15,7 +15,7 @@ namespace DanceOfEvolution
 			yield return AccessTools.Method(typeof(Dialog_FormCaravan), nameof(Dialog_FormCaravan.CheckForErrors));
 			yield return AccessTools.Method(typeof(Dialog_SplitCaravan), nameof(Dialog_SplitCaravan.CheckForErrors));
 		}
-		
+
 		public static void Postfix(ref bool __result, List<Pawn> pawns)
 		{
 			if (__result && pawns.Any(x => x.IsServant(out var servantType) && pawns.Contains(servantType.masterHediff.pawn) is false))

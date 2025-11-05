@@ -106,8 +106,10 @@ namespace DanceOfEvolution
 		public static HediffDef DE_Ally;
 		public static FactionDef DE_Mycelyss;
 		public static PrefabDef DE_MycelyssBase;
+		public static ThinkTreeDef Downed;
+		public static ThinkTreeDef LordDuty;
 
-		static DefsOf()
+        static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

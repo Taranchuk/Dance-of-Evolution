@@ -17,7 +17,7 @@ namespace DanceOfEvolution
             var invocation = list.OfType<PsychicRitualToil_InvokeHorax>().First();
             invocation.defenderPositions.Clear();
             list.Add(new PsychicRitualToil_CreateQuantumTunnel());
-            
+
             return list;
         }
     }
@@ -52,7 +52,7 @@ namespace DanceOfEvolution
             {
                 Messages.Message("DE_QuantumTunnelingFailure".Translate(), MessageTypeDefOf.NegativeEvent);
             }
-            
+
             psychicRitual.ReleaseAllPawnsAndBuildings();
         }
     }

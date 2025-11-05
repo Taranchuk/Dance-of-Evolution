@@ -58,7 +58,7 @@ namespace DanceOfEvolution
 
             var map = psychicRitual.assignments.Target.Map;
             var cell = targetPawn.Position;
-            var filthDef = DefDatabase<ThingDef>.GetNamed("Filth_Fleshmass");
+            var filthDef = DefsOf.Filth_Fleshmass;
             var shardDef = ThingDefOf.Shard;
             bool success = Rand.Chance(psychicRitual.PowerPercent);
 

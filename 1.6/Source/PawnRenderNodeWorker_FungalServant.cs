@@ -57,7 +57,7 @@ namespace DanceOfEvolution
 			}
 		}
 	}
-	
+
 	public class PawnRenderNodeWorker_FungalServant : PawnRenderNodeWorker_Overlay
 	{
 		public static Dictionary<Pawn, PawnFungalServantDrawer> overlays = new Dictionary<Pawn, PawnFungalServantDrawer>();

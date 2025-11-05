@@ -4,16 +4,17 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using RimWorld;
 using Verse;
 
 namespace DanceOfEvolution
 {
-	[HarmonyPatch(typeof(RimWorld.WorkGiver_GrowerSow), "JobOnCell")]
+	[HarmonyPatch(typeof(WorkGiver_GrowerSow), "JobOnCell")]
 	public static class WorkGiver_GrowerSow_JobOnCell_Patch
 	{
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
-			var roofedMethod = typeof(Verse.GridsUtility).GetMethod("Roofed", new[] { typeof(Verse.IntVec3), typeof(Verse.Map) });
+			var roofedMethod = typeof(GridsUtility).GetMethod("Roofed", new[] { typeof(IntVec3), typeof(Map) });
 			bool added = false;
 			var codes = instructions.ToList();
 			for (int i = 0; i < codes.Count; i++)

@@ -29,9 +29,9 @@ namespace DanceOfEvolution
 		{
 			base.CompTick();
 
-			if (parent.Spawned && bondedPawn != null)
+			if (parent.Spawned)
 			{
-				if (Find.TickManager.TicksGame % 60000 == 0)
+				if (Find.TickManager.TicksGame % 600 == 0)
 				{
 					TryRegenerate();
 				}
@@ -61,7 +61,7 @@ namespace DanceOfEvolution
 		{
 			if (parent.HitPoints < parent.MaxHitPoints)
 			{
-				parent.HitPoints = Mathf.Min(parent.HitPoints + 100, parent.MaxHitPoints);
+				parent.HitPoints = Mathf.Min(parent.HitPoints + 1, parent.MaxHitPoints);
 			}
 		}
 
@@ -116,7 +116,6 @@ namespace DanceOfEvolution
 				bondedPawn, MessageTypeDefOf.PositiveEvent);
 			corpse.Destroy();
 		}
-
 
 		public override string CompInspectStringExtra()
 		{

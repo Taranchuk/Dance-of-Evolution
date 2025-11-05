@@ -26,7 +26,7 @@ namespace DanceOfEvolution
 			return pawn.Position;
 		}
 	}
-	
+
 	[HarmonyPatch(typeof(JobGiver_Wander), "TryGiveJob")]
 	public static class JobGiver_Wander_TryGiveJob_Patch
 	{

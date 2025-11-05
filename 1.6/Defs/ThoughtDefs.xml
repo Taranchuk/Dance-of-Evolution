@@ -15,7 +15,7 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-	
+
 	<ThoughtDef>
 		<defName>DE_QuantumTunnelingMood</defName>
 		<thoughtClass>Thought_Memory</thoughtClass>
@@ -29,5 +29,5 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-	
+
 </Defs>

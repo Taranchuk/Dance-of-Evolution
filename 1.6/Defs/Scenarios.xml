@@ -35,7 +35,6 @@
         </disallowedTraitsWithDegree>
     </PawnKindDef>
 
-
     <ScenarioDef ParentName="ScenarioBase">
         <defName>DE_FungalAwakening</defName>
         <label>Fungal Awakening</label>
@@ -87,17 +86,17 @@
                     <thingDef>Shard</thingDef>
                     <count>1</count>
                 </li>
-                
+
                 <li Class="ScenPart_DisableIncident">
                     <def>DisableIncident</def>
                     <incident>StrangerInBlackJoin</incident>
                 </li>
-                
+
                 <li Class="ScenPart_DisableIncident">
                     <def>DisableIncident</def>
                     <incident>WandererJoin</incident>
                 </li>
-                
+
                 <li Class="ScenPart_DisableIncident">
                     <def>DisableIncident</def>
                     <incident>GameEndedWanderersJoin</incident>

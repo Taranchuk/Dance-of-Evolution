@@ -59,10 +59,8 @@ namespace DanceOfEvolution
 						job.placedThings = null;
 					}
 
-
 					var allAttachments = fungalNexus.health.hediffSet.hediffs.FindAll(x => Startup.bodyAttachments.Contains(x.def));
 					allAttachments.ForEach(x => fungalNexus.health.RemoveHediff(x));
-
 
 					fungalNexus.health.AddHediff(selectedCosmetic);
 				}
