@@ -151,6 +151,13 @@
 				</abilityDefs>
 			</li>
 		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<PsychicSensitivity>0.5</PsychicSensitivity>
+				</statOffsets>
+			</li>
+		</stages>
 	</HediffDef>
 	<ThingDef ParentName="DE_FungalNexusCraftableBase">
 		<defName>DE_GrowthStimulator</defName>

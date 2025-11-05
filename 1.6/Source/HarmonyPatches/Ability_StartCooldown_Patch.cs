@@ -1,4 +1,4 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -21,6 +21,15 @@ namespace DanceOfEvolution
                 ticks = (int)(ticks / burrowerSpawnSpeed);
             }
             else if (__instance.def == DefsOf.DE_DeadlifeSporeCloud)
+            {
+                var pawn = __instance.pawn;
+                var psychicSensitivity = pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+                if (psychicSensitivity > 0)
+                {
+                    ticks = (int)(ticks / psychicSensitivity);
+                }
+            }
+            else if (__instance.def == DefsOf.DE_Invisibility_Ability)
             {
                 var pawn = __instance.pawn;
                 var psychicSensitivity = pawn.GetStatValue(StatDefOf.PsychicSensitivity);

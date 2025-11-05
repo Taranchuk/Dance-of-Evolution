@@ -61,7 +61,7 @@ namespace DanceOfEvolution
 		{
 			if (parent.HitPoints < parent.MaxHitPoints)
 			{
-				parent.HitPoints = Mathf.Min(parent.HitPoints + 2, parent.MaxHitPoints);
+				parent.HitPoints = Mathf.Min(parent.HitPoints + 100, parent.MaxHitPoints);
 			}
 		}
 
@@ -109,7 +109,7 @@ namespace DanceOfEvolution
 			{
 				healingGain = 50;
 			}
-			
+
 			HealBondedPawn(healingGain);
 			FilthMaker.TryMakeFilth(corpse.Position, corpse.Map, DefsOf.Filth_Fleshmass, 3);
 			Messages.Message("DE_LivingDressDevoured".Translate(bondedPawn.LabelShort, corpse.InnerPawn.LabelShort, healingGain),

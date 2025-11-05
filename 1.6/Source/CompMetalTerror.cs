@@ -81,5 +81,14 @@ namespace DanceOfEvolution
 			base.PostExposeData();
 			Scribe_Values.Look(ref ticksUntilShedding, "ticksUntilShedding");
 		}
+
+		public override string CompInspectStringExtra()
+		{
+			if (ticksUntilShedding > 0)
+			{
+				return "DE_ProducesBioferriteInDays".Translate(ticksUntilShedding.ToStringTicksToPeriod());
+			}
+			return base.CompInspectStringExtra();
+		}
 	}
 }

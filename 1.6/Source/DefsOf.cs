@@ -27,6 +27,7 @@ namespace DanceOfEvolution
 		public static ThingDef DE_FungalNode;
 		public static TerrainDef DE_RottenSoil;
 		public static TerrainDef DE_MyceliumFerrite;
+		[DefAlias("DE_Invisibility")] public static AbilityDef DE_Invisibility_Ability;
 		public static ThingDef DE_Sporemaker;
 		public static ThingDef DE_Cerebrum;
 		public static HediffDef DE_HangingSporesMood, DE_HangingSporesConsciousness, DE_HangingSporesMoving;
@@ -104,6 +105,7 @@ namespace DanceOfEvolution
 		public static SoundDef Pawn_Sightstealer_Howl;
 		public static HediffDef DE_Ally;
 		public static FactionDef DE_Mycelyss;
+		public static PrefabDef DE_MycelyssBase;
 
 		static DefsOf()
 		{

@@ -28,6 +28,7 @@
 			<li Class="CompProperties_AbilityGiveHediff">
 				<compClass>CompAbilityEffect_GiveHediff</compClass>
 				<hediffDef>DE_Invisibility</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
 			</li>
 		</comps>
 	</AbilityDef>
