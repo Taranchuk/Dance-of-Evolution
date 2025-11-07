@@ -99,7 +99,7 @@
 		<researchPrerequisite>DE_ShardDuplication</researchPrerequisite>
 		<outcomeDescription>Consumes the victim to produce archotech shards. Yield depends on ritual quality and victim's psychic sensitivity.</outcomeDescription>
 		<hoursUntilOutcome>6</hoursUntilOutcome>
-		<cooldownHours>120</cooldownHours>
+		<cooldownHours>24</cooldownHours>
 		<requiredOffering>
 			<filter>
 				<thingDefs>
