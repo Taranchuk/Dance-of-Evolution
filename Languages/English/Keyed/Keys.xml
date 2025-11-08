@@ -109,4 +109,5 @@
 	<DE_CurseApplied>Curse Bestowed</DE_CurseApplied>
 	<DE_QuantumTunnelCollapsingIn>Collapsing in {0}</DE_QuantumTunnelCollapsingIn>
 	<DE_ProducesBioferriteInDays>Produces bioferrite in {0} days</DE_ProducesBioferriteInDays>
+	<DE_SpawnBurrowerMaxServantsReached>Cannot spawn burrower: maximum number of servants reached</DE_SpawnBurrowerMaxServantsReached>
 </LanguageData>

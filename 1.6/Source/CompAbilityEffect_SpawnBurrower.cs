@@ -15,6 +15,17 @@ namespace DanceOfEvolution
     {
         public new CompProperties_SpawnBurrower Props => (CompProperties_SpawnBurrower)props;
 
+        public override bool GizmoDisabled(out string reason)
+        {
+            var fungalNexus = parent.pawn.GetFungalNexus();
+            if (fungalNexus != null && fungalNexus.TotalServantsCount >= fungalNexus.MaxServants)
+            {
+                reason = "DE_SpawnBurrowerMaxServantsReached".Translate();
+                return true;
+            }
+            return base.GizmoDisabled(out reason);
+        }
+
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);

@@ -15,7 +15,7 @@ namespace DanceOfEvolution
     {
         private List<WorldObject> cursedSites = new List<WorldObject>();
         public static GameComponent_CurseManager Instance;
-        private static Material CursedMat = MaterialPool.MatFrom("UI/Overlays/Arrow");
+        private static Material CursedMat = MaterialPool.MatFrom("UI/Icons/CursedSite");
         public GameComponent_CurseManager(Game game)
         {
             Instance = this;
@@ -87,9 +87,9 @@ namespace DanceOfEvolution
             }
         }
 
-        public override void GameComponentUpdate()
+        public override void GameComponentOnGUI()
         {
-            base.GameComponentUpdate();
+            base.GameComponentOnGUI();
             if (Current.ProgramState != ProgramState.Playing || WorldRendererUtility.WorldSelected is false)
             {
                 return;
@@ -101,16 +101,11 @@ namespace DanceOfEvolution
                 {
                     continue;
                 }
-                WorldGrid worldGrid = Find.WorldGrid;
-                Vector2 vector = GenWorldUI.WorldToUIPosition(worldGrid.GetTileCenter(cursedSite.Tile));
-                Rect rect = new Rect(0f, 0f, UI.screenWidth, UI.screenHeight);
-                rect = rect.ContractedBy(0.1f * rect.width, 0.1f * rect.height);
-                bool num = rect.Contains(vector);
-                if (num)
+                if (!cursedSite.HiddenBehindTerrainNow())
                 {
-                    Vector3 tileCenter = worldGrid.GetTileCenter(cursedSite.Tile);
-                    float averageTileSize = cursedSite.Tile.Layer.AverageTileSize;
-                    WorldRendererUtility.DrawQuadTangentialToPlanet(pos: tileCenter, size: 2f * averageTileSize, altOffset: 0.05f, material: CursedMat);
+                    Material material = CursedMat;
+                    Rect rect = ExpandableWorldObjectsUtility.ExpandedIconScreenRect(cursedSite).ExpandedBy(5);
+                    Widgets.DrawTextureRotated(rect, CursedMat.mainTexture, 0f, material);
                 }
             }
         }
