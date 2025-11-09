@@ -36,7 +36,7 @@
 	<AbilityDef>
 		<defName>DE_DeadlifeSporeCloud</defName>
 		<label>Deploy deadlife spores</label>
-		<description>Deploy a cloud of deadlife spores to reanimate the dead.</description>
+		<description>Deploy a cloud of deadlife spores to reanimate the dead. The cooldown of this ability is reduced by psychic sensitivity.</description>
 		<writeCombatLog>True</writeCombatLog>
 		<showPsycastEffects>False</showPsycastEffects>
 		<iconPath>UI/Abilities/ReleaseDeadlifeDust</iconPath>
