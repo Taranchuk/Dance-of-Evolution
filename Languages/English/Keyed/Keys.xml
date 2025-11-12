@@ -110,4 +110,16 @@
 	<DE_QuantumTunnelCollapsingIn>Collapsing in {0}</DE_QuantumTunnelCollapsingIn>
 	<DE_ProducesBioferriteInDays>Produces bioferrite in {0} days</DE_ProducesBioferriteInDays>
 	<DE_SpawnBurrowerMaxServantsReached>Cannot spawn burrower: maximum number of servants reached</DE_SpawnBurrowerMaxServantsReached>
+	<DE_MycelyssEnvoyTitle>Mycelyss Envoy</DE_MycelyssEnvoyTitle>
+	<DE_MycelyssEnvoyDesc>A strange group of fungal humans approaches your colony, led by a mysterious figure claiming to represent the Mycelyss collective. They wish to speak with you.</DE_MycelyssEnvoyDesc>
+	<DE_TalkToEnvoy>Talk to envoy</DE_TalkToEnvoy>
+	<DE_MycelyssDemandTitle>Mycelyss Demand</DE_MycelyssDemandTitle>
+	<DE_MycelyssDemandArrived>The Mycelyss envoy has returned to collect their tribute. They demand {0} humans.</DE_MycelyssDemandArrived>
+	<DE_MycelyssDemandActivated>The Mycelyss will return in {1} days to collect {0} humans. Failure to comply will result in hostility.</DE_MycelyssDemandActivated>
+	<DE_MycelyssDemandMet>{0} humans have been delivered to the Mycelyss. They will return in 10 days.</DE_MycelyssDemandMet>
+	<DE_MycelyssDemandFailedHostile>The Mycelyss demand was not met. They have turned hostile!</DE_MycelyssDemandFailedHostile>
+	<DE_OfferPawns>Offer humans</DE_OfferPawns>
+	<DE_NoValidPawns>No valid humans to offer</DE_NoValidPawns>
+	<DE_SelectPawnsTitle>Select Pawns for the Mycelyss</DE_SelectPawnsTitle>
+	<DE_SelectPawnsDesc>Select the humans to fulfill the Mycelyss demand. The envoy will leave once the transaction is complete.</DE_SelectPawnsDesc>
 </LanguageData>

@@ -8,8 +8,8 @@
       <li>DE_LivingDress</li>
     </apparelRequired>
     <apparelIgnoreSeasons>True</apparelIgnoreSeasons>
-    <apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
-    <techHediffsChance>0.0</techHediffsChance>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <techHediffsChance>0</techHediffsChance>
     <initialResistanceRange>5~15</initialResistanceRange>
     <initialWillRange>1~5</initialWillRange>
   </PawnKindDef>
@@ -17,6 +17,12 @@
   <PawnKindDef ParentName="DE_MycelyssFungalNexus">
     <defName>DE_MycelyssFungalNexus</defName>
     <label>Mycelyss Fungal Nexus</label>
+    <defaultFactionType>DE_Mycelyss</defaultFactionType>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="DE_MycelyssFungalNexus">
+    <defName>DE_Mycelyss_Envoy</defName>
+    <label>Mycelyss Envoy</label>
     <defaultFactionType>DE_Mycelyss</defaultFactionType>
   </PawnKindDef>
 

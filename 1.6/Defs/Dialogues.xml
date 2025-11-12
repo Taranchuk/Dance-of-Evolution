@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DanceOfEvolution.DialogueNodeDef>
+    <defName>DE_MycelyssEnvoy_Root</defName>
+    <text>A strange, fungal creature stands before you, its voice echoing directly in your mind. "We are the Mycelyss. We have seen your... potential. We wish to propose an arrangement."</text>
+    <options>
+      <li>
+        <text>Consider their proposal...</text>
+        <outcomes>
+          <li Class="DanceOfEvolution.DialogueOutcome_OpenPawnSelectWindow" />
+        </outcomes>
+      </li>
+      <li>
+        <text>Attack them.</text>
+        <nextNode>DE_MycelyssEnvoy_Attack</nextNode>
+        <outcomes>
+          <li Class="DanceOfEvolution.DialogueOutcome_MakeHostile" />
+        </outcomes>
+      </li>
+      <li>
+        <text>Tell them to leave.</text>
+        <nextNode>DE_MycelyssEnvoy_Leave</nextNode>
+        <outcomes>
+          <li Class="DanceOfEvolution.DialogueOutcome_LeaveAndBecomeHostile" />
+        </outcomes>
+      </li>
+    </options>
+  </DanceOfEvolution.DialogueNodeDef>
+
+  <DanceOfEvolution.DialogueNodeDef>
+    <defName>DE_MycelyssEnvoy_Accept</defName>
+    <text>A wise choice. We will be in contact. Do not disappoint us.</text>
+    <options>
+      <li>
+        <text>Close</text>
+        <outcomes>
+          <li Class="DanceOfEvolution.DialogueOutcome_CloseUI" />
+        </outcomes>
+      </li>
+    </options>
+  </DanceOfEvolution.DialogueNodeDef>
+
+  <DanceOfEvolution.DialogueNodeDef>
+    <defName>DE_MycelyssEnvoy_Attack</defName>
+    <text>So be it. You have sealed your fate.</text>
+    <options>
+      <li>
+        <text>Close</text>
+        <outcomes>
+          <li Class="DanceOfEvolution.DialogueOutcome_CloseUI" />
+        </outcomes>
+      </li>
+    </options>
+  </DanceOfEvolution.DialogueNodeDef>
+
+  <DanceOfEvolution.DialogueNodeDef>
+    <defName>DE_MycelyssEnvoy_Leave</defName>
+    <text>You will regret this.</text>
+    <options>
+      <li>
+        <text>Close</text>
+        <outcomes>
+          <li Class="DanceOfEvolution.DialogueOutcome_CloseUI" />
+        </outcomes>
+      </li>
+    </options>
+  </DanceOfEvolution.DialogueNodeDef>
+
+</Defs>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+    <defName>DE_MycelyssEnvoy</defName>
+    <label>Mycelyss Envoy</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>DanceOfEvolution.IncidentWorker_MycelyssEnvoy</workerClass>
+  </IncidentDef>
+  <IncidentDef>
+    <defName>DE_MycelyssDemand</defName>
+    <label>Mycelyss Demand</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>DanceOfEvolution.IncidentWorker_MycelyssDemand</workerClass>
+    <baseChance>0</baseChance>
+  </IncidentDef>
+</Defs>

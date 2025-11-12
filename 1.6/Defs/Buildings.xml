@@ -96,7 +96,7 @@
 		<statBases>
 			<MaxHitPoints>300</MaxHitPoints>
 			<WorkToBuild>2500</WorkToBuild>
-			<Flammability>1.0</Flammability>
+			<Flammability>1</Flammability>
 			<Beauty>-20</Beauty>
 			<MarketValue>985</MarketValue>
 		</statBases>
@@ -242,7 +242,7 @@
 		<statBases>
 			<WorkToBuild>12000</WorkToBuild>
 			<MaxHitPoints>2000</MaxHitPoints>
-			<Flammability>1.0</Flammability>
+			<Flammability>1</Flammability>
 			<MarketValue>2000</MarketValue>
 		</statBases>
 		<costList>
@@ -255,7 +255,7 @@
 		</building>
 		<comps>
 			<li Class="CompProperties_Refuelable">
-				<fuelConsumptionRate>8.0</fuelConsumptionRate>
+				<fuelConsumptionRate>8</fuelConsumptionRate>
 				<fuelCapacity>200</fuelCapacity>
 				<fuelFilter>
 					<thingDefs>
@@ -385,9 +385,9 @@
 		<comps>
 			<li Class="CompProperties_Breakdownable" />
 			<li Class="CompProperties_Facility">
-				<maxDistance>5.1</maxDistance>
+				<maxDistance>15.1</maxDistance>
 				<statOffsets>
-					<ContainmentStrength>-15</ContainmentStrength>
+					<ContainmentStrength>5</ContainmentStrength>
 				</statOffsets>
 			</li>
 			<li Class="CompProperties_AttachPoints">
@@ -581,8 +581,8 @@
 		<fillPercent>1</fillPercent>
 		<statBases>
 			<WorkToBuild>2200</WorkToBuild>
-			<MaxHitPoints>350</MaxHitPoints>
-			<Flammability>0.85</Flammability>
+			<MaxHitPoints>700</MaxHitPoints>
+			<Flammability>0.3</Flammability>
 			<MarketValue>2000</MarketValue>
 		</statBases>
 		<building>
@@ -618,8 +618,9 @@
 		</inspectorTabs>
 		<size>(5,5)</size>
 		<costList>
-			<RawFungus>125</RawFungus>
-			<ComponentIndustrial>3</ComponentIndustrial>
+			<RawFungus>100</RawFungus>
+			<Bioferrite>25</Bioferrite>
+			<Shard>2</Shard>
 		</costList>
 		<placeWorkers>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>

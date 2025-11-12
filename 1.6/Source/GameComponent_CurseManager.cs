@@ -14,6 +14,10 @@ namespace DanceOfEvolution
     public class GameComponent_CurseManager : GameComponent
     {
         private List<WorldObject> cursedSites = new List<WorldObject>();
+        public bool mycelyssEnvoyEventTriggered = false;
+        public int mycelyssDemandTick = -1;
+        public bool mycelyssDemandActive = false;
+        public int requiredPawnCount = 2;
         public static GameComponent_CurseManager Instance;
         private static Material CursedMat = MaterialPool.MatFrom("UI/Icons/CursedSite");
         public GameComponent_CurseManager(Game game)
@@ -76,6 +80,10 @@ namespace DanceOfEvolution
         {
             base.ExposeData();
             Scribe_Collections.Look(ref cursedSites, "cursedSites", LookMode.Reference);
+            Scribe_Values.Look(ref mycelyssEnvoyEventTriggered, "mycelyssEnvoyEventTriggered", false);
+            Scribe_Values.Look(ref mycelyssDemandTick, "mycelyssDemandTick", -1);
+            Scribe_Values.Look(ref mycelyssDemandActive, "mycelyssDemandActive", false);
+            Scribe_Values.Look(ref requiredPawnCount, "requiredPawnCount", 2);
         }
 
         public override void GameComponentTick()
@@ -84,6 +92,31 @@ namespace DanceOfEvolution
             if (Find.TickManager.TicksGame % 60 == 0)
             {
                 cursedSites.RemoveAll(worldObject => worldObject == null || worldObject.Destroyed || !Find.World.worldObjects.Contains(worldObject));
+            }
+            var faction = Find.FactionManager.FirstFactionOfDef(DefsOf.DE_Mycelyss);
+            if (faction != null && faction.HostileTo(Faction.OfPlayer) is false && mycelyssDemandActive && mycelyssDemandTick > 0 && Find.TickManager.TicksGame >= mycelyssDemandTick)
+            {
+                Map map = Find.AnyPlayerHomeMap;
+                if (map != null)
+                {
+                    foreach (var otherMap in Find.Maps)
+                    {
+                        if (otherMap.lordManager.lords.Any(l => l.LordJob is LordJob_DemandPawns))
+                        {
+                            return;
+                        }
+                    }
+                    IncidentParms parms = new IncidentParms
+                    {
+                        target = map,
+                        faction = faction
+                    };
+
+                    if (!DefsOf.DE_MycelyssDemand.Worker.TryExecute(parms))
+                    {
+                        mycelyssDemandTick = Find.TickManager.TicksGame + GenDate.TicksPerDay;
+                    }
+                }
             }
         }
 

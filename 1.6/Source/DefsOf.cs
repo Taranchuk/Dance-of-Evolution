@@ -108,8 +108,13 @@ namespace DanceOfEvolution
 		public static PrefabDef DE_MycelyssBase;
 		public static ThinkTreeDef Downed;
 		public static ThinkTreeDef LordDuty;
-
-        static DefsOf()
+		public static DialogueNodeDef DE_MycelyssEnvoy_Root;
+		public static IncidentDef DE_MycelyssEnvoy;
+		public static JobDef DE_TalkToEnvoy;
+		public static PawnKindDef DE_Mycelyss_Envoy;
+		public static IncidentDef DE_MycelyssDemand;
+		public static JobDef DE_OfferPawns;
+		static DefsOf()
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}

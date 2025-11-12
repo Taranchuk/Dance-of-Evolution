@@ -81,6 +81,12 @@
 						<DankPyon_ComponentBasic>6</DankPyon_ComponentBasic>
 					</value>
 				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="DE_CubeFungi"]/costList/ComponentIndustrial</xpath>
+					<value>
+						<DankPyon_Bone>4</DankPyon_Bone>
+					</value>
+				</li>
 			</operations>
 		</match>
 	</Operation>

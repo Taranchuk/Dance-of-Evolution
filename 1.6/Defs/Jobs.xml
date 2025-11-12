@@ -47,5 +47,18 @@
 		<driverClass>DanceOfEvolution.JobDriver_TakeBioferriteOutOfCubeFungi</driverClass>
 		<reportString>taking bioferrite out of TargetA.</reportString>
 	</JobDef>
+	<JobDef>
+		<defName>DE_TalkToEnvoy</defName>
+		<driverClass>DanceOfEvolution.JobDriver_TalkToEnvoy</driverClass>
+		<reportString>talking to envoy.</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+
+	 <JobDef>
+	   <defName>DE_OfferPawns</defName>
+	   <driverClass>DanceOfEvolution.JobDriver_OfferPawns</driverClass>
+	   <reportString>offering pawns to TargetA.</reportString>
+	   <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	 </JobDef>
 
 </Defs>

@@ -53,7 +53,10 @@ namespace DanceOfEvolution
 				{
 					nextMentalBreakTick = Find.TickManager.TicksGame + (5 * 60000);
 				}
-				Messages.Message("DE_LivingDressBonded".Translate(pawn.LabelShort), pawn, MessageTypeDefOf.PositiveEvent);
+				if (PawnUtility.ShouldSendNotificationAbout(pawn))
+				{
+					Messages.Message("DE_LivingDressBonded".Translate(pawn.LabelShort), pawn, MessageTypeDefOf.PositiveEvent);
+				}
 			}
 		}
 
