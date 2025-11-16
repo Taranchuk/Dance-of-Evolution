@@ -111,7 +111,7 @@
 	<DE_ProducesBioferriteInDays>Produces bioferrite in {0} days</DE_ProducesBioferriteInDays>
 	<DE_SpawnBurrowerMaxServantsReached>Cannot spawn burrower: maximum number of servants reached</DE_SpawnBurrowerMaxServantsReached>
 	<DE_MycelyssEnvoyTitle>Mycelyss Envoy</DE_MycelyssEnvoyTitle>
-	<DE_MycelyssEnvoyDesc>A strange group of fungal humans approaches your colony, led by a mysterious figure claiming to represent the Mycelyss collective. They wish to speak with you.</DE_MycelyssEnvoyDesc>
+	<DE_MycelyssEnvoyDesc>A Fungal Nexus from the Mycelyss has arrived, it seems they want to talk.</DE_MycelyssEnvoyDesc>
 	<DE_TalkToEnvoy>Talk to envoy</DE_TalkToEnvoy>
 	<DE_MycelyssDemandTitle>Mycelyss Demand</DE_MycelyssDemandTitle>
 	<DE_MycelyssDemandArrived>The Mycelyss envoy has returned to collect their tribute. They demand {0} humans.</DE_MycelyssDemandArrived>

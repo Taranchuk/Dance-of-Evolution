@@ -3,23 +3,23 @@
 
   <DanceOfEvolution.DialogueNodeDef>
     <defName>DE_MycelyssEnvoy_Root</defName>
-    <text>A strange, fungal creature stands before you, its voice echoing directly in your mind. "We are the Mycelyss. We have seen your... potential. We wish to propose an arrangement."</text>
+    <text>The envoy stares at your people with dead, empty eyes and speaks in a monotone voice that almost sounds like a low, mechanical growl. "We are the Mycelyss, we have taken notice of the psychic emanations of this colony as a sign that more live here. This mycelyss colony is underdevelopped and weak. We are established and strong. It is in your best interest to become a symbiote of us. You will be assimilated into a stronger organism. Comply now."</text>
     <options>
       <li>
-        <text>Consider their proposal...</text>
+        <text>Of course.</text>
         <outcomes>
           <li Class="DanceOfEvolution.DialogueOutcome_OpenPawnSelectWindow" />
         </outcomes>
       </li>
       <li>
-        <text>Attack them.</text>
+        <text>Ridiculous, we would never submit to the likes of you!</text>
         <nextNode>DE_MycelyssEnvoy_Attack</nextNode>
         <outcomes>
           <li Class="DanceOfEvolution.DialogueOutcome_MakeHostile" />
         </outcomes>
       </li>
       <li>
-        <text>Tell them to leave.</text>
+        <text>Your colony is weaker than ours, join us or be consumed. Comply now.</text>
         <nextNode>DE_MycelyssEnvoy_Leave</nextNode>
         <outcomes>
           <li Class="DanceOfEvolution.DialogueOutcome_LeaveAndBecomeHostile" />
@@ -30,7 +30,7 @@
 
   <DanceOfEvolution.DialogueNodeDef>
     <defName>DE_MycelyssEnvoy_Accept</defName>
-    <text>A wise choice. We will be in contact. Do not disappoint us.</text>
+    <text>"Affirmative. Our collective is in need of living humans for processing. Give us 2 immediately. Noncompliance will be considered rebellion and will be dealt with switfly. Comply now."</text>
     <options>
       <li>
         <text>Close</text>
@@ -43,7 +43,7 @@
 
   <DanceOfEvolution.DialogueNodeDef>
     <defName>DE_MycelyssEnvoy_Attack</defName>
-    <text>So be it. You have sealed your fate.</text>
+    <text>"Then you will be consumed."</text>
     <options>
       <li>
         <text>Close</text>
@@ -56,7 +56,7 @@
 
   <DanceOfEvolution.DialogueNodeDef>
     <defName>DE_MycelyssEnvoy_Leave</defName>
-    <text>You will regret this.</text>
+    <text>"Affirmative. Your suggestion will be processed to assertain its truth. We will come to a conclusion shortly, goodbye."</text>
     <options>
       <li>
         <text>Close</text>
