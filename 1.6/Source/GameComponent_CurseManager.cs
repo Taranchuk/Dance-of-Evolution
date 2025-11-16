@@ -71,7 +71,6 @@ namespace DanceOfEvolution
                     //}
                     var curseDef = DefDatabase<CurseEffectDef>.AllDefs.RandomElement();
                     curseDef.Worker.Apply(map);
-                    cursedSites.Remove(worldObject);
                 });
             }
         }

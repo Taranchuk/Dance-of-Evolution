@@ -33,10 +33,15 @@ namespace DanceOfEvolution
 
         public override void DoWindowContents(Rect inRect)
         {
+            int selected = SelectedPawnCount;
+            int required = RequiredPawnCount;
+            var selectedText = selected > required ? $"<color=red>{selected}</color>" : selected.ToString();
+            var title = "DE_SelectPawnsTitle".Translate() + $" ({selectedText}/{required})";
+
             Rect titleRect = new Rect(0f, 0f, inRect.width, 35f);
             Text.Font = GameFont.Medium;
             Text.Anchor = TextAnchor.MiddleCenter;
-            Widgets.Label(titleRect, "DE_SelectPawnsTitle".Translate());
+            Widgets.Label(titleRect, title);
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
 
@@ -83,13 +88,20 @@ namespace DanceOfEvolution
                                                          .ToList();
                 var lord = envoy.GetLord();
                 PawnDemandUtility.DeliverPawns(pawnsToDeliver, lord);
-                envoy.Faction.SetRelation(new FactionRelation(Faction.OfPlayer, FactionRelationKind.Ally));
+
+                var factionRelation = new FactionRelation();
+                factionRelation.other = Faction.OfPlayer;
+                factionRelation.kind = FactionRelationKind.Ally;
+                factionRelation.baseGoodwill = 100;
+
+                envoy.Faction.SetRelation(factionRelation);
 
                 var instance = GameComponent_CurseManager.Instance;
                 instance.mycelyssDemandActive = true;
                 instance.mycelyssDemandTick = Find.TickManager.TicksGame + (GenDate.TicksPerDay * 10);
                 instance.requiredPawnCount = 2;
                 Messages.Message("DE_MycelyssDemandActivated".Translate(instance.requiredPawnCount, 10), MessageTypeDefOf.NeutralEvent);
+                Find.LetterStack.ReceiveLetter("DE_MycelyssAlly".Translate(), "DE_MycelyssAllyDesc".Translate(), LetterDefOf.NeutralEvent, envoy);
                 lord?.ReceiveMemo("Leave");
                 Find.WindowStack.TryRemove(typeof(Dialog_MycelyssEnvoy));
                 Close();

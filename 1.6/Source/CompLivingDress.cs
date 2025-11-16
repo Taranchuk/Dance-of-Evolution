@@ -28,19 +28,16 @@ namespace DanceOfEvolution
 		public override void CompTick()
 		{
 			base.CompTick();
-
+			if (Find.TickManager.TicksGame % 600 == 0)
+			{
+				TryRegenerate();
+			}
 			if (parent.Spawned)
 			{
-				if (Find.TickManager.TicksGame % 600 == 0)
-				{
-					TryRegenerate();
-				}
-
 				if (nextMentalBreakTick > 0 && Find.TickManager.TicksGame >= nextMentalBreakTick)
 				{
 					TryTriggerMentalBreak();
 				}
-
 			}
 		}
 

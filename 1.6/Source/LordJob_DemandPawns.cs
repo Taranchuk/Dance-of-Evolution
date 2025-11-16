@@ -1,4 +1,4 @@
-using RimWorld;
+﻿using RimWorld;
 using System;
 using Verse;
 using Verse.AI;
@@ -44,7 +44,13 @@ namespace DanceOfEvolution
                 Faction mycelyssFaction = Find.FactionManager.FirstFactionOfDef(DefsOf.DE_Mycelyss);
                 if (mycelyssFaction != null && !mycelyssFaction.HostileTo(Faction.OfPlayer))
                 {
-                    mycelyssFaction.SetRelation(new FactionRelation(Faction.OfPlayer, FactionRelationKind.Hostile));
+                    var factionRelation = new FactionRelation();
+                    factionRelation.other = Faction.OfPlayer;
+                    factionRelation.kind = FactionRelationKind.Hostile;
+                    factionRelation.baseGoodwill = -100;
+                    
+                    mycelyssFaction.SetRelation(factionRelation);
+                    
                     Messages.Message("DE_MycelyssDemandFailedHostile".Translate(), MessageTypeDefOf.NegativeEvent);
                 }
                 GameComponent_CurseManager.Instance.mycelyssDemandActive = false;

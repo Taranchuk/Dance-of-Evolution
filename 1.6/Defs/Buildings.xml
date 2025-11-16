@@ -387,7 +387,7 @@
 			<li Class="CompProperties_Facility">
 				<maxDistance>15.1</maxDistance>
 				<statOffsets>
-					<ContainmentStrength>5</ContainmentStrength>
+					<ContainmentStrength>20</ContainmentStrength>
 				</statOffsets>
 			</li>
 			<li Class="CompProperties_AttachPoints">

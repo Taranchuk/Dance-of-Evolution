@@ -7,9 +7,7 @@
     <options>
       <li>
         <text>Of course.</text>
-        <outcomes>
-          <li Class="DanceOfEvolution.DialogueOutcome_OpenPawnSelectWindow" />
-        </outcomes>
+        <nextNode>DE_MycelyssEnvoy_ExplainDeal</nextNode>
       </li>
       <li>
         <text>Ridiculous, we would never submit to the likes of you!</text>
@@ -29,13 +27,19 @@
   </DanceOfEvolution.DialogueNodeDef>
 
   <DanceOfEvolution.DialogueNodeDef>
-    <defName>DE_MycelyssEnvoy_Accept</defName>
-    <text>"Affirmative. Our collective is in need of living humans for processing. Give us 2 immediately. Noncompliance will be considered rebellion and will be dealt with switfly. Comply now."</text>
+    <defName>DE_MycelyssEnvoy_ExplainDeal</defName>
+    <text>"Affirmative. Our collective is in need of living humans for processing. Give us 2 immediately. Noncompliance will be considered rebellion and will be dealt with swiftly. Comply now."</text>
     <options>
       <li>
-        <text>Close</text>
+        <text>Accept</text>
         <outcomes>
-          <li Class="DanceOfEvolution.DialogueOutcome_CloseUI" />
+          <li Class="DanceOfEvolution.DialogueOutcome_OpenPawnSelectWindow" />
+        </outcomes>
+      </li>
+      <li>
+        <text>Back</text>
+        <outcomes>
+          <li Class="DanceOfEvolution.DialogueOutcome_BackToRoot" />
         </outcomes>
       </li>
     </options>

@@ -9,9 +9,16 @@ namespace DanceOfEvolution
     {
         public static void Postfix(Pawn pawn, ref bool __result)
         {
-            if (!__result && pawn.Map != null && GameComponent_CurseManager.Instance.IsCursed(pawn.Map.Parent) && pawn.HostileTo(Faction.OfPlayer))
+            if (pawn.MapHeld != null && GameComponent_CurseManager.Instance.IsCursed(pawn.MapHeld.Parent))
             {
-                __result = true;
+                if (!__result && pawn.HostileTo(Faction.OfPlayer))
+                {
+                    __result = true;
+                }
+                else if (__result && pawn.Faction == Faction.OfPlayer)
+                {
+                    __result = false;
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI.Group;
 
 namespace DanceOfEvolution
 {
@@ -51,6 +52,8 @@ namespace DanceOfEvolution
                     revenant.DeSpawn();
                     GenSpawn.Spawn(revenant, result.Position, map);
                 }
+                var lord = LordMaker.MakeNewLord(revenant.Faction, new LordJob_AssistColony(revenant.Faction, revenant.Position), map);
+                lord.AddPawn(revenant);
             }
         }
     }
@@ -63,7 +66,7 @@ namespace DanceOfEvolution
             {
                 if (TryFindRandomSpawnCell(map, out var loc))
                 {
-                    FleshbeastUtility.SpawnFleshbeastsFromPitBurrowEmergence(loc, map, StorytellerUtility.DefaultThreatPointsNow(Find.World), new IntRange(600, 600), new IntRange(60, 180));
+                    FleshbeastUtility.SpawnFleshbeastsFromPitBurrowEmergence(loc, map, StorytellerUtility.DefaultThreatPointsNow(Find.World), new IntRange(600, 600), new IntRange(60, 180), false);
                 }
             }
         }
@@ -104,6 +107,12 @@ namespace DanceOfEvolution
                 {
                     GenSpawn.Spawn(noctol, spawnLoc, map, Rot4.Random);
                 }
+            }
+
+            var lord = LordMaker.MakeNewLord(Faction.OfPlayer, new LordJob_AssistColony(Faction.OfPlayer, map.Center), map);
+            foreach (var noctol in noctolGroup)
+            {
+                lord.AddPawn(noctol);
             }
         }
 

@@ -120,6 +120,12 @@
 	<DE_MycelyssDemandFailedHostile>The Mycelyss demand was not met. They have turned hostile!</DE_MycelyssDemandFailedHostile>
 	<DE_OfferPawns>Offer humans</DE_OfferPawns>
 	<DE_NoValidPawns>No valid humans to offer</DE_NoValidPawns>
-	<DE_SelectPawnsTitle>Select Pawns for the Mycelyss</DE_SelectPawnsTitle>
+	<DE_SelectPawnsTitle>Select humans for the Mycelyss</DE_SelectPawnsTitle>
 	<DE_SelectPawnsDesc>Select the humans to fulfill the Mycelyss demand. The envoy will leave once the transaction is complete.</DE_SelectPawnsDesc>
+	<DE_MycelyssHostile>Mycelyss Hostile</DE_MycelyssHostile>
+	<DE_MycelyssHostileDesc>The Mycelyss have turned hostile towards your colony.</DE_MycelyssHostileDesc>
+	<DE_MycelyssAlly>Mycelyss Alliance</DE_MycelyssAlly>
+	<DE_MycelyssAllyDesc>The Mycelyss have formed an alliance with your colony.</DE_MycelyssAllyDesc>
+	<DE_MycelyssNeutral>Mycelyss Neutral</DE_MycelyssNeutral>
+	<DE_MycelyssNeutralDesc>The Mycelyss have changed their relationship to neutral.</DE_MycelyssNeutralDesc>
 </LanguageData>

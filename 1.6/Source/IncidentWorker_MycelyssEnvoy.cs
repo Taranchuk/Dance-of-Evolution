@@ -1,4 +1,4 @@
-using RimWorld;
+﻿using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -29,7 +29,14 @@ namespace DanceOfEvolution
 
             if (mycelyssFaction.HostileTo(Faction.OfPlayer))
             {
-                mycelyssFaction.SetRelation(new FactionRelation(Faction.OfPlayer, FactionRelationKind.Neutral));
+                var factionRelation = new FactionRelation();
+                factionRelation.other = Faction.OfPlayer;
+                factionRelation.kind = FactionRelationKind.Neutral;
+                factionRelation.baseGoodwill = 0;
+                
+                mycelyssFaction.SetRelation(factionRelation);
+                
+                Find.LetterStack.ReceiveLetter("DE_MycelyssNeutral".Translate(), "DE_MycelyssNeutralDesc".Translate(), LetterDefOf.NeutralEvent, mycelyssFaction?.leader);
             }
             Pawn leader = PawnGenerator.GeneratePawn(DefsOf.DE_Mycelyss_Envoy, mycelyssFaction);
             GenSpawn.Spawn(leader, spawnCell, map);
