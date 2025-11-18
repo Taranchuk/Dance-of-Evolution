@@ -50,6 +50,7 @@ namespace DanceOfEvolution
                     factionRelation.baseGoodwill = -100;
                     
                     faction.SetRelation(factionRelation);
+                    Find.LetterStack.ReceiveLetter("DE_MycelyssHostile".Translate(), "DE_MycelyssHostileDesc".Translate(), LetterDefOf.NegativeEvent, lord.Map.mapPawns.FreeColonists.RandomElement());
                 }
             }
         }

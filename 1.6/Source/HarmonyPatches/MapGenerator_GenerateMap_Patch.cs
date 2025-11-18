@@ -2,7 +2,7 @@ using HarmonyLib;
 using RimWorld.Planet;
 using Verse;
 
-namespace DanceOfEvolution.HarmonyPatches
+namespace DanceOfEvolution
 {
     [HarmonyPatch(typeof(MapGenerator), "GenerateMap")]
     public static class MapGenerator_GenerateMap_Patch

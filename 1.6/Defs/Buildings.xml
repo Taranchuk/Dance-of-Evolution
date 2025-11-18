@@ -553,11 +553,41 @@
 		</building>
 	</ThingDef>
 
+	<ThingDef>
+		<defName>DE_QuantumTunnelGateAid_Spawner</defName>
+		<label>Quantum Tunnel emergence</label>
+		<description>A quantum tunnel is emerging from the ground here.</description>
+		<thingClass>DanceOfEvolution.BuildingGroundSpawner_QuantumTunnelAid</thingClass>
+		<destroyable>false</destroyable>
+		<holdsRoof>true</holdsRoof>
+		<selectable>true</selectable>
+		<tickerType>Normal</tickerType>
+		<useHitPoints>false</useHitPoints>
+		<drawerType>RealtimeOnly</drawerType>
+		<size>(8, 8)</size>
+		<uiIconPath>UI/Icons/UndergroundEmergence</uiIconPath>
+		<building>
+			<groundSpawnerSustainedEffecter>EmergencePointSustained8X8</groundSpawnerSustainedEffecter>
+			<groundSpawnerCompleteEffecter>EmergencePointComplete8X8</groundSpawnerCompleteEffecter>
+			<groundSpawnerThingToSpawn>DE_QuantumTunnelGateExitAid</groundSpawnerThingToSpawn>
+			<groundSpawnerSpawnDelay>600</groundSpawnerSpawnDelay>
+			<groundSpawnerDestroyAdjacent>true</groundSpawnerDestroyAdjacent>
+			<groundSpawnerSustainerSound>PitGateOpening</groundSpawnerSustainerSound>
+		</building>
+	</ThingDef>
+
 	<ThingDef ParentName="DE_QuantumTunnelGateBase">
 		<defName>DE_QuantumTunnelGateExit</defName>
 		<label>Quantum Tunnel exit</label>
 		<description>The exit point of a quantum tunnel. Pawns and items transported through the quantum tunnel will emerge from this location.</description>
 		<thingClass>DanceOfEvolution.Building_QuantumTunnelGateExit</thingClass>
+	</ThingDef>
+
+	<ThingDef ParentName="DE_QuantumTunnelGateBase">
+		<defName>DE_QuantumTunnelGateExitAid</defName>
+		<label>Quantum Tunnel exit</label>
+		<description>The exit point of a quantum tunnel for military aid. Allies emerge from this location.</description>
+		<thingClass>DanceOfEvolution.Building_QuantumTunnelGateExitAid</thingClass>
 	</ThingDef>
 
 	<ThingDef ParentName="DE_FungalBuildingBase">

@@ -12,7 +12,7 @@ namespace DanceOfEvolution
 		{
 			get
 			{
-				var building = base.SelThing as Building_FungalNode;
+				var building = SelThing as Building_FungalNode;
 				listInt.Clear();
 				if (building != null)
 				{

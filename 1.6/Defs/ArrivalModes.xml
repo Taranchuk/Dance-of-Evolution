@@ -1,0 +1,8 @@
+<Defs>
+    <PawnsArrivalModeDef>
+        <defName>DE_QuantumTunnelArrival</defName>
+        <label>quantum tunnel</label>
+        <workerClass>DanceOfEvolution.PawnsArrivalModeWorker_QuantumTunnel</workerClass>
+        <textFriendly>a group of {0} from {1} have arrived in a quantum tunnel.</textFriendly>
+    </PawnsArrivalModeDef>
+</Defs>

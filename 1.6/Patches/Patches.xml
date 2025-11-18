@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
 	<Operation Class="PatchOperationAddModExtension">
@@ -87,6 +87,30 @@
 						<DankPyon_Bone>4</DankPyon_Bone>
 					</value>
 				</li>
+				            <li Class="PatchOperationReplace">
+				                <xpath>Defs/ThingDef[defName="DE_PsychicCoordinator"]/costList/ComponentSpacer</xpath>
+				                <value>
+				                    <DankPyon_ComponentBasic>2</DankPyon_ComponentBasic>
+				                </value>
+				            </li>
+				            <li Class="PatchOperationReplace">
+				                <xpath>Defs/ThingDef[defName="DE_VacuumResistanceImplant"]/costList/ComponentSpacer</xpath>
+				                <value>
+				                    <DankPyon_ComponentBasic>1</DankPyon_ComponentBasic>
+				                </value>
+				            </li>
+				            <li Class="PatchOperationReplace">
+				            	<xpath>Defs/ThingDef[defName="BioferriteShaper"]/costList/ComponentIndustrial</xpath>
+				            	<value>
+				            		<DankPyon_ComponentBasic>2</DankPyon_ComponentBasic>
+				            	</value>
+				            </li>
+				            <li Class="PatchOperationReplace">
+				            	<xpath>Defs/ThingDef[defName="SerumCentrifuge"]/costList/ComponentIndustrial</xpath>
+				            	<value>
+				            		<DankPyon_ComponentBasic>2</DankPyon_ComponentBasic>
+				            	</value>
+				            </li>
 			</operations>
 		</match>
 	</Operation>

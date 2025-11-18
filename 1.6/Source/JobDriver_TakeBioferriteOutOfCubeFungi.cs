@@ -36,9 +36,9 @@ namespace DanceOfEvolution
             toil.initAction = delegate
             {
                 Thing thing = CubeFungi.TakeOutBioferrite();
-                GenPlace.TryPlaceThing(thing, pawn.Position, base.Map, ThingPlaceMode.Near);
+                GenPlace.TryPlaceThing(thing, pawn.Position, Map, ThingPlaceMode.Near);
                 StoragePriority currentPriority = StoreUtility.CurrentStoragePriorityOf(thing);
-                if (StoreUtility.TryFindBestBetterStoreCellFor(thing, pawn, base.Map, currentPriority, pawn.Faction, out var foundCell))
+                if (StoreUtility.TryFindBestBetterStoreCellFor(thing, pawn, Map, currentPriority, pawn.Faction, out var foundCell))
                 {
                     job.SetTarget(TargetIndex.C, foundCell);
                     job.SetTarget(TargetIndex.B, thing);

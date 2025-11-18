@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -11,12 +12,16 @@ namespace DanceOfEvolution
     {
         private static new readonly CachedTexture ExitMapTex = new CachedTexture("UI/Commands/ExitCave");
         public static new readonly CachedTexture ViewEntranceTex = new CachedTexture("UI/Commands/ViewCave");
-        private bool isCollapsing;
-        private int collapseTick;
+        public bool isCollapsing;
+        public int collapseTick;
         private Sustainer collapseSustainer;
         private Effecter collapseEffecter1;
         private Effecter collapseEffecter2;
-
+        public List<Pawn> pawnsToSpawn = new List<Pawn>();
+        public int ticksUntilNextSpawn;
+        
+        public virtual bool IsMilitaryAid => false;
+ 
         public override string EnterString => "DE_ExitQuantumTunnel".Translate();
 
         public override string CancelEnterString => "DE_CancelExitQuantumTunnel".Translate();
@@ -41,17 +46,20 @@ namespace DanceOfEvolution
             base.SpawnSetup(map, respawningAfterLoad);
             if (!respawningAfterLoad)
             {
-                if (PocketMapUtility.currentlyGeneratingPortal == null)
+                if (PocketMapUtility.currentlyGeneratingPortal == null && !IsMilitaryAid)
                 {
                     Log.Error("Quantum tunnel exit could not find map portal to connect to");
                     return;
                 }
-                this.entrance = PocketMapUtility.currentlyGeneratingPortal;
-                if (this.entrance != null)
+                if (!IsMilitaryAid)
                 {
-                    this.entrance.exit = this;
+                    this.entrance = PocketMapUtility.currentlyGeneratingPortal;
+                    if (this.entrance != null)
+                    {
+                        this.entrance.exit = this;
+                    }
                 }
-                collapseTick = Find.TickManager.TicksGame + GenDate.TicksPerHour * 10;
+                collapseTick = Find.TickManager.TicksGame + GenDate.TicksPerHour * 30;
             }
         }
 
@@ -79,6 +87,7 @@ namespace DanceOfEvolution
             base.ExposeData();
             Scribe_Values.Look(ref isCollapsing, "isCollapsing", defaultValue: false);
             Scribe_Values.Look(ref collapseTick, "collapseTick", 0);
+            Scribe_Collections.Look(ref pawnsToSpawn, "pawnsToSpawn", LookMode.Deep);
         }
 
         public bool IsCollapsing => isCollapsing;
@@ -106,7 +115,7 @@ namespace DanceOfEvolution
                 {
                     if (collapseEffecter1 == null)
                     {
-                        collapseEffecter1 = EffecterDefOf.PitGateAboveGroundCollapseStage1.Spawn(this, base.Map);
+                        collapseEffecter1 = EffecterDefOf.PitGateAboveGroundCollapseStage1.Spawn(this, Map);
                     }
                 }
                 else if (CollapseStage == 2)
@@ -118,9 +127,9 @@ namespace DanceOfEvolution
                     collapseSustainer.Maintain();
                     if (collapseEffecter2 == null)
                     {
-                        collapseEffecter2 = EffecterDefOf.PitGateAboveGroundCollapseStage2.Spawn(this, base.Map);
+                        collapseEffecter2 = EffecterDefOf.PitGateAboveGroundCollapseStage2.Spawn(this, Map);
                     }
-                    if (Find.CurrentMap == base.Map && Rand.MTBEventOccurs(2f, 60f, 1f))
+                    if (Find.CurrentMap == Map && Rand.MTBEventOccurs(2f, 60f, 1f))
                     {
                         Find.CameraDriver.shaker.DoShake(0.2f);
                     }
@@ -139,15 +148,15 @@ namespace DanceOfEvolution
             isCollapsing = true;
         }
 
-        private void Collapse()
+        public void Collapse()
         {
             collapseSustainer?.End();
             collapseEffecter2?.Cleanup();
             collapseEffecter2 = null;
             collapseEffecter1?.Cleanup();
             collapseEffecter1 = null;
-            EffecterDefOf.PitGateAboveGroundCollapsed.Spawn(base.Position, base.Map);
-            SoundDefOf.PitGateCollapsing_End.PlayOneShot(new TargetInfo(base.Position, base.Map));
+            EffecterDefOf.PitGateAboveGroundCollapsed.Spawn(Position, Map);
+            SoundDefOf.PitGateCollapsing_End.PlayOneShot(new TargetInfo(Position, Map));
             if (entrance != null)
             {
                 entrance.exit = null;
@@ -181,38 +190,41 @@ namespace DanceOfEvolution
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            foreach (Gizmo gizmo in base.GetGizmos())
+            if (!IsMilitaryAid)
             {
-                if (gizmo is Command_Action commandAction && commandAction.defaultLabel == "CommandViewSurface".Translate())
+                foreach (Gizmo gizmo in base.GetGizmos())
                 {
-                    continue;
+                    if (gizmo is Command_Action commandAction && commandAction.defaultLabel == "CommandViewSurface".Translate())
+                    {
+                        continue;
+                    }
+                    yield return gizmo;
                 }
-                yield return gizmo;
-            }
-            yield return new Command_Action
-            {
-                defaultLabel = "DE_ViewOriginGate".Translate(),
-                defaultDesc = "DE_ViewOriginGateDesc".Translate(),
-                icon = ViewEntranceTex.Texture,
-                action = delegate
+                yield return new Command_Action
                 {
-                    CameraJumper.TryJumpAndSelect(entrance);
-                }
-            };
+                    defaultLabel = "DE_ViewOriginGate".Translate(),
+                    defaultDesc = "DE_ViewOriginGateDesc".Translate(),
+                    icon = ViewEntranceTex.Texture,
+                    action = delegate
+                    {
+                        CameraJumper.TryJumpAndSelect(entrance);
+                    }
+                };
 
-            yield return new Command_Action
-            {
-                defaultLabel = "DE_CloseGate".Translate(),
-                defaultDesc = "DE_CloseGateDesc".Translate(),
-                icon = ContentFinder<Texture2D>.Get("UI/Commands/ExitCave"),
-                action = delegate
+                yield return new Command_Action
                 {
-                    entrance.exit = null;
-                    allowDestroyNonDestroyable = true;
-                    Destroy();
-                    allowDestroyNonDestroyable = false;
-                }
-            };
+                    defaultLabel = "DE_CloseGate".Translate(),
+                    defaultDesc = "DE_CloseGateDesc".Translate(),
+                    icon = ContentFinder<Texture2D>.Get("UI/Commands/ExitCave"),
+                    action = delegate
+                    {
+                        entrance.exit = null;
+                        allowDestroyNonDestroyable = true;
+                        Destroy();
+                        allowDestroyNonDestroyable = false;
+                    }
+                };
+            }
         }
     }
 }

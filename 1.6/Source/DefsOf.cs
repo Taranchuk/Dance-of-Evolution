@@ -97,6 +97,7 @@ namespace DanceOfEvolution
 		public static ThingDef DE_QuantumTunnelGateExit_Spawner;
 		public static ThingDef DE_QuantumTunnelGate;
 		public static ThingDef DE_QuantumTunnelGateExit;
+		public static ThingDef DE_QuantumTunnelGateExitAid;
 		public static BodyPartGroupDef Eyes;
 		public static TraitDef Occultist;
 		public static TraitDef Disturbing;
@@ -114,9 +115,13 @@ namespace DanceOfEvolution
 		public static PawnKindDef DE_Mycelyss_Envoy;
 		public static IncidentDef DE_MycelyssDemand;
 		public static JobDef DE_OfferPawns;
+
+		      public static PawnsArrivalModeDef DE_QuantumTunnelArrival;
+		      public static ThingDef DE_QuantumTunnelGateAid_Spawner;
+		public static IncidentDef DE_MycelyssRaid;
 		static DefsOf()
 		{
-			DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
+		 DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
 		}
 	}
 }

@@ -27,7 +27,7 @@ namespace DanceOfEvolution
 				float num = Mathf.InverseLerp(def.plant.harvestMinGrowth, 1f, growthInt);
 				num = 0.5f + num * 0.5f;
 				harvestYield *= num;
-				harvestYield *= Mathf.Lerp(0.5f, 1f, (float)HitPoints / (float)base.MaxHitPoints);
+				harvestYield *= Mathf.Lerp(0.5f, 1f, (float)HitPoints / (float)MaxHitPoints);
 				if (def.plant.harvestYieldAffectedByDifficulty)
 				{
 					harvestYield *= Find.Storyteller.difficulty.cropYieldFactor;
