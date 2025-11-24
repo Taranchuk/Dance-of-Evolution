@@ -9,7 +9,7 @@ namespace DanceOfEvolution
     {
         public static bool Prefix(IncidentParms parms)
         {
-            if (parms.faction != null && parms.faction.def == DefsOf.DE_Mycelyss && !GameComponent_CurseManager.Instance.mycelyssEnvoyEventTriggered && PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction.Any(p => p.health.hediffSet.HasHediff(DefsOf.DE_FungalNexus)))
+            if (ShouldDoEnvoy(parms))
             {
                 IncidentParms envoyParms = new IncidentParms
                 {
@@ -22,6 +22,11 @@ namespace DanceOfEvolution
                 }
             }
             return true;
+        }
+
+        public static bool ShouldDoEnvoy(this IncidentParms parms)
+        {
+            return parms.faction != null && parms.faction.def == DefsOf.DE_Mycelyss && !GameComponent_CurseManager.Instance.mycelyssEnvoyEventTriggered && PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_OfPlayerFaction.Any(p => p.health.hediffSet.HasHediff(DefsOf.DE_FungalNexus));
         }
     }
 }
