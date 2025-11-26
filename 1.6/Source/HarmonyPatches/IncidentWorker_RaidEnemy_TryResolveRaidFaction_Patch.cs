@@ -4,12 +4,12 @@ using Verse;
 
 namespace DanceOfEvolution
 {
-    [HarmonyPatch(typeof(IncidentWorker_RaidEnemy), "TryExecuteWorker")]
-    public static class IncidentWorker_RaidEnemy_TryExecuteWorker_Patch
+    [HarmonyPatch(typeof(IncidentWorker_RaidEnemy), "TryResolveRaidFaction")]
+    public static class IncidentWorker_RaidEnemy_TryResolveRaidFaction_Patch
     {
-        public static bool Prefix(IncidentParms parms)
+        public static void Postfix(IncidentParms parms, ref bool __result)
         {
-            if (ShouldDoEnvoy(parms))
+            if (__result && ShouldDoEnvoy(parms))
             {
                 IncidentParms envoyParms = new IncidentParms
                 {
@@ -18,10 +18,9 @@ namespace DanceOfEvolution
                 };
                 if (DefsOf.DE_MycelyssEnvoy.Worker.TryExecute(envoyParms))
                 {
-                    return false;
+                    __result = false;
                 }
             }
-            return true;
         }
 
         public static bool ShouldDoEnvoy(this IncidentParms parms)
