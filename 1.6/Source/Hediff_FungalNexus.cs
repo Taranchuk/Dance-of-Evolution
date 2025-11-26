@@ -67,15 +67,20 @@ namespace DanceOfEvolution
 		public int TotalServantsCount
 		{
 			get
-			{
-				servants.RemoveAll(x => x is null || x.Destroyed || x.Dead);
-				return servants.Sum(x => ServantSlotCount(x))
-				+ GameComponent_ReanimateCorpses.Instance.infectedCorpses.Where(x => x.hediff_FungalNexus == this)
-				.Sum(x => ServantSlotCount(x.corpse.InnerPawn));
-			}
-		}
+            {
+                servants.RemoveAll(x => ServantShouldBeRemoved(x));
+                return servants.Sum(x => ServantSlotCount(x))
+                + GameComponent_ReanimateCorpses.Instance.infectedCorpses.Where(x => x.hediff_FungalNexus == this)
+                .Sum(x => ServantSlotCount(x.corpse.InnerPawn));
+            }
+        }
 
-		private static int ServantSlotCount(Pawn x)
+        private bool ServantShouldBeRemoved(Pawn x)
+        {
+            return x is null || x.Destroyed || x.Dead || x.Faction != pawn.Faction || !x.IsServant(out var hediff) || hediff.masterHediff != this;
+        }
+
+        private static int ServantSlotCount(Pawn x)
 		{
 			return x.kindDef == DefsOf.DE_MikisMetalonEfialtis ? 3 : 1;
 		}
@@ -249,6 +254,16 @@ namespace DanceOfEvolution
 				SoundDefOf.Sightstealer_SummonedHowl.PlayOneShot(pawn);
 				playSound = false;
 			}
+			if (pawn.IsHashIntervalTick(250))
+            {
+                foreach (var servant in servants.ToList())
+				{
+					if (ServantShouldBeRemoved(servant))
+					{
+						servants.Remove(servant);
+					}
+				}
+            }
 		}
 
 		private bool Valid(GlobalTargetInfo target, bool throwMessages = false)
