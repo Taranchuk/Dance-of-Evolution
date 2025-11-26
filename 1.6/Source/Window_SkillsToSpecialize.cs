@@ -10,7 +10,7 @@ namespace DanceOfEvolution
     {
         private List<SkillDef> skillsToSpecialize;
         private Action<SkillDef> action;
-        public override Vector2 InitialSize => new Vector2(400f, 300f);
+        public override Vector2 InitialSize => new Vector2(400f, 350f);
 
         public Window_SkillsToSpecialize(List<SkillDef> skillsToSpecialize, Action<SkillDef> action)
         {

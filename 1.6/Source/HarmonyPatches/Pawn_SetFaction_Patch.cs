@@ -16,6 +16,10 @@ namespace DanceOfEvolution
                     servant.SetFaction(newFaction, recruiter);
                 }
             }
+            else if (__instance.IsServant(out var servantHediff) && newFaction != servantHediff.masterHediff?.pawn.Faction)
+            {
+                servantHediff.masterHediff?.servants.Remove(__instance);
+            }
         }
     }
 }

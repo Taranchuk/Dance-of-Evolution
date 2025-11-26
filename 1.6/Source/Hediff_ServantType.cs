@@ -43,7 +43,7 @@ namespace DanceOfEvolution
 				SetupStage();
 			}
 		}
-
+		
 		public void SetupStage()
 		{
 			if (masterHediff is null)
