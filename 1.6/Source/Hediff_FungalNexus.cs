@@ -123,6 +123,14 @@ namespace DanceOfEvolution
 					command.Disable("DE_CurseOnCooldown".Translate());
 				}
 				yield return command;
+				
+				foreach (ServantType servantType in System.Enum.GetValues(typeof(ServantType)))
+				{
+				    if (servants.Any(p => p.IsServant(out Hediff_ServantType hediff) && hediff.ServantType == servantType))
+				    {
+				        yield return new FungalServantGroupGizmo(this, servantType);
+				    }
+				}
 			}
 		}
 

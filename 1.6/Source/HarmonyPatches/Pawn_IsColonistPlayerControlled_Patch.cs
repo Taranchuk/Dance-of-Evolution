@@ -16,6 +16,10 @@ namespace DanceOfEvolution
 			{
 				__result = true;
 			}
+			if (ColonistBar_CheckRecacheEntries_Patch.recachingNow && __instance.IsServant())
+			{
+				__result = false;
+			}
 		}
 	}
 }

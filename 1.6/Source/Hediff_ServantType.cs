@@ -298,7 +298,7 @@ namespace DanceOfEvolution
 			}
 			var skills = new List<SkillDef>
 			{
-				SkillDefOf.Animals, SkillDefOf.Plants, SkillDefOf.Crafting, SkillDefOf.Medicine, SkillDefOf.Social, SkillDefOf.Intellectual
+				SkillDefOf.Animals, SkillDefOf.Plants, SkillDefOf.Crafting, SkillDefOf.Medicine, SkillDefOf.Social, SkillDefOf.Intellectual, SkillDefOf.Artistic
 			};
 			Find.WindowStack.Add(new Window_SkillsToSpecialize(skills, delegate (SkillDef x)
 			{

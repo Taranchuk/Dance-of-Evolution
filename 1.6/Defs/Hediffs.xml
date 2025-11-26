@@ -90,7 +90,7 @@
 				<texPath>Things/Pawn/FungalNexusCap/FungalNexusCap</texPath>
 				<parentTagDef>Head</parentTagDef>
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>
-				<baseLayer>51</baseLayer>
+				<baseLayer>52</baseLayer>
 				<drawSize>(1.25, 1.25)</drawSize>
 			</li>
 		</renderNodeProperties>

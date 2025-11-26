@@ -13,10 +13,9 @@ namespace DanceOfEvolution
 			{
 				__result = true;
 			}
-			else if (__result is false && ColonistBar_CheckRecacheEntries_Patch.recachingNow
-			&& __instance.IsServant(out var hediff) && hediff.ServantType != ServantType.Burrower)
+			if (ColonistBar_CheckRecacheEntries_Patch.recachingNow && __instance.IsServant())
 			{
-				__result = true;
+				__result = false;
 			}
 		}
 	}

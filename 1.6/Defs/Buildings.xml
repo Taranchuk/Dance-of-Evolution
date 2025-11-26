@@ -310,7 +310,7 @@
 		<size>(1,2)</size>
 		<graphicData>
 			<texPath>Things/Building/CubeFungi</texPath>
-			<graphicClass>Graphic_Multi_BuildingWorking</graphicClass>
+			<graphicClass>DanceOfEvolution.Graphic_Multi_AgeSecs</graphicClass>
 			<drawSize>(1.5,3)</drawSize>
 			<shaderType>BioferriteHarvester</shaderType>
 			<addTopAltitudeBias>true</addTopAltitudeBias>
