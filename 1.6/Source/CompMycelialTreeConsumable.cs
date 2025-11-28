@@ -20,6 +20,22 @@ namespace DanceOfEvolution
 
         public bool BeingConsumed => tmpTreesInRange.Any(x => CanBeConsumedBy(x));
         private Corpse Corpse => parent as Corpse;
+
+        public bool CanBeConsumed
+        {
+            get
+            {
+                if (!ModsConfig.AnomalyActive)
+                {
+                    return false;
+                }
+                if (!parent.Spawned)
+                {
+                    return false;
+                }
+                return parent.GetSlotGroup()?.parent.Isnt<Building>() ?? true;
+            }
+        }
         public bool CanBeConsumedBy(MycelialTree mycelialTree)
         {
             if (mycelialTree.Growth >= 1 || mycelialTree.Resting)
@@ -49,15 +65,7 @@ namespace DanceOfEvolution
                     return false;
                 }
             }
-            if (!ModsConfig.AnomalyActive)
-            {
-                return false;
-            }
-            if (!parent.Spawned)
-            {
-                return false;
-            }
-            return parent.GetSlotGroup()?.parent.Isnt<Building>() ?? true;
+            return CanBeConsumed;
         }
 
         public override void PostExposeData()
@@ -96,7 +104,7 @@ namespace DanceOfEvolution
 
         public override void CompTickRare()
         {
-            if (parent.Map is null) return;
+            if (CanBeConsumed is false) return;
             ConsumedRootsLazy();
             if (!BeingConsumed && parent.Spawned)
             {
