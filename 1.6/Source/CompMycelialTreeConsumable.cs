@@ -96,6 +96,7 @@ namespace DanceOfEvolution
 
         public override void CompTickRare()
         {
+            if (parent.Map is null) return;
             ConsumedRootsLazy();
             if (!BeingConsumed && parent.Spawned)
             {
